@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>01 Vector2 - igata.js</title>
+  <script type="text/javascript" src="../lib/igata.js"></script>
+</head>
+<body>
+<div id="d0"></div>
+<script type="text/javascript">
+  ( function ( window ){
+    "use strict";
+
+    var
+      document = window.document,
+      igata = window.igata,
+      Vector2 = igata.Vector2,
+
+      d0 = document.getElementById( "d0" );
+
+    //
+    var vec2 = new Vector2( 10, 20 );
+
+    d0.innerHTML += "vec2.x: " + vec2.x + "<br>";
+    d0.innerHTML += "vec2.y: " + vec2.y + "<br>";
+    d0.innerHTML += "vec2.vec2: " + vec2.array + "<br>";
+
+    var arr = Vector2.forEach( vec2.array, function (  vec2, args ) {
+
+      d0.innerHTML += "forEach.vec2: " + vec2 + "<br>";
+      d0.innerHTML += "forEach.args: " + args + "<br>";
+      console.log( "forEach ", vec2, args );
+
+    }, 1, 0 );
+
+    console.log( "arr ", arr );
+
+  }( window ) );
+</script>
+</body>
+</html>

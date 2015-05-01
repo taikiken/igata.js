@@ -38,26 +38,41 @@
       var
         vec2 = new Float32Array( 2 );
 
-      vec2[ 0 ] = x || 0;
-      vec2[ 1 ] = y || 0;
-      /**
-       * @property _vec2
-       * @type {Float32Array}
-       * @private
-       */
-      this._vec2 = vec2;
-      /**
-       * @property _x
-       * @type {number}
-       * @private
-       */
-      this._x = x;
-      /**
-       * @property _y
-       * @type {number}
-       * @private
-       */
-      this._y = y;
+      x = x || 0;
+      y = y || 0;
+
+      vec2[ 0 ] = x;
+      vec2[ 1 ] = y;
+
+      // https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperties
+      Object.defineProperties(
+        this,
+        {
+          "x": {
+            get: function () {
+              return x;
+            },
+            set: function ( n ) {
+              x = n;
+              vec2[ 0 ] = n;
+            }
+          },
+          "y": {
+            get: function () {
+              return y;
+            },
+            set: function ( n ) {
+              y = n;
+              vec2[ 1 ] = y;
+            }
+          },
+          "array": {
+            get: function () {
+              return vec2;
+            }
+          }
+        }
+      );
     }
 
     igata.extend( IVector, Vector2 );
@@ -65,30 +80,6 @@
     var p = Vector2.prototype;
 
     p.constructor = Vector2;
-
-    /**
-     * @method x
-     * @return {number}
-     */
-    p.x = function () {
-      return this._x;
-    };
-    /**
-     * @method y
-     * @return {number}
-     */
-    p.y = function () {
-      return this._y;
-    };
-    /**
-     * @method get
-     * @return {Float32Array}
-     */
-    p.get = function () {
-
-      return this._vec2;
-
-    };
 
     /**
      * @method create
@@ -398,12 +389,12 @@
     };
 
     /**
-     * @method lengthSquare
+     * @method leneSquare
      * @static
      * @param {Float32Array} vector1
      * @return {number}
      */
-    Vector2.lengthSquare = function ( vector1 ) {
+    Vector2.leneSquare = function ( vector1 ) {
 
       var
         x = vector1[ 0 ],
@@ -414,14 +405,13 @@
     };
 
     /**
-     * @method length
-     * @static
+     * @method len
      * @param {Float32Array} vector1
      * @return {number}
      */
-    Vector2.length = function ( vector1 ) {
+    Vector2.len = function ( vector1 ) {
 
-      return _sqrt( Vector2.lengthSquare( vector1 ) );
+      return _sqrt( Vector2.leneSquare( vector1 ) );
 
     };
 
@@ -633,52 +623,44 @@
     /**
      * @method forEach
      * @static
-     * @return {Function}
+     * @param {Array} array
+     * @param {function} [callback]
+     * @param {number=2} [stride]
+     * @param {number=0} [offset]
+     * @param {number} [count]
+     * @param {Array} [args]
+     * @return {Array}
      */
-    Vector2.forEach = function () {
+    Vector2.forEach = function ( array, callback, stride, offset, count, args ) {
+      var
+        vec2 = Vector2.create(),
+        i, limit;
 
-      var vec2 = Vector2.create();
+      stride = stride || 2;
+      offset = offset || 0;
 
-      /**
-       * @param {Array} array
-       * @param {number=2} [stride]
-       * @param {number=0} [offset]
-       * @param {number} [count]
-       * @param {function} [callback]
-       * @param {Array} [args]
-       */
-      return function ( array, stride, offset, count, callback, args ) {
+      if ( !!count ) {
 
-        var
-          i, limit;
+        limit = _min( ( count * stride ) + offset, array.length );
 
-        stride = stride || 2;
-        offset = offset || 0;
+      } else {
 
-        if ( !!count ) {
+        limit = array.length;
 
-          limit = _min( ( count * stride ) + offset, array.length );
+      }
 
-        } else {
+      for ( i = offset; i < limit; i = i + stride ) {
 
-          limit = array.length;
+        vec2[ 0 ]  = array[ i ];
+        vec2[ 1 ]  = array[ i + 1 ];
+        callback && callback( vec2, args );
 
-        }
+        array[ i ] = vec2[ 0 ];
+        array[ i + 1 ] = vec2[ 1 ];
 
-        for ( i = offset; i < limit; i = i + stride ) {
+      }
 
-          vec2[ 0 ]  = array[ i ];
-          vec2[ 1 ]  = array[ i + 1 ];
-          callback && callback( vec2, vec2, args );
-
-          array[ i ] = vec2[ 0 ];
-          array[ i + 1 ] = vec2[ 1 ];
-
-        }
-
-        return array;
-
-      };
+      return array;
 
     };
 

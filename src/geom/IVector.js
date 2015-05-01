@@ -49,8 +49,8 @@
     IVector.scale  =function () {};
     IVector.distanceSquare  =function () {};
     IVector.distance  =function () {};
-    IVector.lengthSquare  =function () {};
-    IVector.length  =function () {};
+    IVector.lenSquare  =function () {};
+    IVector.len  =function () {};
     IVector.negate  =function () {};
     IVector.inverse  =function () {};
     IVector.normalize  =function () {};
