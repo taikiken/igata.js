@@ -1,0 +1,78 @@
+// ////////////////////////////////////////////////////
+//  RESET
+// ////////////////////////////////////////////////////
+// property reset
+body, div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td {
+  margin:0;
+  padding:0;
+}
+address,caption,cite,code,dfn,em,i,th,var {
+  font-style:normal;
+  font-weight:normal;
+}
+fieldset,img,object {
+  border:0;
+  vertical-align:bottom;
+}
+img {
+  font-size:0;
+  line-height:0;
+  -ms-interpolation-mode: bicubic;
+}
+// normalize.scss
+//table {
+//  border-collapse:collapse;
+//  border-spacing:0;
+//}
+caption,th {
+  text-align:left;
+}
+ul {
+  list-style-type:none;
+}
+h1,h2,h3,h4,h5,h6 {
+  font-size:100%;
+  font-weight:normal;
+}
+q:before,q:after {
+  content:'';
+}
+abbr,acronym {
+  border:0;
+  font-variant:normal;
+}
+// normalize.scss
+//input,textarea,select {
+//  font-family:inherit;
+//  font-size:inherit;
+//  font-weight:inherit;
+//}
+legend {
+  color:#000;
+}
+
+// for HTML5
+article, aside, canvas, details, figcaption, figure,
+footer, header,
+// hgroup deprecated. don't use it
+//hgroup,
+menu, nav, section, summary,
+time,
+mark
+//normalize.scss
+//audio, video
+{
+  margin:0;
+  padding:0;
+  border:0;
+  outline:0;
+  font-size:100%;
+  vertical-align:baseline;
+  background:transparent;
+}
+
+// normalize.scss
+//article,aside,details,figcaption,figure,
+//footer,header,hgroup,menu,nav,section {
+//  display:block;
+//}

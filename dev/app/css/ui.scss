@@ -1,0 +1,14 @@
+@charset "UTF-8";
+
+// ------------------------------------
+// import 編集不可 files
+// ------------------------------------
+@import "../../scss/libs/normalize";
+@import "../../scss/libs/reset";
+@import "../../scss/libs/h5bp";
+
+
+// ------------------------------------
+// import project 固有 files
+// ------------------------------------
+@import "layout";
