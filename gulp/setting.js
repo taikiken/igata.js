@@ -59,9 +59,9 @@ var gulp = require('gulp');
 var $ = require('gulp-load-plugins')();
 var del = require('del');
 var runSequence = require('run-sequence');
-var browserSync = require('browser-sync');
-var pageSpeed = require('psi');
-var reload = browserSync.reload;
+//var browserSync = require('browser-sync');
+//var pageSpeed = require('psi');
+//var reload = browserSync.reload;
 
 var AUTOPREFIXER_BROWSERS = [
   'ie >= 10',
@@ -70,7 +70,7 @@ var AUTOPREFIXER_BROWSERS = [
   'chrome >= 34',
   'safari >= 7',
   'opera >= 23',
-  'ios >= 7',
+  'ios >= 8',
   'android >= 4.4',
   'bb >= 10'
 ];
@@ -92,10 +92,10 @@ module.exports = {
   plugin: {
     $: $,
     del: del,
-    runSequence: runSequence,
-    browserSync: browserSync,
-    pageSpeed: pageSpeed,
-    reload: reload
+    runSequence: runSequence
+    //browserSync: browserSync,
+    //pageSpeed: pageSpeed,
+    //reload: reload
   },
   AUTOPREFIXER_BROWSERS: AUTOPREFIXER_BROWSERS
 };

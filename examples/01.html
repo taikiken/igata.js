@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head lang="ja">
+  <meta charset="UTF-8">
+  <title>Image Effect</title>
+  <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+<main id="main">
+  <canvas id="stage"></canvas>
+</main>
+<script>
+( function ( window ) {
+
+  'use strict';
+
+  var
+    document = window.document;
+
+  var stage = document.getElementById( 'stage' );
+  var ctx = stage.getContext( '2d' );
+
+  // ------------------------------------------------------------
+  // load img
+  var img = new Image();
+  var prepare = false;
+
+  function load ( event ) {
+
+    event.target.removeEventListener( 'load', load );
+    prepare = true;
+
+  }
+
+  img.addEventListener( 'load', load, false );
+  img.src = 'img/sample01.png';
+  // ------------------------------------------------------------
+
+  function render () {
+
+    if ( prepare ) {
+
+      ctx.drawImage( img, 0, 0, img.width, img.height );
+
+    }
+
+  }
+
+  function clear () {
+
+    ctx.clearRect( 0, 0, stage.width, stage.height );
+
+  }
+
+  function loop () {
+
+    requestAnimationFrame( loop );
+
+    clear();
+    render();
+
+  }
+
+  // canvas size
+
+  function resize () {
+
+    stage.width = window.innerWidth;
+    stage.height = window.innerHeight;
+
+  }
+
+  function init () {
+
+    resize();
+
+    loop();
+
+    window.addEventListener( 'resize', resize, false );
+
+  }
+
+  init();
+
+
+}( window ) );
+</script>
+</body>
+</html>

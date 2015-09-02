@@ -14,9 +14,9 @@
   "use strict";
 
   var
-    igata = window.igata;
+    Igata = window.Igata;
 
-  igata.IVector = ( function (){
+  Igata.IVector = ( function (){
 
     /**
      * Interface Vector

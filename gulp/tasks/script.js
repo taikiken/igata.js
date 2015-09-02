@@ -47,8 +47,15 @@ var scripts = [];
 scripts.push( dir.src + '/igata.js' );
 
 // geom
-scripts.push( dir.src + '/geom/IVector.js' );
-scripts.push( dir.src + '/geom/Vector2.js' );
+//scripts.push( dir.src + '/geom/IVector.js' );
+//scripts.push( dir.src + '/geom/Vector2.js' );
+
+// filter
+scripts.push( dir.src + '/effect/Bitmap.js' );
+
+scripts.push( dir.src + '/effect/Filter.js' );
+scripts.push( dir.src + '/effect/Invert.js' );
+scripts.push( dir.src + '/effect/Brightness.js' );
 
 // ----------------------------------------------------------------
 //  task
@@ -96,6 +103,15 @@ gulp.task( 'script-docs', function () {
 
 } );
 
+// Lint JavaScript
+gulp.task('script-hint', function () {
+  return gulp.src( [
+    dir.src + '/**/*.js'
+  ] )
+    .pipe($.jshint())
+    .pipe($.jshint.reporter('jshint-stylish'));
+});
+
 // ----------------------------------------------------------------
 // run
 // ----------------------------------------------------------------
@@ -103,6 +119,7 @@ gulp.task( 'script-docs', function () {
 gulp.task( 'script-dev', function () {
 
   runSequence(
+    'script-hint',
     'script-concat',
     'script-min'
   );
@@ -113,9 +130,8 @@ gulp.task( 'script-dev', function () {
 gulp.task( 'script-build', function () {
 
   runSequence(
-    'script-concat',
     [
-      'script-min',
+      'script-dev',
       'script-docs'
     ]
   );

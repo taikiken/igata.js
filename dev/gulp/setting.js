@@ -41,32 +41,32 @@ var reload = browserSync.reload;
 // ------------------------------------------------------
 // Sass prefix 設定
 var AUTO_PREFIX_BROWSERS = [
-    'ie >= 10',
-    'ie_mob >= 10',
-    'ff >= 30',
-    'chrome >= 34',
-    'safari >= 7',
-    'opera >= 23',
-    'ios >= 7',
-    'android >= 4.4',
-    'bb >= 10'
+  'ie >= 10',
+  'ie_mob >= 10',
+  'ff >= 30',
+  'chrome >= 34',
+  'safari >= 7',
+  'opera >= 23',
+  'ios >= 7',
+  'android >= 4.4',
+  'bb >= 10'
 ];
 
 // ----------------------------------------------------------------
 //  patterns
 var patterns = [
-    {
-        match: 'buildTime',
-        replacement: new Date().toLocaleString()
-    },
-    {
-        match: 'year',
-        replacement: new Date().getFullYear()
-    },
-    {
-        match: 'version',
-        replacement: pkg.version
-    }
+  {
+    match: 'buildTime',
+    replacement: new Date().toLocaleString()
+  },
+  {
+    match: 'year',
+    replacement: new Date().getFullYear()
+  },
+  {
+    match: 'version',
+    replacement: pkg.version
+  }
 ];
 
 // ------------------------------------------------------
@@ -75,14 +75,14 @@ var patterns = [
 
 var app = '../app';
 
-var scss = '../scss';
+//var scss = '../scss';
 
-var htdocs = '../../example';
+var example = '../example';
 
-var tmp = '../.tmp';
+//var tmp = '../.tmp';
 
 // js directory
-var root = '../..';
+var root = '../';
 var src = root + '/src';
 var docs = root + '/docs';
 var libs = root + '/lib';
@@ -91,34 +91,34 @@ var dependencies = root + '/dependencies';
 // ------------------------------------------------------
 // server
 // ------------------------------------------------------
-var port = '60000';
+var port = '39000';
 
 // ------------------------------------------------------
 // exports
 // ------------------------------------------------------
 module.exports = {
-    dir: {
-        app: app,
-        htdocs: htdocs,
-        scss: scss,
-        tmp: tmp,
+  dir: {
+    app: app,
+    example: example,
+    //scss: scss,
+    //tmp: tmp,
 
-        js: js,
-        src: src,
-        libs: libs,
-        dependencies: dependencies,
-        docs: docs
-    },
-    gulp: gulp,
-    $: $,
-    module: {
-        del: del,
-        runSequence: runSequence,
-        browserSync: browserSync,
-        pageSpeed: pageSpeed,
-        reload: reload
-    },
-    AUTO_PREFIX_BROWSERS: AUTO_PREFIX_BROWSERS,
-    patterns: patterns,
-    port: port
+    js: js,
+    src: src,
+    libs: libs,
+    dependencies: dependencies,
+    docs: docs
+  },
+  gulp: gulp,
+  $: $,
+  module: {
+    del: del,
+    runSequence: runSequence,
+    browserSync: browserSync,
+    pageSpeed: pageSpeed,
+    reload: reload
+  },
+  AUTO_PREFIX_BROWSERS: AUTO_PREFIX_BROWSERS,
+  patterns: patterns,
+  port: port
 };

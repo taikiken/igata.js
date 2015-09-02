@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head lang="ja">
+  <meta charset="UTF-8">
+  <title>Image Effect</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="../lib/igata.js"></script>
+  <style>
+    #title {
+      margin: 10px;
+      font-size: 13px;
+    }
+    #range {
+      position: absolute;
+      left: 10px;
+      top: 30px;
+      width: 200px;
+    }
+    #range-value {
+      position: absolute;
+      left: 220px;
+      top: 10px;
+      border: 1px solid #ccc;
+      padding: 3px;
+      width: 5em;
+      font-size: 13px;
+    }
+    #pixel-button {
+      position: absolute;
+      left: 10px;
+      top: 50px;
+    }
+  </style>
+</head>
+<body>
+<main id="main">
+  <canvas id="stage"></canvas>
+</main>
+<div id="ui">
+  <p id="title">Brightness</p>
+  <input type="button" id="pixel-button" value="Reset">
+  <input type="range" id="range" value="0" step="1" max="100" min="-100">
+  <input type="text" id="range-value" value="0">
+</div>
+<script>
+( function ( window ) {
+
+  'use strict';
+
+  var
+    document = window.document;
+
+  var Igata = window.Igata;
+
+  var stage = document.getElementById( 'stage' );
+  var ctx = stage.getContext( '2d' );
+
+  var invertOn = false;
+  var
+    invert,
+    bitmap;
+
+  // ------------------------------------------------------------
+  // load img
+  var img = new Image();
+  var prepare = false;
+
+  function load ( event ) {
+
+    event.target.removeEventListener( 'load', load );
+    prepare = true;
+
+    clear();
+    render();
+
+  }
+
+  img.addEventListener( 'load', load, false );
+  img.src = 'img/sample02.png';
+  // ------------------------------------------------------------
+
+  function render () {
+
+    if ( prepare ) {
+
+      if ( !invertOn ) {
+
+        ctx.drawImage( img, 0, 0, img.width, img.height );
+
+      } else {
+
+        invert.filter();
+
+      }
+
+    }
+
+  }
+
+  function clear () {
+
+    ctx.clearRect( 0, 0, stage.width, stage.height );
+
+  }
+
+  function loop () {
+
+    requestAnimationFrame( loop );
+
+    clear();
+    render();
+
+  }
+
+  // canvas size
+
+  function resize () {
+
+    stage.width = window.innerWidth;
+    stage.height = window.innerHeight;
+
+  }
+
+  // ------------------------------------------------------------
+  var
+    range,
+    rangeValue;
+
+  function slide ( event ) {
+
+    var
+      val;
+
+    if ( prepare ) {
+
+      if ( !invert ) {
+
+        bitmap = new Igata.Bitmap( ctx, img );
+        invert = new Igata.Brightness( bitmap );
+
+      }
+
+      val = event.target.value
+      rangeValue.value = val;
+//      clear();
+      invert.filter( val );
+
+    }
+
+  }
+
+  function click () {
+
+    if ( prepare && !!invert ) {
+
+      invert.restore();
+      range.value = '0';
+      rangeValue.value = '0';
+
+    }
+
+  }
+
+  // ------------------------------------------------------------
+
+  function init () {
+
+    resize();
+
+//    loop();
+    clear();
+    render();
+
+    window.addEventListener( 'resize', resize, false );
+
+    rangeValue = document.getElementById( 'range-value' );
+    range = document.getElementById( 'range' );
+    range.addEventListener( 'change', slide, false );
+    document.getElementById( 'pixel-button' ).addEventListener( 'click', click, false );
+
+  }
+
+  init();
+
+
+}( window ) );
+</script>
+</body>
+</html>

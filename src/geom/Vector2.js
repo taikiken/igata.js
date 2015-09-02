@@ -12,19 +12,19 @@
   "use strict";
 
   var
-    igata = window.igata;
+    Igata = window.Igata;
 
-  igata.Vector2 = ( function (){
+  Igata.Vector2 = ( function (){
     var
-      IVector = igata.IVector,
-      Float32Array = igata.Float32Array,
-      _min = igata._min,
-      _max = igata._max,
-      _sqrt = igata._sqrt,
-      _random = igata._random,
-      _cos = igata._cos,
-      _sin = igata._sin,
-      _PI = igata._PI;
+      IVector = Igata.IVector,
+      Float32Array = Igata.Float32Array,
+      _min = Igata._min,
+      _max = Igata._max,
+      _sqrt = Igata._sqrt,
+      _random = Igata._random,
+      _cos = Igata._cos,
+      _sin = Igata._sin,
+      _PI = Igata._PI;
 
     /**
      * @class Vector2
@@ -75,7 +75,7 @@
       );
     }
 
-    igata.extend( IVector, Vector2 );
+    Igata.extend( IVector, Vector2 );
 
     var p = Vector2.prototype;
 

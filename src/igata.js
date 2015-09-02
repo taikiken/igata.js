@@ -1,7 +1,7 @@
 /**
- * @license inazumatv.com
+ * license inazumatv.com
  * @author (at)taikiken / http://inazumatv.com
- * @date 2015/04/20 - 16:51
+ * date 2015/04/20 - 16:51
  *
  * Copyright (c) 2011-@@year inazumatv.com, inc.
  *
@@ -14,58 +14,60 @@
  * gl-matrix
  * https://github.com/toji/gl-matrix
  *
- * @version @@version
- * @build @@buildTime
- * @git @@gitUrl
+ * version @@version
+ * build @@buildTime
+ * git @@gitUrl
  *
- * @module igata
  */
-
-var igata = window.igata || {};
+/**
+ * @module Igata
+ * @type {Igata}
+ */
+var Igata = window.Igata || {};
 
 ( function ( window ){
   "use strict";
 
   var
-    igata = window.igata;
+    Igata = window.Igata;
 
   // alias methods
-  igata.Float32Array = window.Float32Array;
+  Igata.Float32Array = window.Float32Array;
 
-  igata._random = Math.random;
+  Igata._random = Math.random;
 
-  igata._abs = Math.abs;
+  Igata._abs = Math.abs;
 
-  igata._min = Math.min;
+  Igata._min = Math.min;
 
-  igata._max = Math.max;
+  Igata._max = Math.max;
 
-  igata._sqrt = Math.sqrt;
+  Igata._sqrt = Math.sqrt;
 
-  igata._cos = Math.cos;
+  Igata._cos = Math.cos;
 
-  igata._sin = Math.sin;
+  Igata._sin = Math.sin;
 
-  igata._PI = Math.PI;
+  Igata._PI = Math.PI;
 
   /**
    * @property EPSILON
-   * @for igata
+   * @for Igata
    * @static
    * @readonly
    * @type {number}
    * @default 0.000001
    */
-  igata.EPSILON = 0.000001;
+  Igata.EPSILON = 0.000001;
 
   /**
    * @method extend
-   * @for igata
+   * @for Igata
    * @static
    * @param {function} Parent
    * @param {function} Child
    */
-  igata.extend = function ( Parent, Child ) {
+  Igata.extend = function ( Parent, Child ) {
 
     Child.prototype = Object.create( Parent.prototype );
     Child.prototype.constructor = Child;

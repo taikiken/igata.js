@@ -1,17 +1,19 @@
 YUI.add("yuidoc-meta", function(Y) {
    Y.YUIDoc = { meta: {
     "classes": [
-        "IVector",
-        "Vector2",
-        "igata"
+        "Bitmap",
+        "Brightness",
+        "Filter",
+        "Igata",
+        "Invert"
     ],
     "modules": [
-        "igata"
+        "Igata"
     ],
     "allModules": [
         {
-            "displayName": "igata",
-            "name": "igata"
+            "displayName": "Igata",
+            "name": "Igata"
         }
     ]
 } };

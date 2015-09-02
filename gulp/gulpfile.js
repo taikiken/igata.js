@@ -36,16 +36,26 @@ var runSequence = plugin.runSequence;
 // ----------------------------------------------------------------
 // server
 // ----------------------------------------------------------------
-var browserSync = plugin.browserSync;
-var pageSpeed = plugin.pageSpeed;
-var reload = plugin.reload;
+//var browserSync = plugin.browserSync;
+//var pageSpeed = plugin.pageSpeed;
+//var reload = plugin.reload;
 var port = setting.port;
 
 // ----------------------------------------------------------------
 //  external tasks
 // ----------------------------------------------------------------
-try { require('require-dir')('./tasks'); } catch (err) { console.error(err); }
+try { require('require-dir')('tasks'); } catch (err) { console.error(err); }
 
 // ----------------------------------------------------------------
 //  main tasks
 // ----------------------------------------------------------------
+
+//gulp.task( 'serve', function () {
+//
+//  $.shell.task(
+//    [
+//      'http-server ../ -a 192.168.1.199 -p ' + port
+//    ]
+//  );
+//
+//} );
