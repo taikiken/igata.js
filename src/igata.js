@@ -1,6 +1,6 @@
-/**
+/*!
  * license inazumatv.com
- * @author (at)taikiken / http://inazumatv.com
+ * author (at)taikiken / http://inazumatv.com
  * date 2015/04/20 - 16:51
  *
  * Copyright (c) 2011-@@year inazumatv.com, inc.
@@ -14,12 +14,22 @@
  * gl-matrix
  * https://github.com/toji/gl-matrix
  *
+ * html5rocks.com
+ * http://www.html5rocks.com/en/tutorials/canvas/imagefilters/
+ *
+ * Blur by Mario Klingemann
+ * http://www.quasimondo.com/StackBlurForCanvas/StackBlurDemo.html
+ *
  * version @@version
  * build @@buildTime
  * git @@gitUrl
  *
  */
 /**
+ * HTML 5 Canvas image effects.
+ *
+ * brightness, invert, grayscale, threshold, blur, convolution...
+ *
  * @module Igata
  * @type {Igata}
  */
@@ -47,6 +57,12 @@ var Igata = window.Igata || {};
   Igata._cos = Math.cos;
 
   Igata._sin = Math.sin;
+
+  Igata._round = Math.round;
+
+  Igata._floor = Math.floor;
+
+  Igata._exp = Math.exp;
 
   Igata._PI = Math.PI;
 

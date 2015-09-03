@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>01 Vector2 - igata.js</title>
+  <script type="text/javascript" src="../lib/igata.js"></script>
+</head>
+<body>
+<pre>
+var A = [
+  [0,0,0],
+  [54,54,54],
+  [0,54,0]
+];
+
+var B = [
+  [0,0,0],
+  [108,108,108],
+  [0,108,0]
+];
+
+
+var C = [
+  [0,108,0],
+  [54,0,54],
+  [0,54,0]
+];
+</pre>
+<div id="d0"></div>
+<script type="text/javascript">
+  ( function ( window ){
+    "use strict";
+
+    var
+      document = window.document,
+      Igata = window.Igata,
+      Match = Igata.Match,
+
+      d0 = document.getElementById( "d0" );
+
+    var a = [
+      [0,0,0],
+      [54,54,54],
+      [0,54,0]
+    ];
+
+    var b = [
+      [0,0,0],
+      [108,108,108],
+      [0,108,0]
+    ];
+
+    var c = [
+      [0,108,0],
+      [54,0,54],
+      [0,54,0]
+    ];
+
+    //
+//    var vec2 = new Vector2( 10, 20 );
+//
+    d0.innerHTML += "sad(A, B): " + Match.sad( a, b ) + "<br>";
+    d0.innerHTML += "ssd(A, B): " + Match.ssd( a, b ) + "<br>";
+    d0.innerHTML += "zncc(A, B): " + Match.zncc( a, b ) + "<br>";
+//    d0.innerHTML += "<br>";
+//    d0.innerHTML += "sad(A, A): " + Match.sad( a, a ) + "<br>";
+//    d0.innerHTML += "ssd(A, A): " + Match.ssd( a, a ) + "<br>";
+//    d0.innerHTML += "zncc(A, A): " + Match.zncc( a, a ) + "<br>";
+//    d0.innerHTML += "<br>";
+//    d0.innerHTML += "sad(B, B): " + Match.sad( b, b ) + "<br>";
+//    d0.innerHTML += "ssd(B, B): " + Match.ssd( b, b ) + "<br>";
+//    d0.innerHTML += "zncc(B, B): " + Match.zncc( b, b ) + "<br>";
+//    d0.innerHTML += "<br>";
+//    d0.innerHTML += "sad(A, C): " + Match.sad( a, c ) + "<br>";
+//    d0.innerHTML += "ssd(A, C): " + Match.ssd( a, c ) + "<br>";
+//    d0.innerHTML += "zncc(A, C): " + Match.zncc( a, c ) + "<br>";
+//    d0.innerHTML += "vec2.y: " + vec2.y + "<br>";
+//    d0.innerHTML += "vec2.vec2: " + vec2.array + "<br>";
+//
+//    var arr = Vector2.forEach( vec2.array, function (  vec2, args ) {
+//
+//      d0.innerHTML += "forEach.vec2: " + vec2 + "<br>";
+//      d0.innerHTML += "forEach.args: " + args + "<br>";
+//      console.log( "forEach ", vec2, args );
+//
+//    }, 1, 0 );
+//
+//    console.log( "arr ", arr );
+
+  }( window ) );
+</script>
+</body>
+</html>

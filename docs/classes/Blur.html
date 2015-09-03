@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Brightness</title>
+    <title>Blur</title>
     <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -102,7 +102,7 @@
             <div class="apidocs">
                 <div id="docs-main">
                     <div class="content">
-                        <h1>Brightness Class</h1>
+                        <h1>Blur Class</h1>
 <div class="box meta">
     
 
@@ -114,7 +114,7 @@
 
     
         <div class="foundat">
-            Defined in: <a href="../files/_Users_inazuma15_web_www_inazumatv.js.library_igata.js_src_effect_Brightness.js.html#l17"><code>&#x2F;Users&#x2F;inazuma15&#x2F;web&#x2F;www&#x2F;inazumatv.js.library&#x2F;igata.js&#x2F;src&#x2F;effect&#x2F;Brightness.js:17</code></a>
+            Defined in: <a href="../files/_Users_inazuma15_web_www_inazumatv.js.library_igata.js_src_effect_Blur.js.html#l178"><code>&#x2F;Users&#x2F;inazuma15&#x2F;web&#x2F;www&#x2F;inazumatv.js.library&#x2F;igata.js&#x2F;src&#x2F;effect&#x2F;Blur.js:178</code></a>
         </div>
     
 
@@ -130,15 +130,16 @@
 
 
 <div class="box intro">
-    <p>filter: brightness</p>
+    <p>filter: blur</p>
+<p><a href="http://www.quasimondo.com/StackBlurForCanvas/StackBlurDemo.html">http://www.quasimondo.com/StackBlurForCanvas/StackBlurDemo.html</a></p>
 
 </div>
 
 
     <div class="constructor">
         <h2>Constructor</h2>
-        <div id="method_Brightness" class="method item">
-    <h3 class="name"><code>Brightness</code></h3>
+        <div id="method_Blur" class="method item">
+    <h3 class="name"><code>Blur</code></h3>
 
     
         <div class="args">
@@ -179,7 +180,7 @@
             
         
         
-        <a href="../files/_Users_inazuma15_web_www_inazumatv.js.library_igata.js_src_effect_Brightness.js.html#l17"><code>&#x2F;Users&#x2F;inazuma15&#x2F;web&#x2F;www&#x2F;inazumatv.js.library&#x2F;igata.js&#x2F;src&#x2F;effect&#x2F;Brightness.js:17</code></a>
+        <a href="../files/_Users_inazuma15_web_www_inazumatv.js.library_igata.js_src_effect_Blur.js.html#l178"><code>&#x2F;Users&#x2F;inazuma15&#x2F;web&#x2F;www&#x2F;inazumatv.js.library&#x2F;igata.js&#x2F;src&#x2F;effect&#x2F;Blur.js:178</code></a>
         
         </p>
 
@@ -250,6 +251,20 @@
 
                     <ul class="index-list methods extends">
                         
+                            <li class="index-item method private">
+                                <a href="#method__rgb">_rgb</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method private">
+                                <a href="#method__rgba">_rgba</a>
+
+                                
+                                
+                            </li>
+                        
                             <li class="index-item method inherited">
                                 <a href="#method_filter">filter</a>
 
@@ -302,6 +317,310 @@
                 <h2 class="off-left">Methods</h2>
 
                 
+                    <div id="method__rgb" class="method item private">
+    <h3 class="name"><code>_rgb</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>pixels</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>radius</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>width</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>height</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+
+    
+
+    
+        <span class="flag private">private</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/_Users_inazuma15_web_www_inazumatv.js.library_igata.js_src_effect_Blur.js.html#l534"><code>&#x2F;Users&#x2F;inazuma15&#x2F;web&#x2F;www&#x2F;inazumatv.js.library&#x2F;igata.js&#x2F;src&#x2F;effect&#x2F;Blur.js:534</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">pixels</code>
+                        <span class="type">Uint8ClampedArray</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">radius</code>
+                        <span class="type">Number</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">width</code>
+                        <span class="type">Number</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">height</code>
+                        <span class="type">Number</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method__rgba" class="method item private">
+    <h3 class="name"><code>_rgba</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>pixels</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>radius</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>width</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>height</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+
+    
+
+    
+        <span class="flag private">private</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/_Users_inazuma15_web_www_inazumatv.js.library_igata.js_src_effect_Blur.js.html#l264"><code>&#x2F;Users&#x2F;inazuma15&#x2F;web&#x2F;www&#x2F;inazumatv.js.library&#x2F;igata.js&#x2F;src&#x2F;effect&#x2F;Blur.js:264</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">pixels</code>
+                        <span class="type">Uint8ClampedArray</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">radius</code>
+                        <span class="type">Number</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">width</code>
+                        <span class="type">Number</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">height</code>
+                        <span class="type">Number</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+
+    
+</div>
+
+                
                     <div id="method_filter" class="method item">
     <h3 class="name"><code>filter</code></h3>
 
@@ -311,7 +630,13 @@
             
                 <li class="arg">
                     
-                        <code>value</code>
+                        <code class="optional">[radius]</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code class="optional">[alpha]</code>
                     
                 </li>
             
@@ -344,7 +669,7 @@
             
         
         
-        <a href="../files/_Users_inazuma15_web_www_inazumatv.js.library_igata.js_src_effect_Brightness.js.html#l35"><code>&#x2F;Users&#x2F;inazuma15&#x2F;web&#x2F;www&#x2F;inazumatv.js.library&#x2F;igata.js&#x2F;src&#x2F;effect&#x2F;Brightness.js:35</code></a>
+        <a href="../files/_Users_inazuma15_web_www_inazumatv.js.library_igata.js_src_effect_Blur.js.html#l199"><code>&#x2F;Users&#x2F;inazuma15&#x2F;web&#x2F;www&#x2F;inazumatv.js.library&#x2F;igata.js&#x2F;src&#x2F;effect&#x2F;Blur.js:199</code></a>
         
         </p>
 
@@ -355,7 +680,7 @@
     </div>
 
     <div class="description">
-        <p>brightness filter を実行</p>
+        <p>blur filter を実行</p>
 
     </div>
 
@@ -367,8 +692,25 @@
             
                 <li class="param">
                     
-                        <code class="param-name">value</code>
-                        <span class="type">Number</span>
+                        <code class="param-name optional">[radius]</code>
+                        <span class="type">Number=8</span>
+                        <span class="flag optional" title="This parameter is optional.">optional</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name optional">[alpha]</code>
+                        <span class="type">Boolean=false</span>
+                        <span class="flag optional" title="This parameter is optional.">optional</span>
                     
 
                     
@@ -462,7 +804,7 @@
                     
 
                     <div class="param-description">
-                         
+                        
                     </div>
 
                     

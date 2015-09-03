@@ -2,10 +2,15 @@ YUI.add("yuidoc-meta", function(Y) {
    Y.YUIDoc = { meta: {
     "classes": [
         "Bitmap",
+        "Blur",
         "Brightness",
+        "Convolution",
         "Filter",
+        "Grayscale",
         "Igata",
-        "Invert"
+        "Invert",
+        "Stack",
+        "Threshold"
     ],
     "modules": [
         "Igata"
@@ -13,7 +18,8 @@ YUI.add("yuidoc-meta", function(Y) {
     "allModules": [
         {
             "displayName": "Igata",
-            "name": "Igata"
+            "name": "Igata",
+            "description": "HTML 5 Canvas image effects.\n\nbrightness, invert, grayscale, threshold, blur, convolution..."
         }
     ]
 } };

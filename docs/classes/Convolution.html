@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Brightness</title>
+    <title>Convolution</title>
     <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -102,7 +102,7 @@
             <div class="apidocs">
                 <div id="docs-main">
                     <div class="content">
-                        <h1>Brightness Class</h1>
+                        <h1>Convolution Class</h1>
 <div class="box meta">
     
 
@@ -114,7 +114,7 @@
 
     
         <div class="foundat">
-            Defined in: <a href="../files/_Users_inazuma15_web_www_inazumatv.js.library_igata.js_src_effect_Brightness.js.html#l17"><code>&#x2F;Users&#x2F;inazuma15&#x2F;web&#x2F;www&#x2F;inazumatv.js.library&#x2F;igata.js&#x2F;src&#x2F;effect&#x2F;Brightness.js:17</code></a>
+            Defined in: <a href="../files/_Users_inazuma15_web_www_inazumatv.js.library_igata.js_src_effect_Convolution.js.html#l24"><code>&#x2F;Users&#x2F;inazuma15&#x2F;web&#x2F;www&#x2F;inazumatv.js.library&#x2F;igata.js&#x2F;src&#x2F;effect&#x2F;Convolution.js:24</code></a>
         </div>
     
 
@@ -130,15 +130,14 @@
 
 
 <div class="box intro">
-    <p>filter: brightness</p>
-
+    
 </div>
 
 
     <div class="constructor">
         <h2>Constructor</h2>
-        <div id="method_Brightness" class="method item">
-    <h3 class="name"><code>Brightness</code></h3>
+        <div id="method_Convolution" class="method item">
+    <h3 class="name"><code>Convolution</code></h3>
 
     
         <div class="args">
@@ -179,7 +178,7 @@
             
         
         
-        <a href="../files/_Users_inazuma15_web_www_inazumatv.js.library_igata.js_src_effect_Brightness.js.html#l17"><code>&#x2F;Users&#x2F;inazuma15&#x2F;web&#x2F;www&#x2F;inazumatv.js.library&#x2F;igata.js&#x2F;src&#x2F;effect&#x2F;Brightness.js:17</code></a>
+        <a href="../files/_Users_inazuma15_web_www_inazumatv.js.library_igata.js_src_effect_Convolution.js.html#l24"><code>&#x2F;Users&#x2F;inazuma15&#x2F;web&#x2F;www&#x2F;inazumatv.js.library&#x2F;igata.js&#x2F;src&#x2F;effect&#x2F;Convolution.js:24</code></a>
         
         </p>
 
@@ -250,8 +249,29 @@
 
                     <ul class="index-list methods extends">
                         
+                            <li class="index-item method">
+                                <a href="#method_blur">blur</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_convolute">convolute</a>
+
+                                
+                                
+                            </li>
+                        
                             <li class="index-item method inherited">
                                 <a href="#method_filter">filter</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_gaussian">gaussian</a>
 
                                 
                                 
@@ -266,6 +286,13 @@
                         
                             <li class="index-item method inherited">
                                 <a href="#method_restore">restore</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_sharpen">sharpen</a>
 
                                 
                                 
@@ -302,6 +329,260 @@
                 <h2 class="off-left">Methods</h2>
 
                 
+                    <div id="method_blur" class="method item">
+    <h3 class="name"><code>blur</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>k</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/_Users_inazuma15_web_www_inazumatv.js.library_igata.js_src_effect_Convolution.js.html#l97"><code>&#x2F;Users&#x2F;inazuma15&#x2F;web&#x2F;www&#x2F;inazumatv.js.library&#x2F;igata.js&#x2F;src&#x2F;effect&#x2F;Convolution.js:97</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>box blur</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">k</code>
+                        <span class="type">Number</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_convolute" class="method item">
+    <h3 class="name"><code>convolute</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>ctx</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>imageData</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>weights</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>opaque</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+        <span class="returns-inline">
+            <span class="type">ImageData</span>
+        </span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/_Users_inazuma15_web_www_inazumatv.js.library_igata.js_src_effect_Convolution.js.html#l164"><code>&#x2F;Users&#x2F;inazuma15&#x2F;web&#x2F;www&#x2F;inazumatv.js.library&#x2F;igata.js&#x2F;src&#x2F;effect&#x2F;Convolution.js:164</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">ctx</code>
+                        <span class="type">CanvasRenderingContext2D</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">imageData</code>
+                        <span class="type">ImageData</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">weights</code>
+                        <span class="type">Array</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">opaque</code>
+                        <span class="type">Boolean</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                        <span class="type">ImageData</span>:
+                    
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+                
                     <div id="method_filter" class="method item">
     <h3 class="name"><code>filter</code></h3>
 
@@ -311,7 +592,7 @@
             
                 <li class="arg">
                     
-                        <code>value</code>
+                        <code class="optional">[weights]</code>
                     
                 </li>
             
@@ -344,7 +625,7 @@
             
         
         
-        <a href="../files/_Users_inazuma15_web_www_inazumatv.js.library_igata.js_src_effect_Brightness.js.html#l35"><code>&#x2F;Users&#x2F;inazuma15&#x2F;web&#x2F;www&#x2F;inazumatv.js.library&#x2F;igata.js&#x2F;src&#x2F;effect&#x2F;Brightness.js:35</code></a>
+        <a href="../files/_Users_inazuma15_web_www_inazumatv.js.library_igata.js_src_effect_Convolution.js.html#l42"><code>&#x2F;Users&#x2F;inazuma15&#x2F;web&#x2F;www&#x2F;inazumatv.js.library&#x2F;igata.js&#x2F;src&#x2F;effect&#x2F;Convolution.js:42</code></a>
         
         </p>
 
@@ -355,7 +636,96 @@
     </div>
 
     <div class="description">
-        <p>brightness filter を実行</p>
+        
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name optional">[weights]</code>
+                        <span class="type">Array</span>
+                        <span class="flag optional" title="This parameter is optional.">optional</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>3 x 3 Matrix</p>
+
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_gaussian" class="method item">
+    <h3 class="name"><code>gaussian</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>radius</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/_Users_inazuma15_web_www_inazumatv.js.library_igata.js_src_effect_Convolution.js.html#l127"><code>&#x2F;Users&#x2F;inazuma15&#x2F;web&#x2F;www&#x2F;inazumatv.js.library&#x2F;igata.js&#x2F;src&#x2F;effect&#x2F;Convolution.js:127</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p><a href="https://github.com/wellflat/javascript-labs">https://github.com/wellflat/javascript-labs</a></p>
 
     </div>
 
@@ -367,7 +737,7 @@
             
                 <li class="param">
                     
-                        <code class="param-name">value</code>
+                        <code class="param-name">radius</code>
                         <span class="type">Number</span>
                     
 
@@ -536,6 +906,94 @@
 
     </div>
 
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_sharpen" class="method item">
+    <h3 class="name"><code>sharpen</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code class="optional">[opaque]</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/_Users_inazuma15_web_www_inazumatv.js.library_igata.js_src_effect_Convolution.js.html#l71"><code>&#x2F;Users&#x2F;inazuma15&#x2F;web&#x2F;www&#x2F;inazumatv.js.library&#x2F;igata.js&#x2F;src&#x2F;effect&#x2F;Convolution.js:71</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name optional">[opaque]</code>
+                        <span class="type">Boolean=false</span>
+                        <span class="flag optional" title="This parameter is optional.">optional</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
     
 
     

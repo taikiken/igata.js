@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Bitmap</title>
+    <title>Threshold</title>
     <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -102,15 +102,19 @@
             <div class="apidocs">
                 <div id="docs-main">
                     <div class="content">
-                        <h1>Bitmap Class</h1>
+                        <h1>Threshold Class</h1>
 <div class="box meta">
     
 
     
+        <div class="extends">
+            Extends <a href="../classes/Filter.html" class="crosslink">Filter</a>
+        </div>
+    
 
     
         <div class="foundat">
-            Defined in: <a href="../files/_Users_inazuma15_web_www_inazumatv.js.library_igata.js_src_effect_Bitmap.js.html#l14"><code>&#x2F;Users&#x2F;inazuma15&#x2F;web&#x2F;www&#x2F;inazumatv.js.library&#x2F;igata.js&#x2F;src&#x2F;effect&#x2F;Bitmap.js:14</code></a>
+            Defined in: <a href="../files/_Users_inazuma15_web_www_inazumatv.js.library_igata.js_src_effect_Threshold.js.html#l17"><code>&#x2F;Users&#x2F;inazuma15&#x2F;web&#x2F;www&#x2F;inazumatv.js.library&#x2F;igata.js&#x2F;src&#x2F;effect&#x2F;Threshold.js:17</code></a>
         </div>
     
 
@@ -126,14 +130,15 @@
 
 
 <div class="box intro">
-    
+    <p>filter: threshold</p>
+
 </div>
 
 
     <div class="constructor">
         <h2>Constructor</h2>
-        <div id="method_Bitmap" class="method item">
-    <h3 class="name"><code>Bitmap</code></h3>
+        <div id="method_Threshold" class="method item">
+    <h3 class="name"><code>Threshold</code></h3>
 
     
         <div class="args">
@@ -141,13 +146,7 @@
             
                 <li class="arg">
                     
-                        <code>context</code>
-                    
-                </li>
-            
-                <li class="arg">
-                    
-                        <code>img</code>
+                        <code>bitmap</code>
                     
                 </li>
             
@@ -180,7 +179,7 @@
             
         
         
-        <a href="../files/_Users_inazuma15_web_www_inazumatv.js.library_igata.js_src_effect_Bitmap.js.html#l14"><code>&#x2F;Users&#x2F;inazuma15&#x2F;web&#x2F;www&#x2F;inazumatv.js.library&#x2F;igata.js&#x2F;src&#x2F;effect&#x2F;Bitmap.js:14</code></a>
+        <a href="../files/_Users_inazuma15_web_www_inazumatv.js.library_igata.js_src_effect_Threshold.js.html#l17"><code>&#x2F;Users&#x2F;inazuma15&#x2F;web&#x2F;www&#x2F;inazumatv.js.library&#x2F;igata.js&#x2F;src&#x2F;effect&#x2F;Threshold.js:17</code></a>
         
         </p>
 
@@ -202,23 +201,8 @@
             
                 <li class="param">
                     
-                        <code class="param-name">context</code>
-                        <span class="type">CanvasRenderingContext2D</span>
-                    
-
-                    
-
-                    <div class="param-description">
-                         
-                    </div>
-
-                    
-                </li>
-            
-                <li class="param">
-                    
-                        <code class="param-name">img</code>
-                        <span class="type">Image</span>
+                        <code class="param-name">bitmap</code>
+                        <span class="type"><a href="../classes/Bitmap.html" class="crosslink">Bitmap</a></span>
                     
 
                     
@@ -264,17 +248,24 @@
                 <div class="index-section methods">
                     <h3>Methods</h3>
 
-                    <ul class="index-list methods">
+                    <ul class="index-list methods extends">
                         
-                            <li class="index-item method">
-                                <a href="#method_get">get</a>
+                            <li class="index-item method inherited">
+                                <a href="#method_filter">filter</a>
 
                                 
                                 
                             </li>
                         
-                            <li class="index-item method">
-                                <a href="#method_save">save</a>
+                            <li class="index-item method inherited">
+                                <a href="#method_imageData">imageData</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method inherited">
+                                <a href="#method_restore">restore</a>
 
                                 
                                 
@@ -288,24 +279,10 @@
                 <div class="index-section properties">
                     <h3>Properties</h3>
 
-                    <ul class="index-list properties">
+                    <ul class="index-list properties extends">
                         
-                            <li class="index-item property">
-                                <a href="#property_context">context</a>
-
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item property">
-                                <a href="#property_identity">identity</a>
-
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item property">
-                                <a href="#property_img">img</a>
+                            <li class="index-item property inherited">
+                                <a href="#property_bitmap">bitmap</a>
 
                                 
                                 
@@ -325,8 +302,8 @@
                 <h2 class="off-left">Methods</h2>
 
                 
-                    <div id="method_get" class="method item">
-    <h3 class="name"><code>get</code></h3>
+                    <div id="method_filter" class="method item">
+    <h3 class="name"><code>filter</code></h3>
 
     
         <div class="args">
@@ -334,25 +311,96 @@
             
                 <li class="arg">
                     
-                        <code class="optional">[x]</code>
+                        <code>threshold</code>
                     
                 </li>
             
-                <li class="arg">
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            <p>Inherited from
+            <a href="../classes/Filter.html#method_filter">
+                Filter
+            </a>
+            
+            but overwritten in
+            
+        
+        
+        <a href="../files/_Users_inazuma15_web_www_inazumatv.js.library_igata.js_src_effect_Threshold.js.html#l35"><code>&#x2F;Users&#x2F;inazuma15&#x2F;web&#x2F;www&#x2F;inazumatv.js.library&#x2F;igata.js&#x2F;src&#x2F;effect&#x2F;Threshold.js:35</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>2値化 filter</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
                     
-                        <code class="optional">[y]</code>
+                        <code class="param-name">threshold</code>
+                        <span class="type">Number=128</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>閾値</p>
+
+                    </div>
+
                     
                 </li>
             
-                <li class="arg">
-                    
-                        <code class="optional">[width]</code>
-                    
-                </li>
+            </ul>
+        </div>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_imageData" class="method item inherited">
+    <h3 class="name"><code>imageData</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
             
                 <li class="arg">
                     
-                        <code class="optional">[height]</code>
+                        <code>bitmap</code>
                     
                 </li>
             
@@ -381,15 +429,12 @@
     <div class="meta">
         
             
-                
-                <p>
-                
-                Defined in
-                
+                <p>Inherited from
+                <a href="../classes/Filter.html#method_imageData">Filter</a>:
             
         
         
-        <a href="../files/_Users_inazuma15_web_www_inazumatv.js.library_igata.js_src_effect_Bitmap.js.html#l75"><code>&#x2F;Users&#x2F;inazuma15&#x2F;web&#x2F;www&#x2F;inazumatv.js.library&#x2F;igata.js&#x2F;src&#x2F;effect&#x2F;Bitmap.js:75</code></a>
+        <a href="../files/_Users_inazuma15_web_www_inazumatv.js.library_igata.js_src_effect_Filter.js.html#l58"><code>&#x2F;Users&#x2F;inazuma15&#x2F;web&#x2F;www&#x2F;inazumatv.js.library&#x2F;igata.js&#x2F;src&#x2F;effect&#x2F;Filter.js:58</code></a>
         
         </p>
 
@@ -400,8 +445,7 @@
     </div>
 
     <div class="description">
-        <p>CanvasRenderingContext2D.imageData を取得します</p>
-
+        
     </div>
 
     
@@ -412,57 +456,8 @@
             
                 <li class="param">
                     
-                        <code class="param-name optional">[x]</code>
-                        <span class="type">Number=0</span>
-                        <span class="flag optional" title="This parameter is optional.">optional</span>
-                    
-
-                    
-
-                    <div class="param-description">
-                         
-                    </div>
-
-                    
-                </li>
-            
-                <li class="param">
-                    
-                        <code class="param-name optional">[y]</code>
-                        <span class="type">Number=0</span>
-                        <span class="flag optional" title="This parameter is optional.">optional</span>
-                    
-
-                    
-
-                    <div class="param-description">
-                         
-                    </div>
-
-                    
-                </li>
-            
-                <li class="param">
-                    
-                        <code class="param-name optional">[width]</code>
-                        <span class="type">Number</span>
-                        <span class="flag optional" title="This parameter is optional.">optional</span>
-                    
-
-                    
-
-                    <div class="param-description">
-                         
-                    </div>
-
-                    
-                </li>
-            
-                <li class="param">
-                    
-                        <code class="param-name optional">[height]</code>
-                        <span class="type">Number</span>
-                        <span class="flag optional" title="This parameter is optional.">optional</span>
+                        <code class="param-name">bitmap</code>
+                        <span class="type"><a href="../classes/Bitmap.html" class="crosslink">Bitmap</a></span>
                     
 
                     
@@ -487,6 +482,8 @@
                     
                         <span class="type">ImageData</span>:
                     
+                    <p>CanvasRenderingContext2D.imageData を返します</p>
+
                 
             </div>
         </div>
@@ -496,21 +493,11 @@
 </div>
 
                 
-                    <div id="method_save" class="method item">
-    <h3 class="name"><code>save</code></h3>
+                    <div id="method_restore" class="method item inherited">
+    <h3 class="name"><code>restore</code></h3>
 
     
-        <div class="args">
-            <span class="paren">(</span><ul class="args-list inline commas">
-            
-                <li class="arg">
-                    
-                        <code>data</code>
-                    
-                </li>
-            
-            </ul><span class="paren">)</span>
-        </div>
+        <span class="paren">()</span>
     
 
     
@@ -530,15 +517,12 @@
     <div class="meta">
         
             
-                
-                <p>
-                
-                Defined in
-                
+                <p>Inherited from
+                <a href="../classes/Filter.html#method_restore">Filter</a>:
             
         
         
-        <a href="../files/_Users_inazuma15_web_www_inazumatv.js.library_igata.js_src_effect_Bitmap.js.html#l104"><code>&#x2F;Users&#x2F;inazuma15&#x2F;web&#x2F;www&#x2F;inazumatv.js.library&#x2F;igata.js&#x2F;src&#x2F;effect&#x2F;Bitmap.js:104</code></a>
+        <a href="../files/_Users_inazuma15_web_www_inazumatv.js.library_igata.js_src_effect_Filter.js.html#l79"><code>&#x2F;Users&#x2F;inazuma15&#x2F;web&#x2F;www&#x2F;inazumatv.js.library&#x2F;igata.js&#x2F;src&#x2F;effect&#x2F;Filter.js:79</code></a>
         
         </p>
 
@@ -549,34 +533,10 @@
     </div>
 
     <div class="description">
-        <p>初期状態 imageData.data を保存します</p>
+        <p>filter 前の状態に戻す</p>
 
     </div>
 
-    
-        <div class="params">
-            <h4>Parameters:</h4>
-
-            <ul class="params-list">
-            
-                <li class="param">
-                    
-                        <code class="param-name">data</code>
-                        <span class="type">Uint8ClampedArray</span>
-                    
-
-                    
-
-                    <div class="param-description">
-                        <p>初期状態の imageData.data</p>
-
-                    </div>
-
-                    
-                </li>
-            
-            </ul>
-        </div>
     
 
     
@@ -593,9 +553,9 @@
                 <h2 class="off-left">Properties</h2>
 
                 
-                    <div id="property_context" class="property item">
-    <h3 class="name"><code>context</code></h3>
-    <span class="type">CanvasRenderingContext2D</span>
+                    <div id="property_bitmap" class="property item inherited">
+    <h3 class="name"><code>bitmap</code></h3>
+    <span class="type"><a href="../classes/Bitmap.html" class="crosslink">Bitmap</a></span>
 
     
 
@@ -608,103 +568,12 @@
     <div class="meta">
         
             
-                
-                <p>
-                
-                Defined in
-                
+                <p>Inherited from
+                <a href="../classes/Filter.html#property_bitmap">Filter</a>:
             
         
         
-        <a href="../files/_Users_inazuma15_web_www_inazumatv.js.library_igata.js_src_effect_Bitmap.js.html#l27"><code>&#x2F;Users&#x2F;inazuma15&#x2F;web&#x2F;www&#x2F;inazumatv.js.library&#x2F;igata.js&#x2F;src&#x2F;effect&#x2F;Bitmap.js:27</code></a>
-        
-        </p>
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        
-    </div>
-
-    
-
-    
-
-    
-</div>
-
-                
-                    <div id="property_identity" class="property item">
-    <h3 class="name"><code>identity</code></h3>
-    <span class="type">Uint8ClampedArray</span>
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/_Users_inazuma15_web_www_inazumatv.js.library_igata.js_src_effect_Bitmap.js.html#l51"><code>&#x2F;Users&#x2F;inazuma15&#x2F;web&#x2F;www&#x2F;inazumatv.js.library&#x2F;igata.js&#x2F;src&#x2F;effect&#x2F;Bitmap.js:51</code></a>
-        
-        </p>
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        
-    </div>
-
-    
-
-    
-
-    
-</div>
-
-                
-                    <div id="property_img" class="property item">
-    <h3 class="name"><code>img</code></h3>
-    <span class="type">Image</span>
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/_Users_inazuma15_web_www_inazumatv.js.library_igata.js_src_effect_Bitmap.js.html#l39"><code>&#x2F;Users&#x2F;inazuma15&#x2F;web&#x2F;www&#x2F;inazumatv.js.library&#x2F;igata.js&#x2F;src&#x2F;effect&#x2F;Bitmap.js:39</code></a>
+        <a href="../files/_Users_inazuma15_web_www_inazumatv.js.library_igata.js_src_effect_Filter.js.html#l24"><code>&#x2F;Users&#x2F;inazuma15&#x2F;web&#x2F;www&#x2F;inazumatv.js.library&#x2F;igata.js&#x2F;src&#x2F;effect&#x2F;Filter.js:24</code></a>
         
         </p>
 

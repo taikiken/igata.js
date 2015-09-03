@@ -1,17 +1,4 @@
-///**
-// * license inazumatv.com
-// * author (at)taikiken / http://inazumatv.com
-// * date 15/09/02 - 19:05
-// *
-// * Copyright (c) 2011-2015 inazumatv.com, inc.
-// *
-// * Distributed under the terms of the MIT license.
-// * http://www.opensource.org/licenses/mit-license.html
-// *
-// * This notice shall be included in all copies or substantial portions of the Software.
-// *
-// * for igata.js
-// */
+/*jslint -W016*/
 /**
  * @module Igata
  * @type {Brightness}
@@ -28,7 +15,7 @@
     var Filter = Igata.Filter;
 
     /**
-     * filter: Brightness
+     * filter: brightness
      * @class Brightness
      * @extends Filter
      * @param {Bitmap} bitmap
@@ -46,7 +33,7 @@
     p.constructor = Brightness;
 
     /**
-     * Brightness filter を実行
+     * brightness filter を実行
      * @method filter
      * @param {number} value
      */
@@ -58,6 +45,7 @@
         imageData = this.imageData( bitmap ),
         data,
         val,
+        step,
         i, limit;
 
       data = new Uint8ClampedArray( bitmap.identity );
@@ -67,9 +55,12 @@
 
       for ( i = 0, limit = data.length; i < limit; i = (i + 4)|0 ) {
 
-        data[ i + 0 ] = val + data[ i + 0 ];// r
-        data[ i + 1 ] = val + data[ i + 1 ];// g
-        data[ i + 2 ] = val + data[ i + 2 ];// b
+        step = i;
+        data[ step ] = val + data[ step ];// r
+        step = i + 1;
+        data[ step ] = val + data[ step ];// g
+        step = i + 2;
+        data[ step ] = val + data[ step ];// b
 
       }
 

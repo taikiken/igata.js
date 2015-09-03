@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head lang="ja">
+  <meta charset="UTF-8">
+  <title>Image Effect</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="../lib/igata.js"></script>
+  <style>
+    #invert-on {
+      position: absolute;
+      left: 10px;
+      top: 10px;
+    }
+    #invert-off {
+      position: absolute;
+      left: 210px;
+      top: 10px;
+    }
+    #threshold-val {
+      position: absolute;
+      left: 10px;
+      top: 50px;
+      width: 4em;
+      padding: 3px;
+      border: 1px solid #eee;
+      text-align: right;
+    }
+  </style>
+</head>
+<body>
+<main id="main">
+  <canvas id="stage"></canvas>
+</main>
+<div id="ui">
+  <input type="button" id="invert-on" value="sharpen ON">
+  <input type="button" id="invert-off" value="sharpen OFF">
+  <!--<input type="text" id="threshold-val" value="8">-->
+</div>
+<script>
+( function ( window ) {
+
+  'use strict';
+
+  var
+    document = window.document;
+
+  var Igata = window.Igata;
+
+  var stage = document.getElementById( 'stage' );
+  var ctx = stage.getContext( '2d' );
+
+//  var invertOn = false;
+  var
+    convolution,
+    bitmap,
+    val;
+
+  // ------------------------------------------------------------
+  // load img
+  var img = new Image();
+  var prepare = false;
+
+  function load ( event ) {
+
+    event.target.removeEventListener( 'load', load );
+    prepare = true;
+
+    clear();
+    render();
+
+  }
+
+  img.addEventListener( 'load', load, false );
+  img.src = 'img/sample01.png';
+  // ------------------------------------------------------------
+
+  function render () {
+
+    if ( prepare ) {
+
+      ctx.drawImage( img, 0, 0, img.width, img.height );
+
+    }
+
+  }
+
+  function clear () {
+
+    ctx.clearRect( 0, 0, stage.width, stage.height );
+
+  }
+
+  function loop () {
+
+    requestAnimationFrame( loop );
+
+    clear();
+    render();
+
+  }
+
+  // canvas size
+
+  function resize () {
+
+    stage.width = window.innerWidth;
+    stage.height = window.innerHeight;
+
+    render();
+
+  }
+
+  // ------------------------------------------------------------
+
+
+  function invertOn () {
+
+    if ( prepare ) {
+
+      if ( !convolution ) {
+
+        bitmap = new Igata.Bitmap( ctx, img );
+        convolution = new Igata.Convolution( bitmap );
+
+      }
+
+//      clear();
+      convolution.sharpen();
+
+    }
+
+  }
+
+  function invertOff () {
+
+    if ( prepare && !!convolution ) {
+
+      convolution.restore();
+
+    }
+
+  }
+
+  // ------------------------------------------------------------
+
+  function init () {
+
+    resize();
+
+//    loop();
+    clear();
+    render();
+
+    window.addEventListener( 'resize', resize, false );
+
+    val = document.getElementById( 'threshold-val' );
+
+    document.getElementById( 'invert-on' ).addEventListener( 'click', invertOn, false );
+    document.getElementById( 'invert-off' ).addEventListener( 'click', invertOff, false );
+
+  }
+
+  init();
+
+
+}( window ) );
+</script>
+</body>
+</html>
