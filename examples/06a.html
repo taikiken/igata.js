@@ -23,8 +23,8 @@
   <canvas id="stage"></canvas>
 </main>
 <div id="ui">
-  <input type="button" id="invert-on" value="grayscale ON">
-  <input type="button" id="invert-off" value="grayscale OFF">
+  <input type="button" id="invert-on" value="sepia ON">
+  <input type="button" id="invert-off" value="sepia OFF">
 </div>
 <script>
 ( function ( window ) {
@@ -41,7 +41,7 @@
 
 //  var invertOn = false;
   var
-    grayscale,
+    sepia,
     bitmap;
 
   // ------------------------------------------------------------
@@ -54,7 +54,7 @@
     event.target.removeEventListener( 'load', load );
     prepare = true;
 
-    clear();
+//    clear();
     render();
 
   }
@@ -108,15 +108,15 @@
 
     if ( prepare ) {
 
-      if ( !grayscale ) {
+      if ( !sepia ) {
 
         bitmap = new Igata.Bitmap( ctx, img );
-        grayscale = new Igata.Grayscale( bitmap );
+        sepia = new Igata.Sepia( bitmap );
 
       }
 
 //      clear();
-      grayscale.filter();
+      sepia.filter();
 
     }
 
@@ -124,9 +124,9 @@
 
   function invertOff () {
 
-    if ( prepare && !!grayscale ) {
+    if ( prepare && !!sepia ) {
 
-      grayscale.restore();
+      sepia.restore();
 
     }
 

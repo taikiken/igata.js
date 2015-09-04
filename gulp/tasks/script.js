@@ -57,12 +57,14 @@ scripts.push( dir.src + '/effect/Filter.js' );
 scripts.push( dir.src + '/effect/Invert.js' );
 scripts.push( dir.src + '/effect/Brightness.js' );
 scripts.push( dir.src + '/effect/Grayscale.js' );
+scripts.push( dir.src + '/effect/Sepia.js' );
 scripts.push( dir.src + '/effect/Threshold.js' );
 scripts.push( dir.src + '/effect/Blur.js' );
 scripts.push( dir.src + '/effect/Convolution.js' );
 
 // math
 scripts.push( dir.src + '/math/Match.js' );
+scripts.push( dir.src + '/math/Template.js' );
 
 // ----------------------------------------------------------------
 //  task

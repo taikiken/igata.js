@@ -57,6 +57,8 @@
             
                 <li><a href="../classes/Invert.html">Invert</a></li>
             
+                <li><a href="../classes/Sepia.html">Sepia</a></li>
+            
                 <li><a href="../classes/Stack.html">Stack</a></li>
             
                 <li><a href="../classes/Threshold.html">Threshold</a></li>
@@ -122,104 +124,133 @@
   var Stack = ( function () {
 
     /**
-     * inner class
+     * Blur inner class
      * @class Stack
      * @constructor
      */
     function Stack () {
 
-      var
-        r = 0,
-        g = 0,
-        b = 0,
-        a = 0,
-        next = null;
+      /**
+       * @property r
+       * @type {number}
+       */
+      this.r = 0;
+      /**
+       * @property g
+       * @type {number}
+       */
+      this.g = 0;
+      /**
+       * @property b
+       * @type {number}
+       */
+      this.b = 0;
+      /**
+       * @property a
+       * @type {number}
+       */
+      this.a = 0;
+      /**
+       * @property next
+       * @type {null|Stack}
+       */
+      this.next = null;
 
-      Object.defineProperties(
-        this,
-        {
-          /**
-           * @property r
-           * @type {number}
-           */
-          &#x27;r&#x27;: {
-            get: function () {
+      // Object.defineProperties
+      // Chrome はありえないほど遅くなるので使わない
 
-              return r;
-
-            },
-            set: function ( value ) {
-
-              r = value;
-
-            }
-          },
-          /**
-           * @property g
-           * @type {number}
-           */
-          &#x27;g&#x27;: {
-            get: function () {
-
-              return g;
-
-            },
-            set: function ( value ) {
-
-              g = value;
-
-            }
-          },
-          /**
-           * @property b
-           * @type {number}
-           */
-          &#x27;b&#x27;: {
-            get: function () {
-
-              return b;
-
-            },
-            set: function ( value ) {
-
-              b = value;
-
-            }
-          },
-          /**
-           * @property a
-           * @type {number}
-           */
-          &#x27;a&#x27;: {
-            get: function () {
-
-              return a;
-
-            },
-            set: function ( value ) {
-
-              a = value;
-
-            }
-          },
-          /**
-           * @property next
-           * @type {number}
-           */
-          &#x27;next&#x27;: {
-            get: function () {
-
-              return next;
-
-            },
-            set: function ( value ) {
-
-              next = value;
-
-            }
-          }
-        }
-      );
+      //var
+      //  r = 0,
+      //  g = 0,
+      //  b = 0,
+      //  a = 0,
+      //  next = null;
+      //
+      //Object.defineProperties(
+      //  this,
+      //  {
+      //    /**
+      //     * @property r
+      //     * @type {number}
+      //     */
+      //    &#x27;r&#x27;: {
+      //      get: function () {
+      //
+      //        return r;
+      //
+      //      },
+      //      set: function ( value ) {
+      //
+      //        r = value;
+      //
+      //      }
+      //    },
+      //    /**
+      //     * @property g
+      //     * @type {number}
+      //     */
+      //    &#x27;g&#x27;: {
+      //      get: function () {
+      //
+      //        return g;
+      //
+      //      },
+      //      set: function ( value ) {
+      //
+      //        g = value;
+      //
+      //      }
+      //    },
+      //    /**
+      //     * @property b
+      //     * @type {number}
+      //     */
+      //    &#x27;b&#x27;: {
+      //      get: function () {
+      //
+      //        return b;
+      //
+      //      },
+      //      set: function ( value ) {
+      //
+      //        b = value;
+      //
+      //      }
+      //    },
+      //    /**
+      //     * @property a
+      //     * @type {number}
+      //     */
+      //    &#x27;a&#x27;: {
+      //      get: function () {
+      //
+      //        return a;
+      //
+      //      },
+      //      set: function ( value ) {
+      //
+      //        a = value;
+      //
+      //      }
+      //    },
+      //    /**
+      //     * @property next
+      //     * @type {number}
+      //     */
+      //    &#x27;next&#x27;: {
+      //      get: function () {
+      //
+      //        return next;
+      //
+      //      },
+      //      set: function ( value ) {
+      //
+      //        next = value;
+      //
+      //      }
+      //    }
+      //  }
+      //);
 
     }
 
@@ -337,6 +368,7 @@
 
         //var time = Date.now();
         //console.log( &#x27;************** start &#x27;, time, radius );
+
         if ( !!alpha ) {
 
           this._rgba( data, radius, imageData.width, imageData.height );
@@ -344,17 +376,16 @@
         } else {
 
           this._rgb( data, radius, imageData.width, imageData.height );
-          //this._rgb( data, radius, 720, 450 );
 
         }
 
-        var out = Date.now();
-
+        //var out = Date.now();
         //console.log( &#x27;time: &#x27;, (out-time) / 1000 );
-        //
         //console.log( &#x27;************** end &#x27;, out );
 
-        // ToDo; Chrome very slow...
+        // inner Class Stack の Object.defineProperties を使用しない
+        // まだ遅い
+        // ToDo; Chrome slower than others
 
         //console.log( &quot;filter &quot;, radius, alpha, !!pixels );
         imageData.data.set( data );
@@ -541,6 +572,7 @@
         a_sum += sumFactor * pa;
 
         stack = stackStart;
+        yp = width;
 
         for( i = 0; i &lt; radiusPlus1; i = (i+1)|0 ) {
 
@@ -552,7 +584,7 @@
 
         }
 
-        yp = width;
+        //yp = width;
 
         for( i = 1; i &lt;= radius; i = (i+1)|0 ) {
 
@@ -726,7 +758,6 @@
 
         }
 
-
         stackIn = stackStart;
         stackOut = stackEnd;
 
@@ -788,6 +819,7 @@
         b_sum += sumFactor * pb;
 
         stack = stackStart;
+        yp = width;
 
         for( i = 0; i &lt; radiusPlus1; i = (i+1)|0 ) {
 
@@ -798,7 +830,7 @@
 
         }
 
-        yp = width;
+        //yp = width;
 
         for( i = 1; i &lt;= radius; i = (i+1)|0 ) {
 
@@ -841,7 +873,7 @@
           g_out_sum -= stackIn.g;
           b_out_sum -= stackIn.b;
 
-          p = ( x + (( ( p = y + radiusPlus1) &lt; heightMinus1 ? p : heightMinus1 ) * width )) &lt;&lt; 2;
+          p = ( x + ( ( ( p = y + radiusPlus1) &lt; heightMinus1 ? p : heightMinus1 ) * width ) ) &lt;&lt; 2;
 
           r_sum += ( r_in_sum += ( stackIn.r = pixels[ p ] ) );
           g_sum += ( g_in_sum += ( stackIn.g = pixels[ p+1 ] ) );
@@ -862,6 +894,7 @@
           yi = yi + width;
 
         }
+
       }
 
       //return pixels;

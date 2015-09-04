@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>/Users/inazuma15/web/www/inazumatv.js.library/igata.js/src/effect/Bitmap.js</title>
+    <title>/Users/inazuma15/web/www/inazumatv.js.library/igata.js/src/effect/Sepia.js</title>
     <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -104,14 +104,26 @@
             <div class="apidocs">
                 <div id="docs-main">
                     <div class="content">
-                        <h1 class="file-heading">File: /Users/inazuma15/web/www/inazumatv.js.library/igata.js/src/effect/Bitmap.js</h1>
+                        <h1 class="file-heading">File: /Users/inazuma15/web/www/inazumatv.js.library/igata.js/src/effect/Sepia.js</h1>
 
 <div class="file">
     <pre class="code prettyprint linenums">
-/**
- * @module Igata
- * @type {Bitmap}
- */
+///**
+// * license inazumatv.com
+// * author (at)taikiken / http://inazumatv.com
+// * date 15/09/04 - 18:27
+// *
+// * Copyright (c) 2011-2015 inazumatv.com, inc.
+// *
+// * Distributed under the terms of the MIT license.
+// * http://www.opensource.org/licenses/mit-license.html
+// *
+// * This notice shall be included in all copies or substantial portions of the Software.
+// *
+// * for igata.js
+// */
+/*jslint -W016*/
+
 ( function ( window ) {
 
   &#x27;use strict&#x27;;
@@ -119,116 +131,70 @@
   var
     Igata = window.Igata;
 
-  Igata.Bitmap = ( function () {
+  Igata.Sepia = ( function () {
+
+    var Filter = Igata.Filter;
 
     /**
-     * @class Bitmap
-     * @param {CanvasRenderingContext2D} context
-     * @param {Image} img
+     * filter: sepia
+     * @class Sepia
+     * @extends Filter
+     * @param {Bitmap} bitmap
      * @constructor
      */
-    function Bitmap ( context, img ) {
+    function Sepia ( bitmap ) {
 
-      //var identity = null;//new Uint8ClampedArray( 0 );
-      /**
-       * @property identity
-       * @type {Uint8ClampedArray|null}
-       */
-      this.identity = null;
-
-      Object.defineProperties(
-        this,
-        {
-          /**
-           * @property context
-           * @type {CanvasRenderingContext2D}
-           * @readOnly
-           */
-          &#x27;context&#x27;: {
-            get: function () {
-
-              return context;
-
-            }
-          },
-          /**
-           * @property img
-           * @type {Image}
-           * @readOnly
-           */
-          &#x27;img&#x27;: {
-            get: function () {
-
-              return img;
-
-            }
-          }
-          //,
-          ///**
-          // * @property identity
-          // * @type {Uint8ClampedArray}
-          // */
-          //&#x27;identity&#x27;: {
-          //  get: function () {
-          //
-          //    return identity;
-          //
-          //  },
-          //  set: function ( value ) {
-          //
-          //    identity = value;
-          //
-          //  }
-          //}
-        }
-      );
+      Filter.call( this, bitmap );
 
     }
 
-    var p = Bitmap.prototype;
-    p.constructor = Bitmap;
+    Igata.extend( Filter, Sepia );
+
+    var p = Sepia.prototype;
+    p.constructor = Sepia;
 
     /**
-     * CanvasRenderingContext2D.imageData を取得します
-     * @method get
-     * @param {number=0} [x]
-     * @param {number=0} [y]
-     * @param {number} [width]
-     * @param {number} [height]
-     * @return {ImageData}
+     * sepia filter を実行
+     * @method filter
      */
-    p.get = function ( x, y, width, height ) {
+    p.filter = function () {
 
       var
-        context = this.context,
-        img = this.img;
+        bitmap = this.bitmap,
+        ctx = bitmap.context,
+        imageData = this.imageData( bitmap ),
+        data,
+        i, limit,
+        i1, i2,
+        r, g, b;
 
-      if ( !!img ) {
+      data = imageData.data;
 
-        width = width || img.width;
-        height = height || img.height;
+      // http://www.qoncious.com/questions/how-apply-sepia-tone-image-html5-canvas
+      for ( i = 0, limit = data.length; i &lt; limit; i = (i + 4)|0 ) {
+
+        i1 = i + 1;
+        i2 = i + 2;
+        r = data[ i ];
+        g = data[ i1 ];
+        b = data[ i2 ];
+        //
+        data[ i ]  = (r*0.393) + (g*0.769) + (b*0.189);// r
+        data[ i1 ] = (r*0.349) + (g*0.686) + (b*0.168);// g
+        data[ i2 ] = (r*0.272) + (g*0.534) + (b*0.131);// b
+        //data[ i + 3 ] = data[ i + 3 ];// a
+
+        //data[ i ]  = data[ i ]  * 0.9;
+        //data[ i1 ] = data[ i1 ] * 0.7;
+        //data[ i2 ] = data[ i2 ] * 0.4;
 
       }
 
-      x = x || 0;
-      y = y || 0;
-
-      return context.getImageData( x, y, width, height );
+      ctx.putImageData( imageData, 0, 0 );
 
     };
 
-    /**
-     * 初期状態 imageData.data を保存します
-     * @method save
-     * @param {Uint8ClampedArray} data 初期状態の imageData.data
-     */
-    p.save = function ( data ) {
-
-      this.identity = new Uint8ClampedArray( data );
-
-    };
-
-    return Bitmap;
+    return Sepia;
 
   }() );
 

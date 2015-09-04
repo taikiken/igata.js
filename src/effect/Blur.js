@@ -20,98 +20,127 @@
      */
     function Stack () {
 
-      var
-        r = 0,
-        g = 0,
-        b = 0,
-        a = 0,
-        next = null;
+      /**
+       * @property r
+       * @type {number}
+       */
+      this.r = 0;
+      /**
+       * @property g
+       * @type {number}
+       */
+      this.g = 0;
+      /**
+       * @property b
+       * @type {number}
+       */
+      this.b = 0;
+      /**
+       * @property a
+       * @type {number}
+       */
+      this.a = 0;
+      /**
+       * @property next
+       * @type {null|Stack}
+       */
+      this.next = null;
 
-      Object.defineProperties(
-        this,
-        {
-          /**
-           * @property r
-           * @type {number}
-           */
-          'r': {
-            get: function () {
+      // Object.defineProperties
+      // Chrome はありえないほど遅くなるので使わない
 
-              return r;
-
-            },
-            set: function ( value ) {
-
-              r = value;
-
-            }
-          },
-          /**
-           * @property g
-           * @type {number}
-           */
-          'g': {
-            get: function () {
-
-              return g;
-
-            },
-            set: function ( value ) {
-
-              g = value;
-
-            }
-          },
-          /**
-           * @property b
-           * @type {number}
-           */
-          'b': {
-            get: function () {
-
-              return b;
-
-            },
-            set: function ( value ) {
-
-              b = value;
-
-            }
-          },
-          /**
-           * @property a
-           * @type {number}
-           */
-          'a': {
-            get: function () {
-
-              return a;
-
-            },
-            set: function ( value ) {
-
-              a = value;
-
-            }
-          },
-          /**
-           * @property next
-           * @type {number}
-           */
-          'next': {
-            get: function () {
-
-              return next;
-
-            },
-            set: function ( value ) {
-
-              next = value;
-
-            }
-          }
-        }
-      );
+      //var
+      //  r = 0,
+      //  g = 0,
+      //  b = 0,
+      //  a = 0,
+      //  next = null;
+      //
+      //Object.defineProperties(
+      //  this,
+      //  {
+      //    /**
+      //     * @property r
+      //     * @type {number}
+      //     */
+      //    'r': {
+      //      get: function () {
+      //
+      //        return r;
+      //
+      //      },
+      //      set: function ( value ) {
+      //
+      //        r = value;
+      //
+      //      }
+      //    },
+      //    /**
+      //     * @property g
+      //     * @type {number}
+      //     */
+      //    'g': {
+      //      get: function () {
+      //
+      //        return g;
+      //
+      //      },
+      //      set: function ( value ) {
+      //
+      //        g = value;
+      //
+      //      }
+      //    },
+      //    /**
+      //     * @property b
+      //     * @type {number}
+      //     */
+      //    'b': {
+      //      get: function () {
+      //
+      //        return b;
+      //
+      //      },
+      //      set: function ( value ) {
+      //
+      //        b = value;
+      //
+      //      }
+      //    },
+      //    /**
+      //     * @property a
+      //     * @type {number}
+      //     */
+      //    'a': {
+      //      get: function () {
+      //
+      //        return a;
+      //
+      //      },
+      //      set: function ( value ) {
+      //
+      //        a = value;
+      //
+      //      }
+      //    },
+      //    /**
+      //     * @property next
+      //     * @type {number}
+      //     */
+      //    'next': {
+      //      get: function () {
+      //
+      //        return next;
+      //
+      //      },
+      //      set: function ( value ) {
+      //
+      //        next = value;
+      //
+      //      }
+      //    }
+      //  }
+      //);
 
     }
 
@@ -229,6 +258,7 @@
 
         //var time = Date.now();
         //console.log( '************** start ', time, radius );
+
         if ( !!alpha ) {
 
           this._rgba( data, radius, imageData.width, imageData.height );
@@ -236,17 +266,16 @@
         } else {
 
           this._rgb( data, radius, imageData.width, imageData.height );
-          //this._rgb( data, radius, 720, 450 );
 
         }
 
-        var out = Date.now();
-
+        //var out = Date.now();
         //console.log( 'time: ', (out-time) / 1000 );
-        //
         //console.log( '************** end ', out );
 
-        // ToDo; Chrome very slow...
+        // inner Class Stack の Object.defineProperties を使用しない
+        // まだ遅い
+        // ToDo; Chrome slower than others
 
         //console.log( "filter ", radius, alpha, !!pixels );
         imageData.data.set( data );
@@ -433,6 +462,7 @@
         a_sum += sumFactor * pa;
 
         stack = stackStart;
+        yp = width;
 
         for( i = 0; i < radiusPlus1; i = (i+1)|0 ) {
 
@@ -444,7 +474,7 @@
 
         }
 
-        yp = width;
+        //yp = width;
 
         for( i = 1; i <= radius; i = (i+1)|0 ) {
 
@@ -618,7 +648,6 @@
 
         }
 
-
         stackIn = stackStart;
         stackOut = stackEnd;
 
@@ -680,6 +709,7 @@
         b_sum += sumFactor * pb;
 
         stack = stackStart;
+        yp = width;
 
         for( i = 0; i < radiusPlus1; i = (i+1)|0 ) {
 
@@ -690,7 +720,7 @@
 
         }
 
-        yp = width;
+        //yp = width;
 
         for( i = 1; i <= radius; i = (i+1)|0 ) {
 
@@ -733,7 +763,7 @@
           g_out_sum -= stackIn.g;
           b_out_sum -= stackIn.b;
 
-          p = ( x + (( ( p = y + radiusPlus1) < heightMinus1 ? p : heightMinus1 ) * width )) << 2;
+          p = ( x + ( ( ( p = y + radiusPlus1) < heightMinus1 ? p : heightMinus1 ) * width ) ) << 2;
 
           r_sum += ( r_in_sum += ( stackIn.r = pixels[ p ] ) );
           g_sum += ( g_in_sum += ( stackIn.g = pixels[ p+1 ] ) );
@@ -754,6 +784,7 @@
           yi = yi + width;
 
         }
+
       }
 
       //return pixels;

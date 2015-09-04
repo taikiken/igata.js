@@ -6,7 +6,10 @@
   <link rel="stylesheet" href="css/style.css">
   <script src="../lib/igata.js"></script>
   <style>
-    #invert-on {
+    #ui {
+      width: 100%;
+    }
+    #match {
       position: absolute;
       left: 10px;
       top: 10px;
@@ -16,6 +19,22 @@
       left: 210px;
       top: 10px;
     }
+    #match-val {
+      position: absolute;
+      left: 10px;
+      top: 50px;
+      width: 300px;
+      padding: 3px;
+      border: 1px solid #eee;
+      text-align: right;
+      background-color: rgba(255, 255, 255, 0.3);
+    }
+
+    #tmp {
+      position: absolute;
+      right: 10px;
+      top: 10px;
+    }
   </style>
 </head>
 <body>
@@ -23,8 +42,11 @@
   <canvas id="stage"></canvas>
 </main>
 <div id="ui">
-  <input type="button" id="invert-on" value="grayscale ON">
-  <input type="button" id="invert-off" value="grayscale OFF">
+  <input type="button" id="match" value="match">
+  <!--<input type="button" id="invert-off" value="Convolution.filter OFF">-->
+  <input type="text" id="match-val" value="">
+
+  <!--<img src="img/sample02_tmp.png" alt="" id="tmp">-->
 </div>
 <script>
 ( function ( window ) {
@@ -41,26 +63,40 @@
 
 //  var invertOn = false;
   var
-    grayscale,
-    bitmap;
+    convolution,
+    bitmap,
+    val;
 
   // ------------------------------------------------------------
   // load img
   var img = new Image();
+  var img2 = new Image();
   var prepare = false;
+  var count = 0;
 
   function load ( event ) {
 
+    count = count + 1;
     event.target.removeEventListener( 'load', load );
-    prepare = true;
 
-    clear();
-    render();
+    if ( count === 2 ) {
+
+      prepare = true;
+      render();
+
+    }
+
 
   }
 
   img.addEventListener( 'load', load, false );
   img.src = 'img/sample02.png';
+//  img.src = 'img/sample01.png';
+
+  img2.addEventListener( 'load', load, false );
+//  img2.src = 'img/sample02_tmp.png';
+  img2.src = 'img/sample02_tmp2.png';
+
   // ------------------------------------------------------------
 
   function render () {
@@ -70,6 +106,7 @@
     if ( prepare ) {
 
       ctx.drawImage( img, 0, 0, img.width, img.height );
+      ctx.drawImage( img2, 900, 0, img2.width, img2.height );
 
     }
 
@@ -85,7 +122,7 @@
 
     requestAnimationFrame( loop );
 
-//    clear();
+    clear();
     render();
 
   }
@@ -104,19 +141,24 @@
   // ------------------------------------------------------------
 
 
-  function invertOn () {
+  function clickMatch () {
 
     if ( prepare ) {
 
-      if ( !grayscale ) {
+      var template = new Igata.Template();
+      var result = template.sad( ctx.getImageData(0,0,img.width,img.height), ctx.getImageData(900,0,img2.width,img2.height), 0.155 );
+      console.log( 'result ', result );
 
-        bitmap = new Igata.Bitmap( ctx, img );
-        grayscale = new Igata.Grayscale( bitmap );
+      if ( !!result ) {
+
+        ctx.drawImage( img2, result.x, result.y, result.width, result.height );
+
+        ctx.rect(result.x, result.y, result.width, result.height);
+        ctx.stroke();
+
+        val.value = result.normalize + ', ' + result.similar;
 
       }
-
-//      clear();
-      grayscale.filter();
 
     }
 
@@ -124,9 +166,9 @@
 
   function invertOff () {
 
-    if ( prepare && !!grayscale ) {
+    if ( prepare && !!convolution ) {
 
-      grayscale.restore();
+      convolution.restore();
 
     }
 
@@ -139,13 +181,15 @@
     resize();
 
 //    loop();
-//    clear();
+    clear();
     render();
 
     window.addEventListener( 'resize', resize, false );
 
-    document.getElementById( 'invert-on' ).addEventListener( 'click', invertOn, false );
-    document.getElementById( 'invert-off' ).addEventListener( 'click', invertOff, false );
+    val = document.getElementById( 'match-val' );
+
+    document.getElementById( 'match' ).addEventListener( 'click', clickMatch, false );
+//    document.getElementById( 'invert-off' ).addEventListener( 'click', invertOff, false );
 
   }
 

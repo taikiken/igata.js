@@ -9,6 +9,7 @@ YUI.add("yuidoc-meta", function(Y) {
         "Grayscale",
         "Igata",
         "Invert",
+        "Sepia",
         "Stack",
         "Threshold"
     ],

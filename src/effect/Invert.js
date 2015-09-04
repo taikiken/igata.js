@@ -15,7 +15,7 @@
     var Filter = Igata.Filter;
 
     /**
-     * filter: 画像反転(Invert)
+     * filter: 画像反転(invert)
      * @class Invert
      * @extends Filter
      * @param {Bitmap} bitmap

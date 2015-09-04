@@ -19,7 +19,12 @@
      */
     function Bitmap ( context, img ) {
 
-      var identity = null;//new Uint8ClampedArray( 0 );
+      //var identity = null;//new Uint8ClampedArray( 0 );
+      /**
+       * @property identity
+       * @type {Uint8ClampedArray|null}
+       */
+      this.identity = null;
 
       Object.defineProperties(
         this,
@@ -47,23 +52,24 @@
               return img;
 
             }
-          },
-          /**
-           * @property identity
-           * @type {Uint8ClampedArray}
-           */
-          'identity': {
-            get: function () {
-
-              return identity;
-
-            },
-            set: function ( value ) {
-
-              identity = value;
-
-            }
           }
+          //,
+          ///**
+          // * @property identity
+          // * @type {Uint8ClampedArray}
+          // */
+          //'identity': {
+          //  get: function () {
+          //
+          //    return identity;
+          //
+          //  },
+          //  set: function ( value ) {
+          //
+          //    identity = value;
+          //
+          //  }
+          //}
         }
       );
 

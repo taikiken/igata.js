@@ -49,7 +49,42 @@
         i1, i2,
         value;
 
-      data = imageData.data;
+      //data = imageData.data;
+      //
+      //// http://www.html5rocks.com/en/tutorials/canvas/imagefilters/
+      //for ( i = 0, limit = data.length; i < limit; i = (i + 4)|0 ) {
+      //
+      //  i1 = i + 1;
+      //  i2 = i + 2;
+      //  r = data[ i ];
+      //  g = data[ i1 ];
+      //  b = data[ i2 ];
+      //
+      //  // CIE luminance for the RGB
+      //  // The human eye is bad at seeing red and blue, so we de-emphasize them.
+      //  value = r*0.2126 + g*0.7152 + b*0.0722;
+      //  data[ i ] = data[ i1 ] = data[ i2 ] = value;
+      //
+      //}
+      Grayscale.to( imageData.data );
+
+      ctx.putImageData( imageData, 0, 0 );
+
+    };
+
+    /**
+     * ImageData.data を grayscale します
+     *
+     * @method to
+     * @static
+     * @param {CanvasPixelArray} data ImageData.data 形式(Uint8ClampedArray)
+     */
+    Grayscale.to = function ( data ) {
+
+      var
+        i, limit,
+        i1, i2,
+        r, g, b;
 
       // http://www.html5rocks.com/en/tutorials/canvas/imagefilters/
       for ( i = 0, limit = data.length; i < limit; i = (i + 4)|0 ) {
@@ -62,12 +97,10 @@
 
         // CIE luminance for the RGB
         // The human eye is bad at seeing red and blue, so we de-emphasize them.
-        value = r*0.2126 + g*0.7152 + b*0.0722;
-        data[ i ] = data[ i1 ] = data[ i2 ] = value;
+        //value = r*0.2126 + g*0.7152 + b*0.0722;
+        data[ i ] = data[ i1 ] = data[ i2 ] = r*0.2126 + g*0.7152 + b*0.0722;
 
       }
-
-      ctx.putImageData( imageData, 0, 0 );
 
     };
 
