@@ -129,39 +129,61 @@
 
       var start = Date.now();
       console.log( 'sad ', start );
-      skip = false;
+      //skip = false;
 
       for ( y = 0, yEnd = targetHeight - templateHeight + 1; y < yEnd; y = (y + 1)|0 ) {
 
-        if ( skip ) {
-
-          break;
-
-        }
+        //if ( skip ) {
+        //
+        //  break;
+        //
+        //}
 
          for ( x = 0, xEnd = targetWidth - templateWidth + 1; x < xEnd; x = (x + 1)|0 ) {
 
            similar = 0;
+           normal = 0;
+           skip = false;
 
            for ( ty = 0; ty < templateHeight; ty = (ty + 1)|0 ) {
 
+             if ( skip ) {
+
+               continue;
+
+             }
+
               for ( tx = 0; tx < templateWidth; tx = (tx + 1)|0 ) {
+
+                if ( skip ) {
+
+                  continue;
+
+                }
 
                 ti = tx + templateWidth * ty;
                 i = (x + tx) + targetWidth * ( y + ty );
 
                 similar = similar + _abs( targetData[ i ] - templateData[ ti ] );
+                normal = similar / pixels;
+
+                if ( normal > percent ) {
+
+                  skip = true;
+
+                }
 
               }
 
            }
 
-           normal = similar / pixels;
+           //normal = similar / pixels;
 
            if ( percent >= normal ) {
 
+             percent = normal;
              console.log( 'normal ', normal, similar, pixels );
-             skip = true;
+             //skip = true;
              result = {
                normalize: normal,
                similar: similar,
@@ -170,7 +192,7 @@
                width: templateWidth,
                height: templateHeight
              };
-             break;
+             //break;
 
            }
 

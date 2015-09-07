@@ -145,8 +145,10 @@
 
     if ( prepare ) {
 
+      console.log( "+++ clickMath +++" );
       var template = new Igata.Template();
-      var result = template.sad( ctx.getImageData(0,0,img.width,img.height), ctx.getImageData(900,0,img2.width,img2.height), 0.155 );
+//      var result = template.sad( ctx.getImageData(0,0,img.width,img.height), ctx.getImageData(900,0,img2.width,img2.height), 0.155 );
+      var result = template.sad( ctx.getImageData(0,0,img.width,img.height), ctx.getImageData(900,0,img2.width,img2.height) );
       console.log( 'result ', result );
 
       if ( !!result ) {
