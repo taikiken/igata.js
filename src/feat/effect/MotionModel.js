@@ -1,117 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <title>src/feat/MotionModel.js - igata.js API</title>
-    <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
-    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
-    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
-    <link rel="icon" href="../assets/favicon.ico">
-    <script src="http://yui.yahooapis.com/combo?3.9.1/build/yui/yui-min.js"></script>
-</head>
-<body class="yui3-skin-sam">
-
-<div id="doc">
-    <div id="hd" class="yui3-g header">
-        <div class="yui3-u-3-4">
-                <h1><img src="../assets/css/logo.png" title="igata.js API" width="117" height="52"></h1>
-        </div>
-        <div class="yui3-u-1-4 version">
-            <em>API Docs for: </em>
-        </div>
-    </div>
-    <div id="bd" class="yui3-g">
-
-        <div class="yui3-u-1-4">
-            <div id="docs-sidebar" class="sidebar apidocs">
-                <div id="api-list">
-                    <h2 class="off-left">APIs</h2>
-                    <div id="api-tabview" class="tabview">
-                        <ul class="tabs">
-                            <li><a href="#api-classes">Classes</a></li>
-                            <li><a href="#api-modules">Modules</a></li>
-                        </ul>
-                
-                        <div id="api-tabview-filter">
-                            <input type="search" id="api-filter" placeholder="Type to filter APIs">
-                        </div>
-                
-                        <div id="api-tabview-panel">
-                            <ul id="api-classes" class="apis classes">
-                                <li><a href="../classes/Affine2d.html">Affine2d</a></li>
-                                <li><a href="../classes/Bitmap.html">Bitmap</a></li>
-                                <li><a href="../classes/Blur.html">Blur</a></li>
-                                <li><a href="../classes/Brightness.html">Brightness</a></li>
-                                <li><a href="../classes/Cache.html">Cache</a></li>
-                                <li><a href="../classes/Calc.html">Calc</a></li>
-                                <li><a href="../classes/Convolution.html">Convolution</a></li>
-                                <li><a href="../classes/Data_t.html">Data_t</a></li>
-                                <li><a href="../classes/Estimator.html">Estimator</a></li>
-                                <li><a href="../classes/Filter.html">Filter</a></li>
-                                <li><a href="../classes/Grayscale.html">Grayscale</a></li>
-                                <li><a href="../classes/HomoGraphy2d.html">HomoGraphy2d</a></li>
-                                <li><a href="../classes/Igata.html">Igata</a></li>
-                                <li><a href="../classes/Invert.html">Invert</a></li>
-                                <li><a href="../classes/IVector.html">IVector</a></li>
-                                <li><a href="../classes/Keypoint_t.html">Keypoint_t</a></li>
-                                <li><a href="../classes/LA.html">LA</a></li>
-                                <li><a href="../classes/LinearAlgebra.html">LinearAlgebra</a></li>
-                                <li><a href="../classes/Matrix_t.html">Matrix_t</a></li>
-                                <li><a href="../classes/MatrixMath.html">MatrixMath</a></li>
-                                <li><a href="../classes/MM.html">MM</a></li>
-                                <li><a href="../classes/MotionEstimator.html">MotionEstimator</a></li>
-                                <li><a href="../classes/Node_t.html">Node_t</a></li>
-                                <li><a href="../classes/Orb.html">Orb</a></li>
-                                <li><a href="../classes/Processing.html">Processing</a></li>
-                                <li><a href="../classes/Pyramid_t.html">Pyramid_t</a></li>
-                                <li><a href="../classes/Ransac_t.html">Ransac_t</a></li>
-                                <li><a href="../classes/Sepia.html">Sepia</a></li>
-                                <li><a href="../classes/Stack.html">Stack</a></li>
-                                <li><a href="../classes/Threshold.html">Threshold</a></li>
-                                <li><a href="../classes/Vector2.html">Vector2</a></li>
-                            </ul>
-                
-                
-                            <ul id="api-modules" class="apis modules">
-                                <li><a href="../modules/Feat.html">Feat</a></li>
-                                <li><a href="../modules/Igata.html">Igata</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="yui3-u-3-4">
-                <div id="api-options">
-                    Show:
-                    <label for="api-show-inherited">
-                        <input type="checkbox" id="api-show-inherited" checked>
-                        Inherited
-                    </label>
-            
-                    <label for="api-show-protected">
-                        <input type="checkbox" id="api-show-protected">
-                        Protected
-                    </label>
-            
-                    <label for="api-show-private">
-                        <input type="checkbox" id="api-show-private">
-                        Private
-                    </label>
-                    <label for="api-show-deprecated">
-                        <input type="checkbox" id="api-show-deprecated">
-                        Deprecated
-                    </label>
-            
-                </div>
-            
-            <div class="apidocs">
-                <div id="docs-main">
-                    <div class="content">
-<h1 class="file-heading">File: src/feat/MotionModel.js</h1>
-
-<div class="file">
-    <pre class="code prettyprint linenums">
 ///**
 // * license inazumatv.com
 // * author (at)taikiken / http://inazumatv.com
@@ -136,7 +22,7 @@
  */
 ( function ( window ) {
 
-  &#x27;use strict&#x27;;
+  'use strict';
 
   var
     Igata = window.Igata,
@@ -182,17 +68,17 @@
   //
   //  // check that the i-th selected point does not belong
   //  // to a line connecting some previously selected points
-  //  for(; j &lt; i; ++j) {
+  //  for(; j < i; ++j) {
   //
   //    dx1 = points[j].x - points[i].x;
   //    dy1 = points[j].y - points[i].y;
   //
-  //    for(k = 0; k &lt; j; ++k) {
+  //    for(k = 0; k < j; ++k) {
   //
   //      dx2 = points[k].x - points[i].x;
   //      dy2 = points[k].y - points[i].y;
   //
-  //      if( Math.abs(dx2*dy1 - dy2*dx1) &lt;= EPSILON*(Math.abs(dx1) + Math.abs(dy1) + Math.abs(dx2) + Math.abs(dy2))) {
+  //      if( Math.abs(dx2*dy1 - dy2*dx1) <= EPSILON*(Math.abs(dx1) + Math.abs(dy1) + Math.abs(dx2) + Math.abs(dy2))) {
   //
   //        return true;
   //
@@ -232,7 +118,7 @@
       var cx1=0.0, cy1=0.0, d1=0.0, s1=0.0;
       var dx=0.0,dy=0.0;
 
-      for (; i &lt; count; ++i) {
+      for (; i < count; ++i) {
 
         cx0 += from[i].x;
         cy0 += from[i].y;
@@ -246,7 +132,7 @@
       cx1 /= count;
       cy1 /= count;
 
-      for (i = 0; i &lt; count; ++i) {
+      for (i = 0; i < count; ++i) {
 
         dx = from[i].x - cx0;
         dy = from[i].y - cy0;
@@ -289,12 +175,12 @@
      *      var from = [];
      *      var to = [];
      *
-     *      for(var i = 0; i &lt; count; ++i) {
+     *      for(var i = 0; i < count; ++i) {
      *
      *        // you can use keypoint_t structure
      *        // or just provide object with x and y properties
-     *        from[i] = { &quot;x&quot;:Math.random()*320, &quot;y&quot;:Math.random()*240 };
-     *        to[i] = { &quot;x&quot;:from[i].x + 5, &quot;y&quot;:from[i].y+5 };
+     *        from[i] = { "x":Math.random()*320, "y":Math.random()*240 };
+     *        to[i] = { "x":from[i].x + 5, "y":from[i].y+5 };
      *
      *      }
      *
@@ -332,14 +218,14 @@
 
       iso_normalize_points(from, to, t0d, t1d, count);
 
-      var a_buff = Cache.getBuffer((2*count*6)&lt;&lt;3);
-      var b_buff = Cache.getBuffer((2*count)&lt;&lt;3);
+      var a_buff = Cache.getBuffer((2*count*6)<<3);
+      var b_buff = Cache.getBuffer((2*count)<<3);
 
       var a_mt = new Matrix_t(6, 2*count, dt, a_buff.data);
       var b_mt = new Matrix_t(1, 2*count, dt, b_buff.data);
       var ad=a_mt.data, bd=b_mt.data;
 
-      for (; i &lt; count; ++i) {
+      for (; i < count; ++i) {
         
         pt0 = from[i];
         pt1 = to[i];
@@ -363,8 +249,8 @@
         ad[j+4]=py;
         ad[j+5]=1.0;
 
-        bd[i&lt;&lt;1] = t1d[0]*pt1.x + t1d[1]*pt1.y + t1d[2];
-        bd[(i&lt;&lt;1)+1] = t1d[3]*pt1.x + t1d[4]*pt1.y + t1d[5];
+        bd[i<<1] = t1d[0]*pt1.x + t1d[1]*pt1.y + t1d[2];
+        bd[(i<<1)+1] = t1d[3]*pt1.x + t1d[4]*pt1.y + t1d[5];
         
       }
 
@@ -417,12 +303,12 @@
      *      var from = [];
      *      var to = [];
      *
-     *      for(var i = 0; i &lt; count; ++i) {
+     *      for(var i = 0; i < count; ++i) {
      *
      *        // you can use keypoint_t structure
      *        // or just provide object with x and y properties
-     *        from[i] = { &quot;x&quot;:Math.random()*320, &quot;y&quot;:Math.random()*240 };
-     *        to[i] = { &quot;x&quot;:from[i].x + 5, &quot;y&quot;:from[i].y+5 };
+     *        from[i] = { "x":Math.random()*320, "y":Math.random()*240 };
+     *        to[i] = { "x":from[i].x + 5, "y":from[i].y+5 };
      *
      *      }
      *
@@ -466,7 +352,7 @@
       // norm
       var smx=0.0, smy=0.0, cmx=0.0, cmy=0.0, sMx=0.0, sMy=0.0, cMx=0.0, cMy=0.0;
 
-      for(; i &lt; count; ++i) {
+      for(; i < count; ++i) {
         
         cmx += to[i].x;
         cmy += to[i].y;
@@ -480,7 +366,7 @@
       cMx /= count; 
       cMy /= count;
 
-      for (i = 0; i &lt; count; ++i) {
+      for (i = 0; i < count; ++i) {
         
         smx += Math.abs(to[i].x - cmx);
         smy += Math.abs(to[i].y - cmy);
@@ -489,10 +375,10 @@
         
       }
 
-      if ( Math.abs(smx) &lt; EPSILON || 
-           Math.abs(smy) &lt; EPSILON ||
-           Math.abs(sMx) &lt; EPSILON ||
-           Math.abs(sMy) &lt; EPSILON ) {
+      if ( Math.abs(smx) < EPSILON || 
+           Math.abs(smy) < EPSILON ||
+           Math.abs(sMx) < EPSILON ||
+           Math.abs(sMy) < EPSILON ) {
         
         return 0;
       
@@ -525,13 +411,13 @@
       
       // construct system
       i = 81;
-      while(--i &gt;= 0) {
+      while(--i >= 0) {
         
         LtL[i] = 0.0;
         
       }
       
-      for ( i = 0; i &lt; count; ++i ) {
+      for ( i = 0; i < count; ++i ) {
         
         x = (to[i].x - cmx) * smx;
         y = (to[i].y - cmy) * smy;
@@ -581,9 +467,9 @@
       }
       
       // symmetry
-      for ( i = 0; i &lt; 9; ++i ) {
+      for ( i = 0; i < 9; ++i ) {
         
-        for ( j = 0; j &lt; i; ++j ) {
+        for ( j = 0; j < i; ++j ) {
           
           LtL[i*9+j] = LtL[j*9+i];
           
@@ -637,7 +523,7 @@
       var pt0,pt1,ww=0.0,dx=0.0,dy=0.0;
       var m=model.data;
 
-      for (; i &lt; count; ++i) {
+      for (; i < count; ++i) {
 
         pt0 = from[i];
         pt1 = to[i];
@@ -683,7 +569,7 @@
         var detA = MM.determinant_3x3(A11,A12,A13, A21,A22,A23, A31,A32,A33);
         var detB = MM.determinant_3x3(B11,B12,B13, B21,B22,B23, B31,B32,B33);
 
-        if (detA*detB &lt; 0) {
+        if (detA*detB < 0) {
 
           negative++;
 
@@ -707,7 +593,7 @@
         detA = MM.determinant_3x3(A11,A12,A13, A21,A22,A23, A31,A32,A33);
         detB = MM.determinant_3x3(B11,B12,B13, B21,B22,B23, B31,B32,B33);
 
-        if ( detA*detB &lt; 0 ) {
+        if ( detA*detB < 0 ) {
 
           negative++;
 
@@ -731,7 +617,7 @@
         detA = MM.determinant_3x3(A11,A12,A13, A21,A22,A23, A31,A32,A33);
         detB = MM.determinant_3x3(B11,B12,B13, B21,B22,B23, B31,B32,B33);
 
-        if(detA*detB &lt; 0) {
+        if(detA*detB < 0) {
           
           negative++;
         
@@ -755,13 +641,13 @@
         detA = MM.determinant_3x3(A11,A12,A13, A21,A22,A23, A31,A32,A33);
         detB = MM.determinant_3x3(B11,B12,B13, B21,B22,B23, B31,B32,B33);
 
-        if ( detA*detB &lt; 0 ) {
+        if ( detA*detB < 0 ) {
 
           negative++;
 
         }
 
-        if ( negative !== 0 &amp;&amp; negative !== -4 ) {
+        if ( negative !== 0 && negative !== -4 ) {
 
           return false;
 
@@ -795,23 +681,23 @@
   var Ransac_t = ( function () {
 
     /**
+     * RANdom SAmple Consensus.
+     *
+     * http://en.wikipedia.org/wiki/RANSAC
      *
      * @class Ransac_t
      * @param {number=0} [size]
-     * @param {number} [thresh]
-     * @default 0.5
-     * @param {number} [eps]
-     * @default 0.5
-     * @param {number} [prob]
-     * @default 0.99
+     * @param {number=0.5} [thresh]
+     * @param {number=0.5} [eps]
+     * @param {number=0.99} [prob]
      * @constructor
      */
     function Ransac_t ( size, thresh, eps, prob ) {
 
-      if (typeof size === &quot;undefined&quot;) { size=0; }
-      if (typeof thresh === &quot;undefined&quot;) { thresh=0.5; }
-      if (typeof eps === &quot;undefined&quot;) { eps=0.5; }
-      if (typeof prob === &quot;undefined&quot;) { prob=0.99; }
+      if (typeof size === "undefined") { size=0; }
+      if (typeof thresh === "undefined") { thresh=0.5; }
+      if (typeof eps === "undefined") { eps=0.5; }
+      if (typeof prob === "undefined") { prob=0.99; }
 
       this.size = size;
       this.thresh = thresh;
@@ -834,7 +720,7 @@
       var num = Math.log(1 - this.prob);
       var denom = Math.log(1 - Math.pow(1 - eps, this.size));
 
-      return (denom &gt;= 0 || -num &gt;= max_iters*(-denom) ? max_iters : Math.round(num/denom))|0;
+      return (denom >= 0 || -num >= max_iters*(-denom) ? max_iters : Math.round(num/denom))|0;
 
     };
 
@@ -879,11 +765,11 @@
       var indices = [];
       var i=0, j=0, ssiter=0, idx_i=0, ok=false;
 
-      for(; ssiter &lt; max_try; ++ssiter)  {
+      for(; ssiter < max_try; ++ssiter)  {
 
         i = 0;
 
-        for (; i &lt; need_cnt &amp;&amp; ssiter &lt; max_try;) {
+        for (; i < need_cnt && ssiter < max_try;) {
 
           ok = false;
           idx_i = 0;
@@ -893,7 +779,7 @@
             ok = true;
             idx_i = indices[i] = Math.floor(Math.random() * max_cnt)|0;
 
-            for (j = 0; j &lt; i; ++j) {
+            for (j = 0; j < i; ++j) {
 
               if (idx_i === indices[j]) {
 
@@ -924,7 +810,7 @@
 
       }
 
-      return (i === need_cnt &amp;&amp; ssiter &lt; max_try);
+      return (i === need_cnt && ssiter < max_try);
 
     }// get_subset
     /**
@@ -950,9 +836,9 @@
 
       kernel.error(from, to, model, err, count);
 
-      for(; i &lt; count; ++i) {
+      for(; i < count; ++i) {
 
-        f = err[i] &lt;= t;
+        f = err[i] <= t;
         mask[i] = f;
         numinliers += f;
 
@@ -967,7 +853,7 @@
      * @constructor
      */
     function MotionEstimator () {
-      throw new Error( &#x27;MotionEstimator can\&#x27;t create instance.&#x27; );
+      throw new Error( 'MotionEstimator can\'t create instance.' );
     }
 
     var p = MotionEstimator.prototype;
@@ -990,12 +876,12 @@
      *        var from = [];
      *        var to = [];
      *
-     *        for(var i = 0; i &lt; count; ++i) {
+     *        for(var i = 0; i < count; ++i) {
      *
      *          // you can use keypoint_t structure
      *          // or just provide object with x and y properties
-     *          from[i] = { &quot;x&quot;:Math.random()*320, &quot;y&quot;:Math.random()*240 };
-     *          to[i] = { &quot;x&quot;:from[i].x + Math.random()*5, &quot;y&quot;:from[i].y+Math.random()*5 };
+     *          from[i] = { "x":Math.random()*320, "y":Math.random()*240 };
+     *          to[i] = { "x":from[i].x + Math.random()*5, "y":from[i].y+Math.random()*5 };
      *
      *        }
      *
@@ -1027,9 +913,9 @@
      */
     MotionEstimator.ransac = function ( params, kernel, from, to, count, model, mask, max_iters ) {
 
-      if (typeof max_iters === &quot;undefined&quot;) { max_iters=1000; }
+      if (typeof max_iters === "undefined") { max_iters=1000; }
 
-      if (count &lt; params.size) { return false; }
+      if (count < params.size) { return false; }
 
       var model_points = params.size;
       var niters = max_iters, iter=0;
@@ -1042,9 +928,9 @@
       var mc=model.cols,mr=model.rows;
       var dt = model.type | C1_t;
 
-      var m_buff = Cache.getBuffer((mc*mr)&lt;&lt;3);
+      var m_buff = Cache.getBuffer((mc*mr)<<3);
       var ms_buff = Cache.getBuffer(count);
-      var err_buff = Cache.getBuffer(count&lt;&lt;2);
+      var err_buff = Cache.getBuffer(count<<2);
       var M = new Matrix_t(mc, mr, dt, m_buff.data);
       var curr_mask = new Matrix_t(count, 1, Igata.U8C1_t, ms_buff.data);
 
@@ -1056,7 +942,7 @@
       // special case
       if (count === model_points) {
         
-        if (kernel.run(from, to, M, count) &lt;= 0) {
+        if (kernel.run(from, to, M, count) <= 0) {
           
           Cache.getBuffer(m_buff);
           Cache.getBuffer(ms_buff);
@@ -1069,7 +955,7 @@
         
         if (mask) {
           
-          while (--count &gt;= 0) {
+          while (--count >= 0) {
             
             mask.data[count] = 1;
             
@@ -1084,7 +970,7 @@
         
       }
 
-      for (; iter &lt; niters; ++iter) {
+      for (; iter < niters; ++iter) {
         
         // generate subset
         found = get_subset(kernel, from, to, model_points, count, subset0, subset1);
@@ -1106,7 +992,7 @@
 
         nmodels = kernel.run( subset0, subset1, M, model_points );
         
-        if (nmodels &lt;= 0) {
+        if (nmodels <= 0) {
           
           continue;
         
@@ -1116,7 +1002,7 @@
 
         numinliers = find_inliers(kernel, M, from, to, count, params.thresh, err, curr_mask.data);
 
-        if ( numinliers &gt; Math.max(inliers_max, model_points-1) ) {
+        if ( numinliers > Math.max(inliers_max, model_points-1) ) {
           
           M.copy_to(model);
           inliers_max = numinliers;
@@ -1159,12 +1045,12 @@
      *        var from = [];
      *        var to = [];
      *
-     *        for(var i = 0; i &lt; count; ++i) {
+     *        for(var i = 0; i < count; ++i) {
      *
      *          // you can use keypoint_t structure
      *          // or just provide object with x and y properties
-     *          from[i] = { &quot;x&quot;:Math.random()*320, &quot;y&quot;:Math.random()*240 };
-     *          to[i] = { &quot;x&quot;:from[i].x + Math.random()*5, &quot;y&quot;:from[i].y+Math.random()*5 };
+     *          from[i] = { "x":Math.random()*320, "y":Math.random()*240 };
+     *          to[i] = { "x":from[i].x + Math.random()*5, "y":from[i].y+Math.random()*5 };
      *
      *        }
      *
@@ -1197,9 +1083,9 @@
      */
     MotionEstimator.lmeds = function(params, kernel, from, to, count, model, mask, max_iters) {
       
-      if (typeof max_iters === &quot;undefined&quot;) { max_iters=1000; }
+      if (typeof max_iters === "undefined") { max_iters=1000; }
 
-      if(count &lt; params.size) {return false;}
+      if(count < params.size) {return false;}
 
       var model_points = params.size;
       var niters = max_iters, iter=0;
@@ -1212,9 +1098,9 @@
       var mc=model.cols,mr=model.rows;
       var dt = model.type | C1_t;
 
-      var m_buff = Cache.getBuffer((mc*mr)&lt;&lt;3);
+      var m_buff = Cache.getBuffer((mc*mr)<<3);
       var ms_buff = Cache.getBuffer(count);
-      var err_buff = Cache.getBuffer(count&lt;&lt;2);
+      var err_buff = Cache.getBuffer(count<<2);
       var M = new Matrix_t(mc, mr, dt, m_buff.data);
       var curr_mask = new Matrix_t(count, 1, Igata.U8_t|C1_t, ms_buff.data);
 
@@ -1230,7 +1116,7 @@
       // special case
       if (count === model_points) {
         
-        if (kernel.run(from, to, M, count) &lt;= 0) {
+        if (kernel.run(from, to, M, count) <= 0) {
           
           Cache.putBuffer(m_buff);
           Cache.putBuffer(ms_buff);
@@ -1242,7 +1128,7 @@
         M.copy_to(model);
         if(mask) {
 
-          while(--count &gt;= 0) {
+          while(--count >= 0) {
 
             mask.data[count] = 1;
 
@@ -1258,7 +1144,7 @@
 
       }
 
-      for (; iter &lt; niters; ++iter) {
+      for (; iter < niters; ++iter) {
 
         // generate subset
         found = get_subset(kernel, from, to, model_points, count, subset0, subset1);
@@ -1280,7 +1166,7 @@
 
         nmodels = kernel.run( subset0, subset1, M, model_points );
 
-        if (nmodels &lt;= 0) {
+        if (nmodels <= 0) {
 
           continue;
 
@@ -1291,7 +1177,7 @@
         kernel.error(from, to, M, err, count);
         median = Calc.median(err, 0, count-1);
 
-        if(median &lt; min_median) {
+        if(median < min_median) {
 
           min_median = median;
           M.copy_to(model);
@@ -1309,7 +1195,7 @@
         numinliers = find_inliers(kernel, model, from, to, count, sigma, err, curr_mask.data);
         if (mask) { curr_mask.copy_to(mask); }
 
-        result = numinliers &gt;= model_points;
+        result = numinliers >= model_points;
 
       }
 
@@ -1338,21 +1224,3 @@
   global.Estimator = MotionEstimator;
 
 }( window ) );
-    </pre>
-</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<script src="../assets/vendor/prettify/prettify-min.js"></script>
-<script>prettyPrint();</script>
-<script src="../assets/js/yui-prettify.js"></script>
-<script src="../assets/../api.js"></script>
-<script src="../assets/js/api-filter.js"></script>
-<script src="../assets/js/api-list.js"></script>
-<script src="../assets/js/api-search.js"></script>
-<script src="../assets/js/apidocs.js"></script>
-</body>
-</html>

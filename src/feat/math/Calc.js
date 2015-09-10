@@ -25,8 +25,6 @@
   'use strict';
 
   var
-    document = window.document,
-
     Igata = window.Igata,
     global = Igata;
 

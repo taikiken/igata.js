@@ -1,117 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <title>src/feat/Orb.js - igata.js API</title>
-    <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
-    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
-    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
-    <link rel="icon" href="../assets/favicon.ico">
-    <script src="http://yui.yahooapis.com/combo?3.9.1/build/yui/yui-min.js"></script>
-</head>
-<body class="yui3-skin-sam">
-
-<div id="doc">
-    <div id="hd" class="yui3-g header">
-        <div class="yui3-u-3-4">
-                <h1><img src="../assets/css/logo.png" title="igata.js API" width="117" height="52"></h1>
-        </div>
-        <div class="yui3-u-1-4 version">
-            <em>API Docs for: </em>
-        </div>
-    </div>
-    <div id="bd" class="yui3-g">
-
-        <div class="yui3-u-1-4">
-            <div id="docs-sidebar" class="sidebar apidocs">
-                <div id="api-list">
-                    <h2 class="off-left">APIs</h2>
-                    <div id="api-tabview" class="tabview">
-                        <ul class="tabs">
-                            <li><a href="#api-classes">Classes</a></li>
-                            <li><a href="#api-modules">Modules</a></li>
-                        </ul>
-                
-                        <div id="api-tabview-filter">
-                            <input type="search" id="api-filter" placeholder="Type to filter APIs">
-                        </div>
-                
-                        <div id="api-tabview-panel">
-                            <ul id="api-classes" class="apis classes">
-                                <li><a href="../classes/Affine2d.html">Affine2d</a></li>
-                                <li><a href="../classes/Bitmap.html">Bitmap</a></li>
-                                <li><a href="../classes/Blur.html">Blur</a></li>
-                                <li><a href="../classes/Brightness.html">Brightness</a></li>
-                                <li><a href="../classes/Cache.html">Cache</a></li>
-                                <li><a href="../classes/Calc.html">Calc</a></li>
-                                <li><a href="../classes/Convolution.html">Convolution</a></li>
-                                <li><a href="../classes/Data_t.html">Data_t</a></li>
-                                <li><a href="../classes/Estimator.html">Estimator</a></li>
-                                <li><a href="../classes/Filter.html">Filter</a></li>
-                                <li><a href="../classes/Grayscale.html">Grayscale</a></li>
-                                <li><a href="../classes/HomoGraphy2d.html">HomoGraphy2d</a></li>
-                                <li><a href="../classes/Igata.html">Igata</a></li>
-                                <li><a href="../classes/Invert.html">Invert</a></li>
-                                <li><a href="../classes/IVector.html">IVector</a></li>
-                                <li><a href="../classes/Keypoint_t.html">Keypoint_t</a></li>
-                                <li><a href="../classes/LA.html">LA</a></li>
-                                <li><a href="../classes/LinearAlgebra.html">LinearAlgebra</a></li>
-                                <li><a href="../classes/Matrix_t.html">Matrix_t</a></li>
-                                <li><a href="../classes/MatrixMath.html">MatrixMath</a></li>
-                                <li><a href="../classes/MM.html">MM</a></li>
-                                <li><a href="../classes/MotionEstimator.html">MotionEstimator</a></li>
-                                <li><a href="../classes/Node_t.html">Node_t</a></li>
-                                <li><a href="../classes/Orb.html">Orb</a></li>
-                                <li><a href="../classes/Processing.html">Processing</a></li>
-                                <li><a href="../classes/Pyramid_t.html">Pyramid_t</a></li>
-                                <li><a href="../classes/Ransac_t.html">Ransac_t</a></li>
-                                <li><a href="../classes/Sepia.html">Sepia</a></li>
-                                <li><a href="../classes/Stack.html">Stack</a></li>
-                                <li><a href="../classes/Threshold.html">Threshold</a></li>
-                                <li><a href="../classes/Vector2.html">Vector2</a></li>
-                            </ul>
-                
-                
-                            <ul id="api-modules" class="apis modules">
-                                <li><a href="../modules/Feat.html">Feat</a></li>
-                                <li><a href="../modules/Igata.html">Igata</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="yui3-u-3-4">
-                <div id="api-options">
-                    Show:
-                    <label for="api-show-inherited">
-                        <input type="checkbox" id="api-show-inherited" checked>
-                        Inherited
-                    </label>
-            
-                    <label for="api-show-protected">
-                        <input type="checkbox" id="api-show-protected">
-                        Protected
-                    </label>
-            
-                    <label for="api-show-private">
-                        <input type="checkbox" id="api-show-private">
-                        Private
-                    </label>
-                    <label for="api-show-deprecated">
-                        <input type="checkbox" id="api-show-deprecated">
-                        Deprecated
-                    </label>
-            
-                </div>
-            
-            <div class="apidocs">
-                <div id="docs-main">
-                    <div class="content">
-<h1 class="file-heading">File: src/feat/Orb.js</h1>
-
-<div class="file">
-    <pre class="code prettyprint linenums">
 ///**
 // * license inazumatv.com
 // * author (at)taikiken / http://inazumatv.com
@@ -136,7 +22,7 @@
  */
 ( function ( window ) {
 
-  &#x27;use strict&#x27;;
+  'use strict';
 
   var
     Igata = window.Igata,
@@ -150,6 +36,7 @@
   global.Orb = ( function () {
 
     /**
+     * @for Orb
      * @property bit_pattern_31_
      * @static
      * @type {Int32Array}
@@ -415,6 +302,7 @@
     ]);
 
     /**
+     * @for Orb
      * @property H
      * @static
      * @private
@@ -423,6 +311,7 @@
      */
     var H = new Matrix_t(3, 3, Igata.F32_t|Igata.C1_t);
     /**
+     * @for Orb
      * @property patch_img
      * @static
      * @private
@@ -432,6 +321,7 @@
     var patch_img = new Matrix_t(32, 32, U8_t|Igata.C1_t);
 
     /**
+     * @for Orb
      * @method rectify_patch
      * @static
      * @private
@@ -460,12 +350,24 @@
     }
 
     /**
+     * Oriented and Rotated BRIEF. [for more info see: http://en.wikipedia.org/wiki/ORB_(feature_descriptor)]
+     *
+     *
+     *      var corners = []; // Igata.Keypoint_t Array
+     *
+     *      vvar cols = 32; // 32 Bytes / 256 BIT descriptor
+     *      vvar rows = num_corners; // descriptors stored per row
+     *      vvar descriptors = new Igata.Matrix_t(cols, rows, Igata.U8_t | Igata.C1_t);
+     *
+     *      Igata.Orb.describe(img_u8:Matrix_t, corners:Array, num_corners, descriptors:Matrix_t);
+     *
+     *
      * @class Orb
      * @static
      * @constructor
      */
     function Orb () {
-      throw new Error( &#x27;Orb can\&#x27;t create instance.&#x27; );
+      throw new Error( 'Orb can\'t create instance.' );
     }
 
     var p = Orb.prototype;
@@ -476,7 +378,7 @@
      * @static
      *
      * @param {Matrix_t} src
-     * @param {Matrix_t} corners
+     * @param {Array|Keypoint_t} corners
      * @param {number} count
      * @param {Matrix_t} descriptors
      */
@@ -490,7 +392,7 @@
       var patch_off = 16*32 + 16; // center of patch
       var patt=0;
 
-      if(!(descriptors.type&amp;U8_t)) {
+      if(!(descriptors.type&U8_t)) {
 
         // relocate to U8 type
         descriptors.type = U8_t;
@@ -508,7 +410,7 @@
       var descr_d = descriptors.data;
       var descr_off = 0;
 
-      for(i = 0; i &lt; count; ++i) {
+      for(i = 0; i < count; ++i) {
 
         px = corners[i].x;
         py = corners[i].y;
@@ -519,39 +421,39 @@
         // describe the patch
         patt = 0;
 
-        for (b = 0; b &lt; DESCR_SIZE; ++b) {
+        for (b = 0; b < DESCR_SIZE; ++b) {
 
           t0 = patch_d[patch_off + bit_pattern_31_[patt+1] * 32 + bit_pattern_31_[patt]]; patt += 2;
           t1 = patch_d[patch_off + bit_pattern_31_[patt+1] * 32 + bit_pattern_31_[patt]]; patt += 2;
-          val = (t0 &lt; t1)|0;
+          val = (t0 < t1)|0;
 
           t0 = patch_d[patch_off + bit_pattern_31_[patt+1] * 32 + bit_pattern_31_[patt]]; patt += 2;
           t1 = patch_d[patch_off + bit_pattern_31_[patt+1] * 32 + bit_pattern_31_[patt]]; patt += 2;
-          val |= (t0 &lt; t1) &lt;&lt; 1;
+          val |= (t0 < t1) << 1;
 
           t0 = patch_d[patch_off + bit_pattern_31_[patt+1] * 32 + bit_pattern_31_[patt]]; patt += 2;
           t1 = patch_d[patch_off + bit_pattern_31_[patt+1] * 32 + bit_pattern_31_[patt]]; patt += 2;
-          val |= (t0 &lt; t1) &lt;&lt; 2;
+          val |= (t0 < t1) << 2;
 
           t0 = patch_d[patch_off + bit_pattern_31_[patt+1] * 32 + bit_pattern_31_[patt]]; patt += 2;
           t1 = patch_d[patch_off + bit_pattern_31_[patt+1] * 32 + bit_pattern_31_[patt]]; patt += 2;
-          val |= (t0 &lt; t1) &lt;&lt; 3;
+          val |= (t0 < t1) << 3;
 
           t0 = patch_d[patch_off + bit_pattern_31_[patt+1] * 32 + bit_pattern_31_[patt]]; patt += 2;
           t1 = patch_d[patch_off + bit_pattern_31_[patt+1] * 32 + bit_pattern_31_[patt]]; patt += 2;
-          val |= (t0 &lt; t1) &lt;&lt; 4;
+          val |= (t0 < t1) << 4;
 
           t0 = patch_d[patch_off + bit_pattern_31_[patt+1] * 32 + bit_pattern_31_[patt]]; patt += 2;
           t1 = patch_d[patch_off + bit_pattern_31_[patt+1] * 32 + bit_pattern_31_[patt]]; patt += 2;
-          val |= (t0 &lt; t1) &lt;&lt; 5;
+          val |= (t0 < t1) << 5;
 
           t0 = patch_d[patch_off + bit_pattern_31_[patt+1] * 32 + bit_pattern_31_[patt]]; patt += 2;
           t1 = patch_d[patch_off + bit_pattern_31_[patt+1] * 32 + bit_pattern_31_[patt]]; patt += 2;
-          val |= (t0 &lt; t1) &lt;&lt; 6;
+          val |= (t0 < t1) << 6;
 
           t0 = patch_d[patch_off + bit_pattern_31_[patt+1] * 32 + bit_pattern_31_[patt]]; patt += 2;
           t1 = patch_d[patch_off + bit_pattern_31_[patt+1] * 32 + bit_pattern_31_[patt]]; patt += 2;
-          val |= (t0 &lt; t1) &lt;&lt; 7;
+          val |= (t0 < t1) << 7;
 
           descr_d[descr_off+b] = val;
 
@@ -568,21 +470,3 @@
   }() );
 
 }( window ) );
-    </pre>
-</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<script src="../assets/vendor/prettify/prettify-min.js"></script>
-<script>prettyPrint();</script>
-<script src="../assets/js/yui-prettify.js"></script>
-<script src="../assets/../api.js"></script>
-<script src="../assets/js/api-filter.js"></script>
-<script src="../assets/js/api-list.js"></script>
-<script src="../assets/js/api-search.js"></script>
-<script src="../assets/js/apidocs.js"></script>
-</body>
-</html>

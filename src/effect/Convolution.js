@@ -42,7 +42,12 @@
     /**
      * @method filter
      * @param {Array} [weights] 3 x 3 Matrix
-     * @default [1,1,1,1,0.7,-1,-1,-1,-1]
+     *
+     *      [
+     *        1, 1,   1,
+     *        1, 0.7,-1,
+     *        -1, -1,-1
+     *        ]
      */
     p.filter = function ( weights ) {
 
@@ -97,8 +102,7 @@
     /**
      * box blur
      * @method blur
-     * @param {number} k
-     * @default 0.1111111
+     * @param {number=0.1111111} [k]
      */
     p.blur = function ( k ) {
 

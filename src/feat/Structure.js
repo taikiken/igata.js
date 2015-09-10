@@ -394,8 +394,7 @@
      * @param {number=0} [y]
      * @param {number=0} [score]
      * @param {number=0} [level]
-     * @param {number} [angle]
-     * @default -1.0
+     * @param {number=-1.0} [angle]
      * @constructor
      */
     function Keypoint_t ( x, y, score, level, angle ) {

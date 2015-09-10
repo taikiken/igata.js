@@ -231,22 +231,22 @@ $(window).load(function() {
       var imageData = ctx.getImageData(0, 0, 640, 480);
 
       stat.start("grayscale");
-      jsfeat.imgproc.grayscale(imageData.data, 640, 480, img_u8);
+      Igata.Processing.grayscale(imageData.data, 640, 480, img_u8);
       stat.stop("grayscale");
 
       stat.start("gauss blur");
-      jsfeat.imgproc.gaussian_blur(img_u8, img_u8_smooth, options.blur_size|0);
+      Igata.Processing.gaussian_blur(img_u8, img_u8_smooth, options.blur_size|0);
       stat.stop("gauss blur");
 
-      jsfeat.yape06.laplacian_threshold = options.lap_thres|0;
-      jsfeat.yape06.min_eigen_value_threshold = options.eigen_thres|0;
+      Igata.Yape06.threshold = options.lap_thres|0;
+      Igata.Yape06.thresholdMin = options.eigen_thres|0;
 
       stat.start("keypoints");
       num_corners = detect_keypoints(img_u8_smooth, screen_corners, 500);
       stat.stop("keypoints");
 
       stat.start("orb descriptors");
-      jsfeat.orb.describe(img_u8_smooth, screen_corners, num_corners, screen_descriptors);
+      Igata.Orb.describe(img_u8_smooth, screen_corners, num_corners, screen_descriptors);
       stat.stop("orb descriptors");
 
       // render result back to canvas
@@ -280,11 +280,11 @@ $(window).load(function() {
 
   function detect_keypoints(img, corners, max_allowed) {
     // detect features
-    var count = jsfeat.yape06.detect(img, corners, 17);
+    var count = Igata.Yape06.detect(img, corners, 17);
 
     // sort by score and reduce the count if needed
     if(count > max_allowed) {
-      jsfeat.math.qsort(corners, 0, count-1, function(a,b){return (b.score<a.score);});
+      Igata.Calc.qsort(corners, 0, count-1, function(a,b){return (b.score<a.score);});
       count = max_allowed;
     }
 
@@ -329,11 +329,11 @@ $(window).load(function() {
   // estimate homography transform between matched points
   function find_transform(matches, count) {
     // motion kernel
-    var mm_kernel = new jsfeat.motion_model.homography2d();
+    var mm_kernel = new Igata.HomoGraphy2d();
     // ransac params
     var num_model_points = 4;
     var reproj_threshold = 3;
-    var ransac_param = new jsfeat.ransac_params_t(num_model_points,
+    var ransac_param = new Igata.Ransac_t(num_model_points,
       reproj_threshold, 0.5, 0.99);
 
     var pattern_xy = [];
@@ -350,8 +350,7 @@ $(window).load(function() {
 
     // estimate motion
     var ok = false;
-    ok = jsfeat.motion_estimator.ransac(ransac_param, mm_kernel,
-      pattern_xy, screen_xy, count, homo3x3, match_mask, 1000);
+    ok = Igata.Estimator.ransac(ransac_param, mm_kernel, pattern_xy, screen_xy, count, homo3x3, match_mask, 1000);
 
     // extract good matches and re-estimate
     var good_cnt = 0;
@@ -368,7 +367,7 @@ $(window).load(function() {
       // run kernel directly with inliers only
       mm_kernel.run(pattern_xy, screen_xy, homo3x3, good_cnt);
     } else {
-      jsfeat.matmath.identity_3x3(homo3x3, 1.0);
+      Igata.MM.identity_3x3(homo3x3, 1.0);
     }
 
     return good_cnt;
@@ -502,6 +501,7 @@ $(window).load(function() {
   }
 
   function render_corners(corners, count, img, step) {
+    // -16711936
     var pix = (0xff << 24) | (0x00 << 16) | (0xff << 8) | 0x00;
     for(var i=0; i < count; ++i)
     {
@@ -517,6 +517,7 @@ $(window).load(function() {
   }
 
   function render_mono_image(src, dst, sw, sh, dw) {
+    // -16777216
     var alpha = (0xff << 24);
     for(var i = 0; i < sh; ++i) {
       for(var j = 0; j < sw; ++j) {
