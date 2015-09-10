@@ -1,0 +1,5272 @@
+{
+    "project": {
+        "name": "igata.js API",
+        "description": "Canvas 2D image effect.",
+        "url": "https://github.com/taikiken/igata.js"
+    },
+    "files": {
+        "src/effect/Bitmap.js": {
+            "name": "src/effect/Bitmap.js",
+            "modules": {
+                "Igata": 1
+            },
+            "classes": {
+                "Bitmap": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/effect/Blur.js": {
+            "name": "src/effect/Blur.js",
+            "modules": {},
+            "classes": {
+                "Stack": 1,
+                "Blur": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/effect/Brightness.js": {
+            "name": "src/effect/Brightness.js",
+            "modules": {},
+            "classes": {
+                "Brightness": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/effect/Convolution.js": {
+            "name": "src/effect/Convolution.js",
+            "modules": {},
+            "classes": {
+                "Convolution": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/effect/Filter.js": {
+            "name": "src/effect/Filter.js",
+            "modules": {},
+            "classes": {
+                "Filter": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/effect/Grayscale.js": {
+            "name": "src/effect/Grayscale.js",
+            "modules": {},
+            "classes": {
+                "Grayscale": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/effect/Invert.js": {
+            "name": "src/effect/Invert.js",
+            "modules": {},
+            "classes": {
+                "Invert": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/effect/Sepia.js": {
+            "name": "src/effect/Sepia.js",
+            "modules": {},
+            "classes": {
+                "Sepia": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/effect/Threshold.js": {
+            "name": "src/effect/Threshold.js",
+            "modules": {},
+            "classes": {
+                "Threshold": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/feat/math/Calc.js": {
+            "name": "src/feat/math/Calc.js",
+            "modules": {
+                "Feat": 1
+            },
+            "classes": {
+                "Calc": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/feat/math/LinearAlgebra.js": {
+            "name": "src/feat/math/LinearAlgebra.js",
+            "modules": {},
+            "classes": {
+                "LinearAlgebra": 1,
+                "LA": 1
+            },
+            "fors": {
+                "LinearAlgebra": 1
+            },
+            "namespaces": {}
+        },
+        "src/feat/math/MatrixMath.js": {
+            "name": "src/feat/math/MatrixMath.js",
+            "modules": {},
+            "classes": {
+                "MatrixMath": 1,
+                "MM": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/feat/Cache.js": {
+            "name": "src/feat/Cache.js",
+            "modules": {},
+            "classes": {
+                "Node_t": 1,
+                "Cache": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/feat/MotionModel.js": {
+            "name": "src/feat/MotionModel.js",
+            "modules": {},
+            "classes": {
+                "Affine2d": 1,
+                "HomoGraphy2d": 1,
+                "Ransac_t": 1,
+                "MotionEstimator": 1,
+                "Estimator": 1
+            },
+            "fors": {
+                "Affine2d": 1,
+                "MotionEstimator": 1
+            },
+            "namespaces": {}
+        },
+        "src/feat/Orb.js": {
+            "name": "src/feat/Orb.js",
+            "modules": {},
+            "classes": {
+                "Orb": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/feat/Processing.js": {
+            "name": "src/feat/Processing.js",
+            "modules": {},
+            "classes": {
+                "Processing": 1,
+                "Pyramid_t": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/feat/Structure.js": {
+            "name": "src/feat/Structure.js",
+            "modules": {},
+            "classes": {
+                "Data_t": 1,
+                "Matrix_t": 1,
+                "Keypoint_t": 1
+            },
+            "fors": {
+                "Igata": 1
+            },
+            "namespaces": {}
+        },
+        "src/geom/IVector.js": {
+            "name": "src/geom/IVector.js",
+            "modules": {},
+            "classes": {
+                "IVector": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/geom/Vector2.js": {
+            "name": "src/geom/Vector2.js",
+            "modules": {},
+            "classes": {
+                "Vector2": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/igata.js": {
+            "name": "src/igata.js",
+            "modules": {},
+            "classes": {},
+            "fors": {
+                "Igata": 1
+            },
+            "namespaces": {}
+        }
+    },
+    "modules": {
+        "Igata": {
+            "name": "Igata",
+            "submodules": {
+                "Feat": 1
+            },
+            "elements": {},
+            "classes": {
+                "Bitmap": 1,
+                "Stack": 1,
+                "Blur": 1,
+                "Brightness": 1,
+                "Convolution": 1,
+                "Filter": 1,
+                "Grayscale": 1,
+                "Invert": 1,
+                "Sepia": 1,
+                "Threshold": 1,
+                "Calc": 1,
+                "LinearAlgebra": 1,
+                "LA": 1,
+                "MatrixMath": 1,
+                "MM": 1,
+                "Node_t": 1,
+                "Cache": 1,
+                "Affine2d": 1,
+                "HomoGraphy2d": 1,
+                "Ransac_t": 1,
+                "MotionEstimator": 1,
+                "Estimator": 1,
+                "Orb": 1,
+                "Processing": 1,
+                "Pyramid_t": 1,
+                "Igata": 1,
+                "Data_t": 1,
+                "Matrix_t": 1,
+                "Keypoint_t": 1,
+                "IVector": 1,
+                "Vector2": 1
+            },
+            "fors": {
+                "LinearAlgebra": 1,
+                "Affine2d": 1,
+                "MotionEstimator": 1,
+                "Igata": 1
+            },
+            "namespaces": {},
+            "tag": "module",
+            "file": "src/geom/Vector2.js",
+            "line": 29,
+            "type": "{Bitmap}"
+        },
+        "Feat": {
+            "name": "Feat",
+            "submodules": {},
+            "elements": {},
+            "classes": {
+                "Calc": 1,
+                "LinearAlgebra": 1,
+                "LA": 1,
+                "MatrixMath": 1,
+                "MM": 1,
+                "Node_t": 1,
+                "Cache": 1,
+                "Affine2d": 1,
+                "HomoGraphy2d": 1,
+                "Ransac_t": 1,
+                "MotionEstimator": 1,
+                "Estimator": 1,
+                "Orb": 1,
+                "Processing": 1,
+                "Pyramid_t": 1,
+                "Igata": 1,
+                "Data_t": 1,
+                "Matrix_t": 1,
+                "Keypoint_t": 1
+            },
+            "fors": {
+                "LinearAlgebra": 1,
+                "Affine2d": 1,
+                "MotionEstimator": 1,
+                "Igata": 1
+            },
+            "is_submodule": 1,
+            "namespaces": {},
+            "module": "Igata",
+            "namespace": "",
+            "file": "src/feat/Structure.js",
+            "line": 391,
+            "description": "original code\nhttp://inspirit.github.io/jsfeat/"
+        }
+    },
+    "classes": {
+        "Bitmap": {
+            "name": "Bitmap",
+            "shortname": "Bitmap",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Igata",
+            "namespace": "",
+            "file": "src/effect/Bitmap.js",
+            "line": 14,
+            "params": [
+                {
+                    "name": "context",
+                    "description": "",
+                    "type": "CanvasRenderingContext2D"
+                },
+                {
+                    "name": "img",
+                    "description": "",
+                    "type": "Image"
+                }
+            ],
+            "is_constructor": 1
+        },
+        "Stack": {
+            "name": "Stack",
+            "shortname": "Stack",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Igata",
+            "namespace": "",
+            "file": "src/effect/Blur.js",
+            "line": 16,
+            "description": "Blur inner class",
+            "is_constructor": 1
+        },
+        "Blur": {
+            "name": "Blur",
+            "shortname": "Blur",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Igata",
+            "namespace": "",
+            "file": "src/effect/Blur.js",
+            "line": 207,
+            "description": "filter: blur\n\nhttp://www.quasimondo.com/StackBlurForCanvas/StackBlurDemo.html",
+            "extends": "Filter",
+            "params": [
+                {
+                    "name": "bitmap",
+                    "description": "",
+                    "type": "Bitmap"
+                }
+            ],
+            "is_constructor": 1
+        },
+        "Brightness": {
+            "name": "Brightness",
+            "shortname": "Brightness",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Igata",
+            "namespace": "",
+            "file": "src/effect/Brightness.js",
+            "line": 17,
+            "description": "filter: brightness",
+            "extends": "Filter",
+            "params": [
+                {
+                    "name": "bitmap",
+                    "description": "",
+                    "type": "Bitmap"
+                }
+            ],
+            "is_constructor": 1
+        },
+        "Convolution": {
+            "name": "Convolution",
+            "shortname": "Convolution",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Igata",
+            "namespace": "",
+            "file": "src/effect/Convolution.js",
+            "line": 24,
+            "extends": "Filter",
+            "params": [
+                {
+                    "name": "bitmap",
+                    "description": "",
+                    "type": "Bitmap"
+                }
+            ],
+            "is_constructor": 1
+        },
+        "Filter": {
+            "name": "Filter",
+            "shortname": "Filter",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Igata",
+            "namespace": "",
+            "file": "src/effect/Filter.js",
+            "line": 14,
+            "params": [
+                {
+                    "name": "bitmap",
+                    "description": "",
+                    "type": "Bitmap"
+                }
+            ],
+            "is_constructor": 1
+        },
+        "Grayscale": {
+            "name": "Grayscale",
+            "shortname": "Grayscale",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Igata",
+            "namespace": "",
+            "file": "src/effect/Grayscale.js",
+            "line": 17,
+            "description": "filter: grayscale",
+            "extends": "Filter",
+            "params": [
+                {
+                    "name": "bitmap",
+                    "description": "",
+                    "type": "Bitmap"
+                }
+            ],
+            "is_constructor": 1
+        },
+        "Invert": {
+            "name": "Invert",
+            "shortname": "Invert",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Igata",
+            "namespace": "",
+            "file": "src/effect/Invert.js",
+            "line": 17,
+            "description": "filter: 画像反転(invert)",
+            "extends": "Filter",
+            "params": [
+                {
+                    "name": "bitmap",
+                    "description": "",
+                    "type": "Bitmap"
+                }
+            ],
+            "is_constructor": 1
+        },
+        "Sepia": {
+            "name": "Sepia",
+            "shortname": "Sepia",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Igata",
+            "namespace": "",
+            "file": "src/effect/Sepia.js",
+            "line": 28,
+            "description": "filter: sepia",
+            "extends": "Filter",
+            "params": [
+                {
+                    "name": "bitmap",
+                    "description": "",
+                    "type": "Bitmap"
+                }
+            ],
+            "is_constructor": 1
+        },
+        "Threshold": {
+            "name": "Threshold",
+            "shortname": "Threshold",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Igata",
+            "namespace": "",
+            "file": "src/effect/Threshold.js",
+            "line": 17,
+            "description": "filter: threshold",
+            "extends": "Filter",
+            "params": [
+                {
+                    "name": "bitmap",
+                    "description": "",
+                    "type": "Bitmap"
+                }
+            ],
+            "is_constructor": 1
+        },
+        "Calc": {
+            "name": "Calc",
+            "shortname": "Calc",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Igata",
+            "submodule": "Feat",
+            "namespace": "",
+            "file": "src/feat/math/Calc.js",
+            "line": 45,
+            "static": 1,
+            "is_constructor": 1
+        },
+        "LinearAlgebra": {
+            "name": "LinearAlgebra",
+            "shortname": "LinearAlgebra",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [
+                "LA"
+            ],
+            "module": "Igata",
+            "submodule": "Feat",
+            "namespace": "",
+            "file": "src/feat/math/LinearAlgebra.js",
+            "line": 705,
+            "static": 1,
+            "is_constructor": 1
+        },
+        "LA": {
+            "name": "LA",
+            "shortname": "LA",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Igata",
+            "submodule": "Feat",
+            "namespace": "",
+            "file": "src/feat/math/LinearAlgebra.js",
+            "line": 1238,
+            "description": "alias LinearAlgebra",
+            "uses": [
+                "LinearAlgebra"
+            ]
+        },
+        "MatrixMath": {
+            "name": "MatrixMath",
+            "shortname": "MatrixMath",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [
+                "MM"
+            ],
+            "module": "Igata",
+            "submodule": "Feat",
+            "namespace": "",
+            "file": "src/feat/math/MatrixMath.js",
+            "line": 33,
+            "description": "Matrix Math\n\nVarious generalized matrix operations.",
+            "static": 1,
+            "is_constructor": 1
+        },
+        "MM": {
+            "name": "MM",
+            "shortname": "MM",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Igata",
+            "submodule": "Feat",
+            "namespace": "",
+            "file": "src/feat/math/MatrixMath.js",
+            "line": 450,
+            "description": "alias MatrixMath",
+            "uses": [
+                "MatrixMath"
+            ]
+        },
+        "Node_t": {
+            "name": "Node_t",
+            "shortname": "Node_t",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Igata",
+            "submodule": "Feat",
+            "namespace": "",
+            "file": "src/feat/Cache.js",
+            "line": 37,
+            "description": "Cache inner class",
+            "params": [
+                {
+                    "name": "size_in_bytes",
+                    "description": "",
+                    "type": "Number"
+                }
+            ],
+            "is_constructor": 1
+        },
+        "Cache": {
+            "name": "Cache",
+            "shortname": "Cache",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Igata",
+            "submodule": "Feat",
+            "namespace": "",
+            "file": "src/feat/Cache.js",
+            "line": 122,
+            "description": "has very simple and experimental linked pool based cache system. At the moment I'm not sure if it is really needed since most JavaScript engines have their own powerful caching. But running some tests I noticed that repeatedly calling methods that need temporary Array(s) allocation significantly increase its execution time. So replacing allocation with pooled buffers helps to improve performance in some cases. How it works:\n\n\n     var size_in_bytes = 640;\n     var temp_buffer =  Igata.Cache.getBuffer(size_in_bytes);\n     var temp_u8 = temp_buffer.u8; // Uint8Array 640 entries\n\n     // but you also can get other data types\n     // Int32Array but length will be 640/4 = 160 entries\n     var temp_i32 = temp_buffer.i32;\n\n     // since all buffers comes from data_t instance\n     // you can also use it to construct matrix_t\n     var columns = 320, rows = 240, data_type = Igata.U8_t | Igata.C1_t;\n     var my_matrix = new Igata.Matrix_t(columns, rows, data_type, temp_buffer.data);\n\n     // be careful because you always should provide enough space for matrix\n\n\n\nfor now we dont need more than 30 buffers\n\nif having cache sys really helps we can add auto extending sys\n\n\n      Cache.allocate(30, 640*4);",
+            "static": 1,
+            "is_constructor": 1
+        },
+        "Affine2d": {
+            "name": "Affine2d",
+            "shortname": "Affine2d",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Igata",
+            "submodule": "Feat",
+            "namespace": "",
+            "file": "src/feat/MotionModel.js",
+            "line": 166,
+            "description": "This kernel calculates the affine transform from corresponding points. The function calculates the 3x3 Matrix\n\n\n     // create affine kernel\n     // you can reuse it for different point sets\n     var affine_kernel = new Affine2d();\n     var affine_transform = new Matrix_t(3, 3, Igata.F32_t | Igata.C1_t);\n     var count = 33;\n     var from = [];\n     var to = [];\n\n     for(var i = 0; i < count; ++i) {\n\n       // you can use keypoint_t structure\n       // or just provide object with x and y properties\n       from[i] = { \"x\":Math.random()*320, \"y\":Math.random()*240 };\n       to[i] = { \"x\":from[i].x + 5, \"y\":from[i].y+5 };\n\n     }\n\n     affine_kernel.run(from, to, affine_transform, count);\n\n     // you can also calculate transform error for each point\n     var error = new Matrix_t(count, 1, jsfeat.F32_t | jsfeat.C1_t);\n     affine_kernel.error(from, to, affine_transform, error.data, count);",
+            "is_constructor": 1
+        },
+        "HomoGraphy2d": {
+            "name": "HomoGraphy2d",
+            "shortname": "HomoGraphy2d",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Igata",
+            "submodule": "Feat",
+            "namespace": "",
+            "file": "src/feat/MotionModel.js",
+            "line": 294,
+            "description": "This kernel calculates perspective transform between point sets. Result is 3x3 Matrix\n\n\n     // create homography kernel\n     // you can reuse it for different point sets\n     var homo_kernel = new HomoGraphy2d();\n     var homo_transform = new Matrix_t(3, 3, jsfeat.F32_t | jsfeat.C1_t);\n     var count = 33;\n     var from = [];\n     var to = [];\n\n     for(var i = 0; i < count; ++i) {\n\n       // you can use keypoint_t structure\n       // or just provide object with x and y properties\n       from[i] = { \"x\":Math.random()*320, \"y\":Math.random()*240 };\n       to[i] = { \"x\":from[i].x + 5, \"y\":from[i].y+5 };\n\n     }\n\n     homo_kernel.run(from, to, homo_transform, count);\n\n     // you can also calculate transform error for each point\n     var error = new Matrix_t(count, 1, F32_t | C1_t);\n     homo_kernel.error(from, to, homo_transform, error.data, count);",
+            "is_constructor": 1
+        },
+        "Ransac_t": {
+            "name": "Ransac_t",
+            "shortname": "Ransac_t",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Igata",
+            "submodule": "Feat",
+            "namespace": "",
+            "file": "src/feat/MotionModel.js",
+            "line": 683,
+            "params": [
+                {
+                    "name": "size",
+                    "description": "",
+                    "type": "Number=0",
+                    "optional": true
+                },
+                {
+                    "name": "thresh",
+                    "description": "",
+                    "type": "Number",
+                    "optional": true
+                },
+                {
+                    "name": "eps",
+                    "description": "",
+                    "type": "Number",
+                    "optional": true
+                },
+                {
+                    "name": "prob",
+                    "description": "",
+                    "type": "Number",
+                    "optional": true
+                }
+            ],
+            "default": "0.99",
+            "is_constructor": 1
+        },
+        "MotionEstimator": {
+            "name": "MotionEstimator",
+            "shortname": "MotionEstimator",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [
+                "Estimator"
+            ],
+            "module": "Igata",
+            "submodule": "Feat",
+            "namespace": "",
+            "file": "src/feat/MotionModel.js",
+            "line": 850,
+            "static": 1,
+            "is_constructor": 1
+        },
+        "Estimator": {
+            "name": "Estimator",
+            "shortname": "Estimator",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Igata",
+            "submodule": "Feat",
+            "namespace": "",
+            "file": "src/feat/MotionModel.js",
+            "line": 1218,
+            "description": "alias MotionEstimator",
+            "uses": [
+                "MotionEstimator"
+            ]
+        },
+        "Orb": {
+            "name": "Orb",
+            "shortname": "Orb",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Igata",
+            "submodule": "Feat",
+            "namespace": "",
+            "file": "src/feat/Orb.js",
+            "line": 348,
+            "static": 1,
+            "is_constructor": 1
+        },
+        "Processing": {
+            "name": "Processing",
+            "shortname": "Processing",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Igata",
+            "submodule": "Feat",
+            "namespace": "",
+            "file": "src/feat/Processing.js",
+            "line": 640,
+            "static": 1,
+            "is_constructor": 1
+        },
+        "Pyramid_t": {
+            "name": "Pyramid_t",
+            "shortname": "Pyramid_t",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Igata",
+            "submodule": "Feat",
+            "namespace": "",
+            "file": "src/feat/Processing.js",
+            "line": 2290,
+            "description": "A structure to wrap several matrix_t instances. Each data entry is 2x smaller then previous:",
+            "params": [
+                {
+                    "name": "levels",
+                    "description": "",
+                    "type": "Number"
+                }
+            ],
+            "is_constructor": 1
+        },
+        "Igata": {
+            "name": "Igata",
+            "shortname": "Igata",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Igata",
+            "submodule": "Feat",
+            "namespace": ""
+        },
+        "Data_t": {
+            "name": "Data_t",
+            "shortname": "Data_t",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Igata",
+            "submodule": "Feat",
+            "namespace": "",
+            "file": "src/feat/Structure.js",
+            "line": 161,
+            "params": [
+                {
+                    "name": "size_in_bytes",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "buffer",
+                    "description": "",
+                    "type": "ArrayBuffer"
+                }
+            ],
+            "is_constructor": 1
+        },
+        "Matrix_t": {
+            "name": "Matrix_t",
+            "shortname": "Matrix_t",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Igata",
+            "submodule": "Feat",
+            "namespace": "",
+            "file": "src/feat/Structure.js",
+            "line": 225,
+            "params": [
+                {
+                    "name": "c",
+                    "description": "columns",
+                    "type": "Number"
+                },
+                {
+                    "name": "r",
+                    "description": "rows",
+                    "type": "Number"
+                },
+                {
+                    "name": "data_type",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "data_buffer",
+                    "description": "",
+                    "type": "Data_t",
+                    "optional": true
+                }
+            ],
+            "is_constructor": 1
+        },
+        "Keypoint_t": {
+            "name": "Keypoint_t",
+            "shortname": "Keypoint_t",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Igata",
+            "submodule": "Feat",
+            "namespace": "",
+            "file": "src/feat/Structure.js",
+            "line": 391,
+            "params": [
+                {
+                    "name": "x",
+                    "description": "",
+                    "type": "Number=0",
+                    "optional": true
+                },
+                {
+                    "name": "y",
+                    "description": "",
+                    "type": "Number=0",
+                    "optional": true
+                },
+                {
+                    "name": "score",
+                    "description": "",
+                    "type": "Number=0",
+                    "optional": true
+                },
+                {
+                    "name": "level",
+                    "description": "",
+                    "type": "Number=0",
+                    "optional": true
+                },
+                {
+                    "name": "angle",
+                    "description": "",
+                    "type": "Number",
+                    "optional": true
+                }
+            ],
+            "default": "-1.0",
+            "is_constructor": 1
+        },
+        "IVector": {
+            "name": "IVector",
+            "shortname": "IVector",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Igata",
+            "namespace": "",
+            "file": "src/geom/IVector.js",
+            "line": 21,
+            "description": "Interface Vector",
+            "is_constructor": 1
+        },
+        "Vector2": {
+            "name": "Vector2",
+            "shortname": "Vector2",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Igata",
+            "namespace": "",
+            "file": "src/geom/Vector2.js",
+            "line": 29,
+            "extends": "IVector",
+            "params": [
+                {
+                    "name": "x",
+                    "description": "",
+                    "type": "Number=0",
+                    "optional": true
+                },
+                {
+                    "name": "y",
+                    "description": "",
+                    "type": "Number=0",
+                    "optional": true
+                }
+            ],
+            "is_constructor": 1
+        }
+    },
+    "elements": {},
+    "classitems": [
+        {
+            "file": "src/effect/Bitmap.js",
+            "line": 23,
+            "itemtype": "property",
+            "name": "identity",
+            "type": "{Uint8ClampedArray|null}",
+            "class": "Bitmap",
+            "module": "Igata"
+        },
+        {
+            "file": "src/effect/Bitmap.js",
+            "line": 32,
+            "itemtype": "property",
+            "name": "context",
+            "type": "{CanvasRenderingContext2D}",
+            "readonly": "",
+            "class": "Bitmap",
+            "module": "Igata"
+        },
+        {
+            "file": "src/effect/Bitmap.js",
+            "line": 44,
+            "itemtype": "property",
+            "name": "img",
+            "type": "{Image}",
+            "readonly": "",
+            "class": "Bitmap",
+            "module": "Igata"
+        },
+        {
+            "file": "src/effect/Bitmap.js",
+            "line": 81,
+            "description": "CanvasRenderingContext2D.imageData を取得します",
+            "itemtype": "method",
+            "name": "get",
+            "params": [
+                {
+                    "name": "x",
+                    "description": "",
+                    "type": "Number=0",
+                    "optional": true
+                },
+                {
+                    "name": "y",
+                    "description": "",
+                    "type": "Number=0",
+                    "optional": true
+                },
+                {
+                    "name": "width",
+                    "description": "",
+                    "type": "Number",
+                    "optional": true
+                },
+                {
+                    "name": "height",
+                    "description": "",
+                    "type": "Number",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "ImageData"
+            },
+            "class": "Bitmap",
+            "module": "Igata"
+        },
+        {
+            "file": "src/effect/Bitmap.js",
+            "line": 110,
+            "description": "初期状態 imageData.data を保存します",
+            "itemtype": "method",
+            "name": "save",
+            "params": [
+                {
+                    "name": "data",
+                    "description": "初期状態の imageData.data",
+                    "type": "Uint8ClampedArray"
+                }
+            ],
+            "class": "Bitmap",
+            "module": "Igata"
+        },
+        {
+            "file": "src/effect/Blur.js",
+            "line": 23,
+            "itemtype": "property",
+            "name": "r",
+            "type": "{number}",
+            "class": "Stack",
+            "module": "Igata"
+        },
+        {
+            "file": "src/effect/Blur.js",
+            "line": 28,
+            "itemtype": "property",
+            "name": "g",
+            "type": "{number}",
+            "class": "Stack",
+            "module": "Igata"
+        },
+        {
+            "file": "src/effect/Blur.js",
+            "line": 33,
+            "itemtype": "property",
+            "name": "b",
+            "type": "{number}",
+            "class": "Stack",
+            "module": "Igata"
+        },
+        {
+            "file": "src/effect/Blur.js",
+            "line": 38,
+            "itemtype": "property",
+            "name": "a",
+            "type": "{number}",
+            "class": "Stack",
+            "module": "Igata"
+        },
+        {
+            "file": "src/effect/Blur.js",
+            "line": 43,
+            "itemtype": "property",
+            "name": "next",
+            "type": "{null|Stack}",
+            "class": "Stack",
+            "module": "Igata"
+        },
+        {
+            "file": "src/effect/Blur.js",
+            "line": 160,
+            "itemtype": "property",
+            "name": "mul_table",
+            "static": 1,
+            "access": "private",
+            "tagname": "",
+            "type": "{number[]}",
+            "class": "Stack",
+            "module": "Igata"
+        },
+        {
+            "file": "src/effect/Blur.js",
+            "line": 183,
+            "itemtype": "property",
+            "name": "shg_table",
+            "static": 1,
+            "access": "private",
+            "tagname": "",
+            "type": "{number[]}",
+            "class": "Stack",
+            "module": "Igata"
+        },
+        {
+            "file": "src/effect/Blur.js",
+            "line": 228,
+            "description": "blur filter を実行",
+            "itemtype": "method",
+            "name": "filter",
+            "params": [
+                {
+                    "name": "radius",
+                    "description": "",
+                    "type": "Number=8",
+                    "optional": true
+                },
+                {
+                    "name": "alpha",
+                    "description": "",
+                    "type": "Boolean=false",
+                    "optional": true
+                }
+            ],
+            "class": "Blur",
+            "module": "Igata"
+        },
+        {
+            "file": "src/effect/Blur.js",
+            "line": 293,
+            "itemtype": "method",
+            "name": "_rgba",
+            "params": [
+                {
+                    "name": "pixels",
+                    "description": "",
+                    "type": "Uint8ClampedArray"
+                },
+                {
+                    "name": "radius",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "width",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "height",
+                    "description": "",
+                    "type": "Number"
+                }
+            ],
+            "access": "private",
+            "tagname": "",
+            "class": "Blur",
+            "module": "Igata"
+        },
+        {
+            "file": "src/effect/Blur.js",
+            "line": 564,
+            "itemtype": "method",
+            "name": "_rgb",
+            "params": [
+                {
+                    "name": "pixels",
+                    "description": "",
+                    "type": "Uint8ClampedArray"
+                },
+                {
+                    "name": "radius",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "width",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "height",
+                    "description": "",
+                    "type": "Number"
+                }
+            ],
+            "access": "private",
+            "tagname": "",
+            "class": "Blur",
+            "module": "Igata"
+        },
+        {
+            "file": "src/effect/Brightness.js",
+            "line": 35,
+            "description": "brightness filter を実行",
+            "itemtype": "method",
+            "name": "filter",
+            "params": [
+                {
+                    "name": "value",
+                    "description": "",
+                    "type": "Number"
+                }
+            ],
+            "class": "Brightness",
+            "module": "Igata"
+        },
+        {
+            "file": "src/effect/Convolution.js",
+            "line": 42,
+            "itemtype": "method",
+            "name": "filter",
+            "params": [
+                {
+                    "name": "weights",
+                    "description": "3 x 3 Matrix",
+                    "type": "Array",
+                    "optional": true
+                }
+            ],
+            "default": "[1,1,1,1,0.7,-1,-1,-1,-1]",
+            "class": "Convolution",
+            "module": "Igata"
+        },
+        {
+            "file": "src/effect/Convolution.js",
+            "line": 71,
+            "itemtype": "method",
+            "name": "sharpen",
+            "params": [
+                {
+                    "name": "opaque",
+                    "description": "",
+                    "type": "Boolean=false",
+                    "optional": true
+                }
+            ],
+            "class": "Convolution",
+            "module": "Igata"
+        },
+        {
+            "file": "src/effect/Convolution.js",
+            "line": 97,
+            "description": "box blur",
+            "itemtype": "method",
+            "name": "blur",
+            "params": [
+                {
+                    "name": "k",
+                    "description": "",
+                    "type": "Number"
+                }
+            ],
+            "default": "0.1111111",
+            "class": "Convolution",
+            "module": "Igata"
+        },
+        {
+            "file": "src/effect/Convolution.js",
+            "line": 127,
+            "description": "https://github.com/wellflat/javascript-labs",
+            "itemtype": "method",
+            "name": "gaussian",
+            "params": [
+                {
+                    "name": "radius",
+                    "description": "",
+                    "type": "Number"
+                }
+            ],
+            "class": "Convolution",
+            "module": "Igata"
+        },
+        {
+            "file": "src/effect/Convolution.js",
+            "line": 164,
+            "itemtype": "method",
+            "name": "convolute",
+            "params": [
+                {
+                    "name": "ctx",
+                    "description": "",
+                    "type": "CanvasRenderingContext2D"
+                },
+                {
+                    "name": "imageData",
+                    "description": "",
+                    "type": "ImageData"
+                },
+                {
+                    "name": "weights",
+                    "description": "",
+                    "type": "Array"
+                },
+                {
+                    "name": "opaque",
+                    "description": "",
+                    "type": "Boolean"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "ImageData"
+            },
+            "class": "Convolution",
+            "module": "Igata"
+        },
+        {
+            "file": "src/effect/Filter.js",
+            "line": 24,
+            "itemtype": "property",
+            "name": "bitmap",
+            "type": "{Bitmap}",
+            "class": "Filter",
+            "module": "Igata"
+        },
+        {
+            "file": "src/effect/Filter.js",
+            "line": 48,
+            "description": "filter を実行\n\n継承子 Class で実装します",
+            "itemtype": "method",
+            "name": "filter",
+            "class": "Filter",
+            "module": "Igata"
+        },
+        {
+            "file": "src/effect/Filter.js",
+            "line": 58,
+            "itemtype": "method",
+            "name": "imageData",
+            "params": [
+                {
+                    "name": "bitmap",
+                    "description": "",
+                    "type": "Bitmap"
+                }
+            ],
+            "return": {
+                "description": "CanvasRenderingContext2D.imageData を返します",
+                "type": "ImageData"
+            },
+            "class": "Filter",
+            "module": "Igata"
+        },
+        {
+            "file": "src/effect/Filter.js",
+            "line": 79,
+            "description": "filter 前の状態に戻す",
+            "itemtype": "method",
+            "name": "restore",
+            "class": "Filter",
+            "module": "Igata"
+        },
+        {
+            "file": "src/effect/Grayscale.js",
+            "line": 36,
+            "description": "grayscale filter を実行",
+            "itemtype": "method",
+            "name": "filter",
+            "class": "Grayscale",
+            "module": "Igata"
+        },
+        {
+            "file": "src/effect/Grayscale.js",
+            "line": 75,
+            "description": "ImageData.data を grayscale します",
+            "itemtype": "method",
+            "name": "to",
+            "static": 1,
+            "params": [
+                {
+                    "name": "data",
+                    "description": "ImageData.data 形式(Uint8ClampedArray)",
+                    "type": "CanvasPixelArray"
+                }
+            ],
+            "class": "Grayscale",
+            "module": "Igata"
+        },
+        {
+            "file": "src/effect/Invert.js",
+            "line": 35,
+            "description": "invert filter を実行",
+            "itemtype": "method",
+            "name": "filter",
+            "class": "Invert",
+            "module": "Igata"
+        },
+        {
+            "file": "src/effect/Sepia.js",
+            "line": 46,
+            "description": "sepia filter を実行",
+            "itemtype": "method",
+            "name": "filter",
+            "class": "Sepia",
+            "module": "Igata"
+        },
+        {
+            "file": "src/effect/Threshold.js",
+            "line": 35,
+            "description": "2値化 filter",
+            "itemtype": "method",
+            "name": "filter",
+            "params": [
+                {
+                    "name": "threshold",
+                    "description": "閾値",
+                    "type": "Number=128"
+                }
+            ],
+            "class": "Threshold",
+            "module": "Igata"
+        },
+        {
+            "file": "src/feat/math/Calc.js",
+            "line": 57,
+            "itemtype": "method",
+            "name": "kernel",
+            "static": 1,
+            "params": [
+                {
+                    "name": "size",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "sigma",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "kernel",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "data_type",
+                    "description": "",
+                    "type": "Number"
+                }
+            ],
+            "class": "Calc",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/math/Calc.js",
+            "line": 154,
+            "deprecated": true,
+            "deprecationMessage": "instead use kernel",
+            "itemtype": "method",
+            "name": "get_gaussian_kernel",
+            "static": 1,
+            "params": [
+                {
+                    "name": "size",
+                    "description": ""
+                },
+                {
+                    "name": "sigma",
+                    "description": ""
+                },
+                {
+                    "name": "kernel",
+                    "description": ""
+                },
+                {
+                    "name": "data_type",
+                    "description": ""
+                }
+            ],
+            "class": "Calc",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/math/Calc.js",
+            "line": 169,
+            "itemtype": "method",
+            "name": "perspective4",
+            "static": 1,
+            "params": [
+                {
+                    "name": "model",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "src_x0",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "src_y0",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "dst_x0",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "dst_y0",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "src_x1",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "src_y1",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "dst_x1",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "dst_y1",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "src_x2",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "src_y2",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "dst_x2",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "dst_y2",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "src_x3",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "src_y3",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "dst_x3",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "dst_y3",
+                    "description": "",
+                    "type": "Number"
+                }
+            ],
+            "class": "Calc",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/math/Calc.js",
+            "line": 308,
+            "deprecated": true,
+            "deprecationMessage": "instead use perspective4",
+            "itemtype": "method",
+            "name": "perspective_4point_transform",
+            "static": 1,
+            "params": [
+                {
+                    "name": "model",
+                    "description": ""
+                },
+                {
+                    "name": "src_x0",
+                    "description": ""
+                },
+                {
+                    "name": "src_y0",
+                    "description": ""
+                },
+                {
+                    "name": "dst_x0",
+                    "description": ""
+                },
+                {
+                    "name": "dst_y0",
+                    "description": ""
+                },
+                {
+                    "name": "src_x1",
+                    "description": ""
+                },
+                {
+                    "name": "src_y1",
+                    "description": ""
+                },
+                {
+                    "name": "dst_x1",
+                    "description": ""
+                },
+                {
+                    "name": "dst_y1",
+                    "description": ""
+                },
+                {
+                    "name": "src_x2",
+                    "description": ""
+                },
+                {
+                    "name": "src_y2",
+                    "description": ""
+                },
+                {
+                    "name": "dst_x2",
+                    "description": ""
+                },
+                {
+                    "name": "dst_y2",
+                    "description": ""
+                },
+                {
+                    "name": "src_x3",
+                    "description": ""
+                },
+                {
+                    "name": "src_y3",
+                    "description": ""
+                },
+                {
+                    "name": "dst_x3",
+                    "description": ""
+                },
+                {
+                    "name": "dst_y3",
+                    "description": ""
+                }
+            ],
+            "class": "Calc",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/math/Calc.js",
+            "line": 342,
+            "description": "The current implementation was derived from *BSD system qsort():\n\nCopyright (c) 1992, 1993\n\nThe Regents of the University of California.  All rights reserved.",
+            "itemtype": "method",
+            "name": "qsort",
+            "static": 1,
+            "params": [
+                {
+                    "name": "array",
+                    "description": "",
+                    "type": "Array"
+                },
+                {
+                    "name": "low",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "high",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "cmp",
+                    "description": "",
+                    "type": "Function"
+                }
+            ],
+            "class": "Calc",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/math/Calc.js",
+            "line": 617,
+            "itemtype": "method",
+            "name": "median",
+            "static": 1,
+            "params": [
+                {
+                    "name": "array",
+                    "description": "",
+                    "type": "Array"
+                },
+                {
+                    "name": "low",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "high",
+                    "description": "",
+                    "type": "Number"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "*"
+            },
+            "class": "Calc",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/math/LinearAlgebra.js",
+            "line": 39,
+            "itemtype": "method",
+            "name": "swap",
+            "access": "private",
+            "tagname": "",
+            "static": 1,
+            "params": [
+                {
+                    "name": "A",
+                    "description": "",
+                    "type": "Matrix_t"
+                },
+                {
+                    "name": "i0",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "i1",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "t",
+                    "description": "",
+                    "type": "Matrix_t",
+                    "optional": true
+                }
+            ],
+            "class": "LinearAlgebra",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/math/LinearAlgebra.js",
+            "line": 58,
+            "itemtype": "method",
+            "name": "hypot",
+            "access": "private",
+            "tagname": "",
+            "static": 1,
+            "params": [
+                {
+                    "name": "a",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "b",
+                    "description": "",
+                    "type": "Number"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Number"
+            },
+            "class": "LinearAlgebra",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/math/LinearAlgebra.js",
+            "line": 92,
+            "itemtype": "method",
+            "name": "jacobiImpl",
+            "access": "private",
+            "tagname": "",
+            "static": 1,
+            "params": [
+                {
+                    "name": "A",
+                    "description": "",
+                    "type": "Matrix_t"
+                },
+                {
+                    "name": "astep",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "W",
+                    "description": "",
+                    "type": "Matrix_t"
+                },
+                {
+                    "name": "V",
+                    "description": "",
+                    "type": "Matrix_t"
+                },
+                {
+                    "name": "vstep",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "n",
+                    "description": "",
+                    "type": "Number"
+                }
+            ],
+            "is_constructor": 1,
+            "class": "LinearAlgebra",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/math/LinearAlgebra.js",
+            "line": 381,
+            "itemtype": "method",
+            "name": "jacobiSVDImpl",
+            "access": "private",
+            "tagname": "",
+            "static": 1,
+            "params": [
+                {
+                    "name": "At",
+                    "description": "",
+                    "type": "Matrix_t"
+                },
+                {
+                    "name": "astep",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "_W",
+                    "description": "",
+                    "type": "Matrix_t"
+                },
+                {
+                    "name": "Vt",
+                    "description": "",
+                    "type": "Matrix_t"
+                },
+                {
+                    "name": "vstep",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "m",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "n",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "n1",
+                    "description": "",
+                    "type": "Number"
+                }
+            ],
+            "is_constructor": 1,
+            "class": "LinearAlgebra",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/math/LinearAlgebra.js",
+            "line": 717,
+            "description": "A and B modified and result output in B\n\nSolves the system of linear equations Ax = B using Cholesky factorization. The matrix must be symmetrical and positively defined. NOTE: input matrix_t instances will be modified and result output in matrix B.",
+            "itemtype": "method",
+            "name": "lu_solve",
+            "static": 1,
+            "params": [
+                {
+                    "name": "A",
+                    "description": "",
+                    "type": "Matrix_t"
+                },
+                {
+                    "name": "B",
+                    "description": "",
+                    "type": "Matrix_t"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Number"
+            },
+            "class": "LinearAlgebra",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/math/LinearAlgebra.js",
+            "line": 806,
+            "description": "A and B modified and result output in B\n\nSolves the system of linear equations Ax = B using Cholesky factorization. The matrix must be symmetrical and positively defined. NOTE: input matrix_t instances will be modified and result output in matrix B.",
+            "itemtype": "method",
+            "name": "cholesky_solve",
+            "static": 1,
+            "params": [
+                {
+                    "name": "A",
+                    "description": "",
+                    "type": "Matrix_t"
+                },
+                {
+                    "name": "B",
+                    "description": "",
+                    "type": "Matrix_t"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Number"
+            },
+            "class": "LinearAlgebra",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/math/LinearAlgebra.js",
+            "line": 918,
+            "description": "This routine decomposes an rows x cols matrix A, into a product of the three matrices U, W, and V', i.e. A = UWV', where U is an rows x rows matrix whose columns are orthogonal, W is a 1 x cols matrix, and V is an cols x cols orthogonal matrix.",
+            "itemtype": "method",
+            "name": "svd_decompose",
+            "static": 1,
+            "params": [
+                {
+                    "name": "A",
+                    "description": "",
+                    "type": "Matrix_t"
+                },
+                {
+                    "name": "W",
+                    "description": "vector of singular values",
+                    "type": "Matrix_t"
+                },
+                {
+                    "name": "U",
+                    "description": "the left orthogonal matrix",
+                    "type": "Matrix_t"
+                },
+                {
+                    "name": "V",
+                    "description": "the right orthogonal matrix",
+                    "type": "Matrix_t"
+                },
+                {
+                    "name": "options",
+                    "description": "Igata.SVD_U_T and/or Igata.SVD_V_T to return transposed U and/or V",
+                    "type": "Number=0",
+                    "optional": true
+                }
+            ],
+            "class": "LinearAlgebra",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/math/LinearAlgebra.js",
+            "line": 1068,
+            "description": "Solves the system of linear equations Ax = B using Singular value decomposition (SVD) method; the system can be over-defined and/or the matrix A can be singular.",
+            "itemtype": "method",
+            "name": "svd_solve",
+            "static": 1,
+            "params": [
+                {
+                    "name": "A",
+                    "description": "left-hand side of the system",
+                    "type": "Matrix_t"
+                },
+                {
+                    "name": "X",
+                    "description": "right-hand side of the system",
+                    "type": "Matrix_t"
+                },
+                {
+                    "name": "B",
+                    "description": "output solution",
+                    "type": "Matrix_t"
+                }
+            ],
+            "class": "LinearAlgebra",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/math/LinearAlgebra.js",
+            "line": 1129,
+            "itemtype": "method",
+            "name": "svd_invert",
+            "static": 1,
+            "params": [
+                {
+                    "name": "Ai",
+                    "description": "",
+                    "type": "Matrix_t"
+                },
+                {
+                    "name": "A",
+                    "description": "",
+                    "type": "Matrix_t"
+                }
+            ],
+            "class": "LinearAlgebra",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/math/LinearAlgebra.js",
+            "line": 1183,
+            "description": "Computes eigenvalues and eigenvectors of a symmetric matrix.\n\n     LinearAlgebra.eigenVV(A:matrix_t, EigenVectors:matrix_t, EigenValues:matrix_t);\n\n     // you can ask for Vectors or Values only\n     LinearAlgebra.eigenVV(A:matrix_t, null, EigenValues:matrix_t);\n\n     LinearAlgebra.eigenVV(A:matrix_t, EigenVectors:matrix_t, null);",
+            "itemtype": "method",
+            "name": "eigenVV",
+            "static": 1,
+            "params": [
+                {
+                    "name": "A",
+                    "description": "",
+                    "type": "Matrix_t"
+                },
+                {
+                    "name": "vects",
+                    "description": "",
+                    "type": "Matrix_t",
+                    "optional": true
+                },
+                {
+                    "name": "vals",
+                    "description": "",
+                    "type": "Matrix_t",
+                    "optional": true
+                }
+            ],
+            "class": "LinearAlgebra",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/math/MatrixMath.js",
+            "line": 49,
+            "itemtype": "method",
+            "name": "identity",
+            "params": [
+                {
+                    "name": "M",
+                    "description": "",
+                    "type": "Matrix_t"
+                },
+                {
+                    "name": "value",
+                    "description": "",
+                    "type": "Number=1",
+                    "optional": true
+                }
+            ],
+            "class": "MatrixMath",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/math/MatrixMath.js",
+            "line": 81,
+            "description": "Transposes a matrix.",
+            "itemtype": "method",
+            "name": "transpose",
+            "static": 1,
+            "params": [
+                {
+                    "name": "At",
+                    "description": "",
+                    "type": "Matrix_t"
+                },
+                {
+                    "name": "A",
+                    "description": "",
+                    "type": "Matrix_t"
+                }
+            ],
+            "class": "MatrixMath",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/math/MatrixMath.js",
+            "line": 109,
+            "description": "Performs matrix multiplication.\n\nC = A * B",
+            "itemtype": "method",
+            "name": "multiply",
+            "static": 1,
+            "params": [
+                {
+                    "name": "C",
+                    "description": "",
+                    "type": "Matrix_t"
+                },
+                {
+                    "name": "A",
+                    "description": "",
+                    "type": "Matrix_t"
+                },
+                {
+                    "name": "B",
+                    "description": "",
+                    "type": "Matrix_t"
+                }
+            ],
+            "class": "MatrixMath",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/math/MatrixMath.js",
+            "line": 149,
+            "description": "Post multiply the nrows x ncols matrix A by the transpose of the mrows x ncols matrix B to form the nrows x mrows matrix C, i.e. C = A*B'.\n\nC = A * B'",
+            "itemtype": "method",
+            "name": "multiply_ABt",
+            "static": 1,
+            "params": [
+                {
+                    "name": "C",
+                    "description": "",
+                    "type": "Matrix_t"
+                },
+                {
+                    "name": "A",
+                    "description": "",
+                    "type": "Matrix_t"
+                },
+                {
+                    "name": "B",
+                    "description": "",
+                    "type": "Matrix_t"
+                }
+            ],
+            "class": "MatrixMath",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/math/MatrixMath.js",
+            "line": 188,
+            "description": "Post multiply the transpose of the nrows x ncols matrix A by the nrows x mcols matrix B to form the ncols x mcols matrix C, i.e. C = A'*B.\n\nC = A' * B",
+            "itemtype": "method",
+            "name": "multiply_AtB",
+            "static": 1,
+            "params": [
+                {
+                    "name": "C",
+                    "description": "",
+                    "type": "Matrix_t"
+                },
+                {
+                    "name": "A",
+                    "description": "",
+                    "type": "Matrix_t"
+                },
+                {
+                    "name": "B",
+                    "description": "",
+                    "type": "Matrix_t"
+                }
+            ],
+            "class": "MatrixMath",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/math/MatrixMath.js",
+            "line": 229,
+            "description": "C = A * A'",
+            "itemtype": "method",
+            "name": "multiply_AAt",
+            "static": 1,
+            "params": [
+                {
+                    "name": "C",
+                    "description": "",
+                    "type": "Matrix_t"
+                },
+                {
+                    "name": "A",
+                    "description": "",
+                    "type": "Matrix_t"
+                }
+            ],
+            "class": "MatrixMath",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/math/MatrixMath.js",
+            "line": 270,
+            "description": "C = A' * A",
+            "itemtype": "method",
+            "name": "multiply_AAt",
+            "static": 1,
+            "params": [
+                {
+                    "name": "C",
+                    "description": "",
+                    "type": "Matrix_t"
+                },
+                {
+                    "name": "A",
+                    "description": "",
+                    "type": "Matrix_t"
+                }
+            ],
+            "class": "MatrixMath",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/math/MatrixMath.js",
+            "line": 315,
+            "description": "various small matrix operations",
+            "itemtype": "method",
+            "name": "identity_3x3",
+            "static": 1,
+            "params": [
+                {
+                    "name": "M",
+                    "description": "",
+                    "type": "Matrix_t"
+                },
+                {
+                    "name": "value",
+                    "description": "",
+                    "type": "Number=1",
+                    "optional": true
+                }
+            ],
+            "class": "MatrixMath",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/math/MatrixMath.js",
+            "line": 334,
+            "itemtype": "method",
+            "name": "invert_3x3",
+            "static": 1,
+            "params": [
+                {
+                    "name": "from",
+                    "description": "",
+                    "type": "Matrix_t"
+                },
+                {
+                    "name": "to",
+                    "description": "",
+                    "type": "Matrix_t"
+                }
+            ],
+            "class": "MatrixMath",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/math/MatrixMath.js",
+            "line": 373,
+            "description": "C = A * B",
+            "itemtype": "method",
+            "name": "multiply_3x3",
+            "static": 1,
+            "params": [
+                {
+                    "name": "C",
+                    "description": "",
+                    "type": "Matrix_t"
+                },
+                {
+                    "name": "A",
+                    "description": "",
+                    "type": "Matrix_t"
+                },
+                {
+                    "name": "B",
+                    "description": "",
+                    "type": "Matrix_t"
+                }
+            ],
+            "class": "MatrixMath",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/math/MatrixMath.js",
+            "line": 405,
+            "itemtype": "method",
+            "name": "mat3x3_determinant",
+            "static": 1,
+            "params": [
+                {
+                    "name": "M",
+                    "description": "",
+                    "type": "Matrix_t"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Number"
+            },
+            "class": "MatrixMath",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/math/MatrixMath.js",
+            "line": 423,
+            "itemtype": "method",
+            "name": "determinant_3x3",
+            "static": 1,
+            "params": [
+                {
+                    "name": "M11",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "M12",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "M13",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "M21",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "M22",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "M23",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "M31",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "M32",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "M33",
+                    "description": "",
+                    "type": "Number"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Number"
+            },
+            "class": "MatrixMath",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/Cache.js",
+            "line": 45,
+            "itemtype": "property",
+            "name": "next",
+            "type": "{null|Node_t}",
+            "class": "Node_t",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/Cache.js",
+            "line": 51,
+            "itemtype": "property",
+            "name": "data",
+            "type": "{Data_t|*}",
+            "class": "Node_t",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/Cache.js",
+            "line": 56,
+            "itemtype": "property",
+            "name": "size",
+            "type": "{number|*}",
+            "class": "Node_t",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/Cache.js",
+            "line": 61,
+            "itemtype": "property",
+            "name": "buffer",
+            "type": "{ArrayBuffer|*}",
+            "class": "Node_t",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/Cache.js",
+            "line": 66,
+            "itemtype": "property",
+            "name": "u8",
+            "type": "{Uint8Array}",
+            "class": "Node_t",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/Cache.js",
+            "line": 71,
+            "itemtype": "property",
+            "name": "i32",
+            "type": "{Int32Array}",
+            "class": "Node_t",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/Cache.js",
+            "line": 76,
+            "itemtype": "property",
+            "name": "f32",
+            "type": "{Float32Array}",
+            "class": "Node_t",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/Cache.js",
+            "line": 81,
+            "itemtype": "property",
+            "name": "f64",
+            "type": "{Float64Array}",
+            "class": "Node_t",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/Cache.js",
+            "line": 92,
+            "itemtype": "property",
+            "name": "resize",
+            "class": "Node_t",
+            "module": "Igata",
+            "submodule": "Feat",
+            "subprops": [
+                {
+                    "name": "size_in_bytes",
+                    "description": "",
+                    "type": "Number"
+                }
+            ]
+        },
+        {
+            "file": "src/feat/Cache.js",
+            "line": 162,
+            "itemtype": "method",
+            "name": "allocate",
+            "static": 1,
+            "params": [
+                {
+                    "name": "capacity",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "data_size",
+                    "description": "",
+                    "type": "Number"
+                }
+            ],
+            "class": "Cache",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/Cache.js",
+            "line": 187,
+            "itemtype": "method",
+            "name": "getBuffer",
+            "static": 1,
+            "params": [
+                {
+                    "name": "size_in_bytes",
+                    "description": "",
+                    "type": "Number"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "*"
+            },
+            "class": "Cache",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/Cache.js",
+            "line": 210,
+            "deprecated": true,
+            "deprecationMessage": "instead use getBuffer",
+            "itemtype": "method",
+            "name": "get_buffer",
+            "static": 1,
+            "params": [
+                {
+                    "name": "size_in_bytes",
+                    "description": ""
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "*"
+            },
+            "class": "Cache",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/Cache.js",
+            "line": 222,
+            "itemtype": "method",
+            "name": "putBuffer",
+            "static": 1,
+            "params": [
+                {
+                    "name": "node",
+                    "description": "",
+                    "type": "Node_t"
+                }
+            ],
+            "class": "Cache",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/Cache.js",
+            "line": 233,
+            "deprecated": true,
+            "deprecationMessage": "instead use putBuffer",
+            "itemtype": "method",
+            "name": "put_buffer",
+            "static": 1,
+            "params": [
+                {
+                    "name": "node",
+                    "description": ""
+                }
+            ],
+            "class": "Cache",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/MotionModel.js",
+            "line": 100,
+            "description": "does isotropic normalization",
+            "itemtype": "method",
+            "name": "iso_normalize_points",
+            "access": "private",
+            "tagname": "",
+            "static": 1,
+            "params": [
+                {
+                    "name": "from",
+                    "description": "",
+                    "type": "Matrix_t"
+                },
+                {
+                    "name": "to",
+                    "description": "",
+                    "type": "Matrix_t"
+                },
+                {
+                    "name": "T0",
+                    "description": "",
+                    "type": "Matrix_t"
+                },
+                {
+                    "name": "T1",
+                    "description": "",
+                    "type": "Matrix_t"
+                },
+                {
+                    "name": "count",
+                    "description": "",
+                    "type": "Number"
+                }
+            ],
+            "class": "Affine2d",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/MotionModel.js",
+            "line": 204,
+            "itemtype": "method",
+            "name": "run",
+            "params": [
+                {
+                    "name": "from",
+                    "description": "",
+                    "type": "Matrix_t"
+                },
+                {
+                    "name": "to",
+                    "description": "",
+                    "type": "Matrix_t"
+                },
+                {
+                    "name": "model",
+                    "description": "",
+                    "type": "Matrix_t"
+                },
+                {
+                    "name": "count",
+                    "description": "",
+                    "type": "Number"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Number"
+            },
+            "class": "Affine2d",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/MotionModel.js",
+            "line": 336,
+            "itemtype": "method",
+            "name": "run",
+            "params": [
+                {
+                    "name": "from",
+                    "description": "",
+                    "type": "Matrix_t"
+                },
+                {
+                    "name": "to",
+                    "description": "",
+                    "type": "Matrix_t"
+                },
+                {
+                    "name": "model",
+                    "description": "",
+                    "type": "Matrix_t"
+                },
+                {
+                    "name": "count",
+                    "description": "",
+                    "type": "Number"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Number"
+            },
+            "class": "HomoGraphy2d",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/MotionModel.js",
+            "line": 512,
+            "itemtype": "method",
+            "name": "error",
+            "params": [
+                {
+                    "name": "from",
+                    "description": "",
+                    "type": "Matrix_t"
+                },
+                {
+                    "name": "to",
+                    "description": "",
+                    "type": "Matrix_t"
+                },
+                {
+                    "name": "model",
+                    "description": "",
+                    "type": "Matrix_t"
+                },
+                {
+                    "name": "err",
+                    "description": "",
+                    "type": "Matrix_t"
+                },
+                {
+                    "name": "count",
+                    "description": "",
+                    "type": "Number"
+                }
+            ],
+            "class": "HomoGraphy2d",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/MotionModel.js",
+            "line": 539,
+            "itemtype": "method",
+            "name": "checkSubset",
+            "params": [
+                {
+                    "name": "from",
+                    "description": "",
+                    "type": "Matrix_t"
+                },
+                {
+                    "name": "to",
+                    "description": "",
+                    "type": "Matrix_t"
+                },
+                {
+                    "name": "count",
+                    "description": "",
+                    "type": "Number"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Boolean"
+            },
+            "class": "HomoGraphy2d",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/MotionModel.js",
+            "line": 662,
+            "deprecated": true,
+            "deprecationMessage": "instead use checkSubset",
+            "itemtype": "method",
+            "name": "check_subset",
+            "params": [
+                {
+                    "name": "from",
+                    "description": ""
+                },
+                {
+                    "name": "to",
+                    "description": ""
+                },
+                {
+                    "name": "count",
+                    "description": ""
+                }
+            ],
+            "class": "HomoGraphy2d",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/MotionModel.js",
+            "line": 712,
+            "itemtype": "method",
+            "name": "update",
+            "params": [
+                {
+                    "name": "eps",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "max_iters",
+                    "description": "",
+                    "type": "Number"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Number"
+            },
+            "class": "Ransac_t",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/MotionModel.js",
+            "line": 727,
+            "deprecated": true,
+            "deprecationMessage": "instead use update",
+            "itemtype": "method",
+            "name": "update_iters",
+            "params": [
+                {
+                    "name": "_eps",
+                    "description": ""
+                },
+                {
+                    "name": "max_iters",
+                    "description": ""
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Number"
+            },
+            "class": "Ransac_t",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/MotionModel.js",
+            "line": 748,
+            "itemtype": "method",
+            "name": "get_subset",
+            "access": "private",
+            "tagname": "",
+            "static": 1,
+            "params": [
+                {
+                    "name": "kernel",
+                    "description": ""
+                },
+                {
+                    "name": "from",
+                    "description": ""
+                },
+                {
+                    "name": "to",
+                    "description": ""
+                },
+                {
+                    "name": "need_cnt",
+                    "description": ""
+                },
+                {
+                    "name": "max_cnt",
+                    "description": ""
+                },
+                {
+                    "name": "from_sub",
+                    "description": ""
+                },
+                {
+                    "name": "to_sub",
+                    "description": ""
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Boolean"
+            },
+            "class": "MotionEstimator",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/MotionModel.js",
+            "line": 816,
+            "itemtype": "method",
+            "name": "find_inliers",
+            "access": "private",
+            "tagname": "",
+            "static": 1,
+            "params": [
+                {
+                    "name": "kernel",
+                    "description": ""
+                },
+                {
+                    "name": "model",
+                    "description": ""
+                },
+                {
+                    "name": "from",
+                    "description": ""
+                },
+                {
+                    "name": "to",
+                    "description": ""
+                },
+                {
+                    "name": "count",
+                    "description": ""
+                },
+                {
+                    "name": "thresh",
+                    "description": ""
+                },
+                {
+                    "name": "err",
+                    "description": ""
+                },
+                {
+                    "name": "mask",
+                    "description": ""
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Number"
+            },
+            "class": "MotionEstimator",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/MotionModel.js",
+            "line": 861,
+            "description": "RANdom SAmple Consensus.\n\n[for more info see: http://en.wikipedia.org/wiki/RANSAC]\n\n\n       // this class allows you to use above Motion Kernels\n       // to estimate motion even with wrong correspondences\n       var ransac = MotionEstimator.ransac;\n\n       // create homography kernel\n       // you can reuse it for different point sets\n       var homo_kernel = new HomoGraphy2d();\n       var transform = new Matrix_t(3, 3, Igata.F32_t | Igata.C1_t);\n       var count = 333;\n       var from = [];\n       var to = [];\n\n       for(var i = 0; i < count; ++i) {\n\n         // you can use keypoint_t structure\n         // or just provide object with x and y properties\n         from[i] = { \"x\":Math.random()*320, \"y\":Math.random()*240 };\n         to[i] = { \"x\":from[i].x + Math.random()*5, \"y\":from[i].y+Math.random()*5 };\n\n       }\n\n       // each point will be marked as good(1) or bad(0)\n       var mask = new Matrix_t(count, 1, Igata.U8_t | Igata.C1_t);\n\n       var model_size = 4; // minimum points to estimate motion\n       var thresh = 3; // max error to classify as inlier\n       var eps = 0.5; // max outliers ratio\n       var prob = 0.99; // probability of success\n       var params = new Ransac_t(model_size, thresh, eps, prob);\n\n       var max_iters = 1000;\n       var ok = ransac(params, homo_kernel, from, to, count, transform, mask, max_iters);",
+            "itemtype": "method",
+            "name": "ransac",
+            "static": 1,
+            "params": [
+                {
+                    "name": "params",
+                    "description": "",
+                    "type": "Ransac_t"
+                },
+                {
+                    "name": "kernel",
+                    "description": "",
+                    "type": "HomoGraphy2d"
+                },
+                {
+                    "name": "from",
+                    "description": "",
+                    "type": "Array"
+                },
+                {
+                    "name": "to",
+                    "description": "",
+                    "type": "Array"
+                },
+                {
+                    "name": "count",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "model",
+                    "description": "",
+                    "type": "Matrix_t"
+                },
+                {
+                    "name": "mask",
+                    "description": "",
+                    "type": "Matrix_t"
+                },
+                {
+                    "name": "max_iters",
+                    "description": "",
+                    "type": "Number=1000",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Boolean"
+            },
+            "class": "MotionEstimator",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/MotionModel.js",
+            "line": 1032,
+            "description": "Least Median of Squares. Similar to above algorithm but uses median error value to filter wrong matches.\n\n\n       // this class allows you to use above Motion Kernels\n       // to estimate motion even with wrong correspondences\n       var lmeds = MotionEstimator.lmeds;\n\n       // create homography kernel\n       // you can reuse it for different point sets\n       var affine_kernel = new Affine2d();\n       var transform = new Matrix_t(3, 3, Igata.F32_t | Igata.C1_t);\n       var count = 333;\n       var from = [];\n       var to = [];\n\n       for(var i = 0; i < count; ++i) {\n\n         // you can use keypoint_t structure\n         // or just provide object with x and y properties\n         from[i] = { \"x\":Math.random()*320, \"y\":Math.random()*240 };\n         to[i] = { \"x\":from[i].x + Math.random()*5, \"y\":from[i].y+Math.random()*5 };\n\n       }\n\n       // each point will be marked as good(1) or bad(0)\n       var mask = new Matrix_t(count, 1, Igata.U8_t | Igata.C1_t);\n\n       var model_size = 3; // minimum points to estimate motion\n       var thresh = 0; // is not used in lmeds\n       var eps = 0.45; // hard coded internally\n       var prob = 0.99; // probability of success\n       var params = new Ransac_t(model_size, thresh, eps, prob);\n\n       var max_iters = 1000;\n\n       var ok = lmeds(params, affine_kernel, from, to, count, transform, mask, max_iters);",
+            "itemtype": "method",
+            "name": "lmeds",
+            "static": 1,
+            "params": [
+                {
+                    "name": "params",
+                    "description": "",
+                    "type": "Ransac_t"
+                },
+                {
+                    "name": "kernel",
+                    "description": "",
+                    "type": "Affine2d"
+                },
+                {
+                    "name": "from",
+                    "description": "",
+                    "type": "Array"
+                },
+                {
+                    "name": "to",
+                    "description": "",
+                    "type": "Array"
+                },
+                {
+                    "name": "count",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "model",
+                    "description": "",
+                    "type": "Matrix_t"
+                },
+                {
+                    "name": "mask",
+                    "description": "",
+                    "type": "Matrix_t"
+                },
+                {
+                    "name": "max_iters",
+                    "description": "",
+                    "type": "Number=1000",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Boolean"
+            },
+            "class": "MotionEstimator",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/Orb.js",
+            "line": 38,
+            "itemtype": "property",
+            "name": "bit_pattern_31_",
+            "static": 1,
+            "type": "{Int32Array}",
+            "access": "private",
+            "tagname": "",
+            "class": "Orb",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/Orb.js",
+            "line": 303,
+            "itemtype": "property",
+            "name": "H",
+            "static": 1,
+            "access": "private",
+            "tagname": "",
+            "type": "{Matrix_t|*}",
+            "class": "Orb",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/Orb.js",
+            "line": 311,
+            "itemtype": "property",
+            "name": "patch_img",
+            "static": 1,
+            "access": "private",
+            "tagname": "",
+            "type": "{Matrix_t|*}",
+            "class": "Orb",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/Orb.js",
+            "line": 320,
+            "itemtype": "method",
+            "name": "rectify_patch",
+            "static": 1,
+            "access": "private",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "src",
+                    "description": ""
+                },
+                {
+                    "name": "dst",
+                    "description": ""
+                },
+                {
+                    "name": "angle",
+                    "description": ""
+                },
+                {
+                    "name": "px",
+                    "description": ""
+                },
+                {
+                    "name": "py",
+                    "description": ""
+                },
+                {
+                    "name": "psize",
+                    "description": ""
+                }
+            ],
+            "class": "Orb",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/Orb.js",
+            "line": 360,
+            "itemtype": "method",
+            "name": "describe",
+            "static": 1,
+            "params": [
+                {
+                    "name": "src",
+                    "description": "",
+                    "type": "Matrix_t"
+                },
+                {
+                    "name": "corners",
+                    "description": "",
+                    "type": "Matrix_t"
+                },
+                {
+                    "name": "count",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "descriptors",
+                    "description": "",
+                    "type": "Matrix_t"
+                }
+            ],
+            "class": "Orb",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/Processing.js",
+            "line": 652,
+            "description": "Convert color array input [r0,g0,b0,a0, ...] to grayscale using Y = 0.299*R + 0.587*G + 0.114*B formula. You can specify the source input channel order such as BGRA, RGBA, RGB and BGR.\n\n\n     context2d.drawImage(video, 0, 0, width, height);\n     var image_data = context2d.getImageData(0, 0, width, height);\n\n     var gray_img = new Igata.Matrix_t(width, height, Igata.U8_t | Igata.C1_t);\n     var code = Igata.COLOR_RGBA2GRAY;\n     Igata.Processing.grayscale(image_data.data, width, height, gray_img, code);",
+            "itemtype": "method",
+            "name": "grayscale",
+            "static": 1,
+            "params": [
+                {
+                    "name": "src",
+                    "description": "",
+                    "type": "ImageData"
+                },
+                {
+                    "name": "w",
+                    "description": "width",
+                    "type": "Number"
+                },
+                {
+                    "name": "h",
+                    "description": "height",
+                    "type": "Number"
+                },
+                {
+                    "name": "dst",
+                    "description": "",
+                    "type": "Matrix_t"
+                },
+                {
+                    "name": "code",
+                    "description": "COLOR_BGRA2GRAY || COLOR_BGR2GRAY",
+                    "type": "Number=COLOR_RGBA2GRAY",
+                    "optional": true
+                }
+            ],
+            "class": "Processing",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/Processing.js",
+            "line": 720,
+            "description": "Generic resize method. Works with single and multi channel matrix_t. If performance is critical or you need multiple image resizings it is recommended to use canvas built-in drawImage() method.",
+            "itemtype": "method",
+            "name": "resample",
+            "static": 1,
+            "params": [
+                {
+                    "name": "src",
+                    "description": "",
+                    "type": "Matrix_t"
+                },
+                {
+                    "name": "dst",
+                    "description": "",
+                    "type": "Matrix_t"
+                },
+                {
+                    "name": "nw",
+                    "description": "new width",
+                    "type": "Number"
+                },
+                {
+                    "name": "nh",
+                    "description": "new height",
+                    "type": "Number"
+                }
+            ],
+            "class": "Processing",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/Processing.js",
+            "line": 754,
+            "description": "Works with single channel data only. NOTE: if input is jsfeat.U8_t and options = jsfeat.BOX_BLUR_NOSCALE dest should be at least jsfeat.S32_t to handle accumulated values correctly.",
+            "itemtype": "method",
+            "name": "boxGray",
+            "static": 1,
+            "params": [
+                {
+                    "name": "src",
+                    "description": "",
+                    "type": "Matrix_t"
+                },
+                {
+                    "name": "dst",
+                    "description": "",
+                    "type": "Matrix_t"
+                },
+                {
+                    "name": "radius",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "options",
+                    "description": "",
+                    "type": "Number=0",
+                    "optional": true
+                }
+            ],
+            "class": "Processing",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/Processing.js",
+            "line": 987,
+            "deprecated": true,
+            "deprecationMessage": "instead use boxGray",
+            "itemtype": "method",
+            "name": "box_blur_gray",
+            "static": 1,
+            "params": [
+                {
+                    "name": "src",
+                    "description": ""
+                },
+                {
+                    "name": "dst",
+                    "description": ""
+                },
+                {
+                    "name": "radius",
+                    "description": ""
+                },
+                {
+                    "name": "options",
+                    "description": ""
+                }
+            ],
+            "class": "Processing",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/Processing.js",
+            "line": 1001,
+            "itemtype": "method",
+            "name": "gaussian",
+            "static": 1,
+            "params": [
+                {
+                    "name": "src",
+                    "description": "",
+                    "type": "Matrix_t"
+                },
+                {
+                    "name": "dst",
+                    "description": "",
+                    "type": "Matrix_t"
+                },
+                {
+                    "name": "kernel_size",
+                    "description": "",
+                    "type": "Number=0",
+                    "optional": true
+                },
+                {
+                    "name": "sigma",
+                    "description": "",
+                    "type": "Number=0",
+                    "optional": true
+                }
+            ],
+            "class": "Processing",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/Processing.js",
+            "line": 1062,
+            "deprecated": true,
+            "deprecationMessage": "instead use gaussian",
+            "itemtype": "method",
+            "name": "gaussian_blur",
+            "static": 1,
+            "params": [
+                {
+                    "name": "src",
+                    "description": ""
+                },
+                {
+                    "name": "dst",
+                    "description": ""
+                },
+                {
+                    "name": "kernel_size",
+                    "description": ""
+                },
+                {
+                    "name": "sigma",
+                    "description": ""
+                }
+            ],
+            "class": "Processing",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/Processing.js",
+            "line": 1076,
+            "itemtype": "method",
+            "name": "transform",
+            "static": 1,
+            "params": [
+                {
+                    "name": "img",
+                    "description": "",
+                    "type": "ImageData"
+                },
+                {
+                    "name": "rho_res",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "theta_res",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "threshold",
+                    "description": ""
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Array"
+            },
+            "class": "Processing",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/Processing.js",
+            "line": 1193,
+            "deprecated": true,
+            "deprecationMessage": "instead use transform",
+            "itemtype": "method",
+            "name": "hough_transform",
+            "static": 1,
+            "params": [
+                {
+                    "name": "img",
+                    "description": ""
+                },
+                {
+                    "name": "rho_res",
+                    "description": ""
+                },
+                {
+                    "name": "theta_res",
+                    "description": ""
+                },
+                {
+                    "name": "threshold",
+                    "description": ""
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Array"
+            },
+            "class": "Processing",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/Processing.js",
+            "line": 1209,
+            "description": "Down sample source to dest writing simple 4 pix average value. Works with single channel only.\n\nassume we always need it for u8 image",
+            "itemtype": "method",
+            "name": "pyrdown",
+            "params": [
+                {
+                    "name": "src",
+                    "description": "",
+                    "type": "Matrix_t"
+                },
+                {
+                    "name": "dst",
+                    "description": "",
+                    "type": "Matrix_t"
+                },
+                {
+                    "name": "sx",
+                    "description": "",
+                    "type": "Number=0",
+                    "optional": true
+                },
+                {
+                    "name": "sy",
+                    "description": "",
+                    "type": "Number=0",
+                    "optional": true
+                }
+            ],
+            "class": "Processing",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/Processing.js",
+            "line": 1266,
+            "description": "Compute gradient using Scharr kernel [3 10 3] * [-1 0 1]^T. Works with single channel only.\n\ndst: [gx,gy,...]",
+            "itemtype": "method",
+            "name": "scharrDerivatives",
+            "static": 1,
+            "params": [
+                {
+                    "name": "src",
+                    "description": "",
+                    "type": "Matrix_t"
+                },
+                {
+                    "name": "dst",
+                    "description": "",
+                    "type": "Matrix_t"
+                }
+            ],
+            "class": "Processing",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/Processing.js",
+            "line": 1371,
+            "deprecated": true,
+            "deprecationMessage": "instead use scharrDerivatives",
+            "itemtype": "method",
+            "name": "scharr_derivatives",
+            "static": 1,
+            "params": [
+                {
+                    "name": "src",
+                    "description": ""
+                },
+                {
+                    "name": "dst",
+                    "description": ""
+                }
+            ],
+            "class": "Processing",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/Processing.js",
+            "line": 1384,
+            "description": "compute gradient using Sobel kernel [1 2 1] * [-1 0 1]^T\n\ndst: [gx,gy,...]",
+            "itemtype": "method",
+            "name": "sobelDerivatives",
+            "static": 1,
+            "params": [
+                {
+                    "name": "src",
+                    "description": "",
+                    "type": "Matrix_t"
+                },
+                {
+                    "name": "dst",
+                    "description": "",
+                    "type": "Matrix_t"
+                }
+            ],
+            "class": "Processing",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/Processing.js",
+            "line": 1490,
+            "deprecated": true,
+            "deprecationMessage": "instead use sobelDerivatives",
+            "itemtype": "method",
+            "name": "sobel_derivatives",
+            "static": 1,
+            "params": [
+                {
+                    "name": "src",
+                    "description": ""
+                },
+                {
+                    "name": "dst",
+                    "description": ""
+                }
+            ],
+            "class": "Processing",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/Processing.js",
+            "line": 1503,
+            "description": "Calculates one or more integral images for the source image. Using these integral images, one may calculate sum, mean, standard deviation over arbitrary up-right or rotated rectangular region of the image in a constant time. NOTE: each destinatination should be 1 pixel larger than source width = source.cols+1, height = source.rows+1. Single channel source only.\n\n`please note:`\n\ndst_(type) size should be cols = src.cols+1, rows = src.rows+1",
+            "itemtype": "method",
+            "name": "integralImage",
+            "static": 1,
+            "params": [
+                {
+                    "name": "src",
+                    "description": "",
+                    "type": "Matrix_t"
+                },
+                {
+                    "name": "dst_sum",
+                    "description": "",
+                    "type": "Array"
+                },
+                {
+                    "name": "dst_sqsum",
+                    "description": "",
+                    "type": "Array"
+                },
+                {
+                    "name": "dst_tilted",
+                    "description": "",
+                    "type": "Array"
+                }
+            ],
+            "class": "Processing",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/Processing.js",
+            "line": 1696,
+            "deprecated": true,
+            "deprecationMessage": "instead use integralImage",
+            "itemtype": "method",
+            "name": "compute_integral_image",
+            "static": 1,
+            "params": [
+                {
+                    "name": "src",
+                    "description": ""
+                },
+                {
+                    "name": "dst_sum",
+                    "description": ""
+                },
+                {
+                    "name": "dst_sqsum",
+                    "description": ""
+                },
+                {
+                    "name": "dst_tilted",
+                    "description": ""
+                }
+            ],
+            "class": "Processing",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/Processing.js",
+            "line": 1710,
+            "description": "Equalizes the histogram of a grayscale image. The algorithm normalizes the brightness and increases the contrast of the image.",
+            "itemtype": "method",
+            "name": "histogram",
+            "static": 1,
+            "params": [
+                {
+                    "name": "src",
+                    "description": "",
+                    "type": "Matrix_t"
+                },
+                {
+                    "name": "dst",
+                    "description": "",
+                    "type": "Matrix_t"
+                }
+            ],
+            "class": "Processing",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/Processing.js",
+            "line": 1765,
+            "deprecated": true,
+            "deprecationMessage": "instead use histogram",
+            "itemtype": "method",
+            "name": "equalize_histogram",
+            "static": 1,
+            "params": [
+                {
+                    "name": "src",
+                    "description": ""
+                },
+                {
+                    "name": "dst",
+                    "description": ""
+                }
+            ],
+            "class": "Processing",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/Processing.js",
+            "line": 1777,
+            "description": "Canny edge detector. Result contains only 0x00 and 0xFF values.",
+            "itemtype": "method",
+            "name": "canny",
+            "static": 1,
+            "params": [
+                {
+                    "name": "src",
+                    "description": "",
+                    "type": "Matrix_t"
+                },
+                {
+                    "name": "dst",
+                    "description": "",
+                    "type": "Matrix_t"
+                },
+                {
+                    "name": "low_thresh",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "high_thresh",
+                    "description": "",
+                    "type": "Number"
+                }
+            ],
+            "class": "Processing",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/Processing.js",
+            "line": 2078,
+            "description": "transform is 3x3 Matrix_t\n\nApplies a perspective transformation to an image using 3x3 Matrix. Single channel source only.\n\nTo avoid sampling artifacts, the mapping is done in the reverse order, from destination to the source. That is, for each pixel of the destination image, the functions compute coordinates of the corresponding “donor” pixel in the source image and copy the pixel value.",
+            "itemtype": "method",
+            "name": "perspective",
+            "static": 1,
+            "params": [
+                {
+                    "name": "src",
+                    "description": "",
+                    "type": "Matrix_t"
+                },
+                {
+                    "name": "dst",
+                    "description": "",
+                    "type": "Matrix_t"
+                },
+                {
+                    "name": "transform",
+                    "description": "",
+                    "type": "Matrix_t"
+                },
+                {
+                    "name": "fill_value",
+                    "description": "",
+                    "type": "Number=0",
+                    "optional": true
+                }
+            ],
+            "class": "Processing",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/Processing.js",
+            "line": 2143,
+            "deprecated": true,
+            "deprecationMessage": "instead use perspective",
+            "itemtype": "method",
+            "name": "warp_perspective",
+            "static": 1,
+            "params": [
+                {
+                    "name": "src",
+                    "description": ""
+                },
+                {
+                    "name": "dst",
+                    "description": ""
+                },
+                {
+                    "name": "transform",
+                    "description": ""
+                },
+                {
+                    "name": "fill_value",
+                    "description": ""
+                }
+            ],
+            "class": "Processing",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/Processing.js",
+            "line": 2158,
+            "description": "transform is 3x3 or 2x3 matrix_t only first 6 values referenced\n\nApplies an affine transformation to an image using 2x3 or 3x3 Matrix. Single channel source only.\n\nTo avoid sampling artifacts, the mapping is done in the reverse order, from destination to the source. That is, for each pixel of the destination image, the functions compute coordinates of the corresponding “donor” pixel in the source image and copy the pixel value.",
+            "itemtype": "method",
+            "name": "affine",
+            "static": 1,
+            "params": [
+                {
+                    "name": "src",
+                    "description": "",
+                    "type": "Matrix_t"
+                },
+                {
+                    "name": "dst",
+                    "description": "",
+                    "type": "Matrix_t"
+                },
+                {
+                    "name": "transform",
+                    "description": "",
+                    "type": "Matrix_t"
+                },
+                {
+                    "name": "fill_value",
+                    "description": "",
+                    "type": "Number=0",
+                    "optional": true
+                }
+            ],
+            "class": "Processing",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/Processing.js",
+            "line": 2215,
+            "deprecated": true,
+            "deprecationMessage": "instead use affine",
+            "itemtype": "method",
+            "name": "warp_affine",
+            "static": 1,
+            "params": [
+                {
+                    "name": "src",
+                    "description": ""
+                },
+                {
+                    "name": "dst",
+                    "description": ""
+                },
+                {
+                    "name": "transform",
+                    "description": ""
+                },
+                {
+                    "name": "fill_value",
+                    "description": ""
+                }
+            ],
+            "class": "Processing",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/Processing.js",
+            "line": 2230,
+            "description": "Basic RGB Skin detection filter\n\nfrom http://popscan.blogspot.fr/2012/08/skin-detection-in-digital-images.html",
+            "itemtype": "method",
+            "name": "skinDetector",
+            "static": 1,
+            "params": [
+                {
+                    "name": "src",
+                    "description": "",
+                    "type": "Matrix_t"
+                },
+                {
+                    "name": "dst",
+                    "description": "",
+                    "type": "Matrix_t"
+                }
+            ],
+            "class": "Processing",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/Processing.js",
+            "line": 2268,
+            "deprecated": true,
+            "deprecationMessage": "instead use skinDetector",
+            "itemtype": "method",
+            "name": "skindetector",
+            "static": 1,
+            "params": [
+                {
+                    "name": "src",
+                    "description": ""
+                },
+                {
+                    "name": "dst",
+                    "description": ""
+                }
+            ],
+            "class": "Processing",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/Processing.js",
+            "line": 2299,
+            "itemtype": "property",
+            "name": "levels",
+            "type": "{number}",
+            "class": "Pyramid_t",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/Processing.js",
+            "line": 2304,
+            "itemtype": "property",
+            "name": "data",
+            "type": "{Array}",
+            "class": "Pyramid_t",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/Processing.js",
+            "line": 2309,
+            "itemtype": "property",
+            "name": "pyrdown",
+            "type": "{Function|*}",
+            "class": "Pyramid_t",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/Processing.js",
+            "line": 2319,
+            "itemtype": "method",
+            "name": "allocate",
+            "params": [
+                {
+                    "name": "start_w",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "start_h",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "data_type",
+                    "description": "",
+                    "type": "Number"
+                }
+            ],
+            "class": "Pyramid_t",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/Processing.js",
+            "line": 2337,
+            "itemtype": "method",
+            "name": "build",
+            "params": [
+                {
+                    "name": "input",
+                    "description": "",
+                    "type": "Matrix_t"
+                },
+                {
+                    "name": "skip_first_level",
+                    "description": "",
+                    "type": "Boolean=true",
+                    "optional": true
+                }
+            ],
+            "class": "Pyramid_t",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/Structure.js",
+            "line": 52,
+            "itemtype": "method",
+            "name": "dataType",
+            "static": 1,
+            "params": [
+                {
+                    "name": "type",
+                    "description": "",
+                    "type": "Number"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Number"
+            },
+            "class": "Igata",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/Structure.js",
+            "line": 64,
+            "deprecated": true,
+            "deprecationMessage": "instead use dataType",
+            "itemtype": "method",
+            "name": "get_data_type",
+            "static": 1,
+            "params": [
+                {
+                    "name": "type",
+                    "description": "",
+                    "type": "Number"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Number"
+            },
+            "class": "Igata",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/Structure.js",
+            "line": 82,
+            "itemtype": "method",
+            "name": "channel",
+            "static": 1,
+            "params": [
+                {
+                    "name": "type",
+                    "description": "",
+                    "type": "Number"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Number"
+            },
+            "class": "Igata",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/Structure.js",
+            "line": 94,
+            "deprecated": true,
+            "deprecationMessage": "instead use channel",
+            "itemtype": "method",
+            "name": "get_channel",
+            "static": 1,
+            "params": [
+                {
+                    "name": "type",
+                    "description": "",
+                    "type": "Number"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Number"
+            },
+            "class": "Igata",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/Structure.js",
+            "line": 113,
+            "itemtype": "method",
+            "name": "dataTypeSize",
+            "static": 1,
+            "params": [
+                {
+                    "name": "type",
+                    "description": "",
+                    "type": "Number"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "*"
+            },
+            "class": "Igata",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/Structure.js",
+            "line": 125,
+            "deprecated": true,
+            "deprecationMessage": "instead use dataTypeSize",
+            "itemtype": "method",
+            "name": "get_data_type_size",
+            "static": 1,
+            "params": [
+                {
+                    "name": "type",
+                    "description": "",
+                    "type": "Number"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "*"
+            },
+            "class": "Igata",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/Structure.js",
+            "line": 170,
+            "itemtype": "property",
+            "name": "size",
+            "type": "{number}",
+            "class": "Data_t",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/Structure.js",
+            "line": 178,
+            "itemtype": "property",
+            "name": "buffer",
+            "type": "{ArrayBuffer}",
+            "class": "Data_t",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/Structure.js",
+            "line": 191,
+            "itemtype": "property",
+            "name": "u8",
+            "type": "{Uint8Array}",
+            "class": "Data_t",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/Structure.js",
+            "line": 196,
+            "itemtype": "property",
+            "name": "i32",
+            "type": "{Int32Array}",
+            "class": "Data_t",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/Structure.js",
+            "line": 201,
+            "itemtype": "property",
+            "name": "f32",
+            "type": "{Float32Array}",
+            "class": "Data_t",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/Structure.js",
+            "line": 206,
+            "itemtype": "property",
+            "name": "f64",
+            "type": "{Float64Array}",
+            "class": "Data_t",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/Structure.js",
+            "line": 235,
+            "itemtype": "property",
+            "name": "type",
+            "type": "{number}",
+            "class": "Matrix_t",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/Structure.js",
+            "line": 240,
+            "itemtype": "property",
+            "name": "channel",
+            "type": "{number}",
+            "class": "Matrix_t",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/Structure.js",
+            "line": 245,
+            "itemtype": "property",
+            "name": "cols",
+            "type": "{number}",
+            "class": "Matrix_t",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/Structure.js",
+            "line": 250,
+            "itemtype": "property",
+            "name": "rows",
+            "type": "{number}",
+            "class": "Matrix_t",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/Structure.js",
+            "line": 262,
+            "itemtype": "property",
+            "name": "buffer",
+            "type": "{Data_t}",
+            "class": "Matrix_t",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/Structure.js",
+            "line": 268,
+            "itemtype": "property",
+            "name": "data",
+            "type": "{number}",
+            "class": "Matrix_t",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/Structure.js",
+            "line": 281,
+            "itemtype": "method",
+            "name": "allocate",
+            "class": "Matrix_t",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/Structure.js",
+            "line": 294,
+            "description": "this copy to other data",
+            "itemtype": "method",
+            "name": "copy",
+            "params": [
+                {
+                    "name": "other",
+                    "description": "",
+                    "type": "Matrix_t"
+                }
+            ],
+            "class": "Matrix_t",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/Structure.js",
+            "line": 321,
+            "deprecated": true,
+            "deprecationMessage": "instead use copy",
+            "itemtype": "method",
+            "name": "copy_to",
+            "params": [
+                {
+                    "name": "other",
+                    "description": "",
+                    "type": "Matrix_t"
+                }
+            ],
+            "class": "Matrix_t",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/Structure.js",
+            "line": 332,
+            "itemtype": "method",
+            "name": "resize",
+            "params": [
+                {
+                    "name": "c",
+                    "description": "columns",
+                    "type": "Number"
+                },
+                {
+                    "name": "r",
+                    "description": "rows",
+                    "type": "Number"
+                },
+                {
+                    "name": "ch",
+                    "description": "undefined の時は this.channel を設定します",
+                    "type": "Number",
+                    "optional": true
+                }
+            ],
+            "class": "Matrix_t",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/Structure.js",
+            "line": 409,
+            "itemtype": "property",
+            "name": "x",
+            "type": "{number}",
+            "class": "Keypoint_t",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/Structure.js",
+            "line": 414,
+            "itemtype": "property",
+            "name": "y",
+            "type": "{number}",
+            "class": "Keypoint_t",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/Structure.js",
+            "line": 419,
+            "itemtype": "property",
+            "name": "score",
+            "type": "{number}",
+            "class": "Keypoint_t",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/Structure.js",
+            "line": 424,
+            "itemtype": "property",
+            "name": "level",
+            "type": "{number}",
+            "class": "Keypoint_t",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/Structure.js",
+            "line": 429,
+            "itemtype": "property",
+            "name": "angle",
+            "type": "{number}",
+            "class": "Keypoint_t",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/geom/IVector.js",
+            "line": 1,
+            "description": "license inazumatv.com\nauthor (at)taikiken / http://inazumatv.com\ndate 2015/04/20 - 20:55\n\nCopyright (c) 2011-2015 inazumatv.com, inc.\n\nDistributed under the terms of the MIT license.\nhttp://www.opensource.org/licenses/mit-license.html\n\nThis notice shall be included in all copies or substantial portions of the Software.",
+            "class": "IVector",
+            "module": "Igata"
+        },
+        {
+            "file": "src/geom/Vector2.js",
+            "line": 1,
+            "description": "license inazumatv.com\nauthor (at)taikiken / http://inazumatv.com\ndate 2015/04/20 - 17:01\n\nCopyright (c) 2011-2015 inazumatv.com, inc.\n\nThis notice shall be included in all copies or substantial portions of the Software.",
+            "class": "Vector2",
+            "module": "Igata"
+        },
+        {
+            "file": "src/geom/Vector2.js",
+            "line": 84,
+            "itemtype": "method",
+            "name": "create",
+            "static": 1,
+            "return": {
+                "description": "",
+                "type": "Float32Array"
+            },
+            "class": "Vector2",
+            "module": "Igata"
+        },
+        {
+            "file": "src/geom/Vector2.js",
+            "line": 101,
+            "itemtype": "method",
+            "name": "clone",
+            "static": 1,
+            "params": [
+                {
+                    "name": "vec2",
+                    "description": "",
+                    "type": "Float32Array"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Float32Array"
+            },
+            "class": "Vector2",
+            "module": "Igata"
+        },
+        {
+            "file": "src/geom/Vector2.js",
+            "line": 118,
+            "itemtype": "method",
+            "name": "copy",
+            "static": 1,
+            "params": [
+                {
+                    "name": "receiver",
+                    "description": "",
+                    "type": "Float32Array"
+                },
+                {
+                    "name": "sender",
+                    "description": "",
+                    "type": "Float32Array"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Float32Array"
+            },
+            "class": "Vector2",
+            "module": "Igata"
+        },
+        {
+            "file": "src/geom/Vector2.js",
+            "line": 133,
+            "itemtype": "method",
+            "name": "value",
+            "static": 1,
+            "params": [
+                {
+                    "name": "x",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "y",
+                    "description": "",
+                    "type": "Number"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Float32Array"
+            },
+            "class": "Vector2",
+            "module": "Igata"
+        },
+        {
+            "file": "src/geom/Vector2.js",
+            "line": 151,
+            "itemtype": "method",
+            "name": "set",
+            "static": 1,
+            "params": [
+                {
+                    "name": "receiver",
+                    "description": "",
+                    "type": "Float32Array"
+                },
+                {
+                    "name": "x",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "y",
+                    "description": "",
+                    "type": "Number"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Float32Array"
+            },
+            "class": "Vector2",
+            "module": "Igata"
+        },
+        {
+            "file": "src/geom/Vector2.js",
+            "line": 168,
+            "itemtype": "method",
+            "name": "add",
+            "static": 1,
+            "params": [
+                {
+                    "name": "receiver",
+                    "description": "",
+                    "type": "Float32Array"
+                },
+                {
+                    "name": "vector1",
+                    "description": "",
+                    "type": "Float32Array"
+                },
+                {
+                    "name": "vector2",
+                    "description": "",
+                    "type": "Float32Array"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Float32Array"
+            },
+            "class": "Vector2",
+            "module": "Igata"
+        },
+        {
+            "file": "src/geom/Vector2.js",
+            "line": 185,
+            "itemtype": "method",
+            "name": "sub",
+            "static": 1,
+            "params": [
+                {
+                    "name": "receiver",
+                    "description": "",
+                    "type": "Float32Array"
+                },
+                {
+                    "name": "vector1",
+                    "description": "",
+                    "type": "Float32Array"
+                },
+                {
+                    "name": "vector2",
+                    "description": "",
+                    "type": "Float32Array"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Float32Array"
+            },
+            "class": "Vector2",
+            "module": "Igata"
+        },
+        {
+            "file": "src/geom/Vector2.js",
+            "line": 202,
+            "description": "alias Vector2.sub",
+            "itemtype": "method",
+            "name": "subtract",
+            "static": 1,
+            "link": "Vector2.sub",
+            "type": "{Function}",
+            "class": "Vector2",
+            "module": "Igata"
+        },
+        {
+            "file": "src/geom/Vector2.js",
+            "line": 211,
+            "description": "multiply",
+            "itemtype": "method",
+            "name": "mul",
+            "static": 1,
+            "params": [
+                {
+                    "name": "receiver",
+                    "description": "",
+                    "type": "Float32Array"
+                },
+                {
+                    "name": "vector1",
+                    "description": "",
+                    "type": "Float32Array"
+                },
+                {
+                    "name": "vector2",
+                    "description": "",
+                    "type": "Float32Array"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Float32Array"
+            },
+            "class": "Vector2",
+            "module": "Igata"
+        },
+        {
+            "file": "src/geom/Vector2.js",
+            "line": 229,
+            "description": "alias Vector2.mul",
+            "itemtype": "method",
+            "name": "multiply",
+            "static": 1,
+            "link": "Vector2.mul",
+            "type": "{Function}",
+            "class": "Vector2",
+            "module": "Igata"
+        },
+        {
+            "file": "src/geom/Vector2.js",
+            "line": 238,
+            "itemtype": "method",
+            "name": "divScalar",
+            "static": 1,
+            "params": [
+                {
+                    "name": "receiver",
+                    "description": "",
+                    "type": "Float32Array"
+                },
+                {
+                    "name": "scalar",
+                    "description": "",
+                    "type": "Number"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Float32Array"
+            },
+            "class": "Vector2",
+            "module": "Igata"
+        },
+        {
+            "file": "src/geom/Vector2.js",
+            "line": 254,
+            "itemtype": "method",
+            "name": "div",
+            "static": 1,
+            "params": [
+                {
+                    "name": "receiver",
+                    "description": "",
+                    "type": "Float32Array"
+                },
+                {
+                    "name": "vector1",
+                    "description": "",
+                    "type": "Float32Array"
+                },
+                {
+                    "name": "vector2",
+                    "description": "",
+                    "type": "Float32Array"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Float32Array"
+            },
+            "class": "Vector2",
+            "module": "Igata"
+        },
+        {
+            "file": "src/geom/Vector2.js",
+            "line": 271,
+            "description": "alias Vector2.div",
+            "itemtype": "method",
+            "name": "divide",
+            "static": 1,
+            "link": "Vector2.div",
+            "type": "{Function}",
+            "class": "Vector2",
+            "module": "Igata"
+        },
+        {
+            "file": "src/geom/Vector2.js",
+            "line": 280,
+            "itemtype": "method",
+            "name": "divScalar",
+            "static": 1,
+            "params": [
+                {
+                    "name": "receiver",
+                    "description": "",
+                    "type": "Float32Array"
+                },
+                {
+                    "name": "scalar",
+                    "description": "",
+                    "type": "Number"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Float32Array"
+            },
+            "class": "Vector2",
+            "module": "Igata"
+        },
+        {
+            "file": "src/geom/Vector2.js",
+            "line": 311,
+            "itemtype": "method",
+            "name": "min",
+            "static": 1,
+            "params": [
+                {
+                    "name": "receiver",
+                    "description": "",
+                    "type": "Float32Array"
+                },
+                {
+                    "name": "vector1",
+                    "description": "",
+                    "type": "Float32Array"
+                },
+                {
+                    "name": "vector2",
+                    "description": "",
+                    "type": "Float32Array"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Float32Array"
+            },
+            "class": "Vector2",
+            "module": "Igata"
+        },
+        {
+            "file": "src/geom/Vector2.js",
+            "line": 328,
+            "itemtype": "method",
+            "name": "max",
+            "static": 1,
+            "params": [
+                {
+                    "name": "receiver",
+                    "description": "",
+                    "type": "Float32Array"
+                },
+                {
+                    "name": "vector1",
+                    "description": "",
+                    "type": "Float32Array"
+                },
+                {
+                    "name": "vector2",
+                    "description": "",
+                    "type": "Float32Array"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Float32Array"
+            },
+            "class": "Vector2",
+            "module": "Igata"
+        },
+        {
+            "file": "src/geom/Vector2.js",
+            "line": 344,
+            "itemtype": "method",
+            "name": "max",
+            "static": 1,
+            "params": [
+                {
+                    "name": "receiver",
+                    "description": "",
+                    "type": "Float32Array"
+                },
+                {
+                    "name": "vector1",
+                    "description": "",
+                    "type": "Float32Array"
+                },
+                {
+                    "name": "scale",
+                    "description": "",
+                    "type": "Number"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Float32Array"
+            },
+            "class": "Vector2",
+            "module": "Igata"
+        },
+        {
+            "file": "src/geom/Vector2.js",
+            "line": 361,
+            "itemtype": "method",
+            "name": "distanceSquare",
+            "static": 1,
+            "params": [
+                {
+                    "name": "vector1",
+                    "description": "",
+                    "type": "Float32Array"
+                },
+                {
+                    "name": "vector2",
+                    "description": "",
+                    "type": "Float32Array"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Number"
+            },
+            "class": "Vector2",
+            "module": "Igata"
+        },
+        {
+            "file": "src/geom/Vector2.js",
+            "line": 378,
+            "itemtype": "method",
+            "name": "distance",
+            "static": 1,
+            "params": [
+                {
+                    "name": "vector1",
+                    "description": "",
+                    "type": "Float32Array"
+                },
+                {
+                    "name": "vector2",
+                    "description": "",
+                    "type": "Float32Array"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Number"
+            },
+            "class": "Vector2",
+            "module": "Igata"
+        },
+        {
+            "file": "src/geom/Vector2.js",
+            "line": 391,
+            "itemtype": "method",
+            "name": "leneSquare",
+            "static": 1,
+            "params": [
+                {
+                    "name": "vector1",
+                    "description": "",
+                    "type": "Float32Array"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Number"
+            },
+            "class": "Vector2",
+            "module": "Igata"
+        },
+        {
+            "file": "src/geom/Vector2.js",
+            "line": 407,
+            "itemtype": "method",
+            "name": "len",
+            "params": [
+                {
+                    "name": "vector1",
+                    "description": "",
+                    "type": "Float32Array"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Number"
+            },
+            "class": "Vector2",
+            "module": "Igata"
+        },
+        {
+            "file": "src/geom/Vector2.js",
+            "line": 418,
+            "description": "ベクトルの値を反転",
+            "itemtype": "method",
+            "name": "negate",
+            "static": 1,
+            "params": [
+                {
+                    "name": "receiver",
+                    "description": "",
+                    "type": "Float32Array"
+                },
+                {
+                    "name": "vector1",
+                    "description": "",
+                    "type": "Float32Array"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Float32Array"
+            },
+            "class": "Vector2",
+            "module": "Igata"
+        },
+        {
+            "file": "src/geom/Vector2.js",
+            "line": 435,
+            "itemtype": "method",
+            "name": "inverse",
+            "static": 1,
+            "params": [
+                {
+                    "name": "receiver",
+                    "description": "",
+                    "type": "Float32Array"
+                },
+                {
+                    "name": "vector1",
+                    "description": "",
+                    "type": "Float32Array"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Float32Array"
+            },
+            "class": "Vector2",
+            "module": "Igata"
+        },
+        {
+            "file": "src/geom/Vector2.js",
+            "line": 451,
+            "itemtype": "method",
+            "name": "normalize",
+            "static": 1,
+            "params": [
+                {
+                    "name": "receiver",
+                    "description": "",
+                    "type": "Float32Array"
+                },
+                {
+                    "name": "vector1",
+                    "description": "",
+                    "type": "Float32Array"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Float32Array"
+            },
+            "class": "Vector2",
+            "module": "Igata"
+        },
+        {
+            "file": "src/geom/Vector2.js",
+            "line": 464,
+            "description": "内積を計算",
+            "itemtype": "method",
+            "name": "dot",
+            "static": 1,
+            "params": [
+                {
+                    "name": "vector1",
+                    "description": "",
+                    "type": "Float32Array"
+                },
+                {
+                    "name": "vector2",
+                    "description": "",
+                    "type": "Float32Array"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Number"
+            },
+            "class": "Vector2",
+            "module": "Igata"
+        },
+        {
+            "file": "src/geom/Vector2.js",
+            "line": 478,
+            "itemtype": "method",
+            "name": "cross",
+            "static": 1,
+            "params": [
+                {
+                    "name": "receiver",
+                    "description": "",
+                    "type": "Float32Array"
+                },
+                {
+                    "name": "vector1",
+                    "description": "",
+                    "type": "Float32Array"
+                },
+                {
+                    "name": "vector2",
+                    "description": "",
+                    "type": "Float32Array"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Float32Array"
+            },
+            "class": "Vector2",
+            "module": "Igata"
+        },
+        {
+            "file": "src/geom/Vector2.js",
+            "line": 498,
+            "itemtype": "method",
+            "name": "lerp",
+            "static": 1,
+            "params": [
+                {
+                    "name": "receiver",
+                    "description": "",
+                    "type": "Float32Array"
+                },
+                {
+                    "name": "vector1",
+                    "description": "",
+                    "type": "Float32Array"
+                },
+                {
+                    "name": "vector2",
+                    "description": "",
+                    "type": "Float32Array"
+                },
+                {
+                    "name": "alpha",
+                    "description": "",
+                    "type": "Number"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Float32Array"
+            },
+            "class": "Vector2",
+            "module": "Igata"
+        },
+        {
+            "file": "src/geom/Vector2.js",
+            "line": 520,
+            "itemtype": "method",
+            "name": "random",
+            "static": 1,
+            "params": [
+                {
+                    "name": "receiver",
+                    "description": "",
+                    "type": "Float32Array"
+                },
+                {
+                    "name": "scale",
+                    "description": "",
+                    "type": "Number=1",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Float32Array"
+            },
+            "class": "Vector2",
+            "module": "Igata"
+        },
+        {
+            "file": "src/geom/Vector2.js",
+            "line": 539,
+            "itemtype": "method",
+            "name": "transformMatrix2",
+            "static": 1,
+            "params": [
+                {
+                    "name": "receiver",
+                    "description": "",
+                    "type": "Float32Array"
+                },
+                {
+                    "name": "vector",
+                    "description": "",
+                    "type": "Float32Array"
+                },
+                {
+                    "name": "matrix2",
+                    "description": "",
+                    "type": "Float32Array"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Float32Array"
+            },
+            "class": "Vector2",
+            "module": "Igata"
+        },
+        {
+            "file": "src/geom/Vector2.js",
+            "line": 560,
+            "itemtype": "method",
+            "name": "transformMatrix2d",
+            "static": 1,
+            "params": [
+                {
+                    "name": "receiver",
+                    "description": "",
+                    "type": "Float32Array"
+                },
+                {
+                    "name": "vector",
+                    "description": "",
+                    "type": "Float32Array"
+                },
+                {
+                    "name": "matrix2",
+                    "description": "",
+                    "type": "Float32Array"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Float32Array"
+            },
+            "class": "Vector2",
+            "module": "Igata"
+        },
+        {
+            "file": "src/geom/Vector2.js",
+            "line": 581,
+            "itemtype": "method",
+            "name": "transformMatrix3",
+            "static": 1,
+            "params": [
+                {
+                    "name": "receiver",
+                    "description": "",
+                    "type": "Float32Array"
+                },
+                {
+                    "name": "vector",
+                    "description": "",
+                    "type": "Float32Array"
+                },
+                {
+                    "name": "matrix2",
+                    "description": "",
+                    "type": "Float32Array"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Float32Array"
+            },
+            "class": "Vector2",
+            "module": "Igata"
+        },
+        {
+            "file": "src/geom/Vector2.js",
+            "line": 602,
+            "itemtype": "method",
+            "name": "transformMatrix4",
+            "static": 1,
+            "params": [
+                {
+                    "name": "receiver",
+                    "description": "",
+                    "type": "Float32Array"
+                },
+                {
+                    "name": "vector",
+                    "description": "",
+                    "type": "Float32Array"
+                },
+                {
+                    "name": "matrix2",
+                    "description": "",
+                    "type": "Float32Array"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Float32Array"
+            },
+            "class": "Vector2",
+            "module": "Igata"
+        },
+        {
+            "file": "src/geom/Vector2.js",
+            "line": 623,
+            "itemtype": "method",
+            "name": "forEach",
+            "static": 1,
+            "params": [
+                {
+                    "name": "array",
+                    "description": "",
+                    "type": "Array"
+                },
+                {
+                    "name": "callback",
+                    "description": "",
+                    "type": "Function",
+                    "optional": true
+                },
+                {
+                    "name": "stride",
+                    "description": "",
+                    "type": "Number=2",
+                    "optional": true
+                },
+                {
+                    "name": "offset",
+                    "description": "",
+                    "type": "Number=0",
+                    "optional": true
+                },
+                {
+                    "name": "count",
+                    "description": "",
+                    "type": "Number",
+                    "optional": true
+                },
+                {
+                    "name": "args",
+                    "description": "",
+                    "type": "Array",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Array"
+            },
+            "class": "Vector2",
+            "module": "Igata"
+        },
+        {
+            "file": "src/igata.js",
+            "line": 80,
+            "itemtype": "method",
+            "name": "extend",
+            "static": 1,
+            "params": [
+                {
+                    "name": "Parent",
+                    "description": "",
+                    "type": "Function"
+                },
+                {
+                    "name": "Child",
+                    "description": "",
+                    "type": "Function"
+                }
+            ],
+            "class": "Igata",
+            "module": "Igata"
+        }
+    ],
+    "warnings": [
+        {
+            "message": "unknown tag: link",
+            "line": " src/geom/Vector2.js:202"
+        },
+        {
+            "message": "unknown tag: link",
+            "line": " src/geom/Vector2.js:229"
+        },
+        {
+            "message": "unknown tag: link",
+            "line": " src/geom/Vector2.js:271"
+        },
+        {
+            "message": "Missing item type\nlicense inazumatv.com\nauthor (at)taikiken / http://inazumatv.com\ndate 2015/04/20 - 20:55\n\nCopyright (c) 2011-2015 inazumatv.com, inc.\n\nDistributed under the terms of the MIT license.\nhttp://www.opensource.org/licenses/mit-license.html\n\nThis notice shall be included in all copies or substantial portions of the Software.",
+            "line": " src/geom/IVector.js:1"
+        },
+        {
+            "message": "Missing item type\nlicense inazumatv.com\nauthor (at)taikiken / http://inazumatv.com\ndate 2015/04/20 - 17:01\n\nCopyright (c) 2011-2015 inazumatv.com, inc.\n\nThis notice shall be included in all copies or substantial portions of the Software.",
+            "line": " src/geom/Vector2.js:1"
+        }
+    ]
+}

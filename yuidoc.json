@@ -1,0 +1,11 @@
+{
+  "name": "igata.js API",
+  "description": "Canvas 2D image effect.",
+  "url": "https://github.com/taikiken/igata.js",
+  "options": {
+    "linkNatives": "true",
+    "attributesEmit": "true",
+    "outdir": "./docs",
+    "paths": "./src"
+  }
+}

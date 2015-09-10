@@ -66,6 +66,22 @@ scripts.push( dir.src + '/effect/Convolution.js' );
 scripts.push( dir.src + '/math/Match.js' );
 scripts.push( dir.src + '/math/Template.js' );
 
+// feat
+scripts.push( dir.src + '/feat/Structure.js' );
+scripts.push( dir.src + '/feat/Cache.js' );
+
+// feat/math
+scripts.push( dir.src + '/feat/math/Calc.js' );
+scripts.push( dir.src + '/feat/math/MatrixMath.js' );
+scripts.push( dir.src + '/feat/math/LinearAlgebra.js' );
+
+// feat effect
+scripts.push( dir.src + '/feat/MotionModel.js' );
+scripts.push( dir.src + '/feat/Processing.js' );
+
+scripts.push( dir.src + '/feat/Orb.js' );
+
+
 // ----------------------------------------------------------------
 //  task
 // ----------------------------------------------------------------

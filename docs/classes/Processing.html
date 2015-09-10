@@ -1,0 +1,2432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Processing - igata.js API</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <link rel="icon" href="../assets/favicon.ico">
+    <script src="http://yui.yahooapis.com/combo?3.9.1/build/yui/yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+                <h1><img src="../assets/css/logo.png" title="igata.js API" width="117" height="52"></h1>
+        </div>
+        <div class="yui3-u-1-4 version">
+            <em>API Docs for: </em>
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+                    <h2 class="off-left">APIs</h2>
+                    <div id="api-tabview" class="tabview">
+                        <ul class="tabs">
+                            <li><a href="#api-classes">Classes</a></li>
+                            <li><a href="#api-modules">Modules</a></li>
+                        </ul>
+                
+                        <div id="api-tabview-filter">
+                            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+                        </div>
+                
+                        <div id="api-tabview-panel">
+                            <ul id="api-classes" class="apis classes">
+                                <li><a href="../classes/Affine2d.html">Affine2d</a></li>
+                                <li><a href="../classes/Bitmap.html">Bitmap</a></li>
+                                <li><a href="../classes/Blur.html">Blur</a></li>
+                                <li><a href="../classes/Brightness.html">Brightness</a></li>
+                                <li><a href="../classes/Cache.html">Cache</a></li>
+                                <li><a href="../classes/Calc.html">Calc</a></li>
+                                <li><a href="../classes/Convolution.html">Convolution</a></li>
+                                <li><a href="../classes/Data_t.html">Data_t</a></li>
+                                <li><a href="../classes/Estimator.html">Estimator</a></li>
+                                <li><a href="../classes/Filter.html">Filter</a></li>
+                                <li><a href="../classes/Grayscale.html">Grayscale</a></li>
+                                <li><a href="../classes/HomoGraphy2d.html">HomoGraphy2d</a></li>
+                                <li><a href="../classes/Igata.html">Igata</a></li>
+                                <li><a href="../classes/Invert.html">Invert</a></li>
+                                <li><a href="../classes/IVector.html">IVector</a></li>
+                                <li><a href="../classes/Keypoint_t.html">Keypoint_t</a></li>
+                                <li><a href="../classes/LA.html">LA</a></li>
+                                <li><a href="../classes/LinearAlgebra.html">LinearAlgebra</a></li>
+                                <li><a href="../classes/Matrix_t.html">Matrix_t</a></li>
+                                <li><a href="../classes/MatrixMath.html">MatrixMath</a></li>
+                                <li><a href="../classes/MM.html">MM</a></li>
+                                <li><a href="../classes/MotionEstimator.html">MotionEstimator</a></li>
+                                <li><a href="../classes/Node_t.html">Node_t</a></li>
+                                <li><a href="../classes/Orb.html">Orb</a></li>
+                                <li><a href="../classes/Processing.html">Processing</a></li>
+                                <li><a href="../classes/Pyramid_t.html">Pyramid_t</a></li>
+                                <li><a href="../classes/Ransac_t.html">Ransac_t</a></li>
+                                <li><a href="../classes/Sepia.html">Sepia</a></li>
+                                <li><a href="../classes/Stack.html">Stack</a></li>
+                                <li><a href="../classes/Threshold.html">Threshold</a></li>
+                                <li><a href="../classes/Vector2.html">Vector2</a></li>
+                            </ul>
+                
+                
+                            <ul id="api-modules" class="apis modules">
+                                <li><a href="../modules/Feat.html">Feat</a></li>
+                                <li><a href="../modules/Igata.html">Igata</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+                    Show:
+                    <label for="api-show-inherited">
+                        <input type="checkbox" id="api-show-inherited" checked>
+                        Inherited
+                    </label>
+            
+                    <label for="api-show-protected">
+                        <input type="checkbox" id="api-show-protected">
+                        Protected
+                    </label>
+            
+                    <label for="api-show-private">
+                        <input type="checkbox" id="api-show-private">
+                        Private
+                    </label>
+                    <label for="api-show-deprecated">
+                        <input type="checkbox" id="api-show-deprecated">
+                        Deprecated
+                    </label>
+            
+                </div>
+            
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+<h1>Processing Class</h1>
+<div class="box meta">
+
+
+        <div class="foundat">
+            Defined in: <a href="../files/src_feat_Processing.js.html#l640"><code>src&#x2F;feat&#x2F;Processing.js:640</code></a>
+        </div>
+
+            Module: <a href="../modules/Feat.html">Feat</a><br>
+            Parent Module: <a href="../modules/Igata.html">Igata</a>
+
+</div>
+
+
+<div class="box intro">
+    
+</div>
+
+    <div class="constructor">
+        <h2>Constructor</h2>
+<div id="method_Processing" class="method item">
+    <h3 class="name"><code>Processing</code></h3>
+
+        <span class="paren">()</span>
+
+
+
+
+
+        <span class="flag static">static</span>
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_feat_Processing.js.html#l640"><code>src&#x2F;feat&#x2F;Processing.js:640</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        
+    </div>
+
+
+
+
+</div>
+    </div>
+
+<div id="classdocs" class="tabview">
+    <ul class="api-class-tabs">
+        <li class="api-class-tab index"><a href="#index">Index</a></li>
+
+            <li class="api-class-tab methods"><a href="#methods">Methods</a></li>
+    </ul>
+
+    <div>
+        <div id="index" class="api-class-tabpanel index">
+            <h2 class="off-left">Item Index</h2>
+
+                <div class="index-section methods">
+                    <h3>Methods</h3>
+
+                    <ul class="index-list methods">
+                            <li class="index-item method">
+                                <a href="#method_affine">affine</a>
+
+                                    <span class="flag static">static</span>
+                            </li>
+                            <li class="index-item method deprecated">
+                                <a href="#method_box_blur_gray">box_blur_gray</a>
+
+                                    <span class="flag static">static</span>
+                                    <span class="flag deprecated">deprecated</span>
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_boxGray">boxGray</a>
+
+                                    <span class="flag static">static</span>
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_canny">canny</a>
+
+                                    <span class="flag static">static</span>
+                            </li>
+                            <li class="index-item method deprecated">
+                                <a href="#method_compute_integral_image">compute_integral_image</a>
+
+                                    <span class="flag static">static</span>
+                                    <span class="flag deprecated">deprecated</span>
+                            </li>
+                            <li class="index-item method deprecated">
+                                <a href="#method_equalize_histogram">equalize_histogram</a>
+
+                                    <span class="flag static">static</span>
+                                    <span class="flag deprecated">deprecated</span>
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_gaussian">gaussian</a>
+
+                                    <span class="flag static">static</span>
+                            </li>
+                            <li class="index-item method deprecated">
+                                <a href="#method_gaussian_blur">gaussian_blur</a>
+
+                                    <span class="flag static">static</span>
+                                    <span class="flag deprecated">deprecated</span>
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_grayscale">grayscale</a>
+
+                                    <span class="flag static">static</span>
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_histogram">histogram</a>
+
+                                    <span class="flag static">static</span>
+                            </li>
+                            <li class="index-item method deprecated">
+                                <a href="#method_hough_transform">hough_transform</a>
+
+                                    <span class="flag static">static</span>
+                                    <span class="flag deprecated">deprecated</span>
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_integralImage">integralImage</a>
+
+                                    <span class="flag static">static</span>
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_perspective">perspective</a>
+
+                                    <span class="flag static">static</span>
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_pyrdown">pyrdown</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_resample">resample</a>
+
+                                    <span class="flag static">static</span>
+                            </li>
+                            <li class="index-item method deprecated">
+                                <a href="#method_scharr_derivatives">scharr_derivatives</a>
+
+                                    <span class="flag static">static</span>
+                                    <span class="flag deprecated">deprecated</span>
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_scharrDerivatives">scharrDerivatives</a>
+
+                                    <span class="flag static">static</span>
+                            </li>
+                            <li class="index-item method deprecated">
+                                <a href="#method_skindetector">skindetector</a>
+
+                                    <span class="flag static">static</span>
+                                    <span class="flag deprecated">deprecated</span>
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_skinDetector">skinDetector</a>
+
+                                    <span class="flag static">static</span>
+                            </li>
+                            <li class="index-item method deprecated">
+                                <a href="#method_sobel_derivatives">sobel_derivatives</a>
+
+                                    <span class="flag static">static</span>
+                                    <span class="flag deprecated">deprecated</span>
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_sobelDerivatives">sobelDerivatives</a>
+
+                                    <span class="flag static">static</span>
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_transform">transform</a>
+
+                                    <span class="flag static">static</span>
+                            </li>
+                            <li class="index-item method deprecated">
+                                <a href="#method_warp_affine">warp_affine</a>
+
+                                    <span class="flag static">static</span>
+                                    <span class="flag deprecated">deprecated</span>
+                            </li>
+                            <li class="index-item method deprecated">
+                                <a href="#method_warp_perspective">warp_perspective</a>
+
+                                    <span class="flag static">static</span>
+                                    <span class="flag deprecated">deprecated</span>
+                            </li>
+                    </ul>
+                </div>
+
+
+
+        </div>
+
+            <div id="methods" class="api-class-tabpanel">
+                <h2 class="off-left">Methods</h2>
+
+<div id="method_affine" class="method item">
+    <h3 class="name"><code>affine</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>src</code>
+                </li>
+                <li class="arg">
+                        <code>dst</code>
+                </li>
+                <li class="arg">
+                        <code>transform</code>
+                </li>
+                <li class="arg">
+                        <code class="optional">[fill_value]</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+        <span class="flag static">static</span>
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_feat_Processing.js.html#l2158"><code>src&#x2F;feat&#x2F;Processing.js:2158</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>transform is 3x3 or 2x3 matrix_t only first 6 values referenced</p>
+<p>Applies an affine transformation to an image using 2x3 or 3x3 Matrix. Single channel source only.</p>
+<p>To avoid sampling artifacts, the mapping is done in the reverse order, from destination to the source. That is, for each pixel of the destination image, the functions compute coordinates of the corresponding “donor” pixel in the source image and copy the pixel value.</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">src</code>
+                        <span class="type"><a href="../classes/Matrix_t.html" class="crosslink">Matrix_t</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">dst</code>
+                        <span class="type"><a href="../classes/Matrix_t.html" class="crosslink">Matrix_t</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">transform</code>
+                        <span class="type"><a href="../classes/Matrix_t.html" class="crosslink">Matrix_t</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name optional">[fill_value]</code>
+                        <span class="type">Number=0</span>
+                        <span class="flag optional" title="This parameter is optional.">optional</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+<div id="method_box_blur_gray" class="method item deprecated">
+    <h3 class="name"><code>box_blur_gray</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>src</code>
+                </li>
+                <li class="arg">
+                        <code>dst</code>
+                </li>
+                <li class="arg">
+                        <code>radius</code>
+                </li>
+                <li class="arg">
+                        <code>options</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+        <span class="flag deprecated" title="instead use boxGray">deprecated</span>
+
+
+
+        <span class="flag static">static</span>
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_feat_Processing.js.html#l987"><code>src&#x2F;feat&#x2F;Processing.js:987</code></a>
+        </p>
+
+
+            <p>Deprecated: instead use boxGray</p>
+
+    </div>
+
+    <div class="description">
+        
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">src</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">dst</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">radius</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">options</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+<div id="method_boxGray" class="method item">
+    <h3 class="name"><code>boxGray</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>src</code>
+                </li>
+                <li class="arg">
+                        <code>dst</code>
+                </li>
+                <li class="arg">
+                        <code>radius</code>
+                </li>
+                <li class="arg">
+                        <code class="optional">[options]</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+        <span class="flag static">static</span>
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_feat_Processing.js.html#l754"><code>src&#x2F;feat&#x2F;Processing.js:754</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Works with single channel data only. NOTE: if input is jsfeat.U8_t and options = jsfeat.BOX_BLUR_NOSCALE dest should be at least jsfeat.S32_t to handle accumulated values correctly.</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">src</code>
+                        <span class="type"><a href="../classes/Matrix_t.html" class="crosslink">Matrix_t</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">dst</code>
+                        <span class="type"><a href="../classes/Matrix_t.html" class="crosslink">Matrix_t</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">radius</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name optional">[options]</code>
+                        <span class="type">Number=0</span>
+                        <span class="flag optional" title="This parameter is optional.">optional</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+<div id="method_canny" class="method item">
+    <h3 class="name"><code>canny</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>src</code>
+                </li>
+                <li class="arg">
+                        <code>dst</code>
+                </li>
+                <li class="arg">
+                        <code>low_thresh</code>
+                </li>
+                <li class="arg">
+                        <code>high_thresh</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+        <span class="flag static">static</span>
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_feat_Processing.js.html#l1777"><code>src&#x2F;feat&#x2F;Processing.js:1777</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Canny edge detector. Result contains only 0x00 and 0xFF values.</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">src</code>
+                        <span class="type"><a href="../classes/Matrix_t.html" class="crosslink">Matrix_t</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">dst</code>
+                        <span class="type"><a href="../classes/Matrix_t.html" class="crosslink">Matrix_t</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">low_thresh</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">high_thresh</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+<div id="method_compute_integral_image" class="method item deprecated">
+    <h3 class="name"><code>compute_integral_image</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>src</code>
+                </li>
+                <li class="arg">
+                        <code>dst_sum</code>
+                </li>
+                <li class="arg">
+                        <code>dst_sqsum</code>
+                </li>
+                <li class="arg">
+                        <code>dst_tilted</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+        <span class="flag deprecated" title="instead use integralImage">deprecated</span>
+
+
+
+        <span class="flag static">static</span>
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_feat_Processing.js.html#l1696"><code>src&#x2F;feat&#x2F;Processing.js:1696</code></a>
+        </p>
+
+
+            <p>Deprecated: instead use integralImage</p>
+
+    </div>
+
+    <div class="description">
+        
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">src</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">dst_sum</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">dst_sqsum</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">dst_tilted</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+<div id="method_equalize_histogram" class="method item deprecated">
+    <h3 class="name"><code>equalize_histogram</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>src</code>
+                </li>
+                <li class="arg">
+                        <code>dst</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+        <span class="flag deprecated" title="instead use histogram">deprecated</span>
+
+
+
+        <span class="flag static">static</span>
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_feat_Processing.js.html#l1765"><code>src&#x2F;feat&#x2F;Processing.js:1765</code></a>
+        </p>
+
+
+            <p>Deprecated: instead use histogram</p>
+
+    </div>
+
+    <div class="description">
+        
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">src</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">dst</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+<div id="method_gaussian" class="method item">
+    <h3 class="name"><code>gaussian</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>src</code>
+                </li>
+                <li class="arg">
+                        <code>dst</code>
+                </li>
+                <li class="arg">
+                        <code class="optional">[kernel_size]</code>
+                </li>
+                <li class="arg">
+                        <code class="optional">[sigma]</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+        <span class="flag static">static</span>
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_feat_Processing.js.html#l1001"><code>src&#x2F;feat&#x2F;Processing.js:1001</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">src</code>
+                        <span class="type"><a href="../classes/Matrix_t.html" class="crosslink">Matrix_t</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">dst</code>
+                        <span class="type"><a href="../classes/Matrix_t.html" class="crosslink">Matrix_t</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name optional">[kernel_size]</code>
+                        <span class="type">Number=0</span>
+                        <span class="flag optional" title="This parameter is optional.">optional</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name optional">[sigma]</code>
+                        <span class="type">Number=0</span>
+                        <span class="flag optional" title="This parameter is optional.">optional</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+<div id="method_gaussian_blur" class="method item deprecated">
+    <h3 class="name"><code>gaussian_blur</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>src</code>
+                </li>
+                <li class="arg">
+                        <code>dst</code>
+                </li>
+                <li class="arg">
+                        <code>kernel_size</code>
+                </li>
+                <li class="arg">
+                        <code>sigma</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+        <span class="flag deprecated" title="instead use gaussian">deprecated</span>
+
+
+
+        <span class="flag static">static</span>
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_feat_Processing.js.html#l1062"><code>src&#x2F;feat&#x2F;Processing.js:1062</code></a>
+        </p>
+
+
+            <p>Deprecated: instead use gaussian</p>
+
+    </div>
+
+    <div class="description">
+        
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">src</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">dst</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">kernel_size</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">sigma</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+<div id="method_grayscale" class="method item">
+    <h3 class="name"><code>grayscale</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>src</code>
+                </li>
+                <li class="arg">
+                        <code>w</code>
+                </li>
+                <li class="arg">
+                        <code>h</code>
+                </li>
+                <li class="arg">
+                        <code>dst</code>
+                </li>
+                <li class="arg">
+                        <code class="optional">[code]</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+        <span class="flag static">static</span>
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_feat_Processing.js.html#l652"><code>src&#x2F;feat&#x2F;Processing.js:652</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Convert color array input [r0,g0,b0,a0, ...] to grayscale using Y = 0.299<em>R + 0.587</em>G + 0.114*B formula. You can specify the source input channel order such as BGRA, RGBA, RGB and BGR.</p>
+<pre class="code prettyprint"><code> context2d.drawImage(video, 0, 0, width, height);
+ var image_data = context2d.getImageData(0, 0, width, height);
+
+ var gray_img = new Igata.Matrix_t(width, height, Igata.U8_t | Igata.C1_t);
+ var code = Igata.COLOR_RGBA2GRAY;
+ Igata.Processing.grayscale(image_data.data, width, height, gray_img, code);</code></pre>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">src</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/API/ImageData" class="crosslink external" target="_blank">ImageData</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">w</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a></span>
+
+
+                    <div class="param-description">
+                        <p>width</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">h</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a></span>
+
+
+                    <div class="param-description">
+                        <p>height</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">dst</code>
+                        <span class="type"><a href="../classes/Matrix_t.html" class="crosslink">Matrix_t</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name optional">[code]</code>
+                        <span class="type">Number=COLOR_RGBA2GRAY</span>
+                        <span class="flag optional" title="This parameter is optional.">optional</span>
+
+
+                    <div class="param-description">
+                        <p>COLOR_BGRA2GRAY || COLOR_BGR2GRAY</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+<div id="method_histogram" class="method item">
+    <h3 class="name"><code>histogram</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>src</code>
+                </li>
+                <li class="arg">
+                        <code>dst</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+        <span class="flag static">static</span>
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_feat_Processing.js.html#l1710"><code>src&#x2F;feat&#x2F;Processing.js:1710</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Equalizes the histogram of a grayscale image. The algorithm normalizes the brightness and increases the contrast of the image.</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">src</code>
+                        <span class="type"><a href="../classes/Matrix_t.html" class="crosslink">Matrix_t</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">dst</code>
+                        <span class="type"><a href="../classes/Matrix_t.html" class="crosslink">Matrix_t</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+<div id="method_hough_transform" class="method item deprecated">
+    <h3 class="name"><code>hough_transform</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>img</code>
+                </li>
+                <li class="arg">
+                        <code>rho_res</code>
+                </li>
+                <li class="arg">
+                        <code>theta_res</code>
+                </li>
+                <li class="arg">
+                        <code>threshold</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array" class="crosslink external" target="_blank">Array</a></span>
+        </span>
+
+        <span class="flag deprecated" title="instead use transform">deprecated</span>
+
+
+
+        <span class="flag static">static</span>
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_feat_Processing.js.html#l1193"><code>src&#x2F;feat&#x2F;Processing.js:1193</code></a>
+        </p>
+
+
+            <p>Deprecated: instead use transform</p>
+
+    </div>
+
+    <div class="description">
+        
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">img</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">rho_res</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">theta_res</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">threshold</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array" class="crosslink external" target="_blank">Array</a></span>:
+            </div>
+        </div>
+
+
+</div>
+<div id="method_integralImage" class="method item">
+    <h3 class="name"><code>integralImage</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>src</code>
+                </li>
+                <li class="arg">
+                        <code>dst_sum</code>
+                </li>
+                <li class="arg">
+                        <code>dst_sqsum</code>
+                </li>
+                <li class="arg">
+                        <code>dst_tilted</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+        <span class="flag static">static</span>
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_feat_Processing.js.html#l1503"><code>src&#x2F;feat&#x2F;Processing.js:1503</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Calculates one or more integral images for the source image. Using these integral images, one may calculate sum, mean, standard deviation over arbitrary up-right or rotated rectangular region of the image in a constant time. NOTE: each destinatination should be 1 pixel larger than source width = source.cols+1, height = source.rows+1. Single channel source only.</p>
+<p><code>please note:</code></p>
+<p>dst_(type) size should be cols = src.cols+1, rows = src.rows+1</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">src</code>
+                        <span class="type"><a href="../classes/Matrix_t.html" class="crosslink">Matrix_t</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">dst_sum</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array" class="crosslink external" target="_blank">Array</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">dst_sqsum</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array" class="crosslink external" target="_blank">Array</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">dst_tilted</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array" class="crosslink external" target="_blank">Array</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+<div id="method_perspective" class="method item">
+    <h3 class="name"><code>perspective</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>src</code>
+                </li>
+                <li class="arg">
+                        <code>dst</code>
+                </li>
+                <li class="arg">
+                        <code>transform</code>
+                </li>
+                <li class="arg">
+                        <code class="optional">[fill_value]</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+        <span class="flag static">static</span>
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_feat_Processing.js.html#l2078"><code>src&#x2F;feat&#x2F;Processing.js:2078</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>transform is 3x3 Matrix_t</p>
+<p>Applies a perspective transformation to an image using 3x3 Matrix. Single channel source only.</p>
+<p>To avoid sampling artifacts, the mapping is done in the reverse order, from destination to the source. That is, for each pixel of the destination image, the functions compute coordinates of the corresponding “donor” pixel in the source image and copy the pixel value.</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">src</code>
+                        <span class="type"><a href="../classes/Matrix_t.html" class="crosslink">Matrix_t</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">dst</code>
+                        <span class="type"><a href="../classes/Matrix_t.html" class="crosslink">Matrix_t</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">transform</code>
+                        <span class="type"><a href="../classes/Matrix_t.html" class="crosslink">Matrix_t</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name optional">[fill_value]</code>
+                        <span class="type">Number=0</span>
+                        <span class="flag optional" title="This parameter is optional.">optional</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+<div id="method_pyrdown" class="method item">
+    <h3 class="name"><code>pyrdown</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>src</code>
+                </li>
+                <li class="arg">
+                        <code>dst</code>
+                </li>
+                <li class="arg">
+                        <code class="optional">[sx]</code>
+                </li>
+                <li class="arg">
+                        <code class="optional">[sy]</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_feat_Processing.js.html#l1209"><code>src&#x2F;feat&#x2F;Processing.js:1209</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Down sample source to dest writing simple 4 pix average value. Works with single channel only.</p>
+<p>assume we always need it for u8 image</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">src</code>
+                        <span class="type"><a href="../classes/Matrix_t.html" class="crosslink">Matrix_t</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">dst</code>
+                        <span class="type"><a href="../classes/Matrix_t.html" class="crosslink">Matrix_t</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name optional">[sx]</code>
+                        <span class="type">Number=0</span>
+                        <span class="flag optional" title="This parameter is optional.">optional</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name optional">[sy]</code>
+                        <span class="type">Number=0</span>
+                        <span class="flag optional" title="This parameter is optional.">optional</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+<div id="method_resample" class="method item">
+    <h3 class="name"><code>resample</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>src</code>
+                </li>
+                <li class="arg">
+                        <code>dst</code>
+                </li>
+                <li class="arg">
+                        <code>nw</code>
+                </li>
+                <li class="arg">
+                        <code>nh</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+        <span class="flag static">static</span>
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_feat_Processing.js.html#l720"><code>src&#x2F;feat&#x2F;Processing.js:720</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Generic resize method. Works with single and multi channel matrix_t. If performance is critical or you need multiple image resizings it is recommended to use canvas built-in drawImage() method.</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">src</code>
+                        <span class="type"><a href="../classes/Matrix_t.html" class="crosslink">Matrix_t</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">dst</code>
+                        <span class="type"><a href="../classes/Matrix_t.html" class="crosslink">Matrix_t</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">nw</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a></span>
+
+
+                    <div class="param-description">
+                        <p>new width</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">nh</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a></span>
+
+
+                    <div class="param-description">
+                        <p>new height</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+<div id="method_scharr_derivatives" class="method item deprecated">
+    <h3 class="name"><code>scharr_derivatives</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>src</code>
+                </li>
+                <li class="arg">
+                        <code>dst</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+        <span class="flag deprecated" title="instead use scharrDerivatives">deprecated</span>
+
+
+
+        <span class="flag static">static</span>
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_feat_Processing.js.html#l1371"><code>src&#x2F;feat&#x2F;Processing.js:1371</code></a>
+        </p>
+
+
+            <p>Deprecated: instead use scharrDerivatives</p>
+
+    </div>
+
+    <div class="description">
+        
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">src</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">dst</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+<div id="method_scharrDerivatives" class="method item">
+    <h3 class="name"><code>scharrDerivatives</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>src</code>
+                </li>
+                <li class="arg">
+                        <code>dst</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+        <span class="flag static">static</span>
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_feat_Processing.js.html#l1266"><code>src&#x2F;feat&#x2F;Processing.js:1266</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Compute gradient using Scharr kernel [3 10 3] * [-1 0 1]^T. Works with single channel only.</p>
+<p>dst: [gx,gy,...]</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">src</code>
+                        <span class="type"><a href="../classes/Matrix_t.html" class="crosslink">Matrix_t</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">dst</code>
+                        <span class="type"><a href="../classes/Matrix_t.html" class="crosslink">Matrix_t</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+<div id="method_skindetector" class="method item deprecated">
+    <h3 class="name"><code>skindetector</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>src</code>
+                </li>
+                <li class="arg">
+                        <code>dst</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+        <span class="flag deprecated" title="instead use skinDetector">deprecated</span>
+
+
+
+        <span class="flag static">static</span>
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_feat_Processing.js.html#l2268"><code>src&#x2F;feat&#x2F;Processing.js:2268</code></a>
+        </p>
+
+
+            <p>Deprecated: instead use skinDetector</p>
+
+    </div>
+
+    <div class="description">
+        
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">src</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">dst</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+<div id="method_skinDetector" class="method item">
+    <h3 class="name"><code>skinDetector</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>src</code>
+                </li>
+                <li class="arg">
+                        <code>dst</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+        <span class="flag static">static</span>
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_feat_Processing.js.html#l2230"><code>src&#x2F;feat&#x2F;Processing.js:2230</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Basic RGB Skin detection filter</p>
+<p>from <a href="http://popscan.blogspot.fr/2012/08/skin-detection-in-digital-images.html">http://popscan.blogspot.fr/2012/08/skin-detection-in-digital-images.html</a></p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">src</code>
+                        <span class="type"><a href="../classes/Matrix_t.html" class="crosslink">Matrix_t</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">dst</code>
+                        <span class="type"><a href="../classes/Matrix_t.html" class="crosslink">Matrix_t</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+<div id="method_sobel_derivatives" class="method item deprecated">
+    <h3 class="name"><code>sobel_derivatives</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>src</code>
+                </li>
+                <li class="arg">
+                        <code>dst</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+        <span class="flag deprecated" title="instead use sobelDerivatives">deprecated</span>
+
+
+
+        <span class="flag static">static</span>
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_feat_Processing.js.html#l1490"><code>src&#x2F;feat&#x2F;Processing.js:1490</code></a>
+        </p>
+
+
+            <p>Deprecated: instead use sobelDerivatives</p>
+
+    </div>
+
+    <div class="description">
+        
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">src</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">dst</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+<div id="method_sobelDerivatives" class="method item">
+    <h3 class="name"><code>sobelDerivatives</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>src</code>
+                </li>
+                <li class="arg">
+                        <code>dst</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+        <span class="flag static">static</span>
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_feat_Processing.js.html#l1384"><code>src&#x2F;feat&#x2F;Processing.js:1384</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>compute gradient using Sobel kernel [1 2 1] * [-1 0 1]^T</p>
+<p>dst: [gx,gy,...]</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">src</code>
+                        <span class="type"><a href="../classes/Matrix_t.html" class="crosslink">Matrix_t</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">dst</code>
+                        <span class="type"><a href="../classes/Matrix_t.html" class="crosslink">Matrix_t</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+<div id="method_transform" class="method item">
+    <h3 class="name"><code>transform</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>img</code>
+                </li>
+                <li class="arg">
+                        <code>rho_res</code>
+                </li>
+                <li class="arg">
+                        <code>theta_res</code>
+                </li>
+                <li class="arg">
+                        <code>threshold</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array" class="crosslink external" target="_blank">Array</a></span>
+        </span>
+
+
+
+
+        <span class="flag static">static</span>
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_feat_Processing.js.html#l1076"><code>src&#x2F;feat&#x2F;Processing.js:1076</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">img</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/API/ImageData" class="crosslink external" target="_blank">ImageData</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">rho_res</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">theta_res</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">threshold</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array" class="crosslink external" target="_blank">Array</a></span>:
+            </div>
+        </div>
+
+
+</div>
+<div id="method_warp_affine" class="method item deprecated">
+    <h3 class="name"><code>warp_affine</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>src</code>
+                </li>
+                <li class="arg">
+                        <code>dst</code>
+                </li>
+                <li class="arg">
+                        <code>transform</code>
+                </li>
+                <li class="arg">
+                        <code>fill_value</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+        <span class="flag deprecated" title="instead use affine">deprecated</span>
+
+
+
+        <span class="flag static">static</span>
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_feat_Processing.js.html#l2215"><code>src&#x2F;feat&#x2F;Processing.js:2215</code></a>
+        </p>
+
+
+            <p>Deprecated: instead use affine</p>
+
+    </div>
+
+    <div class="description">
+        
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">src</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">dst</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">transform</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">fill_value</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+<div id="method_warp_perspective" class="method item deprecated">
+    <h3 class="name"><code>warp_perspective</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>src</code>
+                </li>
+                <li class="arg">
+                        <code>dst</code>
+                </li>
+                <li class="arg">
+                        <code>transform</code>
+                </li>
+                <li class="arg">
+                        <code>fill_value</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+        <span class="flag deprecated" title="instead use perspective">deprecated</span>
+
+
+
+        <span class="flag static">static</span>
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_feat_Processing.js.html#l2143"><code>src&#x2F;feat&#x2F;Processing.js:2143</code></a>
+        </p>
+
+
+            <p>Deprecated: instead use perspective</p>
+
+    </div>
+
+    <div class="description">
+        
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">src</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">dst</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">transform</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">fill_value</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+            </div>
+
+
+
+    </div>
+</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/../api.js"></script>
+<script src="../assets/js/api-filter.js"></script>
+<script src="../assets/js/api-list.js"></script>
+<script src="../assets/js/api-search.js"></script>
+<script src="../assets/js/apidocs.js"></script>
+</body>
+</html>
