@@ -34,12 +34,17 @@
     Igata = window.Igata,
     global = Igata;
 
+
   global.Bbf = ( function () {
 
-    var Processing = Igata.Processing;
-    var Matrix_t = Igata.Matrix_t;
-    var U8_t = Igata.U8_t;
-    var C1_t = Igata.C1_t;
+    var Processing = global.Processing;
+    var Matrix_t = global.Matrix_t;
+    var U8_t = global.U8_t;
+    var C1_t = global.C1_t;
+
+    var _pow = global._pow;
+    var _log = global._log;
+    var _min = global._min;
 
     // ------------------------------------------------------------------
     // private
@@ -201,10 +206,10 @@
       var scale;
 
       Bbf.interval = interval;
-      scale = Math.pow(2, 1 / (interval + 1));
+      scale = _pow(2, 1 / (interval + 1));
       Bbf.scale = scale;
       Bbf.next = (interval + 1)|0;
-      Bbf.scaleTo = (Math.log(Math.min(sw / min_width, sh / min_height)) / Math.log(scale))|0;
+      Bbf.scaleTo = ( _log( _min(sw / min_width, sh / min_height)) / _log(scale))|0;
 
       var pyr_l = ((Bbf.scaleTo + Bbf.next * 2) * 4) | 0;
       var limit;
@@ -221,8 +226,8 @@
       limit = interval;
       for ( i = 1; i <= limit; ++i ) {
 
-        nw = (sw / Math.pow(scale, i))|0;
-        nh = (sh / Math.pow(scale, i))|0;
+        nw = (sw / _pow(scale, i))|0;
+        nh = (sh / _pow(scale, i))|0;
 
         src0 = img_pyr.data[i<<2];
 
@@ -622,12 +627,12 @@
       var idx_seq = [];
       var class_idx = 0;
 
-      for(i = 0; i < n; i++) {
+      for (i = 0; i < n; i++) {
 
         j = -1;
         var node1 = i;
 
-        if(node[node1].element) {
+        if (node[node1].element) {
 
           while (node[node1].parent !== -1) {
 
@@ -635,7 +640,7 @@
 
           }
 
-          if(node[node1].rank >= 0) {
+          if (node[node1].rank >= 0) {
 
             node[node1].rank = ~class_idx++;
 
@@ -667,7 +672,7 @@
       }
 
       // count number of neighbors
-      for(i = 0; i < n; ++i) {
+      for (i = 0; i < n; ++i) {
 
         r1 = rects[i];
         idx = idx_seq[i];
@@ -721,12 +726,12 @@
           var r2 = seq2[j];
           var distance = (r2.width * 0.25 + 0.5)|0;
 
-          if (i !== j &&
+          if ( i !== j &&
               r1.x >= r2.x - distance &&
               r1.y >= r2.y - distance &&
               r1.x + r1.width <= r2.x + r2.width + distance &&
               r1.y + r1.height <= r2.y + r2.height + distance &&
-              (r2.neighbors > Math.max(3, r1.neighbors) || r1.neighbors < 3)) {
+              (r2.neighbors > Math.max(3, r1.neighbors) || r1.neighbors < 3) ) {
 
             flag = false;
             break;

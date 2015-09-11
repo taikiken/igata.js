@@ -147,6 +147,15 @@
             },
             "namespaces": {}
         },
+        "src/feat/cascade/Cascade.js": {
+            "name": "src/feat/cascade/Cascade.js",
+            "modules": {},
+            "classes": {
+                "Cascade": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
         "src/feat/detector/Bbf.js": {
             "name": "src/feat/detector/Bbf.js",
             "modules": {},
@@ -190,7 +199,9 @@
                 "Processing": 1,
                 "Pyramid_t": 1
             },
-            "fors": {},
+            "fors": {
+                "Processing": 1
+            },
             "namespaces": {}
         },
         "src/feat/math/Calc.js": {
@@ -199,7 +210,9 @@
             "classes": {
                 "Calc": 1
             },
-            "fors": {},
+            "fors": {
+                "Calc": 1
+            },
             "namespaces": {}
         },
         "src/feat/math/LinearAlgebra.js": {
@@ -231,7 +244,9 @@
                 "Node_t": 1,
                 "Cache": 1
             },
-            "fors": {},
+            "fors": {
+                "Cache": 1
+            },
             "namespaces": {}
         },
         "src/feat/Structure.js": {
@@ -301,6 +316,7 @@
                 "Table_t": 1,
                 "lev_table_t": 1,
                 "Yape06": 1,
+                "Cascade": 1,
                 "Bbf": 1,
                 "Haar": 1,
                 "Affine2d": 1,
@@ -333,7 +349,10 @@
                 "Bbf": 1,
                 "Affine2d": 1,
                 "MotionEstimator": 1,
+                "Processing": 1,
+                "Calc": 1,
                 "LinearAlgebra": 1,
+                "Cache": 1,
                 "Igata": 1
             },
             "namespaces": {},
@@ -355,6 +374,7 @@
                 "Table_t": 1,
                 "lev_table_t": 1,
                 "Yape06": 1,
+                "Cascade": 1,
                 "Bbf": 1,
                 "Haar": 1,
                 "Affine2d": 1,
@@ -385,7 +405,10 @@
                 "Bbf": 1,
                 "Affine2d": 1,
                 "MotionEstimator": 1,
+                "Processing": 1,
+                "Calc": 1,
                 "LinearAlgebra": 1,
+                "Cache": 1,
                 "Igata": 1
             },
             "is_submodule": 1,
@@ -632,7 +655,7 @@
             "submodule": "Feat",
             "namespace": "",
             "file": "src/feat/2d/FastCorner.js",
-            "line": 181,
+            "line": 185,
             "description": "This is FAST corner detector, contributed to OpenCV by the author, Edward Rosten.\n\nThe references are:\n\nMachine learning for high-speed corner detection,\n\nE. Rosten and T. Drummond, ECCV 2006\n\nFaster and better: A machine learning approach to corner detection\n\nE. Rosten, R. Porter and T. Drummond, PAMI, 2009\n\n## Detects corners using the FAST algorithm.\n\n     // threshold on difference between intensity of the central pixel\n     // and pixels of a circle around this pixel\n     var threshold = 20;\n     Igata.FastCorners.setThreshold(threshold);\n\n     var corners = [], border = 3;\n\n     // you should use preallocated keypoint_t array\n     for(var i = 0; i < img.cols*img.rows, ++i) {\n\n       corners[i] = new Igata.Keypoint_t(0,0,0,0);\n\n     }\n\n     // perform detection\n     // returns the amount of detected corners\n     var count = Igata.FastCorners.detect(img:Matrix_t, corners:Array, border = 3);",
             "static": 1,
             "is_constructor": 1
@@ -666,7 +689,7 @@
             "submodule": "Feat",
             "namespace": "",
             "file": "src/feat/2d/Orb.js",
-            "line": 352,
+            "line": 354,
             "description": "Oriented and Rotated BRIEF. [for more info see: http://en.wikipedia.org/wiki/ORB_(feature_descriptor)]\n\n\n     var corners = []; // Igata.Keypoint_t Array\n\n     vvar cols = 32; // 32 Bytes / 256 BIT descriptor\n     vvar rows = num_corners; // descriptors stored per row\n     vvar descriptors = new Igata.Matrix_t(cols, rows, Igata.U8_t | Igata.C1_t);\n\n     Igata.Orb.describe(img_u8:Matrix_t, corners:Array, num_corners, descriptors:Matrix_t);",
             "static": 1,
             "is_constructor": 1
@@ -683,7 +706,7 @@
             "submodule": "Feat",
             "namespace": "",
             "file": "src/feat/2d/Yape.js",
-            "line": 601,
+            "line": 606,
             "description": "Yet Another Point Extractor by CVLab (Ecole Polytechnique Federale de Lausanne (EPFL), Switzerland).\n\n\n     var corners = [],\n     image_width = img.cols, image_height = img.rows,\n     radius = 5, pyramid_levels = 1; // for now only single level support\n\n     // YAPE needs init before running detection\n     Igata.Yape.init(image_width, image_height, radius, pyramid_levels);\n\n     // you should use preallocated keypoint_t array\n     for(var i = 0; i < img.cols*img.rows, ++i) {\n\n       corners[i] = new Igata.Keypoint_t(0,0,0,0);\n\n     }\n\n     // perform detection\n     // returns the amount of detected corners\n     var count = Igata.Yape.detect(img:matrix_t, corners:Array, border = 4);",
             "static": 1,
             "is_constructor": 1
@@ -712,7 +735,7 @@
             "submodule": "Feat",
             "namespace": "",
             "file": "src/feat/2d/Yape.js",
-            "line": 554,
+            "line": 559,
             "description": "Yape inner Class",
             "params": [
                 {
@@ -742,7 +765,7 @@
             "submodule": "Feat",
             "namespace": "",
             "file": "src/feat/2d/Yape.js",
-            "line": 595,
+            "line": 600,
             "deprecated": true,
             "deprecationMessage": "instead use Table_t"
         },
@@ -758,8 +781,25 @@
             "submodule": "Feat",
             "namespace": "",
             "file": "src/feat/2d/Yape06.js",
-            "line": 102,
+            "line": 109,
             "description": "Laplacian and min eigen value based feature detector by CVLab (Ecole Polytechnique Federale de Lausanne (EPFL), Switzerland).\n\n\n     var corners = [],\n     laplacian_threshold = 30,\n     min_eigen_value_threshold = 25;\n\n     // choose threshold values\n     Igata.Yape06.hreshold = laplacian_threshold;\n     Igata.Yape06.thresholdMin = min_eigen_value_threshold;\n\n     // you should use preallocated keypoint_t array\n     for(var i = 0; i < img.cols*img.rows, ++i) {\n\n       corners[i] = new Igata.Keypoint_t(0,0,0,0);\n\n     }\n\n     // perform detection\n     // returns the amount of detected corners\n     var count = Igata.Yape06.detect(img:Matrix_t, corners:Array, border = 5);",
+            "static": 1,
+            "is_constructor": 1
+        },
+        "Cascade": {
+            "name": "Cascade",
+            "shortname": "Cascade",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Igata",
+            "submodule": "Feat",
+            "namespace": "",
+            "file": "src/feat/cascade/Cascade.js",
+            "line": 33,
+            "description": "cascade files parent Class.",
             "static": 1,
             "is_constructor": 1
         },
@@ -775,7 +815,7 @@
             "submodule": "Feat",
             "namespace": "",
             "file": "src/feat/detector/Bbf.js",
-            "line": 81,
+            "line": 86,
             "description": "## Brightness Binary Feature object detector\n\nThe original paper refers to: YEF∗ Real-Time Object Detection, Yotam Abramson and Bruno Steux.",
             "static": 1,
             "is_constructor": 1
@@ -808,7 +848,7 @@
             "submodule": "Feat",
             "namespace": "",
             "file": "src/feat/effect/MotionModel.js",
-            "line": 166,
+            "line": 213,
             "description": "This kernel calculates the affine transform from corresponding points. The function calculates the 3x3 Matrix\n\n\n     // create affine kernel\n     // you can reuse it for different point sets\n     var affine_kernel = new Affine2d();\n     var affine_transform = new Matrix_t(3, 3, Igata.F32_t | Igata.C1_t);\n     var count = 33;\n     var from = [];\n     var to = [];\n\n     for(var i = 0; i < count; ++i) {\n\n       // you can use keypoint_t structure\n       // or just provide object with x and y properties\n       from[i] = { \"x\":Math.random()*320, \"y\":Math.random()*240 };\n       to[i] = { \"x\":from[i].x + 5, \"y\":from[i].y+5 };\n\n     }\n\n     affine_kernel.run(from, to, affine_transform, count);\n\n     // you can also calculate transform error for each point\n     var error = new Matrix_t(count, 1, jsfeat.F32_t | jsfeat.C1_t);\n     affine_kernel.error(from, to, affine_transform, error.data, count);",
             "is_constructor": 1
         },
@@ -824,7 +864,7 @@
             "submodule": "Feat",
             "namespace": "",
             "file": "src/feat/effect/MotionModel.js",
-            "line": 294,
+            "line": 341,
             "description": "This kernel calculates perspective transform between point sets. Result is 3x3 Matrix\n\n\n     // create homography kernel\n     // you can reuse it for different point sets\n     var homo_kernel = new HomoGraphy2d();\n     var homo_transform = new Matrix_t(3, 3, jsfeat.F32_t | jsfeat.C1_t);\n     var count = 33;\n     var from = [];\n     var to = [];\n\n     for(var i = 0; i < count; ++i) {\n\n       // you can use keypoint_t structure\n       // or just provide object with x and y properties\n       from[i] = { \"x\":Math.random()*320, \"y\":Math.random()*240 };\n       to[i] = { \"x\":from[i].x + 5, \"y\":from[i].y+5 };\n\n     }\n\n     homo_kernel.run(from, to, homo_transform, count);\n\n     // you can also calculate transform error for each point\n     var error = new Matrix_t(count, 1, F32_t | C1_t);\n     homo_kernel.error(from, to, homo_transform, error.data, count);",
             "is_constructor": 1
         },
@@ -840,7 +880,7 @@
             "submodule": "Feat",
             "namespace": "",
             "file": "src/feat/effect/MotionModel.js",
-            "line": 683,
+            "line": 730,
             "description": "RANdom SAmple Consensus.\n\nhttp://en.wikipedia.org/wiki/RANSAC",
             "params": [
                 {
@@ -884,7 +924,7 @@
             "submodule": "Feat",
             "namespace": "",
             "file": "src/feat/effect/MotionModel.js",
-            "line": 850,
+            "line": 897,
             "static": 1,
             "is_constructor": 1
         },
@@ -900,7 +940,7 @@
             "submodule": "Feat",
             "namespace": "",
             "file": "src/feat/effect/MotionModel.js",
-            "line": 1218,
+            "line": 1267,
             "description": "alias MotionEstimator",
             "uses": [
                 "MotionEstimator"
@@ -918,7 +958,7 @@
             "submodule": "Feat",
             "namespace": "",
             "file": "src/feat/effect/Processing.js",
-            "line": 640,
+            "line": 696,
             "static": 1,
             "is_constructor": 1
         },
@@ -934,7 +974,7 @@
             "submodule": "Feat",
             "namespace": "",
             "file": "src/feat/effect/Processing.js",
-            "line": 2290,
+            "line": 2347,
             "description": "A structure to wrap several matrix_t instances. Each data entry is 2x smaller then previous:",
             "params": [
                 {
@@ -957,7 +997,7 @@
             "submodule": "Feat",
             "namespace": "",
             "file": "src/feat/math/Calc.js",
-            "line": 43,
+            "line": 51,
             "static": 1,
             "is_constructor": 1
         },
@@ -975,7 +1015,7 @@
             "submodule": "Feat",
             "namespace": "",
             "file": "src/feat/math/LinearAlgebra.js",
-            "line": 705,
+            "line": 712,
             "static": 1,
             "is_constructor": 1
         },
@@ -991,7 +1031,7 @@
             "submodule": "Feat",
             "namespace": "",
             "file": "src/feat/math/LinearAlgebra.js",
-            "line": 1238,
+            "line": 1245,
             "description": "alias LinearAlgebra",
             "uses": [
                 "LinearAlgebra"
@@ -1069,7 +1109,7 @@
             "submodule": "Feat",
             "namespace": "",
             "file": "src/feat/Cache.js",
-            "line": 122,
+            "line": 147,
             "description": "has very simple and experimental linked pool based cache system. At the moment I'm not sure if it is really needed since most JavaScript engines have their own powerful caching. But running some tests I noticed that repeatedly calling methods that need temporary Array(s) allocation significantly increase its execution time. So replacing allocation with pooled buffers helps to improve performance in some cases. How it works:\n\n\n     var size_in_bytes = 640;\n     var temp_buffer =  Igata.Cache.getBuffer(size_in_bytes);\n     var temp_u8 = temp_buffer.u8; // Uint8Array 640 entries\n\n     // but you also can get other data types\n     // Int32Array but length will be 640/4 = 160 entries\n     var temp_i32 = temp_buffer.i32;\n\n     // since all buffers comes from data_t instance\n     // you can also use it to construct matrix_t\n     var columns = 320, rows = 240, data_type = Igata.U8_t | Igata.C1_t;\n     var my_matrix = new Igata.Matrix_t(columns, rows, data_type, temp_buffer.data);\n\n     // be careful because you always should provide enough space for matrix\n\n\n\nfor now we dont need more than 30 buffers\n\nif having cache sys really helps we can add auto extending sys\n\n\n      Cache.allocate(30, 640*4);",
             "static": 1,
             "is_constructor": 1
@@ -1707,9 +1747,9 @@
         },
         {
             "file": "src/feat/2d/FastCorner.js",
-            "line": 39,
+            "line": 42,
             "itemtype": "property",
-            "name": "",
+            "name": "offsets16",
             "static": 1,
             "access": "private",
             "tagname": "",
@@ -1721,7 +1761,7 @@
         },
         {
             "file": "src/feat/2d/FastCorner.js",
-            "line": 48,
+            "line": 51,
             "itemtype": "property",
             "name": "threshold_tab",
             "static": 1,
@@ -1735,7 +1775,7 @@
         },
         {
             "file": "src/feat/2d/FastCorner.js",
-            "line": 57,
+            "line": 60,
             "itemtype": "property",
             "name": "pixel_off",
             "static": 1,
@@ -1749,9 +1789,9 @@
         },
         {
             "file": "src/feat/2d/FastCorner.js",
-            "line": 66,
+            "line": 69,
             "itemtype": "property",
-            "name": "",
+            "name": "score_diff",
             "static": 1,
             "access": "private",
             "tagname": "",
@@ -1763,7 +1803,7 @@
         },
         {
             "file": "src/feat/2d/FastCorner.js",
-            "line": 76,
+            "line": 79,
             "itemtype": "property",
             "name": "_threshold",
             "static": 1,
@@ -1777,7 +1817,7 @@
         },
         {
             "file": "src/feat/2d/FastCorner.js",
-            "line": 86,
+            "line": 89,
             "itemtype": "method",
             "name": "_cmp_offsets",
             "static": 1,
@@ -1806,7 +1846,7 @@
         },
         {
             "file": "src/feat/2d/FastCorner.js",
-            "line": 113,
+            "line": 116,
             "itemtype": "method",
             "name": "_cmp_score_16",
             "static": 1,
@@ -1849,7 +1889,7 @@
         },
         {
             "file": "src/feat/2d/FastCorner.js",
-            "line": 226,
+            "line": 230,
             "itemtype": "method",
             "name": "setThreshold",
             "static": 1,
@@ -1870,7 +1910,7 @@
         },
         {
             "file": "src/feat/2d/FastCorner.js",
-            "line": 245,
+            "line": 249,
             "deprecated": true,
             "deprecationMessage": "instead use FastCorner.setThreshold",
             "itemtype": "method",
@@ -1888,7 +1928,7 @@
         },
         {
             "file": "src/feat/2d/FastCorner.js",
-            "line": 257,
+            "line": 261,
             "itemtype": "method",
             "name": "detect",
             "static": 1,
@@ -1986,7 +2026,7 @@
         },
         {
             "file": "src/feat/2d/Orb.js",
-            "line": 38,
+            "line": 40,
             "itemtype": "property",
             "name": "bit_pattern_31_",
             "static": 1,
@@ -1999,7 +2039,7 @@
         },
         {
             "file": "src/feat/2d/Orb.js",
-            "line": 304,
+            "line": 306,
             "itemtype": "property",
             "name": "H",
             "static": 1,
@@ -2012,7 +2052,7 @@
         },
         {
             "file": "src/feat/2d/Orb.js",
-            "line": 313,
+            "line": 315,
             "itemtype": "property",
             "name": "patch_img",
             "static": 1,
@@ -2025,7 +2065,7 @@
         },
         {
             "file": "src/feat/2d/Orb.js",
-            "line": 323,
+            "line": 325,
             "itemtype": "method",
             "name": "rectify_patch",
             "static": 1,
@@ -2063,7 +2103,7 @@
         },
         {
             "file": "src/feat/2d/Orb.js",
-            "line": 376,
+            "line": 378,
             "itemtype": "method",
             "name": "describe",
             "static": 1,
@@ -2095,7 +2135,7 @@
         },
         {
             "file": "src/feat/2d/Yape.js",
-            "line": 37,
+            "line": 42,
             "itemtype": "method",
             "name": "precompute_directions",
             "static": 1,
@@ -2128,7 +2168,7 @@
         },
         {
             "file": "src/feat/2d/Yape.js",
-            "line": 116,
+            "line": 121,
             "itemtype": "method",
             "name": "third_check",
             "static": 1,
@@ -2161,7 +2201,7 @@
         },
         {
             "file": "src/feat/2d/Yape.js",
-            "line": 143,
+            "line": 148,
             "itemtype": "method",
             "name": "is_local_maxima",
             "static": 1,
@@ -2204,7 +2244,7 @@
         },
         {
             "file": "src/feat/2d/Yape.js",
-            "line": 198,
+            "line": 203,
             "itemtype": "method",
             "name": "perform_one_point",
             "static": 1,
@@ -2250,7 +2290,7 @@
         },
         {
             "file": "src/feat/2d/Yape.js",
-            "line": 565,
+            "line": 570,
             "itemtype": "property",
             "name": "dirs",
             "type": "{Int32Array}",
@@ -2260,7 +2300,7 @@
         },
         {
             "file": "src/feat/2d/Yape.js",
-            "line": 570,
+            "line": 575,
             "itemtype": "property",
             "name": "dirs_count",
             "type": "{number}",
@@ -2270,7 +2310,7 @@
         },
         {
             "file": "src/feat/2d/Yape.js",
-            "line": 575,
+            "line": 580,
             "itemtype": "property",
             "name": "scores",
             "type": "{Int32Array}",
@@ -2280,7 +2320,7 @@
         },
         {
             "file": "src/feat/2d/Yape.js",
-            "line": 580,
+            "line": 585,
             "itemtype": "property",
             "name": "radius",
             "type": "{number}",
@@ -2290,7 +2330,7 @@
         },
         {
             "file": "src/feat/2d/Yape.js",
-            "line": 635,
+            "line": 640,
             "itemtype": "property",
             "name": "level_tables",
             "static": 1,
@@ -2301,7 +2341,7 @@
         },
         {
             "file": "src/feat/2d/Yape.js",
-            "line": 642,
+            "line": 647,
             "itemtype": "property",
             "name": "tau",
             "static": 1,
@@ -2313,7 +2353,7 @@
         },
         {
             "file": "src/feat/2d/Yape.js",
-            "line": 650,
+            "line": 655,
             "itemtype": "method",
             "name": "init",
             "static": 1,
@@ -2346,7 +2386,7 @@
         },
         {
             "file": "src/feat/2d/Yape.js",
-            "line": 673,
+            "line": 678,
             "itemtype": "method",
             "name": "detect",
             "static": 1,
@@ -2379,7 +2419,7 @@
         },
         {
             "file": "src/feat/2d/Yape06.js",
-            "line": 42,
+            "line": 49,
             "itemtype": "method",
             "name": "compute_laplacian",
             "static": 1,
@@ -2433,7 +2473,7 @@
         },
         {
             "file": "src/feat/2d/Yape06.js",
-            "line": 75,
+            "line": 82,
             "itemtype": "method",
             "name": "hessian_min_eigen_value",
             "static": 1,
@@ -2479,7 +2519,7 @@
         },
         {
             "file": "src/feat/2d/Yape06.js",
-            "line": 137,
+            "line": 144,
             "itemtype": "property",
             "name": "threshold",
             "static": 1,
@@ -2491,7 +2531,7 @@
         },
         {
             "file": "src/feat/2d/Yape06.js",
-            "line": 144,
+            "line": 151,
             "deprecated": true,
             "deprecationMessage": "instead use Yape06.threshold",
             "itemtype": "property",
@@ -2503,7 +2543,7 @@
         },
         {
             "file": "src/feat/2d/Yape06.js",
-            "line": 151,
+            "line": 158,
             "itemtype": "property",
             "name": "thresholdMin",
             "static": 1,
@@ -2515,7 +2555,7 @@
         },
         {
             "file": "src/feat/2d/Yape06.js",
-            "line": 158,
+            "line": 165,
             "deprecated": true,
             "deprecationMessage": "instead use Yape06.thresholdMin",
             "itemtype": "property",
@@ -2527,7 +2567,7 @@
         },
         {
             "file": "src/feat/2d/Yape06.js",
-            "line": 165,
+            "line": 172,
             "itemtype": "method",
             "name": "detect",
             "static": 1,
@@ -2560,7 +2600,7 @@
         },
         {
             "file": "src/feat/detector/Bbf.js",
-            "line": 47,
+            "line": 52,
             "itemtype": "method",
             "name": "_group_func",
             "static": 1,
@@ -2586,7 +2626,7 @@
         },
         {
             "file": "src/feat/detector/Bbf.js",
-            "line": 69,
+            "line": 74,
             "itemtype": "property",
             "name": "img_pyr",
             "static": 1,
@@ -2599,7 +2639,7 @@
         },
         {
             "file": "src/feat/detector/Bbf.js",
-            "line": 97,
+            "line": 102,
             "itemtype": "property",
             "name": "interval",
             "static": 1,
@@ -2611,7 +2651,7 @@
         },
         {
             "file": "src/feat/detector/Bbf.js",
-            "line": 104,
+            "line": 109,
             "itemtype": "property",
             "name": "scale",
             "static": 1,
@@ -2623,7 +2663,7 @@
         },
         {
             "file": "src/feat/detector/Bbf.js",
-            "line": 111,
+            "line": 116,
             "itemtype": "property",
             "name": "next",
             "static": 1,
@@ -2635,7 +2675,7 @@
         },
         {
             "file": "src/feat/detector/Bbf.js",
-            "line": 118,
+            "line": 123,
             "itemtype": "property",
             "name": "scaleTo",
             "static": 1,
@@ -2647,7 +2687,7 @@
         },
         {
             "file": "src/feat/detector/Bbf.js",
-            "line": 126,
+            "line": 131,
             "deprecated": true,
             "deprecationMessage": "instead use Bbf.scaleTo",
             "itemtype": "property",
@@ -2660,7 +2700,7 @@
         },
         {
             "file": "src/feat/detector/Bbf.js",
-            "line": 134,
+            "line": 139,
             "description": "This step needed only once to create\n\nlocal copy of features to prevent multiple\n\nArray relocation during detection",
             "itemtype": "method",
             "name": "prepare",
@@ -2678,7 +2718,7 @@
         },
         {
             "file": "src/feat/detector/Bbf.js",
-            "line": 171,
+            "line": 176,
             "deprecated": true,
             "deprecationMessage": "instead use Bbf.prepare",
             "itemtype": "method",
@@ -2696,7 +2736,7 @@
         },
         {
             "file": "src/feat/detector/Bbf.js",
-            "line": 183,
+            "line": 188,
             "itemtype": "method",
             "name": "pyramid",
             "static": 1,
@@ -2733,7 +2773,7 @@
         },
         {
             "file": "src/feat/detector/Bbf.js",
-            "line": 304,
+            "line": 309,
             "description": "Build image pyramid using canvas drawImage",
             "deprecated": true,
             "deprecationMessage": "instead use Bbf.pyramid",
@@ -2764,7 +2804,7 @@
         },
         {
             "file": "src/feat/detector/Bbf.js",
-            "line": 320,
+            "line": 325,
             "description": "Run detection",
             "itemtype": "method",
             "name": "detect",
@@ -2791,7 +2831,7 @@
         },
         {
             "file": "src/feat/detector/Bbf.js",
-            "line": 522,
+            "line": 527,
             "itemtype": "method",
             "name": "rectangles",
             "static": 1,
@@ -2818,7 +2858,7 @@
         },
         {
             "file": "src/feat/detector/Bbf.js",
-            "line": 749,
+            "line": 754,
             "deprecated": true,
             "deprecationMessage": "instead use Bbf.rectangles",
             "itemtype": "method",
@@ -2869,7 +2909,19 @@
         },
         {
             "file": "src/feat/detector/Haar.js",
-            "line": 70,
+            "line": 69,
+            "itemtype": "property",
+            "name": "desity",
+            "static": 1,
+            "type": "{number}",
+            "default": "0.07",
+            "class": "Haar",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/detector/Haar.js",
+            "line": 76,
             "deprecated": true,
             "deprecationMessage": "instead use Haar.desity",
             "itemtype": "property",
@@ -2882,7 +2934,7 @@
         },
         {
             "file": "src/feat/detector/Haar.js",
-            "line": 78,
+            "line": 84,
             "description": "Evaluates a Haar cascade classifier at a specified scale",
             "itemtype": "method",
             "name": "singleScale",
@@ -2939,7 +2991,7 @@
         },
         {
             "file": "src/feat/detector/Haar.js",
-            "line": 227,
+            "line": 239,
             "deprecated": true,
             "deprecationMessage": "instead use Haar.singleScale",
             "itemtype": "method",
@@ -2989,7 +3041,7 @@
         },
         {
             "file": "src/feat/detector/Haar.js",
-            "line": 246,
+            "line": 258,
             "description": "Evaluates a Haar cascade classifier at all scales",
             "itemtype": "method",
             "name": "multiScale",
@@ -3053,7 +3105,7 @@
         },
         {
             "file": "src/feat/detector/Haar.js",
-            "line": 282,
+            "line": 294,
             "deprecated": true,
             "deprecationMessage": "instead use Haar.multiScale",
             "itemtype": "method",
@@ -3107,7 +3159,7 @@
         },
         {
             "file": "src/feat/detector/Haar.js",
-            "line": 303,
+            "line": 315,
             "description": "Groups the object candidate rectangles",
             "itemtype": "method",
             "name": "rectangles",
@@ -3135,7 +3187,7 @@
         },
         {
             "file": "src/feat/detector/Haar.js",
-            "line": 537,
+            "line": 550,
             "deprecated": true,
             "deprecationMessage": "instead use Haar.rectangles",
             "itemtype": "method",
@@ -3151,13 +3203,95 @@
                     "description": ""
                 }
             ],
+            "return": {
+                "description": "",
+                "type": "Array"
+            },
             "class": "Haar",
             "module": "Igata",
             "submodule": "Feat"
         },
         {
             "file": "src/feat/effect/MotionModel.js",
-            "line": 100,
+            "line": 57,
+            "itemtype": "property",
+            "name": "T0",
+            "static": 1,
+            "access": "private",
+            "tagname": "",
+            "type": "{Matrix_t|*}",
+            "class": "Affine2d",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/effect/MotionModel.js",
+            "line": 65,
+            "itemtype": "property",
+            "name": "T1",
+            "static": 1,
+            "access": "private",
+            "tagname": "",
+            "type": "{Matrix_t|*}",
+            "class": "Affine2d",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/effect/MotionModel.js",
+            "line": 73,
+            "itemtype": "property",
+            "name": "AtA",
+            "static": 1,
+            "access": "private",
+            "tagname": "",
+            "type": "{Matrix_t|*}",
+            "class": "Affine2d",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/effect/MotionModel.js",
+            "line": 81,
+            "itemtype": "property",
+            "name": "AtB",
+            "static": 1,
+            "access": "private",
+            "tagname": "",
+            "type": "{Matrix_t|*}",
+            "class": "Affine2d",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/effect/MotionModel.js",
+            "line": 89,
+            "itemtype": "property",
+            "name": "mLtL",
+            "static": 1,
+            "access": "private",
+            "tagname": "",
+            "type": "{Matrix_t|*}",
+            "class": "Affine2d",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/effect/MotionModel.js",
+            "line": 97,
+            "itemtype": "property",
+            "name": "Evec",
+            "static": 1,
+            "access": "private",
+            "tagname": "",
+            "type": "{Matrix_t|*}",
+            "class": "Affine2d",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/effect/MotionModel.js",
+            "line": 147,
             "description": "does isotropic normalization",
             "itemtype": "method",
             "name": "iso_normalize_points",
@@ -3197,7 +3331,7 @@
         },
         {
             "file": "src/feat/effect/MotionModel.js",
-            "line": 204,
+            "line": 251,
             "itemtype": "method",
             "name": "run",
             "params": [
@@ -3232,7 +3366,7 @@
         },
         {
             "file": "src/feat/effect/MotionModel.js",
-            "line": 336,
+            "line": 383,
             "itemtype": "method",
             "name": "run",
             "params": [
@@ -3267,7 +3401,7 @@
         },
         {
             "file": "src/feat/effect/MotionModel.js",
-            "line": 512,
+            "line": 559,
             "itemtype": "method",
             "name": "error",
             "params": [
@@ -3303,7 +3437,7 @@
         },
         {
             "file": "src/feat/effect/MotionModel.js",
-            "line": 539,
+            "line": 586,
             "itemtype": "method",
             "name": "checkSubset",
             "params": [
@@ -3333,7 +3467,7 @@
         },
         {
             "file": "src/feat/effect/MotionModel.js",
-            "line": 662,
+            "line": 709,
             "deprecated": true,
             "deprecationMessage": "instead use checkSubset",
             "itemtype": "method",
@@ -3358,7 +3492,7 @@
         },
         {
             "file": "src/feat/effect/MotionModel.js",
-            "line": 712,
+            "line": 759,
             "itemtype": "method",
             "name": "update",
             "params": [
@@ -3383,7 +3517,7 @@
         },
         {
             "file": "src/feat/effect/MotionModel.js",
-            "line": 727,
+            "line": 774,
             "deprecated": true,
             "deprecationMessage": "instead use update",
             "itemtype": "method",
@@ -3408,7 +3542,7 @@
         },
         {
             "file": "src/feat/effect/MotionModel.js",
-            "line": 748,
+            "line": 795,
             "itemtype": "method",
             "name": "get_subset",
             "access": "private",
@@ -3454,7 +3588,7 @@
         },
         {
             "file": "src/feat/effect/MotionModel.js",
-            "line": 816,
+            "line": 863,
             "itemtype": "method",
             "name": "find_inliers",
             "access": "private",
@@ -3504,7 +3638,7 @@
         },
         {
             "file": "src/feat/effect/MotionModel.js",
-            "line": 861,
+            "line": 908,
             "description": "RANdom SAmple Consensus.\n\n[for more info see: http://en.wikipedia.org/wiki/RANSAC]\n\n\n       // this class allows you to use above Motion Kernels\n       // to estimate motion even with wrong correspondences\n       var ransac = MotionEstimator.ransac;\n\n       // create homography kernel\n       // you can reuse it for different point sets\n       var homo_kernel = new HomoGraphy2d();\n       var transform = new Matrix_t(3, 3, Igata.F32_t | Igata.C1_t);\n       var count = 333;\n       var from = [];\n       var to = [];\n\n       for(var i = 0; i < count; ++i) {\n\n         // you can use keypoint_t structure\n         // or just provide object with x and y properties\n         from[i] = { \"x\":Math.random()*320, \"y\":Math.random()*240 };\n         to[i] = { \"x\":from[i].x + Math.random()*5, \"y\":from[i].y+Math.random()*5 };\n\n       }\n\n       // each point will be marked as good(1) or bad(0)\n       var mask = new Matrix_t(count, 1, Igata.U8_t | Igata.C1_t);\n\n       var model_size = 4; // minimum points to estimate motion\n       var thresh = 3; // max error to classify as inlier\n       var eps = 0.5; // max outliers ratio\n       var prob = 0.99; // probability of success\n       var params = new Ransac_t(model_size, thresh, eps, prob);\n\n       var max_iters = 1000;\n       var ok = ransac(params, homo_kernel, from, to, count, transform, mask, max_iters);",
             "itemtype": "method",
             "name": "ransac",
@@ -3562,7 +3696,7 @@
         },
         {
             "file": "src/feat/effect/MotionModel.js",
-            "line": 1032,
+            "line": 1079,
             "description": "Least Median of Squares. Similar to above algorithm but uses median error value to filter wrong matches.\n\n\n       // this class allows you to use above Motion Kernels\n       // to estimate motion even with wrong correspondences\n       var lmeds = MotionEstimator.lmeds;\n\n       // create homography kernel\n       // you can reuse it for different point sets\n       var affine_kernel = new Affine2d();\n       var transform = new Matrix_t(3, 3, Igata.F32_t | Igata.C1_t);\n       var count = 333;\n       var from = [];\n       var to = [];\n\n       for(var i = 0; i < count; ++i) {\n\n         // you can use keypoint_t structure\n         // or just provide object with x and y properties\n         from[i] = { \"x\":Math.random()*320, \"y\":Math.random()*240 };\n         to[i] = { \"x\":from[i].x + Math.random()*5, \"y\":from[i].y+Math.random()*5 };\n\n       }\n\n       // each point will be marked as good(1) or bad(0)\n       var mask = new Matrix_t(count, 1, Igata.U8_t | Igata.C1_t);\n\n       var model_size = 3; // minimum points to estimate motion\n       var thresh = 0; // is not used in lmeds\n       var eps = 0.45; // hard coded internally\n       var prob = 0.99; // probability of success\n       var params = new Ransac_t(model_size, thresh, eps, prob);\n\n       var max_iters = 1000;\n\n       var ok = lmeds(params, affine_kernel, from, to, count, transform, mask, max_iters);",
             "itemtype": "method",
             "name": "lmeds",
@@ -3620,7 +3754,159 @@
         },
         {
             "file": "src/feat/effect/Processing.js",
-            "line": 652,
+            "line": 55,
+            "itemtype": "method",
+            "name": "_resample_u8",
+            "static": 1,
+            "params": [
+                {
+                    "name": "src",
+                    "description": ""
+                },
+                {
+                    "name": "dst",
+                    "description": ""
+                },
+                {
+                    "name": "nw",
+                    "description": ""
+                },
+                {
+                    "name": "nh",
+                    "description": ""
+                }
+            ],
+            "access": "private",
+            "tagname": "",
+            "class": "Processing",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/effect/Processing.js",
+            "line": 204,
+            "itemtype": "method",
+            "name": "_resample",
+            "static": 1,
+            "params": [
+                {
+                    "name": "src",
+                    "description": ""
+                },
+                {
+                    "name": "dst",
+                    "description": ""
+                },
+                {
+                    "name": "nw",
+                    "description": ""
+                },
+                {
+                    "name": "nh",
+                    "description": ""
+                }
+            ],
+            "access": "private",
+            "tagname": "",
+            "class": "Processing",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/effect/Processing.js",
+            "line": 349,
+            "itemtype": "method",
+            "name": "_convol_u8",
+            "static": 1,
+            "params": [
+                {
+                    "name": "buf",
+                    "description": ""
+                },
+                {
+                    "name": "src_d",
+                    "description": ""
+                },
+                {
+                    "name": "dst_d",
+                    "description": ""
+                },
+                {
+                    "name": "w",
+                    "description": ""
+                },
+                {
+                    "name": "h",
+                    "description": ""
+                },
+                {
+                    "name": "filter",
+                    "description": ""
+                },
+                {
+                    "name": "kernel_size",
+                    "description": ""
+                },
+                {
+                    "name": "half_kernel",
+                    "description": ""
+                }
+            ],
+            "access": "private",
+            "tagname": "",
+            "class": "Processing",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/effect/Processing.js",
+            "line": 520,
+            "itemtype": "method",
+            "name": "_convol",
+            "static": 1,
+            "params": [
+                {
+                    "name": "buf",
+                    "description": ""
+                },
+                {
+                    "name": "src_d",
+                    "description": ""
+                },
+                {
+                    "name": "dst_d",
+                    "description": ""
+                },
+                {
+                    "name": "w",
+                    "description": ""
+                },
+                {
+                    "name": "h",
+                    "description": ""
+                },
+                {
+                    "name": "filter",
+                    "description": ""
+                },
+                {
+                    "name": "kernel_size",
+                    "description": ""
+                },
+                {
+                    "name": "half_kernel",
+                    "description": ""
+                }
+            ],
+            "access": "private",
+            "tagname": "",
+            "class": "Processing",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/effect/Processing.js",
+            "line": 708,
             "description": "Convert color array input [r0,g0,b0,a0, ...] to grayscale using Y = 0.299*R + 0.587*G + 0.114*B formula. You can specify the source input channel order such as BGRA, RGBA, RGB and BGR.\n\n\n     context2d.drawImage(video, 0, 0, width, height);\n     var image_data = context2d.getImageData(0, 0, width, height);\n\n     var gray_img = new Igata.Matrix_t(width, height, Igata.U8_t | Igata.C1_t);\n     var code = Igata.COLOR_RGBA2GRAY;\n     Igata.Processing.grayscale(image_data.data, width, height, gray_img, code);",
             "itemtype": "method",
             "name": "grayscale",
@@ -3659,8 +3945,8 @@
         },
         {
             "file": "src/feat/effect/Processing.js",
-            "line": 720,
-            "description": "Generic resize method. Works with single and multi channel matrix_t. If performance is critical or you need multiple image resizings it is recommended to use canvas built-in drawImage() method.",
+            "line": 775,
+            "description": "derived from CCV library\n\nGeneric resize method. Works with single and multi channel matrix_t. If performance is critical or you need multiple image resizings it is recommended to use canvas built-in drawImage() method.",
             "itemtype": "method",
             "name": "resample",
             "static": 1,
@@ -3692,7 +3978,7 @@
         },
         {
             "file": "src/feat/effect/Processing.js",
-            "line": 754,
+            "line": 811,
             "description": "Works with single channel data only. NOTE: if input is jsfeat.U8_t and options = jsfeat.BOX_BLUR_NOSCALE dest should be at least jsfeat.S32_t to handle accumulated values correctly.",
             "itemtype": "method",
             "name": "boxGray",
@@ -3726,7 +4012,7 @@
         },
         {
             "file": "src/feat/effect/Processing.js",
-            "line": 987,
+            "line": 1044,
             "deprecated": true,
             "deprecationMessage": "instead use boxGray",
             "itemtype": "method",
@@ -3756,7 +4042,7 @@
         },
         {
             "file": "src/feat/effect/Processing.js",
-            "line": 1001,
+            "line": 1058,
             "itemtype": "method",
             "name": "gaussian",
             "static": 1,
@@ -3790,7 +4076,7 @@
         },
         {
             "file": "src/feat/effect/Processing.js",
-            "line": 1062,
+            "line": 1119,
             "deprecated": true,
             "deprecationMessage": "instead use gaussian",
             "itemtype": "method",
@@ -3820,7 +4106,7 @@
         },
         {
             "file": "src/feat/effect/Processing.js",
-            "line": 1076,
+            "line": 1133,
             "itemtype": "method",
             "name": "transform",
             "static": 1,
@@ -3855,7 +4141,7 @@
         },
         {
             "file": "src/feat/effect/Processing.js",
-            "line": 1193,
+            "line": 1250,
             "deprecated": true,
             "deprecationMessage": "instead use transform",
             "itemtype": "method",
@@ -3889,7 +4175,7 @@
         },
         {
             "file": "src/feat/effect/Processing.js",
-            "line": 1209,
+            "line": 1266,
             "description": "Down sample source to dest writing simple 4 pix average value. Works with single channel only.\n\nassume we always need it for u8 image",
             "itemtype": "method",
             "name": "pyrdown",
@@ -3923,7 +4209,7 @@
         },
         {
             "file": "src/feat/effect/Processing.js",
-            "line": 1266,
+            "line": 1323,
             "description": "Compute gradient using Scharr kernel [3 10 3] * [-1 0 1]^T. Works with single channel only.\n\ndst: [gx,gy,...]",
             "itemtype": "method",
             "name": "scharrDerivatives",
@@ -3946,7 +4232,7 @@
         },
         {
             "file": "src/feat/effect/Processing.js",
-            "line": 1371,
+            "line": 1428,
             "deprecated": true,
             "deprecationMessage": "instead use scharrDerivatives",
             "itemtype": "method",
@@ -3968,7 +4254,7 @@
         },
         {
             "file": "src/feat/effect/Processing.js",
-            "line": 1384,
+            "line": 1441,
             "description": "compute gradient using Sobel kernel [1 2 1] * [-1 0 1]^T\n\ndst: [gx,gy,...]",
             "itemtype": "method",
             "name": "sobelDerivatives",
@@ -3991,7 +4277,7 @@
         },
         {
             "file": "src/feat/effect/Processing.js",
-            "line": 1490,
+            "line": 1547,
             "deprecated": true,
             "deprecationMessage": "instead use sobelDerivatives",
             "itemtype": "method",
@@ -4013,7 +4299,7 @@
         },
         {
             "file": "src/feat/effect/Processing.js",
-            "line": 1503,
+            "line": 1560,
             "description": "Calculates one or more integral images for the source image. Using these integral images, one may calculate sum, mean, standard deviation over arbitrary up-right or rotated rectangular region of the image in a constant time. NOTE: each destinatination should be 1 pixel larger than source width = source.cols+1, height = source.rows+1. Single channel source only.\n\n`please note:`\n\ndst_(type) size should be cols = src.cols+1, rows = src.rows+1",
             "itemtype": "method",
             "name": "integralImage",
@@ -4046,7 +4332,7 @@
         },
         {
             "file": "src/feat/effect/Processing.js",
-            "line": 1696,
+            "line": 1753,
             "deprecated": true,
             "deprecationMessage": "instead use integralImage",
             "itemtype": "method",
@@ -4076,7 +4362,7 @@
         },
         {
             "file": "src/feat/effect/Processing.js",
-            "line": 1710,
+            "line": 1767,
             "description": "Equalizes the histogram of a grayscale image. The algorithm normalizes the brightness and increases the contrast of the image.",
             "itemtype": "method",
             "name": "histogram",
@@ -4099,7 +4385,7 @@
         },
         {
             "file": "src/feat/effect/Processing.js",
-            "line": 1765,
+            "line": 1822,
             "deprecated": true,
             "deprecationMessage": "instead use histogram",
             "itemtype": "method",
@@ -4121,7 +4407,7 @@
         },
         {
             "file": "src/feat/effect/Processing.js",
-            "line": 1777,
+            "line": 1834,
             "description": "Canny edge detector. Result contains only 0x00 and 0xFF values.",
             "itemtype": "method",
             "name": "canny",
@@ -4154,7 +4440,7 @@
         },
         {
             "file": "src/feat/effect/Processing.js",
-            "line": 2078,
+            "line": 2135,
             "description": "transform is 3x3 Matrix_t\n\nApplies a perspective transformation to an image using 3x3 Matrix. Single channel source only.\n\nTo avoid sampling artifacts, the mapping is done in the reverse order, from destination to the source. That is, for each pixel of the destination image, the functions compute coordinates of the corresponding “donor” pixel in the source image and copy the pixel value.",
             "itemtype": "method",
             "name": "perspective",
@@ -4188,7 +4474,7 @@
         },
         {
             "file": "src/feat/effect/Processing.js",
-            "line": 2143,
+            "line": 2200,
             "deprecated": true,
             "deprecationMessage": "instead use perspective",
             "itemtype": "method",
@@ -4218,7 +4504,7 @@
         },
         {
             "file": "src/feat/effect/Processing.js",
-            "line": 2158,
+            "line": 2215,
             "description": "transform is 3x3 or 2x3 matrix_t only first 6 values referenced\n\nApplies an affine transformation to an image using 2x3 or 3x3 Matrix. Single channel source only.\n\nTo avoid sampling artifacts, the mapping is done in the reverse order, from destination to the source. That is, for each pixel of the destination image, the functions compute coordinates of the corresponding “donor” pixel in the source image and copy the pixel value.",
             "itemtype": "method",
             "name": "affine",
@@ -4252,7 +4538,7 @@
         },
         {
             "file": "src/feat/effect/Processing.js",
-            "line": 2215,
+            "line": 2272,
             "deprecated": true,
             "deprecationMessage": "instead use affine",
             "itemtype": "method",
@@ -4282,7 +4568,7 @@
         },
         {
             "file": "src/feat/effect/Processing.js",
-            "line": 2230,
+            "line": 2287,
             "description": "Basic RGB Skin detection filter\n\nfrom http://popscan.blogspot.fr/2012/08/skin-detection-in-digital-images.html",
             "itemtype": "method",
             "name": "skinDetector",
@@ -4305,7 +4591,7 @@
         },
         {
             "file": "src/feat/effect/Processing.js",
-            "line": 2268,
+            "line": 2325,
             "deprecated": true,
             "deprecationMessage": "instead use skinDetector",
             "itemtype": "method",
@@ -4327,7 +4613,7 @@
         },
         {
             "file": "src/feat/effect/Processing.js",
-            "line": 2299,
+            "line": 2356,
             "itemtype": "property",
             "name": "levels",
             "type": "{number}",
@@ -4337,7 +4623,7 @@
         },
         {
             "file": "src/feat/effect/Processing.js",
-            "line": 2304,
+            "line": 2361,
             "itemtype": "property",
             "name": "data",
             "type": "{Array}",
@@ -4347,7 +4633,7 @@
         },
         {
             "file": "src/feat/effect/Processing.js",
-            "line": 2309,
+            "line": 2366,
             "itemtype": "property",
             "name": "pyrdown",
             "type": "{Function|*}",
@@ -4357,7 +4643,7 @@
         },
         {
             "file": "src/feat/effect/Processing.js",
-            "line": 2319,
+            "line": 2376,
             "itemtype": "method",
             "name": "allocate",
             "params": [
@@ -4383,7 +4669,7 @@
         },
         {
             "file": "src/feat/effect/Processing.js",
-            "line": 2337,
+            "line": 2394,
             "itemtype": "method",
             "name": "build",
             "params": [
@@ -4405,7 +4691,20 @@
         },
         {
             "file": "src/feat/math/Calc.js",
-            "line": 55,
+            "line": 39,
+            "itemtype": "property",
+            "name": "qsort_stack",
+            "static": 1,
+            "access": "private",
+            "tagname": "",
+            "type": "{Int32Array}",
+            "class": "Calc",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/math/Calc.js",
+            "line": 63,
             "itemtype": "method",
             "name": "kernel",
             "static": 1,
@@ -4437,7 +4736,7 @@
         },
         {
             "file": "src/feat/math/Calc.js",
-            "line": 152,
+            "line": 160,
             "deprecated": true,
             "deprecationMessage": "instead use kernel",
             "itemtype": "method",
@@ -4467,7 +4766,7 @@
         },
         {
             "file": "src/feat/math/Calc.js",
-            "line": 167,
+            "line": 175,
             "itemtype": "method",
             "name": "perspective4",
             "static": 1,
@@ -4564,7 +4863,7 @@
         },
         {
             "file": "src/feat/math/Calc.js",
-            "line": 306,
+            "line": 314,
             "deprecated": true,
             "deprecationMessage": "instead use perspective4",
             "itemtype": "method",
@@ -4646,7 +4945,7 @@
         },
         {
             "file": "src/feat/math/Calc.js",
-            "line": 340,
+            "line": 348,
             "description": "The current implementation was derived from *BSD system qsort():\n\nCopyright (c) 1992, 1993\n\nThe Regents of the University of California.  All rights reserved.",
             "itemtype": "method",
             "name": "qsort",
@@ -4679,7 +4978,7 @@
         },
         {
             "file": "src/feat/math/Calc.js",
-            "line": 615,
+            "line": 623,
             "itemtype": "method",
             "name": "median",
             "static": 1,
@@ -4710,7 +5009,7 @@
         },
         {
             "file": "src/feat/math/LinearAlgebra.js",
-            "line": 39,
+            "line": 47,
             "itemtype": "method",
             "name": "swap",
             "access": "private",
@@ -4745,7 +5044,7 @@
         },
         {
             "file": "src/feat/math/LinearAlgebra.js",
-            "line": 58,
+            "line": 66,
             "itemtype": "method",
             "name": "hypot",
             "access": "private",
@@ -4773,7 +5072,7 @@
         },
         {
             "file": "src/feat/math/LinearAlgebra.js",
-            "line": 92,
+            "line": 100,
             "itemtype": "method",
             "name": "jacobiImpl",
             "access": "private",
@@ -4818,7 +5117,7 @@
         },
         {
             "file": "src/feat/math/LinearAlgebra.js",
-            "line": 381,
+            "line": 389,
             "itemtype": "method",
             "name": "jacobiSVDImpl",
             "access": "private",
@@ -4873,7 +5172,7 @@
         },
         {
             "file": "src/feat/math/LinearAlgebra.js",
-            "line": 717,
+            "line": 724,
             "description": "A and B modified and result output in B\n\nSolves the system of linear equations Ax = B using Cholesky factorization. The matrix must be symmetrical and positively defined. NOTE: input matrix_t instances will be modified and result output in matrix B.",
             "itemtype": "method",
             "name": "lu_solve",
@@ -4900,7 +5199,7 @@
         },
         {
             "file": "src/feat/math/LinearAlgebra.js",
-            "line": 806,
+            "line": 813,
             "description": "A and B modified and result output in B\n\nSolves the system of linear equations Ax = B using Cholesky factorization. The matrix must be symmetrical and positively defined. NOTE: input matrix_t instances will be modified and result output in matrix B.",
             "itemtype": "method",
             "name": "cholesky_solve",
@@ -4927,7 +5226,7 @@
         },
         {
             "file": "src/feat/math/LinearAlgebra.js",
-            "line": 918,
+            "line": 925,
             "description": "This routine decomposes an rows x cols matrix A, into a product of the three matrices U, W, and V', i.e. A = UWV', where U is an rows x rows matrix whose columns are orthogonal, W is a 1 x cols matrix, and V is an cols x cols orthogonal matrix.",
             "itemtype": "method",
             "name": "svd_decompose",
@@ -4966,7 +5265,7 @@
         },
         {
             "file": "src/feat/math/LinearAlgebra.js",
-            "line": 1068,
+            "line": 1075,
             "description": "Solves the system of linear equations Ax = B using Singular value decomposition (SVD) method; the system can be over-defined and/or the matrix A can be singular.",
             "itemtype": "method",
             "name": "svd_solve",
@@ -4994,7 +5293,7 @@
         },
         {
             "file": "src/feat/math/LinearAlgebra.js",
-            "line": 1129,
+            "line": 1136,
             "itemtype": "method",
             "name": "svd_invert",
             "static": 1,
@@ -5016,7 +5315,7 @@
         },
         {
             "file": "src/feat/math/LinearAlgebra.js",
-            "line": 1183,
+            "line": 1190,
             "description": "Computes eigenvalues and eigenvectors of a symmetric matrix.\n\n     LinearAlgebra.eigenVV(A:matrix_t, EigenVectors:matrix_t, EigenValues:matrix_t);\n\n     // you can ask for Vectors or Values only\n     LinearAlgebra.eigenVV(A:matrix_t, null, EigenValues:matrix_t);\n\n     LinearAlgebra.eigenVV(A:matrix_t, EigenVectors:matrix_t, null);",
             "itemtype": "method",
             "name": "eigenVV",
@@ -5458,22 +5757,65 @@
         {
             "file": "src/feat/Cache.js",
             "line": 92,
-            "itemtype": "property",
+            "itemtype": "method",
             "name": "resize",
-            "class": "Node_t",
-            "module": "Igata",
-            "submodule": "Feat",
-            "subprops": [
+            "params": [
                 {
                     "name": "size_in_bytes",
                     "description": "",
                     "type": "Number"
                 }
-            ]
+            ],
+            "class": "Node_t",
+            "module": "Igata",
+            "submodule": "Feat"
         },
         {
             "file": "src/feat/Cache.js",
-            "line": 162,
+            "line": 118,
+            "itemtype": "property",
+            "name": "_pool_head",
+            "static": 1,
+            "type": "{Node_t}",
+            "default": "undefined",
+            "access": "private",
+            "tagname": "",
+            "class": "Cache",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/Cache.js",
+            "line": 127,
+            "itemtype": "property",
+            "name": "_pool_tail",
+            "static": 1,
+            "type": "{Node_t}",
+            "default": "undefined",
+            "access": "private",
+            "tagname": "",
+            "class": "Cache",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/Cache.js",
+            "line": 137,
+            "itemtype": "property",
+            "name": "_pool_size",
+            "static": 1,
+            "type": "{number}",
+            "default": "0",
+            "access": "private",
+            "tagname": "",
+            "class": "Cache",
+            "module": "Igata",
+            "submodule": "Feat"
+        },
+        {
+            "file": "src/feat/Cache.js",
+            "line": 187,
+            "description": "default allocate が設定されています\n\n     //default allocate\n     Cache.allocate(30, 640*4);",
             "itemtype": "method",
             "name": "allocate",
             "static": 1,
@@ -5495,7 +5837,7 @@
         },
         {
             "file": "src/feat/Cache.js",
-            "line": 187,
+            "line": 217,
             "itemtype": "method",
             "name": "getBuffer",
             "static": 1,
@@ -5516,7 +5858,7 @@
         },
         {
             "file": "src/feat/Cache.js",
-            "line": 210,
+            "line": 240,
             "deprecated": true,
             "deprecationMessage": "instead use getBuffer",
             "itemtype": "method",
@@ -5538,7 +5880,7 @@
         },
         {
             "file": "src/feat/Cache.js",
-            "line": 222,
+            "line": 252,
             "itemtype": "method",
             "name": "putBuffer",
             "static": 1,
@@ -5555,7 +5897,7 @@
         },
         {
             "file": "src/feat/Cache.js",
-            "line": 233,
+            "line": 263,
             "deprecated": true,
             "deprecationMessage": "instead use putBuffer",
             "itemtype": "method",
@@ -6822,7 +7164,7 @@
         },
         {
             "file": "src/igata.js",
-            "line": 80,
+            "line": 84,
             "itemtype": "method",
             "name": "extend",
             "static": 1,

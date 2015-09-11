@@ -45,6 +45,7 @@
                                 <li><a href="../classes/Brightness.html">Brightness</a></li>
                                 <li><a href="../classes/Cache.html">Cache</a></li>
                                 <li><a href="../classes/Calc.html">Calc</a></li>
+                                <li><a href="../classes/Cascade.html">Cascade</a></li>
                                 <li><a href="../classes/Convolution.html">Convolution</a></li>
                                 <li><a href="../classes/Data_t.html">Data_t</a></li>
                                 <li><a href="../classes/Estimator.html">Estimator</a></li>
@@ -122,7 +123,7 @@
 
 
         <div class="foundat">
-            Defined in: <a href="../files/src_feat_Cache.js.html#l122"><code>src&#x2F;feat&#x2F;Cache.js:122</code></a>
+            Defined in: <a href="../files/src_feat_Cache.js.html#l147"><code>src&#x2F;feat&#x2F;Cache.js:147</code></a>
         </div>
 
             Module: <a href="../modules/Feat.html">Feat</a><br>
@@ -172,7 +173,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_feat_Cache.js.html#l122"><code>src&#x2F;feat&#x2F;Cache.js:122</code></a>
+        <a href="../files/src_feat_Cache.js.html#l147"><code>src&#x2F;feat&#x2F;Cache.js:147</code></a>
         </p>
 
 
@@ -194,6 +195,7 @@
         <li class="api-class-tab index"><a href="#index">Index</a></li>
 
             <li class="api-class-tab methods"><a href="#methods">Methods</a></li>
+            <li class="api-class-tab properties"><a href="#properties">Properties</a></li>
     </ul>
 
     <div>
@@ -234,6 +236,27 @@
                     </ul>
                 </div>
 
+                <div class="index-section properties">
+                    <h3>Properties</h3>
+
+                    <ul class="index-list properties">
+                            <li class="index-item property private">
+                                <a href="#property__pool_head">_pool_head</a>
+
+                                    <span class="flag static">static</span>
+                            </li>
+                            <li class="index-item property private">
+                                <a href="#property__pool_size">_pool_size</a>
+
+                                    <span class="flag static">static</span>
+                            </li>
+                            <li class="index-item property private">
+                                <a href="#property__pool_tail">_pool_tail</a>
+
+                                    <span class="flag static">static</span>
+                            </li>
+                    </ul>
+                </div>
 
 
         </div>
@@ -266,7 +289,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_feat_Cache.js.html#l162"><code>src&#x2F;feat&#x2F;Cache.js:162</code></a>
+        <a href="../files/src_feat_Cache.js.html#l187"><code>src&#x2F;feat&#x2F;Cache.js:187</code></a>
         </p>
 
 
@@ -274,7 +297,10 @@
     </div>
 
     <div class="description">
-        
+        <p>default allocate が設定されています</p>
+<pre class="code prettyprint"><code> //default allocate
+ Cache.allocate(30, 640*4);</code></pre>
+
     </div>
 
         <div class="params">
@@ -333,7 +359,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_feat_Cache.js.html#l210"><code>src&#x2F;feat&#x2F;Cache.js:210</code></a>
+        <a href="../files/src_feat_Cache.js.html#l240"><code>src&#x2F;feat&#x2F;Cache.js:240</code></a>
         </p>
 
 
@@ -397,7 +423,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_feat_Cache.js.html#l187"><code>src&#x2F;feat&#x2F;Cache.js:187</code></a>
+        <a href="../files/src_feat_Cache.js.html#l217"><code>src&#x2F;feat&#x2F;Cache.js:217</code></a>
         </p>
 
 
@@ -458,7 +484,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_feat_Cache.js.html#l233"><code>src&#x2F;feat&#x2F;Cache.js:233</code></a>
+        <a href="../files/src_feat_Cache.js.html#l263"><code>src&#x2F;feat&#x2F;Cache.js:263</code></a>
         </p>
 
 
@@ -512,7 +538,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_feat_Cache.js.html#l222"><code>src&#x2F;feat&#x2F;Cache.js:222</code></a>
+        <a href="../files/src_feat_Cache.js.html#l252"><code>src&#x2F;feat&#x2F;Cache.js:252</code></a>
         </p>
 
 
@@ -545,6 +571,91 @@
 </div>
             </div>
 
+            <div id="properties" class="api-class-tabpanel">
+                <h2 class="off-left">Properties</h2>
+
+<div id="property__pool_head" class="property item private">
+    <h3 class="name"><code>_pool_head</code></h3>
+    <span class="type"><a href="../classes/Node_t.html" class="crosslink">Node_t</a></span>
+
+
+        <span class="flag private">private</span>
+
+
+        <span class="flag static">static</span>
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_feat_Cache.js.html#l118"><code>src&#x2F;feat&#x2F;Cache.js:118</code></a>
+        </p>
+
+
+    </div>
+
+    <div class="description">
+        
+    </div>
+
+        <p><strong>Default:</strong> undefined</p>
+
+
+</div>
+<div id="property__pool_size" class="property item private">
+    <h3 class="name"><code>_pool_size</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a></span>
+
+
+        <span class="flag private">private</span>
+
+
+        <span class="flag static">static</span>
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_feat_Cache.js.html#l137"><code>src&#x2F;feat&#x2F;Cache.js:137</code></a>
+        </p>
+
+
+    </div>
+
+    <div class="description">
+        
+    </div>
+
+        <p><strong>Default:</strong> 0</p>
+
+
+</div>
+<div id="property__pool_tail" class="property item private">
+    <h3 class="name"><code>_pool_tail</code></h3>
+    <span class="type"><a href="../classes/Node_t.html" class="crosslink">Node_t</a></span>
+
+
+        <span class="flag private">private</span>
+
+
+        <span class="flag static">static</span>
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_feat_Cache.js.html#l127"><code>src&#x2F;feat&#x2F;Cache.js:127</code></a>
+        </p>
+
+
+    </div>
+
+    <div class="description">
+        
+    </div>
+
+        <p><strong>Default:</strong> undefined</p>
+
+
+</div>
+            </div>
 
 
     </div>

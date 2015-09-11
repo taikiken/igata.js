@@ -67,6 +67,9 @@ scripts.push( dir.src + '/math/Match.js' );
 scripts.push( dir.src + '/math/Template.js' );
 
 // ------------------------------------------
+// feat cascade
+scripts.push( dir.src + '/feat/cascade/Cascade.js' );
+
 // feat
 scripts.push( dir.src + '/feat/Structure.js' );
 scripts.push( dir.src + '/feat/Cache.js' );
@@ -84,8 +87,8 @@ scripts.push( dir.src + '/feat/effect/Processing.js' );
 scripts.push( dir.src + '/feat/2d/FastCorner.js' );
 scripts.push( dir.src + '/feat/2d/Yape06.js' );
 scripts.push( dir.src + '/feat/2d/Yape.js' );
-scripts.push( dir.src + '/feat/effect/Orb.js' );
-scripts.push( dir.src + '/feat/effect/Kanade.js' );
+scripts.push( dir.src + '/feat/2d/Orb.js' );
+scripts.push( dir.src + '/feat/2d/Kanade.js' );
 
 // detector
 scripts.push( dir.src + '/feat/detector/Haar.js' );

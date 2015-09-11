@@ -28,7 +28,12 @@
     Igata = window.Igata,
     global = Igata;
 
-  var Yape = ( function () {
+  global.Yape = ( function () {
+
+    var _sqrt = global._sqrt;
+    var _min = global._min;
+    var _max = global._max;
+    var _abs = global._abs;
 
     // ------------------------------------------------------------------
     // private
@@ -50,58 +55,58 @@
       var x, y;
 
       x = R;
-      for ( y = 0; y < x; y++, i++) {
+      for ( y = 0; y < x; y = (y+1)|0, i = (i+1)|0 ) {
         
-        x = (Math.sqrt((R * R - y * y)) + 0.5)|0;
+        x = (_sqrt((R * R - y * y)) + 0.5)|0;
         dirs[i] = (x + step * y);
         
       }
       
-      for ( x-- ; x < y && x >= 0; x--, i++) {
+      for ( x-- ; x < y && x >= 0; x--, i = (i+1)|0 ) {
         
-        y = (Math.sqrt((R * R - x * x)) + 0.5)|0;
+        y = (_sqrt((R * R - x * x)) + 0.5)|0;
         dirs[i] = (x + step * y);
         
       }
       
-      for (  ; -x < y; x--, i++) {
+      for (  ; -x < y; x--, i = (i+1)|0 ) {
         
-        y = (Math.sqrt((R * R - x * x)) + 0.5)|0;
+        y = (_sqrt((R * R - x * x)) + 0.5)|0;
         dirs[i] = (x + step * y);
         
       }
       
       for ( y-- ; y >= 0; y--, i++) {
         
-        x = (-Math.sqrt((R * R - y * y)) - 0.5)|0;
+        x = (-_sqrt((R * R - y * y)) - 0.5)|0;
         dirs[i] = (x + step * y);
         
       }
       
-      for ( ; y > x; y--, i++) {
+      for ( ; y > x; y--, i = (i+1)|0 ) {
         
-        x = (-Math.sqrt((R * R - y * y)) - 0.5)|0;
+        x = (-_sqrt((R * R - y * y)) - 0.5)|0;
         dirs[i] = (x + step * y);
         
       }
       
-      for ( x++ ; x <= 0; x++, i++) {
+      for ( x++ ; x <= 0; x = (x+1)|0, i = (i+1)|0 ) {
         
-        y = (-Math.sqrt((R * R - x * x)) - 0.5)|0;
+        y = (-_sqrt((R * R - x * x)) - 0.5)|0;
         dirs[i] = (x + step * y);
         
       }
       
-      for (  ; x < -y; x++, i++) {
+      for ( ; x < -y; x = (x+1)|0, i = (i+1)|0 ) {
         
-        y = (-Math.sqrt((R * R - x * x)) - 0.5)|0;
+        y = (-_sqrt((R * R - x * x)) - 0.5)|0;
         dirs[i] = (x + step * y);
         
       }
       
-      for ( y++ ; y < 0; y++, i++) {
+      for ( y++ ; y < 0; y = (y+1)|0, i = (i+1)|0 ) {
         
-        x = (Math.sqrt((R * R - y * y)) + 0.5)|0;
+        x = (_sqrt((R * R - y * y)) + 0.5)|0;
         dirs[i] = (x + step * y);
         
       }
@@ -127,14 +132,14 @@
     function third_check (Sb, off, step) {
 
       var n = 0;
-      if (Sb[off+1]      !== 0) {n++;}
-      if (Sb[off-1]      !== 0) {n++;}
-      if (Sb[off+step]   !== 0) {n++;}
-      if (Sb[off+step+1] !== 0) {n++;}
-      if (Sb[off+step-1] !== 0) {n++;}
-      if (Sb[off-step]   !== 0) {n++;}
-      if (Sb[off-step+1] !== 0) {n++;}
-      if (Sb[off-step-1] !== 0) {n++;}
+      if (Sb[off+1]      !== 0) { n++; }
+      if (Sb[off-1]      !== 0) { n++; }
+      if (Sb[off+step]   !== 0) { n++; }
+      if (Sb[off+step+1] !== 0) { n++; }
+      if (Sb[off+step-1] !== 0) { n++; }
+      if (Sb[off-step]   !== 0) { n++; }
+      if (Sb[off-step+1] !== 0) { n++; }
+      if (Sb[off-step-1] !== 0) { n++; }
 
       return n;
 
@@ -660,8 +665,8 @@
       if (typeof pyramid_levels === "undefined") { pyramid_levels = 1; }
 
       var i;
-      radius = Math.min(radius, 7);
-      radius = Math.max(radius, 3);
+      radius = _min(radius, 7);
+      radius = _max(radius, 3);
 
       for(i = 0; i < pyramid_levels; ++i) {
 
@@ -693,10 +698,10 @@
       var tau = Yape.tau|0;
       var number_of_points = 0, pt;
 
-      var sx = Math.max(R+1, border)|0;
-      var sy = Math.max(R+1, border)|0;
-      var ex = Math.min(w-R-2, w-border)|0;
-      var ey = Math.min(h-R-2, h-border)|0;
+      var sx = _max(R+1, border)|0;
+      var sy = _max(R+1, border)|0;
+      var ex = _min(w-R-2, w-border)|0;
+      var ey = _min(h-R-2, h-border)|0;
 
       row = (sy*w+sx)|0;
 
@@ -767,7 +772,5 @@
     return Yape;
 
   }() );
-
-  global.Yape = Yape;
 
 }( window ) );

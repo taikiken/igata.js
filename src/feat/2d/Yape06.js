@@ -38,7 +38,14 @@
 
   global.Yape06 = ( function () {
 
+    var _sqrt = global._sqrt;
+    var _min = global._min;
+    var _max = global._max;
+    var _abs = global._abs;
+
+    // ------------------------------------------------------------------
     // private
+    // ------------------------------------------------------------------
     /**
      * @for Yape06
      * @method compute_laplacian
@@ -91,9 +98,9 @@
       var Ixx = -2 * src[off] + src[off + Dxx] + src[off - Dxx];
       var Iyy = -2 * src[off] + src[off + Dyy] + src[off - Dyy];
       var Ixy = src[off + Dxy] + src[off - Dxy] - src[off + Dyx] - src[off - Dyx];
-      var sqrt_delta = ( Math.sqrt(((Ixx - Iyy) * (Ixx - Iyy) + 4 * Ixy * Ixy) ) )|0;
+      var sqrt_delta = ( _sqrt(((Ixx - Iyy) * (Ixx - Iyy) + 4 * Ixy * Ixy) ) )|0;
 
-      return Math.min(Math.abs(tr - sqrt_delta), Math.abs(-(tr + sqrt_delta)));
+      return _min( _abs(tr - sqrt_delta), _abs(-(tr + sqrt_delta)) );
 
     }
 
@@ -186,10 +193,10 @@
       var lap_thresh = Yape06.threshold;
       var eigen_thresh = Yape06.thresholdMin;
 
-      var sx = Math.max(5, border)|0;
-      var sy = Math.max(3, border)|0;
-      var ex = Math.min(w-5, w-border)|0;
-      var ey = Math.min(h-3, h-border)|0;
+      var sx = _max(5, border)|0;
+      var sy = _max(3, border)|0;
+      var ex = _min(w-5, w-border)|0;
+      var ey = _min(h-3, h-border)|0;
 
       x = w*h;
       while(--x>=0) {
@@ -201,20 +208,20 @@
       compute_laplacian(srd_d, laplacian, w, h, Dxx, Dyy, sx,sy, ex,ey);
 
       row = (sy*w+sx)|0;
-      for(y = sy; y < ey; ++y, row += w) {
+      for (y = sy; y < ey; ++y, row += w) {
 
-        for(x = sx, rowx=row; x < ex; ++x, ++rowx) {
+        for (x = sx, rowx=row; x < ex; ++x, ++rowx) {
 
           lv = laplacian[rowx];
 
           if (
-              (lv < -lap_thresh &&
+              ( lv < -lap_thresh &&
                 lv < laplacian[rowx - 1]     && lv < laplacian[rowx + 1] &&
                 lv < laplacian[rowx - w]     && lv < laplacian[rowx + w] &&
                 lv < laplacian[rowx - w - 1] && lv < laplacian[rowx + w - 1] &&
                 lv < laplacian[rowx - w + 1] && lv < laplacian[rowx + w + 1]) ||
 
-              (lv > lap_thresh &&
+              ( lv > lap_thresh &&
                 lv > laplacian[rowx - 1]     && lv > laplacian[rowx + 1] &&
                 lv > laplacian[rowx - w]     && lv > laplacian[rowx + w] &&
                 lv > laplacian[rowx - w - 1] && lv > laplacian[rowx + w - 1] &&

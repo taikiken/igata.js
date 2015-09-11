@@ -8,6 +8,7 @@ YUI.add("yuidoc-meta", function(Y) {
         "Brightness",
         "Cache",
         "Calc",
+        "Cascade",
         "Convolution",
         "Data_t",
         "Estimator",

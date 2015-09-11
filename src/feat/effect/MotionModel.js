@@ -28,6 +28,14 @@
     Igata = window.Igata,
     global = Igata;
 
+  // ---------------------------------------------------
+  // private static method
+  //function sqr (x) {
+  //
+  //  return x*x;
+  //
+  //}
+
   var Cache = global.Cache;
   var Matrix_t = global.Matrix_t;
   var MM = global.MM;
@@ -38,23 +46,62 @@
   var C1_t = global.C1_t;
   var EPSILON = global.EPSILON;
 
+  var _sqrt = global._sqrt;
+  var _abs = global._abs;
+  var _log = global._log;
+  var _pow = global._pow;
+  var _round = global._round;
+  var _max = global._max;
+
   // private const
+  /**
+   * @for Affine2d
+   * @property T0
+   * @static
+   * @private
+   * @type {Matrix_t|*}
+   */
   var T0  = new Matrix_t( 3, 3, F32_t|C1_t);
+  /**
+   * @for Affine2d
+   * @property T1
+   * @static
+   * @private
+   * @type {Matrix_t|*}
+   */
   var T1  = new Matrix_t( 3, 3, F32_t|C1_t);
+  /**
+   * @for Affine2d
+   * @property AtA
+   * @static
+   * @private
+   * @type {Matrix_t|*}
+   */
   var AtA = new Matrix_t( 6, 6, F32_t|C1_t);
+  /**
+   * @for Affine2d
+   * @property AtB
+   * @static
+   * @private
+   * @type {Matrix_t|*}
+   */
   var AtB = new Matrix_t( 6, 1, F32_t|C1_t);
-
+  /**
+   * @for Affine2d
+   * @property mLtL
+   * @static
+   * @private
+   * @type {Matrix_t|*}
+   */
   var mLtL = new Matrix_t(9, 9, F32_t|C1_t);
+  /**
+   * @for Affine2d
+   * @property Evec
+   * @static
+   * @private
+   * @type {Matrix_t|*}
+   */
   var Evec = new Matrix_t(9, 9, F32_t|C1_t);
-
-  // ---------------------------------------------------
-  // private static method
-  //function sqr (x) {
-  //
-  //  return x*x;
-  //
-  //}
-
 
 
   // HomeGraphy2d.checkSubset で使用痕跡あり
@@ -136,10 +183,10 @@
 
         dx = from[i].x - cx0;
         dy = from[i].y - cy0;
-        d0 += Math.sqrt(dx*dx + dy*dy);
+        d0 += _sqrt(dx*dx + dy*dy);
         dx = to[i].x - cx1;
         dy = to[i].y - cy1;
-        d1 += Math.sqrt(dx*dx + dy*dy);
+        d1 += _sqrt(dx*dx + dy*dy);
 
       }
 
@@ -226,7 +273,7 @@
       var ad=a_mt.data, bd=b_mt.data;
 
       for (; i < count; ++i) {
-        
+
         pt0 = from[i];
         pt1 = to[i];
 
@@ -251,7 +298,7 @@
 
         bd[i<<1] = t1d[0]*pt1.x + t1d[1]*pt1.y + t1d[2];
         bd[(i<<1)+1] = t1d[3]*pt1.x + t1d[4]*pt1.y + t1d[5];
-        
+
       }
 
       MM.multiply_AtA(AtA, a_mt);
@@ -281,7 +328,7 @@
       Cache.putBuffer(b_buff);
 
       return 1;
-      
+
     };
 
     return Affine2d;
@@ -353,40 +400,40 @@
       var smx=0.0, smy=0.0, cmx=0.0, cmy=0.0, sMx=0.0, sMy=0.0, cMx=0.0, cMy=0.0;
 
       for(; i < count; ++i) {
-        
+
         cmx += to[i].x;
         cmy += to[i].y;
         cMx += from[i].x;
         cMy += from[i].y;
-        
+
       }
 
-      cmx /= count; 
+      cmx /= count;
       cmy /= count;
-      cMx /= count; 
+      cMx /= count;
       cMy /= count;
 
       for (i = 0; i < count; ++i) {
-        
-        smx += Math.abs(to[i].x - cmx);
-        smy += Math.abs(to[i].y - cmy);
-        sMx += Math.abs(from[i].x - cMx);
-        sMy += Math.abs(from[i].y - cMy);
-        
+
+        smx += _abs(to[i].x - cmx);
+        smy += _abs(to[i].y - cmy);
+        sMx += _abs(from[i].x - cMx);
+        sMy += _abs(from[i].y - cMy);
+
       }
 
-      if ( Math.abs(smx) < EPSILON || 
-           Math.abs(smy) < EPSILON ||
-           Math.abs(sMx) < EPSILON ||
-           Math.abs(sMy) < EPSILON ) {
-        
+      if ( _abs(smx) < EPSILON ||
+           _abs(smy) < EPSILON ||
+           _abs(sMx) < EPSILON ||
+           _abs(sMy) < EPSILON ) {
+
         return 0;
-      
+
       }
 
-      smx = count/smx; 
+      smx = count/smx;
       smy = count/smy;
-      sMx = count/sMx; 
+      sMx = count/sMx;
       sMy = count/sMy;
 
       t0d[0] = sMx;
@@ -408,17 +455,17 @@
       t1d[6] = 0;
       t1d[7] = 0;
       t1d[8] = 1;
-      
+
       // construct system
       i = 81;
       while(--i >= 0) {
-        
+
         LtL[i] = 0.0;
-        
+
       }
-      
+
       for ( i = 0; i < count; ++i ) {
-        
+
         x = (to[i].x - cmx) * smx;
         y = (to[i].y - cmy) * smy;
         X = (from[i].x - cMx) * sMx;
@@ -463,18 +510,18 @@
         LtL[70] += -x*Y*-x*Y + -y*Y*-y*Y;
         LtL[71] += -x*Y*-x + -y*Y*-y;
         LtL[80] += -x*-x + -y*-y;
-        
+
       }
-      
+
       // symmetry
       for ( i = 0; i < 9; ++i ) {
-        
+
         for ( j = 0; j < i; ++j ) {
-          
+
           LtL[i*9+j] = LtL[j*9+i];
-          
+
         }
-        
+
       }
 
       LA.eigenVV(mLtL, Evec);
@@ -495,18 +542,18 @@
 
       // set bottom right to 1.0
       x = 1.0/md[8];
-      md[0] *= x; 
-      md[1] *= x; 
+      md[0] *= x;
+      md[1] *= x;
       md[2] *= x;
-      md[3] *= x; 
-      md[4] *= x; 
+      md[3] *= x;
+      md[4] *= x;
       md[5] *= x;
-      md[6] *= x; 
-      md[7] *= x; 
+      md[6] *= x;
+      md[7] *= x;
       md[8] = 1.0;
 
       return 1;
-      
+
     };
 
     /**
@@ -618,9 +665,9 @@
         detB = MM.determinant_3x3(B11,B12,B13, B21,B22,B23, B31,B32,B33);
 
         if(detA*detB < 0) {
-          
+
           negative++;
-        
+
         }
 
         // set4
@@ -717,10 +764,10 @@
      */
     p.update = function ( eps, max_iters ) {
 
-      var num = Math.log(1 - this.prob);
-      var denom = Math.log(1 - Math.pow(1 - eps, this.size));
+      var num = _log(1 - this.prob);
+      var denom = _log(1 - _pow(1 - eps, this.size));
 
-      return (denom >= 0 || -num >= max_iters*(-denom) ? max_iters : Math.round(num/denom))|0;
+      return (denom >= 0 || -num >= max_iters*(-denom) ? max_iters : _round(num/denom))|0;
 
     };
 
@@ -765,7 +812,7 @@
       var indices = [];
       var i=0, j=0, ssiter=0, idx_i=0, ok=false;
 
-      for(; ssiter < max_try; ++ssiter)  {
+      for (; ssiter < max_try; ++ssiter) {
 
         i = 0;
 
@@ -795,7 +842,7 @@
           from_sub[i] = from[idx_i];
           to_sub[i] = to[idx_i];
 
-          if( !kernel.check_subset( from_sub, to_sub, i+1 ) ) {
+          if ( !kernel.check_subset( from_sub, to_sub, i+1 ) ) {
 
             ssiter++;
             continue;
@@ -941,84 +988,84 @@
 
       // special case
       if (count === model_points) {
-        
+
         if (kernel.run(from, to, M, count) <= 0) {
-          
+
           Cache.getBuffer(m_buff);
           Cache.getBuffer(ms_buff);
           Cache.getBuffer(err_buff);
           return false;
-          
+
         }
 
         M.copy_to(model);
-        
+
         if (mask) {
-          
+
           while (--count >= 0) {
-            
+
             mask.data[count] = 1;
-            
+
           }
-          
+
         }
-        
+
         Cache.putBuffer(m_buff);
         Cache.putBuffer(ms_buff);
         Cache.putBuffer(err_buff);
         return true;
-        
+
       }
 
       for (; iter < niters; ++iter) {
-        
+
         // generate subset
         found = get_subset(kernel, from, to, model_points, count, subset0, subset1);
-        
+
         if (!found) {
-          
+
           if (iter === 0) {
 
             Cache.putBuffer(m_buff);
             Cache.putBuffer(ms_buff);
             Cache.putBuffer(err_buff);
             return false;
-            
+
           }
-          
+
           break;
-          
+
         }
 
         nmodels = kernel.run( subset0, subset1, M, model_points );
-        
+
         if (nmodels <= 0) {
-          
+
           continue;
-        
+
         }
 
         // TODO handle multimodel output
 
         numinliers = find_inliers(kernel, M, from, to, count, params.thresh, err, curr_mask.data);
 
-        if ( numinliers > Math.max(inliers_max, model_points-1) ) {
-          
+        if ( numinliers > _max(inliers_max, model_points-1) ) {
+
           M.copy_to(model);
           inliers_max = numinliers;
-          
+
           if (mask) {
-            
+
             curr_mask.copy_to(mask);
-            
+
           }
-          
+
           //niters = params.update_iters((count - numinliers)/count, niters);
           niters = params.update((count - numinliers)/count, niters);
           result = true;
-          
+
         }
-        
+
       }
 
       Cache.putBuffer(m_buff);
@@ -1082,7 +1129,7 @@
      * @return {boolean}
      */
     MotionEstimator.lmeds = function(params, kernel, from, to, count, model, mask, max_iters) {
-      
+
       if (typeof max_iters === "undefined") { max_iters=1000; }
 
       if(count < params.size) {return false;}
@@ -1115,14 +1162,14 @@
 
       // special case
       if (count === model_points) {
-        
+
         if (kernel.run(from, to, M, count) <= 0) {
-          
+
           Cache.putBuffer(m_buff);
           Cache.putBuffer(ms_buff);
           Cache.putBuffer(err_buff);
           return false;
-          
+
         }
 
         M.copy_to(model);
@@ -1180,7 +1227,8 @@
         if(median < min_median) {
 
           min_median = median;
-          M.copy_to(model);
+          //M.copy_to(model);
+          M.copy(model);
           result = true;
 
         }
@@ -1189,11 +1237,12 @@
 
       if(result) {
 
-        sigma = 2.5*1.4826*(1 + 5.0/(count - model_points))*Math.sqrt(min_median);
-        sigma = Math.max(sigma, 0.001);
+        sigma = 2.5*1.4826*(1 + 5.0/(count - model_points))*_sqrt(min_median);
+        sigma = _max(sigma, 0.001);
 
         numinliers = find_inliers(kernel, model, from, to, count, sigma, err, curr_mask.data);
-        if (mask) { curr_mask.copy_to(mask); }
+        //if (mask) { curr_mask.copy_to(mask); }
+        if (mask) { curr_mask.copy(mask); }
 
         result = numinliers >= model_points;
 

@@ -45,6 +45,7 @@
                                 <li><a href="../classes/Brightness.html">Brightness</a></li>
                                 <li><a href="../classes/Cache.html">Cache</a></li>
                                 <li><a href="../classes/Calc.html">Calc</a></li>
+                                <li><a href="../classes/Cascade.html">Cascade</a></li>
                                 <li><a href="../classes/Convolution.html">Convolution</a></li>
                                 <li><a href="../classes/Data_t.html">Data_t</a></li>
                                 <li><a href="../classes/Estimator.html">Estimator</a></li>
@@ -213,7 +214,7 @@
     p.constructor =  Node_t;
 
     /**
-     * @property resize
+     * @method resize
      * @param {number} size_in_bytes
      */
     p.resize = function ( size_in_bytes ) {
@@ -238,8 +239,33 @@
   var Cache = ( function () {
 
     var
+      /**
+       * @for Cache
+       * @property _pool_head
+       * @static
+       * @type {Node_t}
+       * @default undefined
+       * @private
+       */
       _pool_head,
+      /**
+       * @for Cache
+       * @property _pool_tail
+       * @static
+       * @type {Node_t}
+       * @default undefined
+       * @private
+       */
       _pool_tail;
+
+    /**
+     * @for Cache
+     * @property _pool_size
+     * @static
+     * @type {number}
+     * @default 0
+     * @private
+     */
     var _pool_size = 0;
 
     /**
@@ -283,6 +309,11 @@
     p.constructor = Cache;
 
     /**
+     * default allocate が設定されています
+     *
+     *      //default allocate
+     *      Cache.allocate(30, 640*4);
+     *
      * @method allocate
      * @static
      * @param {number} capacity

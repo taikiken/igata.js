@@ -53,7 +53,7 @@
      */
     MatrixMath.identity = function ( M, value ) {
 
-      if (typeof value === "undefined") { value=1; }
+      if ( typeof value === "undefined" ) { value=1; }
 
       var src=M.data;
       var rows=M.rows, cols=M.cols, cols_1=(cols+1)|0;

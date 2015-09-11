@@ -45,6 +45,7 @@
                                 <li><a href="../classes/Brightness.html">Brightness</a></li>
                                 <li><a href="../classes/Cache.html">Cache</a></li>
                                 <li><a href="../classes/Calc.html">Calc</a></li>
+                                <li><a href="../classes/Cascade.html">Cascade</a></li>
                                 <li><a href="../classes/Convolution.html">Convolution</a></li>
                                 <li><a href="../classes/Data_t.html">Data_t</a></li>
                                 <li><a href="../classes/Estimator.html">Estimator</a></li>
@@ -122,7 +123,7 @@
 
 
         <div class="foundat">
-            Defined in: <a href="../files/src_feat_2d_FastCorner.js.html#l181"><code>src&#x2F;feat&#x2F;2d&#x2F;FastCorner.js:181</code></a>
+            Defined in: <a href="../files/src_feat_2d_FastCorner.js.html#l185"><code>src&#x2F;feat&#x2F;2d&#x2F;FastCorner.js:185</code></a>
         </div>
 
             Module: <a href="../modules/Feat.html">Feat</a><br>
@@ -177,7 +178,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_feat_2d_FastCorner.js.html#l181"><code>src&#x2F;feat&#x2F;2d&#x2F;FastCorner.js:181</code></a>
+        <a href="../files/src_feat_2d_FastCorner.js.html#l185"><code>src&#x2F;feat&#x2F;2d&#x2F;FastCorner.js:185</code></a>
         </p>
 
 
@@ -244,7 +245,12 @@
 
                     <ul class="index-list properties">
                             <li class="index-item property private">
-                                <a href="#property_"></a>
+                                <a href="#property__threshold">_threshold</a>
+
+                                    <span class="flag static">static</span>
+                            </li>
+                            <li class="index-item property private">
+                                <a href="#property_offsets16">offsets16</a>
 
                                     <span class="flag static">static</span>
                             </li>
@@ -254,17 +260,12 @@
                                     <span class="flag static">static</span>
                             </li>
                             <li class="index-item property private">
+                                <a href="#property_score_diff">score_diff</a>
+
+                                    <span class="flag static">static</span>
+                            </li>
+                            <li class="index-item property private">
                                 <a href="#property_threshold_tab">threshold_tab</a>
-
-                                    <span class="flag static">static</span>
-                            </li>
-                            <li class="index-item property private">
-                                <a href="#property_"></a>
-
-                                    <span class="flag static">static</span>
-                            </li>
-                            <li class="index-item property private">
-                                <a href="#property__threshold">_threshold</a>
 
                                     <span class="flag static">static</span>
                             </li>
@@ -306,7 +307,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_feat_2d_FastCorner.js.html#l86"><code>src&#x2F;feat&#x2F;2d&#x2F;FastCorner.js:86</code></a>
+        <a href="../files/src_feat_2d_FastCorner.js.html#l89"><code>src&#x2F;feat&#x2F;2d&#x2F;FastCorner.js:89</code></a>
         </p>
 
 
@@ -395,7 +396,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_feat_2d_FastCorner.js.html#l113"><code>src&#x2F;feat&#x2F;2d&#x2F;FastCorner.js:113</code></a>
+        <a href="../files/src_feat_2d_FastCorner.js.html#l116"><code>src&#x2F;feat&#x2F;2d&#x2F;FastCorner.js:116</code></a>
         </p>
 
 
@@ -504,7 +505,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_feat_2d_FastCorner.js.html#l257"><code>src&#x2F;feat&#x2F;2d&#x2F;FastCorner.js:257</code></a>
+        <a href="../files/src_feat_2d_FastCorner.js.html#l261"><code>src&#x2F;feat&#x2F;2d&#x2F;FastCorner.js:261</code></a>
         </p>
 
 
@@ -586,7 +587,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_feat_2d_FastCorner.js.html#l245"><code>src&#x2F;feat&#x2F;2d&#x2F;FastCorner.js:245</code></a>
+        <a href="../files/src_feat_2d_FastCorner.js.html#l249"><code>src&#x2F;feat&#x2F;2d&#x2F;FastCorner.js:249</code></a>
         </p>
 
 
@@ -643,7 +644,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_feat_2d_FastCorner.js.html#l226"><code>src&#x2F;feat&#x2F;2d&#x2F;FastCorner.js:226</code></a>
+        <a href="../files/src_feat_2d_FastCorner.js.html#l230"><code>src&#x2F;feat&#x2F;2d&#x2F;FastCorner.js:230</code></a>
         </p>
 
 
@@ -686,8 +687,35 @@
             <div id="properties" class="api-class-tabpanel">
                 <h2 class="off-left">Properties</h2>
 
-<div id="property_" class="property item private">
-    <h3 class="name"><code></code></h3>
+<div id="property__threshold" class="property item private">
+    <h3 class="name"><code>_threshold</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a></span>
+
+
+        <span class="flag private">private</span>
+
+
+        <span class="flag static">static</span>
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_feat_2d_FastCorner.js.html#l79"><code>src&#x2F;feat&#x2F;2d&#x2F;FastCorner.js:79</code></a>
+        </p>
+
+
+    </div>
+
+    <div class="description">
+        
+    </div>
+
+        <p><strong>Default:</strong> 25</p>
+
+
+</div>
+<div id="property_offsets16" class="property item private">
+    <h3 class="name"><code>offsets16</code></h3>
     <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int32Array" class="crosslink external" target="_blank">Int32Array</a></span>
 
 
@@ -699,7 +727,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_feat_2d_FastCorner.js.html#l39"><code>src&#x2F;feat&#x2F;2d&#x2F;FastCorner.js:39</code></a>
+        <a href="../files/src_feat_2d_FastCorner.js.html#l42"><code>src&#x2F;feat&#x2F;2d&#x2F;FastCorner.js:42</code></a>
         </p>
 
 
@@ -726,7 +754,34 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_feat_2d_FastCorner.js.html#l57"><code>src&#x2F;feat&#x2F;2d&#x2F;FastCorner.js:57</code></a>
+        <a href="../files/src_feat_2d_FastCorner.js.html#l60"><code>src&#x2F;feat&#x2F;2d&#x2F;FastCorner.js:60</code></a>
+        </p>
+
+
+    </div>
+
+    <div class="description">
+        
+    </div>
+
+        <p><strong>Default:</strong> new Int32Array(25);</p>
+
+
+</div>
+<div id="property_score_diff" class="property item private">
+    <h3 class="name"><code>score_diff</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int32Array" class="crosslink external" target="_blank">Int32Array</a></span>
+
+
+        <span class="flag private">private</span>
+
+
+        <span class="flag static">static</span>
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_feat_2d_FastCorner.js.html#l69"><code>src&#x2F;feat&#x2F;2d&#x2F;FastCorner.js:69</code></a>
         </p>
 
 
@@ -753,7 +808,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_feat_2d_FastCorner.js.html#l48"><code>src&#x2F;feat&#x2F;2d&#x2F;FastCorner.js:48</code></a>
+        <a href="../files/src_feat_2d_FastCorner.js.html#l51"><code>src&#x2F;feat&#x2F;2d&#x2F;FastCorner.js:51</code></a>
         </p>
 
 
@@ -764,60 +819,6 @@
     </div>
 
         <p><strong>Default:</strong> new Uint8Array(512);</p>
-
-
-</div>
-<div id="property_" class="property item private">
-    <h3 class="name"><code></code></h3>
-    <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int32Array" class="crosslink external" target="_blank">Int32Array</a></span>
-
-
-        <span class="flag private">private</span>
-
-
-        <span class="flag static">static</span>
-
-    <div class="meta">
-                <p>
-                Defined in
-        <a href="../files/src_feat_2d_FastCorner.js.html#l66"><code>src&#x2F;feat&#x2F;2d&#x2F;FastCorner.js:66</code></a>
-        </p>
-
-
-    </div>
-
-    <div class="description">
-        
-    </div>
-
-        <p><strong>Default:</strong> new Int32Array(25);</p>
-
-
-</div>
-<div id="property__threshold" class="property item private">
-    <h3 class="name"><code>_threshold</code></h3>
-    <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a></span>
-
-
-        <span class="flag private">private</span>
-
-
-        <span class="flag static">static</span>
-
-    <div class="meta">
-                <p>
-                Defined in
-        <a href="../files/src_feat_2d_FastCorner.js.html#l76"><code>src&#x2F;feat&#x2F;2d&#x2F;FastCorner.js:76</code></a>
-        </p>
-
-
-    </div>
-
-    <div class="description">
-        
-    </div>
-
-        <p><strong>Default:</strong> 25</p>
 
 
 </div>

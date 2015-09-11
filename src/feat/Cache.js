@@ -90,7 +90,7 @@
     p.constructor =  Node_t;
 
     /**
-     * @property resize
+     * @method resize
      * @param {number} size_in_bytes
      */
     p.resize = function ( size_in_bytes ) {
@@ -115,8 +115,33 @@
   var Cache = ( function () {
 
     var
+      /**
+       * @for Cache
+       * @property _pool_head
+       * @static
+       * @type {Node_t}
+       * @default undefined
+       * @private
+       */
       _pool_head,
+      /**
+       * @for Cache
+       * @property _pool_tail
+       * @static
+       * @type {Node_t}
+       * @default undefined
+       * @private
+       */
       _pool_tail;
+
+    /**
+     * @for Cache
+     * @property _pool_size
+     * @static
+     * @type {number}
+     * @default 0
+     * @private
+     */
     var _pool_size = 0;
 
     /**
@@ -160,6 +185,11 @@
     p.constructor = Cache;
 
     /**
+     * default allocate が設定されています
+     *
+     *      //default allocate
+     *      Cache.allocate(30, 640*4);
+     *
      * @method allocate
      * @static
      * @param {number} capacity

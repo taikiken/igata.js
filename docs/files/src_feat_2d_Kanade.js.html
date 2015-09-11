@@ -45,6 +45,7 @@
                                 <li><a href="../classes/Brightness.html">Brightness</a></li>
                                 <li><a href="../classes/Cache.html">Cache</a></li>
                                 <li><a href="../classes/Calc.html">Calc</a></li>
+                                <li><a href="../classes/Cascade.html">Cascade</a></li>
                                 <li><a href="../classes/Convolution.html">Convolution</a></li>
                                 <li><a href="../classes/Data_t.html">Data_t</a></li>
                                 <li><a href="../classes/Estimator.html">Estimator</a></li>
@@ -152,7 +153,7 @@
     global = Igata;
 
 
-  var Kanade = ( function () {
+  global.Kanade = ( function () {
     
     var Cache = global.Cache;
     var Matrix_t = global.Matrix_t;
@@ -235,7 +236,7 @@
       eps *= eps;
 
       // reset status
-      for(; i &lt; count; ++i) {
+      for (; i &lt; count; ++i) {
         
         status[i] = 1;
         
@@ -244,7 +245,7 @@
       var max_level = (prev_pyr.levels - 1)|0;
       level = max_level;
 
-      for(; level &gt;= 0; --level) {
+      for (; level &gt;= 0; --level) {
         
         lev_sc = (1.0/(1 &lt;&lt; level));
         lw = w0 &gt;&gt; level;
@@ -260,7 +261,7 @@
         scharr_deriv(prev_imgs[level], deriv_m);
 
         // iterate through points
-        for(ptid = 0; ptid &lt; count; ++ptid) {
+        for (ptid = 0; ptid &lt; count; ++ptid) {
           
           i = ptid &lt;&lt; 1;
           j = i + 1;
@@ -290,9 +291,9 @@
           // border check
           x = (iprev_x &lt;= brd_tl)|(iprev_x &gt;= brd_r)|(iprev_y &lt;= brd_tl)|(iprev_y &gt;= brd_b);
           
-          if( x !== 0 ) {
+          if ( x !== 0 ) {
             
-            if( level === 0 ) {
+            if ( level === 0 ) {
               
               status[ptid] = 0;
               
@@ -397,14 +398,14 @@
             b1 = 0.0;
             b2 = 0.0;
 
-            for( y = 0; y &lt; win_size; ++y ) {
+            for ( y = 0; y &lt; win_size; ++y ) {
               
               jptr = ( (y + inext_y)*lw + inext_x )|0;
 
               iptr = (y*win_size)|0;
               diptr = iptr &lt;&lt; 1;
               
-              for( x = 0 ; x &lt; win_size; ++x, ++jptr, ++iptr ) {
+              for ( x = 0 ; x &lt; win_size; ++x, ++jptr, ++iptr ) {
                 
                 ival = ( (img_next[jptr])*iw00 + (img_next[jptr+1])*iw01 + (img_next[jptr+lw])*iw10 + (img_next[jptr+lw+1])*iw11 );
                 ival = (((ival) + W_BITS1m51) &gt;&gt; (W_BITS1m5));
@@ -434,7 +435,7 @@
               
             }
 
-            if( iter &gt; 0 &amp;&amp; Math.abs(delta_x + prev_delta_x) &lt; 0.01 &amp;&amp; Math.abs(delta_y + prev_delta_y) &lt; 0.01 ) {
+            if ( iter &gt; 0 &amp;&amp; Math.abs(delta_x + prev_delta_x) &lt; 0.01 &amp;&amp; Math.abs(delta_y + prev_delta_y) &lt; 0.01 ) {
               
               curr_xy[i] -= delta_x*0.5;
               curr_xy[j] -= delta_y*0.5;
@@ -460,8 +461,6 @@
     return Kanade;
 
   }() );
-
-  global.Kanade = Kanade;
 
 }( window ) );
     </pre>

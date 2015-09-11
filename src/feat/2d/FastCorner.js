@@ -27,10 +27,13 @@
   var
     Igata = window.Igata,
     global = Igata;
-
-  var Cache = global.Cache;
-
+  
   var FastCorner = ( function () {
+
+    var Cache = global.Cache;
+
+    var _min = global._min;
+    var _max = global._max;
 
     // ------------------------------------------------------------------
     // private
@@ -38,7 +41,7 @@
 
     /**
      * @for FastCorner
-     * @property
+     * @property offsets16
      * @static
      * @private
      * @type {Int32Array}
@@ -65,7 +68,7 @@
     var pixel_off = new Int32Array(25);
     /**
      * @for FastCorner
-     * @property
+     * @property score_diff
      * @static
      * @private
      *
@@ -96,13 +99,13 @@
       var k = 0;
       var offsets = offsets16;
 
-      for( ; k < pattern_size; ++k ) {
+      for ( ; k < pattern_size; ++k ) {
 
         pixel[k] = offsets[k<<1] + offsets[(k<<1)+1] * step;
 
       }
 
-      for( ; k < 25; ++k ) {
+      for ( ; k < 25; ++k ) {
 
         pixel[k] = pixel[k - pattern_size];
 
@@ -126,40 +129,40 @@
       var N = 25, k = 0, v = src[off];
       var a0 = threshold,a=0,b0=0,b=0;
 
-      for( ; k < N; ++k ) {
+      for ( ; k < N; ++k ) {
 
         d[k] = v - src[off+pixel[k]];
 
       }
 
-      for( k = 0; k < 16; k += 2 ) {
+      for ( k = 0; k < 16; k += 2 ) {
 
-        a = Math.min(d[k+1], d[k+2]);
-        a = Math.min(a, d[k+3]);
+        a = _min(d[k+1], d[k+2]);
+        a = _min(a, d[k+3]);
 
-        if( a <= a0 ) {
+        if ( a <= a0 ) {
 
           continue;
 
         }
 
-        a = Math.min(a, d[k+4]);
-        a = Math.min(a, d[k+5]);
-        a = Math.min(a, d[k+6]);
-        a = Math.min(a, d[k+7]);
-        a = Math.min(a, d[k+8]);
-        a0 = Math.max(a0, Math.min(a, d[k]));
-        a0 = Math.max(a0, Math.min(a, d[k+9]));
+        a = _min(a, d[k+4]);
+        a = _min(a, d[k+5]);
+        a = _min(a, d[k+6]);
+        a = _min(a, d[k+7]);
+        a = _min(a, d[k+8]);
+        a0 = _max(a0, _min(a, d[k]));
+        a0 = _max(a0, _min(a, d[k+9]));
 
       }
 
       b0 = -a0;
-      for( k = 0; k < 16; k += 2 ) {
+      for ( k = 0; k < 16; k += 2 ) {
 
-        b = Math.max(d[k+1], d[k+2]);
-        b = Math.max(b, d[k+3]);
-        b = Math.max(b, d[k+4]);
-        b = Math.max(b, d[k+5]);
+        b = _max(d[k+1], d[k+2]);
+        b = _max(b, d[k+3]);
+        b = _max(b, d[k+4]);
+        b = _max(b, d[k+5]);
 
         if( b >= b0 ) {
 
@@ -167,15 +170,16 @@
 
         }
 
-        b = Math.max(b, d[k+6]);
-        b = Math.max(b, d[k+7]);
-        b = Math.max(b, d[k+8]);
-        b0 = Math.min(b0, Math.max(b, d[k]));
-        b0 = Math.min(b0, Math.max(b, d[k+9]));
+        b = _max(b, d[k+6]);
+        b = _max(b, d[k+7]);
+        b = _max(b, d[k+8]);
+        b0 = _min(b0, _max(b, d[k]));
+        b0 = _min(b0, _max(b, d[k+9]));
 
       }
 
       return -b0-1;
+
     }
 
     /**
@@ -231,7 +235,7 @@
      */
     FastCorner.setThreshold = function ( threshold ) {
 
-      _threshold = Math.min(Math.max(threshold, 0), 255);
+      _threshold = _min(_max(threshold, 0), 255);
 
       for (var i = -255; i <= 255; ++i) {
 
@@ -275,10 +279,10 @@
       var cpbuf = cpbuf_node.i32;
       var pixel = pixel_off;
       var sd = score_diff;
-      var sy = Math.max(3, border);
-      var ey = Math.min((h-2), (h-border));
-      var sx = Math.max(3, border);
-      var ex = Math.min((w - 3), (w - border));
+      var sy = _max(3, border);
+      var ey = _min((h-2), (h-border));
+      var sx = _max(3, border);
+      var ex = _min((w - 3), (w - border));
       var _count = 0, corners_cnt = 0, pt;
       var score_func = _cmp_score_16;
       var thresh_tab = threshold_tab;
@@ -308,7 +312,7 @@
       var pixel15 = pixel[15];
 
       var w3 = w*3;
-      for(i = 0; i < w3; ++i) {
+      for (i = 0; i < w3; ++i) {
 
         buf[i] = 0;
 
@@ -329,11 +333,11 @@
 
         ncorners = 0;
 
-        if( i < (ey - 1) ) {
+        if ( i < (ey - 1) ) {
 
           j = sx;
 
-          for( ; j < ex; ++j, ++ptr ) {
+          for ( ; j < ex; ++j, ++ptr ) {
 
             v = img[ptr];
             tab = ( - v + 255 );
@@ -349,7 +353,7 @@
             d &= ( thresh_tab[tab+img[ptr+pixel4]] | thresh_tab[tab+img[ptr+pixel12]] );
             d &= ( thresh_tab[tab+img[ptr+pixel6]] | thresh_tab[tab+img[ptr+pixel14]] );
 
-            if( d === 0 ) {
+            if ( d === 0 ) {
 
               continue;
 
@@ -360,20 +364,20 @@
             d &= ( thresh_tab[tab+img[ptr+pixel5]] | thresh_tab[tab+img[ptr+pixel13]] );
             d &= ( thresh_tab[tab+img[ptr+pixel7]] | thresh_tab[tab+img[ptr+pixel15]] );
 
-            if( d & 1 ) {
+            if ( d & 1 ) {
 
               vt = (v - threshold);
               _count = 0;
 
-              for( k = 0; k < N; ++k ) {
+              for ( k = 0; k < N; ++k ) {
 
                 x = img[(ptr+pixel[k])];
 
-                if(x < vt) {
+                if (x < vt) {
 
                   ++_count;
 
-                  if( _count > K ) {
+                  if ( _count > K ) {
 
                     ++ncorners;
                     cpbuf[cornerpos+ncorners] = j;
@@ -392,20 +396,20 @@
 
             }// if
 
-            if( d & 2 ) {
+            if ( d & 2 ) {
 
               vt = (v + threshold);
               _count = 0;
 
-              for( k = 0; k < N; ++k ) {
+              for ( k = 0; k < N; ++k ) {
 
                 x = img[(ptr+pixel[k])];
 
-                if(x > vt) {
+                if (x > vt) {
 
                   ++_count;
 
-                  if( _count > K ) {
+                  if ( _count > K ) {
 
                     ++ncorners;
                     cpbuf[cornerpos+ncorners] = j;
@@ -444,14 +448,14 @@
 
         ncorners = cpbuf[cornerpos+w];
 
-        for( k = 0; k < ncorners; ++k ) {
+        for ( k = 0; k < ncorners; ++k ) {
 
           j = cpbuf[cornerpos+k];
           jp1 = (j+1)|0;
           jm1 = (j-1)|0;
           score = buf[prev+j];
 
-          if( (score > buf[prev+jp1] && score > buf[prev+jm1] &&
+          if ( (score > buf[prev+jp1] && score > buf[prev+jm1] &&
             score > buf[pprev+jm1] && score > buf[pprev+j] && score > buf[pprev+jp1] &&
             score > buf[curr+jm1] && score > buf[curr+j] && score > buf[curr+jp1]) ) {
 

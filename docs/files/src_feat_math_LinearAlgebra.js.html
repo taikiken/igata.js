@@ -45,6 +45,7 @@
                                 <li><a href="../classes/Brightness.html">Brightness</a></li>
                                 <li><a href="../classes/Cache.html">Cache</a></li>
                                 <li><a href="../classes/Calc.html">Calc</a></li>
+                                <li><a href="../classes/Cascade.html">Cascade</a></li>
                                 <li><a href="../classes/Convolution.html">Convolution</a></li>
                                 <li><a href="../classes/Data_t.html">Data_t</a></li>
                                 <li><a href="../classes/Estimator.html">Estimator</a></li>
@@ -151,680 +152,687 @@
     Igata = window.Igata,
     global = Igata;
 
-  var Cache = global.Cache;
-  var Matrix_t = global.Matrix_t;
-  var MM = global.MM;
 
-  // ---------------------------------------------------
-  // private static method
+  var LinearAlgebra = ( function () {
 
-  // swap
-  /**
-   * @for LinearAlgebra
-   * @method swap
-   * @private
-   * @static
-   *
-   * @param {Matrix_t} A
-   * @param {number} i0
-   * @param {number} i1
-   * @param {Matrix_t} [t]
-   */
-  function swap ( A, i0, i1, t ) {
+    var Cache = global.Cache;
+    var Matrix_t = global.Matrix_t;
+    var MM = global.MM;
 
-    t = A[i0];
-    A[i0] = A[i1];
-    A[i1] = t;
+    var _abs = global._abs;
+    var _sqrt = global._sqrt;
+    var _max = global._max;
 
-  }
+    // ---------------------------------------------------
+    // private static method
+    // ---------------------------------------------------
 
-  /**
-   * @for LinearAlgebra
-   * @method hypot
-   * @private
-   * @static
-   *
-   * @param {number} a
-   * @param {number} b
-   * @return {number}
-   */
-  function hypot (a, b) {
+    // swap
+    /**
+     * @for LinearAlgebra
+     * @method swap
+     * @private
+     * @static
+     *
+     * @param {Matrix_t} A
+     * @param {number} i0
+     * @param {number} i1
+     * @param {Matrix_t} [t]
+     */
+    function swap ( A, i0, i1, t ) {
 
-    a = Math.abs(a);
-    b = Math.abs(b);
-
-    if (  a &gt; b ) {
-
-      b /= a;
-      return a*Math.sqrt(1.0 + b*b);
+      t = A[i0];
+      A[i0] = A[i1];
+      A[i1] = t;
 
     }
 
-    if (  b &gt; 0 ) {
+    /**
+     * @for LinearAlgebra
+     * @method hypot
+     * @private
+     * @static
+     *
+     * @param {number} a
+     * @param {number} b
+     * @return {number}
+     */
+    function hypot (a, b) {
 
-      a /= b;
-      return b*Math.sqrt(1.0 + a*a);
+      a = _abs(a);
+      b = _abs(b);
+
+      if (  a &gt; b ) {
+
+        b /= a;
+        return a*_sqrt(1.0 + b*b);
+
+      }
+
+      if (  b &gt; 0 ) {
+
+        a /= b;
+        return b*_sqrt(1.0 + a*a);
+
+      }
+
+      return 0.0;
 
     }
 
-    return 0.0;
+    // jacobiImpl
+    /**
+     * @for LinearAlgebra
+     * @method jacobiImpl
+     * @private
+     * @static
+     *
+     * @param {Matrix_t} A
+     * @param {number} astep
+     * @param {Matrix_t} W
+     * @param {Matrix_t} V
+     * @param {number} vstep
+     * @param {number} n
+     * @constructor
+     */
+    function jacobiImpl ( A, astep, W, V, vstep, n ) {
 
-  }
+      var eps = Igata.EPSILON;
+      var i=0,j=0,k=0,m=0,l=0,idx=0,_in=0,_in2=0;
+      var iters=0,max_iter=n*n*30;
+      var mv=0.0,val=0.0,p=0.0,y=0.0,t=0.0,s=0.0,c=0.0,a0=0.0,b0=0.0;
 
-  // jacobiImpl
-  /**
-   * @for LinearAlgebra
-   * @method jacobiImpl
-   * @private
-   * @static
-   * 
-   * @param {Matrix_t} A
-   * @param {number} astep
-   * @param {Matrix_t} W
-   * @param {Matrix_t} V
-   * @param {number} vstep
-   * @param {number} n
-   * @constructor
-   */
-  function jacobiImpl ( A, astep, W, V, vstep, n ) {
+      var indR_buff = Cache.getBuffer(n&lt;&lt;2);
+      var indC_buff = Cache.getBuffer(n&lt;&lt;2);
+      var indR = indR_buff.i32;
+      var indC = indC_buff.i32;
 
-    var eps = Igata.EPSILON;
-    var i=0,j=0,k=0,m=0,l=0,idx=0,_in=0,_in2=0;
-    var iters=0,max_iter=n*n*30;
-    var mv=0.0,val=0.0,p=0.0,y=0.0,t=0.0,s=0.0,c=0.0,a0=0.0,b0=0.0;
+      if ( V) {
 
-    var indR_buff = Cache.getBuffer(n&lt;&lt;2);
-    var indC_buff = Cache.getBuffer(n&lt;&lt;2);
-    var indR = indR_buff.i32;
-    var indC = indC_buff.i32;
+        for (; i &lt; n; i++) {
 
-    if ( V) {
+          k = i*vstep;
+
+          for (j = 0; j &lt; n; j++) {
+
+            V[k + j] = 0.0;
+
+          }
+
+          V[k + i] = 1.0;
+
+        }
+
+      }
+
+      for (k = 0; k &lt; n; k++) {
+
+        W[k] = A[(astep + 1)*k];
+
+        if ( k &lt; n - 1) {
+
+          for (m = k+1, mv = _abs(A[astep*k + m]), i = k+2; i &lt; n; i++) {
+
+            val = _abs(A[astep*k+i]);
+
+            if ( mv &lt; val){
+
+              mv = val;
+              m = i;
+
+            }
+
+          }
+
+          indR[k] = m;
+
+        }
+
+        if ( k &gt; 0) {
+
+          for (m = 0, mv = _abs(A[k]), i = 1; i &lt; k; i++) {
+
+            val = _abs(A[astep*i+k]);
+
+            if ( mv &lt; val){
+
+              mv = val;
+              m = i;
+
+            }
+
+          }
+
+          indC[k] = m;
+
+        }
+
+      }
+
+      if ( n &gt; 1) {
+
+        for ( ; iters &lt; max_iter; iters++) {
+
+          // find index (k,l) of pivot p
+          for (k = 0, mv = _abs(A[indR[0]]), i = 1; i &lt; n-1; i++) {
+
+            val = _abs(A[astep*i + indR[i]]);
+
+            if (  mv &lt; val ){
+
+              mv = val;
+              k = i;
+
+            }
+
+          }
+
+          l = indR[k];
+
+          for (i = 1; i &lt; n; i++) {
+
+            val = _abs(A[astep*indC[i] + i]);
+
+            if (  mv &lt; val ){
+
+              mv = val;
+              k = indC[i];
+              l = i;
+
+            }
+
+          }
+
+          p = A[astep*k + l];
+
+          if ( _abs(p) &lt;= eps ) {
+
+            break;
+
+          }
+
+          y = (W[l] - W[k])*0.5;
+          t = _abs(y) + hypot(p, y);
+          s = hypot(p, t);
+          c = t/s;
+          s = p/s; t = (p/t)*p;
+
+          if ( y &lt; 0){
+
+            s = -s;
+            t = -t;
+
+          }
+
+          A[astep*k + l] = 0;
+
+          W[k] -= t;
+          W[l] += t;
+
+          // rotate rows and columns k and l
+          for (i = 0; i &lt; k; i++) {
+
+            _in = (astep * i + k);
+            _in2 = (astep * i + l);
+            a0 = A[_in];
+            b0 = A[_in2];
+            A[_in] = a0 * c - b0 * s;
+            A[_in2] = a0 * s + b0 * c;
+
+          }
+
+          for (i = (k + 1); i &lt; l; i++) {
+
+            _in = (astep * k + i);
+            _in2 = (astep * i + l);
+            a0 = A[_in];
+            b0 = A[_in2];
+            A[_in] = a0 * c - b0 * s;
+            A[_in2] = a0 * s + b0 * c;
+
+          }
+
+          i = l + 1;
+          _in = (astep * k + i);
+          _in2 = (astep * l + i);
+
+          for (; i &lt; n; i++, _in++, _in2++) {
+
+            a0 = A[_in];
+            b0 = A[_in2];
+            A[_in] = a0 * c - b0 * s;
+            A[_in2] = a0 * s + b0 * c;
+
+          }
+
+          // rotate eigenvectors
+          if (V) {
+
+            _in = vstep * k;
+            _in2 = vstep * l;
+
+            for (i = 0; i &lt; n; i++, _in++, _in2++) {
+
+              a0 = V[_in];
+              b0 = V[_in2];
+              V[_in] = a0 * c - b0 * s;
+              V[_in2] = a0 * s + b0 * c;
+
+            }
+
+          }
+
+
+          for (j = 0; j &lt; 2; j++) {
+
+            idx = j === 0 ? k : l;
+
+            if ( idx &lt; n - 1) {
+
+              for (m = idx+1, mv = _abs(A[astep*idx + m]), i = idx+2; i &lt; n; i++) {
+
+                val = _abs(A[astep*idx+i]);
+
+                if (  mv &lt; val ){
+
+                  mv = val;
+                  m = i;
+
+                }
+
+              }
+
+              indR[idx] = m;
+
+            }
+
+            if ( idx &gt; 0) {
+
+              for (m = 0, mv = _abs(A[idx]), i = 1; i &lt; idx; i++) {
+
+                val = _abs(A[astep*i+idx]);
+
+                if (  mv &lt; val ){
+
+                  mv = val;
+                  m = i;
+
+                }
+
+              }
+
+              indC[idx] = m;
+
+            }
+
+          }
+
+        }
+
+      }// n &gt; 1
+
+      // sort eigenvalues &amp; eigenvectors
+      for (k = 0; k &lt; n-1; k++) {
+
+        m = k;
+
+        for (i = k+1; i &lt; n; i++) {
+
+          if (W[m] &lt; W[i]) {
+
+            m = i;
+
+          }
+
+        }
+
+        if ( k !== m) {
+
+          swap(W, m, k, mv);
+
+          if ( V) {
+
+            for (i = 0; i &lt; n; i++) {
+
+              swap(V, vstep*m + i, vstep*k + i, mv);
+
+            }
+
+          }
+
+        }
+
+      }
+
+      Cache.putBuffer( indR_buff );
+      Cache.putBuffer( indC_buff );
+
+    }
+
+    // jacobiSVDImpl
+    /**
+     * @for LinearAlgebra
+     * @method jacobiSVDImpl
+     * @private
+     * @static
+     *
+     * @param {Matrix_t} At
+     * @param {number} astep
+     * @param {Matrix_t} _W
+     * @param {Matrix_t} Vt
+     * @param {number} vstep
+     * @param {number} m
+     * @param {number} n
+     * @param {number} n1
+     * @constructor
+     */
+    function jacobiSVDImpl ( At, astep, _W, Vt, vstep, m, n, n1 ) {
+
+      var eps = Igata.EPSILON * 2.0;
+      var minval = Igata.FLT_MIN;
+      var i=0,j=0,k=0,iter=0,max_iter=_max(m, 30);
+      var Ai=0,Aj=0,Vi=0,Vj=0,changed=0;
+      var c=0.0, s=0.0, t=0.0;
+      var t0=0.0,t1=0.0,sd=0.0,beta=0.0,gamma=0.0,delta=0.0,a=0.0,p=0.0,b=0.0;
+      var seed = 0x1234;
+      var val=0.0,val0=0.0,asum=0.0;
+
+      var W_buff = Cache.getBuffer(n&lt;&lt;3);
+      var W = W_buff.f64;
 
       for (; i &lt; n; i++) {
 
-        k = i*vstep;
-
-        for (j = 0; j &lt; n; j++) {
-
-          V[k + j] = 0.0;
-
-        }
-
-        V[k + i] = 1.0;
-
-      }
-
-    }
-
-    for (k = 0; k &lt; n; k++) {
-
-      W[k] = A[(astep + 1)*k];
-
-      if ( k &lt; n - 1) {
-
-        for (m = k+1, mv = Math.abs(A[astep*k + m]), i = k+2; i &lt; n; i++) {
-
-          val = Math.abs(A[astep*k+i]);
-
-          if ( mv &lt; val){
-
-            mv = val;
-            m = i;
-
-          }
-
-        }
-
-        indR[k] = m;
-
-      }
-
-      if ( k &gt; 0) {
-
-        for (m = 0, mv = Math.abs(A[k]), i = 1; i &lt; k; i++) {
-
-          val = Math.abs(A[astep*i+k]);
-
-          if ( mv &lt; val){
-
-            mv = val;
-            m = i;
-
-          }
-
-        }
-
-        indC[k] = m;
-
-      }
-
-    }
-
-    if ( n &gt; 1) {
-
-      for ( ; iters &lt; max_iter; iters++) {
-
-        // find index (k,l) of pivot p
-        for (k = 0, mv = Math.abs(A[indR[0]]), i = 1; i &lt; n-1; i++) {
-
-          val = Math.abs(A[astep*i + indR[i]]);
-
-          if (  mv &lt; val ){
-
-            mv = val;
-            k = i;
-
-          }
-
-        }
-
-        l = indR[k];
-
-        for (i = 1; i &lt; n; i++) {
-
-          val = Math.abs(A[astep*indC[i] + i]);
-
-          if (  mv &lt; val ){
-
-            mv = val;
-            k = indC[i];
-            l = i;
-
-          }
-
-        }
-
-        p = A[astep*k + l];
-
-        if ( Math.abs(p) &lt;= eps ) {
-
-          break;
-
-        }
-
-        y = (W[l] - W[k])*0.5;
-        t = Math.abs(y) + hypot(p, y);
-        s = hypot(p, t);
-        c = t/s;
-        s = p/s; t = (p/t)*p;
-
-        if ( y &lt; 0){
-
-          s = -s;
-          t = -t;
-
-        }
-
-        A[astep*k + l] = 0;
-
-        W[k] -= t;
-        W[l] += t;
-
-        // rotate rows and columns k and l
-        for (i = 0; i &lt; k; i++) {
-
-          _in = (astep * i + k);
-          _in2 = (astep * i + l);
-          a0 = A[_in];
-          b0 = A[_in2];
-          A[_in] = a0 * c - b0 * s;
-          A[_in2] = a0 * s + b0 * c;
-
-        }
-
-        for (i = (k + 1); i &lt; l; i++) {
-
-          _in = (astep * k + i);
-          _in2 = (astep * i + l);
-          a0 = A[_in];
-          b0 = A[_in2];
-          A[_in] = a0 * c - b0 * s;
-          A[_in2] = a0 * s + b0 * c;
-
-        }
-
-        i = l + 1;
-        _in = (astep * k + i);
-        _in2 = (astep * l + i);
-
-        for (; i &lt; n; i++, _in++, _in2++) {
-
-          a0 = A[_in];
-          b0 = A[_in2];
-          A[_in] = a0 * c - b0 * s;
-          A[_in2] = a0 * s + b0 * c;
-
-        }
-
-        // rotate eigenvectors
-        if (V) {
-
-          _in = vstep * k;
-          _in2 = vstep * l;
-
-          for (i = 0; i &lt; n; i++, _in++, _in2++) {
-
-            a0 = V[_in];
-            b0 = V[_in2];
-            V[_in] = a0 * c - b0 * s;
-            V[_in2] = a0 * s + b0 * c;
-
-          }
-
-        }
-
-
-        for (j = 0; j &lt; 2; j++) {
-
-          idx = j === 0 ? k : l;
-
-          if ( idx &lt; n - 1) {
-
-            for (m = idx+1, mv = Math.abs(A[astep*idx + m]), i = idx+2; i &lt; n; i++) {
-
-              val = Math.abs(A[astep*idx+i]);
-
-              if (  mv &lt; val ){
-
-                mv = val;
-                m = i;
-
-              }
-
-            }
-
-            indR[idx] = m;
-
-          }
-
-          if ( idx &gt; 0) {
-
-            for (m = 0, mv = Math.abs(A[idx]), i = 1; i &lt; idx; i++) {
-
-              val = Math.abs(A[astep*i+idx]);
-
-              if (  mv &lt; val ){
-
-                mv = val;
-                m = i;
-
-              }
-
-            }
-
-            indC[idx] = m;
-
-          }
-
-        }
-
-      }
-
-    }// n &gt; 1
-
-    // sort eigenvalues &amp; eigenvectors
-    for (k = 0; k &lt; n-1; k++) {
-
-      m = k;
-
-      for (i = k+1; i &lt; n; i++) {
-
-        if (W[m] &lt; W[i]) {
-
-          m = i;
-
-        }
-
-      }
-
-      if ( k !== m) {
-
-        swap(W, m, k, mv);
-
-        if ( V) {
-
-          for (i = 0; i &lt; n; i++) {
-
-            swap(V, vstep*m + i, vstep*k + i, mv);
-
-          }
-
-        }
-
-      }
-
-    }
-
-    Cache.putBuffer( indR_buff );
-    Cache.putBuffer( indC_buff );
-
-  }
-
-  // jacobiSVDImpl
-  /**
-   * @for LinearAlgebra
-   * @method jacobiSVDImpl
-   * @private
-   * @static
-   * 
-   * @param {Matrix_t} At
-   * @param {number} astep
-   * @param {Matrix_t} _W
-   * @param {Matrix_t} Vt
-   * @param {number} vstep
-   * @param {number} m
-   * @param {number} n
-   * @param {number} n1
-   * @constructor
-   */
-  function jacobiSVDImpl ( At, astep, _W, Vt, vstep, m, n, n1 ) {
-
-    var eps = Igata.EPSILON * 2.0;
-    var minval = Igata.FLT_MIN;
-    var i=0,j=0,k=0,iter=0,max_iter=Math.max(m, 30);
-    var Ai=0,Aj=0,Vi=0,Vj=0,changed=0;
-    var c=0.0, s=0.0, t=0.0;
-    var t0=0.0,t1=0.0,sd=0.0,beta=0.0,gamma=0.0,delta=0.0,a=0.0,p=0.0,b=0.0;
-    var seed = 0x1234;
-    var val=0.0,val0=0.0,asum=0.0;
-
-    var W_buff = Cache.getBuffer(n&lt;&lt;3);
-    var W = W_buff.f64;
-
-    for (; i &lt; n; i++) {
-
-      for (k = 0, sd = 0; k &lt; m; k++) {
-
-        t = At[i*astep + k];
-        sd += t*t;
-
-      }
-
-      W[i] = sd;
-
-      if (Vt) {
-
-        for (k = 0; k &lt; n; k++) {
-
-          Vt[i*vstep + k] = 0;
-
-        }
-
-        Vt[i*vstep + i] = 1;
-
-      }
-
-    }
-
-    for (; iter &lt; max_iter; iter++) {
-      changed = 0;
-
-      for (i = 0; i &lt; n-1; i++) {
-
-        for (j = i+1; j &lt; n; j++) {
-
-          Ai = (i*astep)|0;
-          Aj = (j*astep)|0;
-
-          a = W[i];
-          p = 0;
-          b = W[j];
-
-          k = 2;
-          p += At[Ai]*At[Aj];
-          p += At[Ai+1]*At[Aj+1];
-
-          for (; k &lt; m; k++) {
-
-            p += At[Ai+k]*At[Aj+k];
-
-          }
-
-          if ( Math.abs(p) &lt;= eps*Math.sqrt(a*b) ) {
-
-            continue;
-
-          }
-
-          p *= 2.0;
-          beta = a - b;
-          gamma = hypot(p, beta);
-
-          if ( beta &lt; 0 ) {
-
-            delta = (gamma - beta)*0.5;
-            s = Math.sqrt(delta/gamma);
-            c = (p/(gamma*s*2.0));
-
-          } else {
-
-            c = Math.sqrt((gamma + beta)/(gamma*2.0));
-            s = (p/(gamma*c*2.0));
-
-          }
-
-          a=0.0;
-          b=0.0;
-
-          k = 2; // unroll
-          t0 = c*At[Ai] + s*At[Aj];
-          t1 = -s*At[Ai] + c*At[Aj];
-
-          At[Ai] = t0;
-          At[Aj] = t1;
-
-          a += t0*t0;
-          b += t1*t1;
-
-          t0 = c*At[Ai+1] + s*At[Aj+1];
-          t1 = -s*At[Ai+1] + c*At[Aj+1];
-          At[Ai+1] = t0;
-          At[Aj+1] = t1;
-
-          a += t0*t0;
-          b += t1*t1;
-
-          for ( ; k &lt; m; k++ ) {
-
-            t0 = c*At[Ai+k] + s*At[Aj+k];
-            t1 = -s*At[Ai+k] + c*At[Aj+k];
-            At[Ai+k] = t0; At[Aj+k] = t1;
-
-            a += t0*t0; b += t1*t1;
-
-          }
-
-          W[i] = a; W[j] = b;
-
-          changed = 1;
-
-          if ( Vt) {
-
-            Vi = (i*vstep)|0;
-            Vj = (j*vstep)|0;
-
-            k = 2;
-            t0 = c*Vt[Vi] + s*Vt[Vj];
-            t1 = -s*Vt[Vi] + c*Vt[Vj];
-            Vt[Vi] = t0;
-            Vt[Vj] = t1;
-
-            t0 = c*Vt[Vi+1] + s*Vt[Vj+1];
-            t1 = -s*Vt[Vi+1] + c*Vt[Vj+1];
-            Vt[Vi+1] = t0;
-            Vt[Vj+1] = t1;
-
-            for (; k &lt; n; k++) {
-
-              t0 = c*Vt[Vi+k] + s*Vt[Vj+k];
-              t1 = -s*Vt[Vi+k] + c*Vt[Vj+k];
-              Vt[Vi+k] = t0;
-              Vt[Vj+k] = t1;
-
-            }
-
-          }
-
-        }
-
-      }
-
-      if (changed === 0) {
-
-        break;
-
-      }
-
-    }
-
-    for (i = 0; i &lt; n; i++) {
-
-      for (k = 0, sd = 0; k &lt; m; k++) {
-
-        t = At[i*astep + k];
-        sd += t*t;
-
-      }
-
-      W[i] = Math.sqrt(sd);
-
-    }
-
-    for (i = 0; i &lt; n-1; i++) {
-
-      j = i;
-
-      for (k = i+1; k &lt; n; k++) {
-
-        if ( W[j] &lt; W[k]){
-
-          j = k;
-
-        }
-
-      }
-
-      if ( i !== j) {
-
-        swap(W, i, j, sd);
-
-        if ( Vt) {
-
-          for (k = 0; k &lt; m; k++) {
-
-            swap(At, i*astep + k, j*astep + k, t);
-
-          }
-
-          for (k = 0; k &lt; n; k++) {
-
-            swap(Vt, i*vstep + k, j*vstep + k, t);
-
-          }
-
-        }
-
-      }
-
-    }
-
-    for (i = 0; i &lt; n; i++) {
-
-      _W[i] = W[i];
-
-    }
-
-    if ( !Vt) {
-
-      Cache.putBuffer(W_buff);
-      return;
-
-    }
-
-    for (i = 0; i &lt; n1; i++) {
-
-      sd = i &lt; n ? W[i] : 0;
-
-      while(sd &lt;= minval) {
-
-        // if we got a zero singular value, then in order to get the corresponding left singular vector
-        // we generate a random vector, project it to the previously computed left singular vectors,
-        // subtract the projection and normalize the difference.
-        val0 = (1.0/m);
-
-        for (k = 0; k &lt; m; k++) {
-
-          seed = (seed * 214013 + 2531011);
-          val = (((seed &gt;&gt; 16) &amp; 0x7fff) &amp; 256) !== 0 ? val0 : -val0;
-          At[i*astep + k] = val;
-
-        }
-
-        for (iter = 0; iter &lt; 2; iter++) {
-
-          for (j = 0; j &lt; i; j++) {
-
-            sd = 0;
-
-            for (k = 0; k &lt; m; k++) {
-
-              sd += At[i*astep + k]*At[j*astep + k];
-
-            }
-
-            asum = 0.0;
-
-            for (k = 0; k &lt; m; k++) {
-
-              t = (At[i*astep + k] - sd*At[j*astep + k]);
-              At[i*astep + k] = t;
-              asum += Math.abs(t);
-
-            }
-
-            asum = asum ? 1.0/asum : 0;
-
-            for (k = 0; k &lt; m; k++) {
-
-              At[i*astep + k] *= asum;
-
-            }
-
-          }
-
-        }
-
-        sd = 0;
-
-        for (k = 0; k &lt; m; k++) {
+        for (k = 0, sd = 0; k &lt; m; k++) {
 
           t = At[i*astep + k];
           sd += t*t;
 
         }
 
-        sd = Math.sqrt(sd);
+        W[i] = sd;
+
+        if (Vt) {
+
+          for (k = 0; k &lt; n; k++) {
+
+            Vt[i*vstep + k] = 0;
+
+          }
+
+          Vt[i*vstep + i] = 1;
+
+        }
 
       }
 
-      s = (1.0/sd);
+      for (; iter &lt; max_iter; iter++) {
+        changed = 0;
 
-      for (k = 0; k &lt; m; k++) {
+        for (i = 0; i &lt; n-1; i++) {
 
-        At[i*astep + k] *= s;
+          for (j = i+1; j &lt; n; j++) {
+
+            Ai = (i*astep)|0;
+            Aj = (j*astep)|0;
+
+            a = W[i];
+            p = 0;
+            b = W[j];
+
+            k = 2;
+            p += At[Ai]*At[Aj];
+            p += At[Ai+1]*At[Aj+1];
+
+            for (; k &lt; m; k++) {
+
+              p += At[Ai+k]*At[Aj+k];
+
+            }
+
+            if ( _abs(p) &lt;= eps*_sqrt(a*b) ) {
+
+              continue;
+
+            }
+
+            p *= 2.0;
+            beta = a - b;
+            gamma = hypot(p, beta);
+
+            if ( beta &lt; 0 ) {
+
+              delta = (gamma - beta)*0.5;
+              s = _sqrt(delta/gamma);
+              c = (p/(gamma*s*2.0));
+
+            } else {
+
+              c = _sqrt((gamma + beta)/(gamma*2.0));
+              s = (p/(gamma*c*2.0));
+
+            }
+
+            a=0.0;
+            b=0.0;
+
+            k = 2; // unroll
+            t0 = c*At[Ai] + s*At[Aj];
+            t1 = -s*At[Ai] + c*At[Aj];
+
+            At[Ai] = t0;
+            At[Aj] = t1;
+
+            a += t0*t0;
+            b += t1*t1;
+
+            t0 = c*At[Ai+1] + s*At[Aj+1];
+            t1 = -s*At[Ai+1] + c*At[Aj+1];
+            At[Ai+1] = t0;
+            At[Aj+1] = t1;
+
+            a += t0*t0;
+            b += t1*t1;
+
+            for ( ; k &lt; m; k++ ) {
+
+              t0 = c*At[Ai+k] + s*At[Aj+k];
+              t1 = -s*At[Ai+k] + c*At[Aj+k];
+              At[Ai+k] = t0; At[Aj+k] = t1;
+
+              a += t0*t0; b += t1*t1;
+
+            }
+
+            W[i] = a; W[j] = b;
+
+            changed = 1;
+
+            if ( Vt) {
+
+              Vi = (i*vstep)|0;
+              Vj = (j*vstep)|0;
+
+              k = 2;
+              t0 = c*Vt[Vi] + s*Vt[Vj];
+              t1 = -s*Vt[Vi] + c*Vt[Vj];
+              Vt[Vi] = t0;
+              Vt[Vj] = t1;
+
+              t0 = c*Vt[Vi+1] + s*Vt[Vj+1];
+              t1 = -s*Vt[Vi+1] + c*Vt[Vj+1];
+              Vt[Vi+1] = t0;
+              Vt[Vj+1] = t1;
+
+              for (; k &lt; n; k++) {
+
+                t0 = c*Vt[Vi+k] + s*Vt[Vj+k];
+                t1 = -s*Vt[Vi+k] + c*Vt[Vj+k];
+                Vt[Vi+k] = t0;
+                Vt[Vj+k] = t1;
+
+              }
+
+            }
+
+          }
+
+        }
+
+        if (changed === 0) {
+
+          break;
+
+        }
 
       }
+
+      for (i = 0; i &lt; n; i++) {
+
+        for (k = 0, sd = 0; k &lt; m; k++) {
+
+          t = At[i*astep + k];
+          sd += t*t;
+
+        }
+
+        W[i] = _sqrt(sd);
+
+      }
+
+      for (i = 0; i &lt; n-1; i++) {
+
+        j = i;
+
+        for (k = i+1; k &lt; n; k++) {
+
+          if ( W[j] &lt; W[k]){
+
+            j = k;
+
+          }
+
+        }
+
+        if ( i !== j) {
+
+          swap(W, i, j, sd);
+
+          if ( Vt) {
+
+            for (k = 0; k &lt; m; k++) {
+
+              swap(At, i*astep + k, j*astep + k, t);
+
+            }
+
+            for (k = 0; k &lt; n; k++) {
+
+              swap(Vt, i*vstep + k, j*vstep + k, t);
+
+            }
+
+          }
+
+        }
+
+      }
+
+      for (i = 0; i &lt; n; i++) {
+
+        _W[i] = W[i];
+
+      }
+
+      if ( !Vt) {
+
+        Cache.putBuffer(W_buff);
+        return;
+
+      }
+
+      for (i = 0; i &lt; n1; i++) {
+
+        sd = i &lt; n ? W[i] : 0;
+
+        while(sd &lt;= minval) {
+
+          // if we got a zero singular value, then in order to get the corresponding left singular vector
+          // we generate a random vector, project it to the previously computed left singular vectors,
+          // subtract the projection and normalize the difference.
+          val0 = (1.0/m);
+
+          for (k = 0; k &lt; m; k++) {
+
+            seed = (seed * 214013 + 2531011);
+            val = (((seed &gt;&gt; 16) &amp; 0x7fff) &amp; 256) !== 0 ? val0 : -val0;
+            At[i*astep + k] = val;
+
+          }
+
+          for (iter = 0; iter &lt; 2; iter++) {
+
+            for (j = 0; j &lt; i; j++) {
+
+              sd = 0;
+
+              for (k = 0; k &lt; m; k++) {
+
+                sd += At[i*astep + k]*At[j*astep + k];
+
+              }
+
+              asum = 0.0;
+
+              for (k = 0; k &lt; m; k++) {
+
+                t = (At[i*astep + k] - sd*At[j*astep + k]);
+                At[i*astep + k] = t;
+                asum += _abs(t);
+
+              }
+
+              asum = asum ? 1.0/asum : 0;
+
+              for (k = 0; k &lt; m; k++) {
+
+                At[i*astep + k] *= asum;
+
+              }
+
+            }
+
+          }
+
+          sd = 0;
+
+          for (k = 0; k &lt; m; k++) {
+
+            t = At[i*astep + k];
+            sd += t*t;
+
+          }
+
+          sd = _sqrt(sd);
+
+        }
+
+        s = (1.0/sd);
+
+        for (k = 0; k &lt; m; k++) {
+
+          At[i*astep + k] *= s;
+
+        }
+
+      }
+
+      Cache.putBuffer(W_buff);
 
     }
 
-    Cache.putBuffer(W_buff);
-
-  }
-
-  // ---------------------------------------------------
-  // class
-  var LinearAlgebra = ( function () {
-
+    // ---------------------------------------------------
+    // class
+    // ---------------------------------------------------
     /**
      * @class LinearAlgebra
      * @static
@@ -868,7 +876,7 @@
 
         }
 
-        if (  Math.abs(ad[k*astep+i]) &lt; Igata.EPSILON ) {
+        if ( _abs(ad[k*astep+i]) &lt; Igata.EPSILON ) {
 
           // FAILED
           return 0;

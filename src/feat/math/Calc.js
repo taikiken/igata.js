@@ -28,17 +28,25 @@
     Igata = window.Igata,
     global = Igata;
 
-  var Calc = ( function () {
-
-    var qsort_stack = new Int32Array(48*2);
-    var Cache = global.Cache;
+  global.Calc = ( function () {
 
     var
-      U8_t = global.U8_t,
-      S32_t = global.S32_t,
-      F32_t = global.F32_t,
-      S64_t = global.S64_t,
-      F64_t = global.F64_t;
+      Cache = global.Cache;
+
+    var
+      U8_t = global.U8_t;
+
+    /**
+     * @for Calc
+     * @property qsort_stack
+     * @static
+     * @private
+     * @type {Int32Array}
+     */
+    var qsort_stack = new Int32Array(48*2);
+
+    var _exp = global._exp;
+    var _min = global._min;
 
     /**
      * @class Calc
@@ -67,9 +75,9 @@
       var kern_node = Cache.getBuffer(size<<2);
       var _kernel = kern_node.f32;//new Float32Array(size);
 
-      if((size&1) === 1 && size <= 7 && sigma <= 0) {
+      if ((size&1) === 1 && size <= 7 && sigma <= 0) {
 
-        switch(size>>1) {
+        switch (size>>1) {
 
           case 0:
             _kernel[0] = 1.0;
@@ -113,7 +121,7 @@
         for( ; i < size; ++i ) {
 
           x = i - (size-1)*0.5;
-          t = Math.exp(scale_2x*x*x);
+          t = _exp(scale_2x*x*x);
 
           _kernel[i] = t;
           sum += t;
@@ -187,9 +195,9 @@
      * @param {number} dst_y3
      */
     Calc.perspective4 = function ( model, src_x0, src_y0, dst_x0, dst_y0,
-                                                   src_x1, src_y1, dst_x1, dst_y1,
-                                                   src_x2, src_y2, dst_x2, dst_y2,
-                                                   src_x3, src_y3, dst_x3, dst_y3 ) {
+                                          src_x1, src_y1, dst_x1, dst_y1,
+                                          src_x2, src_y2, dst_x2, dst_y2,
+                                          src_x3, src_y3, dst_x3, dst_y3 ) {
 
       var t1 = src_x0;
       var t2 = src_x2;
@@ -360,27 +368,27 @@
 
       var stack = qsort_stack;
 
-      if( (high-low+1) <= 1 ) { return; }
+      if ( (high-low+1) <= 1 ) { return; }
 
       stack[0] = low;
       stack[1] = high;
 
-      while( sp >= 0 ) {
+      while ( sp >= 0 ) {
 
         left = stack[sp<<1];
         right = stack[(sp<<1)+1];
         sp--;
 
-        for(;;) {
+        for (;;) {
 
           n = (right - left) + 1;
 
-          if( n <= isort_thresh ) {
+          if ( n <= isort_thresh ) {
 
             //insert_sort:
             for( ptr = left + 1; ptr <= right; ptr++ ) {
 
-              for( ptr2 = ptr; ptr2 > left && cmp(array[ptr2],array[ptr2-1]); ptr2--) {
+              for( ptr2 = ptr; ptr2 > left && cmp(array[ptr2],array[ptr2-1]); ptr2-- ) {
 
                 t = array[ptr2];
                 array[ptr2] = array[ptr2-1];
@@ -462,13 +470,13 @@
 
             ta = array[pivot];
 
-            for(;;) {
+            for (;;) {
 
-              while( left <= right && !cmp(ta, array[left]) ) {
+              while ( left <= right && !cmp(ta, array[left]) ) {
 
-                if( !cmp(array[left], ta) ) {
+                if ( !cmp(array[left], ta) ) {
 
-                  if( left > left1 ) {
+                  if ( left > left1 ) {
 
                     t = array[left1];
                     array[left1] = array[left];
@@ -485,11 +493,11 @@
 
               }
 
-              while( left <= right && !cmp(array[right], ta) ) {
+              while ( left <= right && !cmp(array[right], ta) ) {
 
-                if( !cmp(ta, array[right]) ) {
+                if ( !cmp(ta, array[right]) ) {
 
-                  if( right < right1 ) {
+                  if ( right < right1 ) {
 
                     t = array[right1];
                     array[right1] = array[right];
@@ -506,7 +514,7 @@
 
               }
 
-              if( left > right ) { break; }
+              if ( left > right ) { break; }
 
               t = array[left];
               array[left] = array[right];
@@ -517,7 +525,7 @@
 
             }
 
-            if( swap_cnt === 0 ) {
+            if ( swap_cnt === 0 ) {
 
               left = left0;
               right = right0;
@@ -539,7 +547,7 @@
 
             }
 
-            n = Math.min( (left1 - left0), (left - left1) );
+            n = _min( (left1 - left0), (left - left1) );
             m = (left-n)|0;
 
             for( i = 0; i < n; ++i,++m ) {
@@ -550,7 +558,7 @@
 
             }
 
-            n = Math.min( (right0 - right1), (right1 - right) );
+            n = _min( (right0 - right1), (right1 - right) );
             m = (right0-n+1)|0;
 
             for( i = 0; i < n; ++i,++m ) {
@@ -715,7 +723,5 @@
     return Calc;
 
   }() );
-
-  global.Calc = Calc;
 
 }( window ) );

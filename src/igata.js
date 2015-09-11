@@ -65,6 +65,10 @@ var Igata = window.Igata || {};
 
   global._exp = Math.exp;
 
+  global._log = Math.log;
+
+  global._pow = Math.pow;
+
   global._PI = Math.PI;
 
   ///**
@@ -184,11 +188,11 @@ var Igata = window.Igata || {};
   global.get_channel = get_channel;
   global.get_data_type_size = get_data_type_size;
 
-  /**
-   * Cascade files
-   * @module Cascade
-   * @type {{}}
-   */
-  global.Cascade = {};
+  ///**
+  // * Cascade files
+  // * @module Cascade
+  // * @type {{}}
+  // */
+  //global.Cascade = {};
 
 }( window, Igata ) );

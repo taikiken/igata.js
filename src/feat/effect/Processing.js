@@ -43,7 +43,25 @@
     U8_t = global.U8_t,
     S32_t = global.S32_t;
 
+  var _max = global._max;
+  var _min = global._min;
+  var _PI = global._PI;
+  var _sin = global._sin;
+  var _cos = global._cos;
+  var _floor = global._floor;
+  var _round = global._round;
+  var _abs = global._abs;
 
+  /**
+   * @for Processing
+   * @method _resample_u8
+   * @static
+   * @param src
+   * @param dst
+   * @param nw
+   * @param nh
+   * @private
+   */
   function _resample_u8 (src, dst, nw, nh) {
     var xofs_count=0;
     var ch=src.channel,w=src.cols,h=src.rows;
@@ -75,8 +93,8 @@
       sx1 = (fsx1 + 1.0 - 1e-6)|0;
       sx2 = fsx2|0;
 
-      sx1 = Math.min(sx1, w - 1);
-      sx2 = Math.min(sx2, w - 1);
+      sx1 = _min(sx1, w - 1);
+      sx2 = _min(sx2, w - 1);
 
       if(sx1 > fsx1) {
 
@@ -95,6 +113,7 @@
         xofs[k++] = 256;
 
       }
+
       if(fsx2 - sx2 > 1e-3) {
 
         xofs_count++;
@@ -143,7 +162,7 @@
 
           for (dx = 0; dx < nw * ch; dx++) {
 
-            dst_d[b+dx] = Math.min(Math.max((sum[dx] + buf[dx] * 256) / inv_scale_256, 0), 255);
+            dst_d[b+dx] = _min(_max((sum[dx] + buf[dx] * 256) / inv_scale_256, 0), 255);
             sum[dx] = buf[dx] = 0;
 
           }
@@ -152,7 +171,7 @@
 
           for (dx = 0; dx < nw * ch; dx++) {
 
-            dst_d[b+dx] = Math.min(Math.max((sum[dx] + buf[dx] * beta1) / inv_scale_256, 0), 255);
+            dst_d[b+dx] = _min(_max((sum[dx] + buf[dx] * beta1) / inv_scale_256, 0), 255);
             sum[dx] = buf[dx] * beta;
             buf[dx] = 0;
 
@@ -182,6 +201,16 @@
   }// _resample_u8
 
   // _resample
+  /**
+   * @for Processing
+   * @method _resample
+   * @static
+   * @param src
+   * @param dst
+   * @param nw
+   * @param nh
+   * @private
+   */
   function _resample ( src, dst, nw, nh ) {
 
     var xofs_count=0;
@@ -216,7 +245,7 @@
       sx1 = Math.min(sx1, w - 1);
       sx2 = Math.min(sx2, w - 1);
 
-      if(sx1 > fsx1) {
+      if (sx1 > fsx1) {
 
         xofs_count++;
         xofs[k++] = ((sx1 - 1)*ch)|0;
@@ -224,7 +253,7 @@
         xofs[k++] = (sx1 - fsx1) * scale;
 
       }
-      for(sx = sx1; sx < sx2; sx++){
+      for (sx = sx1; sx < sx2; sx++){
 
         xofs_count++;
         xofs[k++] = (sx * ch)|0;
@@ -233,7 +262,7 @@
 
       }
 
-      if(fsx2 - sx2 > 1e-3) {
+      if (fsx2 - sx2 > 1e-3) {
 
         xofs_count++;
         xofs[k++] = (sx2 * ch)|0;
@@ -300,7 +329,7 @@
 
       } else {
 
-        for(dx = 0; dx < nw * ch; dx++) {
+        for (dx = 0; dx < nw * ch; dx++) {
 
           sum[dx] += buf[dx];
           buf[dx] = 0;
@@ -317,6 +346,20 @@
 
   }// _resample
 
+  /**
+   * @for Processing
+   * @method _convol_u8
+   * @static
+   * @param buf
+   * @param src_d
+   * @param dst_d
+   * @param w
+   * @param h
+   * @param filter
+   * @param kernel_size
+   * @param half_kernel
+   * @private
+   */
   function _convol_u8 (buf, src_d, dst_d, w, h, filter, kernel_size, half_kernel) {
 
     var i=0,j=0,k=0,sp=0,dp=0,sum=0,sum1=0,sum2=0,sum3=0,f0=filter[0],fk=0;
@@ -474,7 +517,20 @@
     }
 
   }// _convol_u8
-
+  /**
+   * @for Processing
+   * @method _convol
+   * @static
+   * @param buf
+   * @param src_d
+   * @param dst_d
+   * @param w
+   * @param h
+   * @param filter
+   * @param kernel_size
+   * @param half_kernel
+   * @private
+   */
   function _convol (buf, src_d, dst_d, w, h, filter, kernel_size, half_kernel) {
 
     var i=0,j=0,k=0,sp=0,dp=0,sum=0.0,sum1=0.0,sum2=0.0,sum3=0.0,f0=filter[0],fk=0.0;
@@ -678,13 +734,13 @@
       var x=0, y=0, i=0, j=0, ir=0,jr=0;
       var coeff_r = 4899, coeff_g = 9617, coeff_b = 1868, cn = 4;
 
-      if(code === COLOR_BGRA2GRAY || code === COLOR_BGR2GRAY) {
+      if (code === COLOR_BGRA2GRAY || code === COLOR_BGR2GRAY) {
 
         coeff_r = 1868;
         coeff_b = 4899;
 
       }
-      if(code === COLOR_RGB2GRAY || code === COLOR_BGR2GRAY) {
+      if (code === COLOR_RGB2GRAY || code === COLOR_BGR2GRAY) {
 
         cn = 3;
 
@@ -695,9 +751,9 @@
       var dst_u8 = dst.data;
       var limit;
 
-      for(y = 0; y < h; ++y, j+=w, i+=w*cn) {
+      for (y = 0; y < h; ++y, j+=w, i+=w*cn) {
 
-        for(x = 0, ir = i, jr = j, limit = w-4; x <= limit; x+=4, ir+=cn<<2, jr+=4) {
+        for (x = 0, ir = i, jr = j, limit = w-4; x <= limit; x+=4, ir+=cn<<2, jr+=4) {
 
           dst_u8[jr]     = (src[ir]     * coeff_r + src[ir+1]     * coeff_g + src[ir+2]     * coeff_b + 8192) >> 14;
           dst_u8[jr + 1] = (src[ir+cn]  * coeff_r + src[ir+cn+1]  * coeff_g + src[ir+cn+2]  * coeff_b + 8192) >> 14;
@@ -716,8 +772,9 @@
 
     };
 
-    // derived from CCV library
     /**
+     * derived from CCV library
+     *
      * Generic resize method. Works with single and multi channel matrix_t. If performance is critical or you need multiple image resizings it is recommended to use canvas built-in drawImage() method.
      *
      * @method resample
@@ -793,7 +850,7 @@
         dstIndex = y;
         sum = radiusPlusOne * data_u8[srcIndex];
 
-        for(i = (srcIndex+1)|0, end=(srcIndex+radius)|0; i <= end; ++i) {
+        for (i = (srcIndex+1)|0, end=(srcIndex+radius)|0; i <= end; ++i) {
 
           sum += data_u8[i];
 
@@ -803,7 +860,7 @@
         previousPixelIndex = srcIndex;
         hold = data_u8[previousPixelIndex];
 
-        for(x = 0; x < radius; ++x, dstIndex += h) {
+        for (x = 0; x < radius; ++x, dstIndex += h) {
 
           data_i32[dstIndex] = sum;
           sum += data_u8[nextPixelIndex]- hold;
@@ -811,7 +868,7 @@
 
         }
 
-        for(; x < w-radiusPlus2; x+=2, dstIndex += h2) {
+        for (; x < w-radiusPlus2; x+=2, dstIndex += h2) {
 
           data_i32[dstIndex] = sum;
           sum += data_u8[nextPixelIndex]- data_u8[previousPixelIndex];
@@ -824,7 +881,7 @@
 
         }
 
-        for(; x < w-radiusPlusOne; ++x, dstIndex += h) {
+        for (; x < w-radiusPlusOne; ++x, dstIndex += h) {
 
           data_i32[dstIndex] = sum;
           sum += data_u8[nextPixelIndex]- data_u8[previousPixelIndex];
@@ -836,7 +893,7 @@
 
         hold = data_u8[nextPixelIndex-1];
 
-        for(; x < w; ++x, dstIndex += h) {
+        for (; x < w; ++x, dstIndex += h) {
 
           data_i32[dstIndex] = sum;
 
@@ -862,7 +919,7 @@
           dstIndex = y;
           sum = radiusPlusOne * data_i32[srcIndex];
 
-          for(i = (srcIndex+1)|0, end=(srcIndex+radius)|0; i <= end; ++i) {
+          for (i = (srcIndex+1)|0, end=(srcIndex+radius)|0; i <= end; ++i) {
 
             sum += data_i32[i];
 
@@ -872,7 +929,7 @@
           previousPixelIndex = srcIndex;
           hold = data_i32[previousPixelIndex];
 
-          for(x = 0; x < radius; ++x, dstIndex += w) {
+          for (x = 0; x < radius; ++x, dstIndex += w) {
 
             data_u8[dstIndex] = sum;
             sum += data_i32[nextPixelIndex]- hold;
@@ -880,7 +937,7 @@
 
           }
 
-          for(; x < h-radiusPlus2; x+=2, dstIndex += w2) {
+          for (; x < h-radiusPlus2; x+=2, dstIndex += w2) {
 
             data_u8[dstIndex] = sum;
             sum += data_i32[nextPixelIndex]- data_i32[previousPixelIndex];
@@ -893,7 +950,7 @@
 
           }
 
-          for(; x < h-radiusPlusOne; ++x, dstIndex += w) {
+          for (; x < h-radiusPlusOne; ++x, dstIndex += w) {
 
             data_u8[dstIndex] = sum;
 
@@ -925,7 +982,7 @@
           dstIndex = y;
           sum = radiusPlusOne * data_i32[srcIndex];
 
-          for(i = (srcIndex+1)|0, end=(srcIndex+radius)|0; i <= end; ++i) {
+          for (i = (srcIndex+1)|0, end=(srcIndex+radius)|0; i <= end; ++i) {
 
             sum += data_i32[i];
 
@@ -935,7 +992,7 @@
           previousPixelIndex = srcIndex;
           hold = data_i32[previousPixelIndex];
 
-          for(x = 0; x < radius; ++x, dstIndex += w) {
+          for (x = 0; x < radius; ++x, dstIndex += w) {
 
             data_u8[dstIndex] = sum*scale;
             sum += data_i32[nextPixelIndex]- hold;
@@ -943,7 +1000,7 @@
 
           }
 
-          for(; x < h-radiusPlus2; x+=2, dstIndex += w2) {
+          for (; x < h-radiusPlus2; x+=2, dstIndex += w2) {
 
             data_u8[dstIndex] = sum*scale;
             sum += data_i32[nextPixelIndex]- data_i32[previousPixelIndex];
@@ -955,7 +1012,7 @@
             previousPixelIndex +=2;
 
           }
-          for(; x < h-radiusPlusOne; ++x, dstIndex += w) {
+          for (; x < h-radiusPlusOne; ++x, dstIndex += w) {
 
             data_u8[dstIndex] = sum*scale;
 
@@ -967,7 +1024,7 @@
 
           hold = data_i32[nextPixelIndex-1];
 
-          for(; x < h; ++x, dstIndex += w) {
+          for (; x < h; ++x, dstIndex += w) {
 
             data_u8[dstIndex] = sum*scale;
 
@@ -1045,7 +1102,7 @@
 
       Calc.kernel(kernel_size, sigma, filter, data_type);
 
-      if(is_u8) {
+      if (is_u8) {
 
         _convol_u8(buf, src_d, dst_d, w, h, filter, kernel_size, half_kernel);
 
@@ -1091,10 +1148,10 @@
       var step = width;
 
       var min_theta = 0.0;
-      var max_theta = Math.PI;
+      var max_theta = _PI;
 
-      var numangle = Math.round((max_theta - min_theta) / theta_res);
-      var numrho = Math.round(((width + height) * 2 + 1) / rho_res);
+      var numangle = _round((max_theta - min_theta) / theta_res);
+      var numrho = _round(((width + height) * 2 + 1) / rho_res);
       var irho = 1.0 / rho_res;
 
       var accum = new Int32Array((numangle+2) * (numrho+2)); //typed arrays are initialized to 0
@@ -1107,8 +1164,8 @@
 
       for(; n < numangle; n++ ) {
 
-        tabSin[n] = Math.sin(ang) * irho;
-        tabCos[n] = Math.cos(ang) * irho;
+        tabSin[n] = _sin(ang) * irho;
+        tabCos[n] = _cos(ang) * irho;
         ang += theta_res;
 
       }
@@ -1116,16 +1173,16 @@
       // stage 1. fill accumulator
       var j;
 
-      for( i = 0; i < height; i++ ) {
+      for ( i = 0; i < height; i++ ) {
 
-        for( j = 0; j < width; j++ ) {
+        for ( j = 0; j < width; j++ ) {
 
-          if( image[i * step + j] !== 0 ) {
+          if ( image[i * step + j] !== 0 ) {
 
             //console.log(r, (n+1) * (numrho+2) + r+1, tabCos[n], tabSin[n]);
-            for( n = 0; n < numangle; n++ ) {
+            for ( n = 0; n < numangle; n++ ) {
 
-              r = Math.round( j * tabCos[n] + i * tabSin[n] );
+              r = _round( j * tabCos[n] + i * tabSin[n] );
               r += (numrho - 1) / 2;
               accum[(n+1) * (numrho+2) + r+1] += 1;
 
@@ -1143,13 +1200,13 @@
       var _sort_buf = [];
       var base;
 
-      for( r = 0; r < numrho; r++ ) {
+      for ( r = 0; r < numrho; r++ ) {
 
-        for( n = 0; n < numangle; n++ ) {
+        for ( n = 0; n < numangle; n++ ) {
 
           base = (n+1) * (numrho+2) + r+1;
 
-          if( accum[base] > threshold &&
+          if ( accum[base] > threshold &&
             accum[base] > accum[base - 1] && accum[base] >= accum[base + 1] &&
             accum[base] > accum[base - numrho - 2] && accum[base] >= accum[base + numrho + 2] ) {
 
@@ -1169,17 +1226,17 @@
       });
 
       // stage 4. store the first min(total,linesMax) lines to the output buffer
-      var linesMax = Math.min(numangle*numrho, _sort_buf.length);
+      var linesMax = _min(numangle*numrho, _sort_buf.length);
       var scale = 1.0 / (numrho+2);
       //var lines = new Array();
       var lines = [];
       var
         idx, lrho, langle, i;
 
-      for( i = 0; i < linesMax; i++ ) {
+      for ( i = 0; i < linesMax; i++ ) {
 
         idx = _sort_buf[i];
-        n = Math.floor(idx*scale) - 1;
+        n = _floor(idx*scale) - 1;
         r = idx - (n+1)*(numrho+2) - 1;
         lrho = (r - (numrho - 1)*0.5) * rho_res;
         langle = n * theta_res;
@@ -1299,7 +1356,7 @@
 
       }
 
-      for(; y < h; ++y, srow1+=w) {
+      for (; y < h; ++y, srow1+=w) {
 
         srow0 = ((y > 0 ? y-1 : 1)*w)|0;
         srow2 = ((y < h-1 ? y+1 : h-2)*w)|0;
@@ -1405,7 +1462,7 @@
       var buf0_node = Cache.getBuffer((w+2)<<2);
       var buf1_node = Cache.getBuffer((w+2)<<2);
 
-      if(src.type&U8_t || src.type&S32_t) {
+      if (src.type&U8_t || src.type&S32_t) {
 
         trow0 = buf0_node.i32;
         trow1 = buf1_node.i32;
@@ -1417,14 +1474,14 @@
 
       }
 
-      for(; y < h; ++y, srow1+=w) {
+      for (; y < h; ++y, srow1+=w) {
 
         srow0 = ((y > 0 ? y-1 : 1)*w)|0;
         srow2 = ((y < h-1 ? y+1 : h-2)*w)|0;
         drow = (y*dstep)|0;
 
         // do vertical convolution
-        for(x = 0, x1 = 1; x <= w-2; x+=2, x1+=2) {
+        for (x = 0, x1 = 1; x <= w-2; x+=2, x1+=2) {
 
           a = img[srow0+x];
           b = img[srow2+x];
@@ -1438,7 +1495,7 @@
 
         }
 
-        for(; x < w; ++x, ++x1) {
+        for (; x < w; ++x, ++x1) {
 
           a = img[srow0+x];
           b = img[srow2+x];
@@ -1453,7 +1510,7 @@
         trow1[0] = trow1[1]; trow1[x] = trow1[w];
 
         // do horizontal convolution, interleave the results and store them
-        for(x = 0; x <= w-4; x+=4) {
+        for (x = 0; x <= w-4; x+=4) {
 
           a = trow1[x+2];
           b = trow1[x+1];
@@ -1474,7 +1531,7 @@
 
         }
 
-        for(; x < w; ++x) {
+        for (; x < w; ++x) {
 
           gxgy[drow++] = ( trow0[x+2] - trow0[x] );
           gxgy[drow++] = ( trow1[x+2] + trow1[x] + trow1[x+1]*2 );
@@ -1520,7 +1577,7 @@
       var w1=(w0+1)|0;
       var s=0,s2=0,p=0,pup=0,i=0,j=0,v=0,k=0;
 
-      if(dst_sum && dst_sqsum) {
+      if (dst_sum && dst_sqsum) {
         // fill first row with zeros
         for(; i < w1; ++i) {
 
@@ -1532,11 +1589,11 @@
         p = (w1+1)|0;
         pup = 1;
 
-        for(i = 0, k = 0; i < h0; ++i, ++p, ++pup) {
+        for (i = 0, k = 0; i < h0; ++i, ++p, ++pup) {
 
           s = s2 = 0;
 
-          for(j = 0; j <= w0-2; j+=2, k+=2, p+=2, pup+=2) {
+          for (j = 0; j <= w0-2; j+=2, k+=2, p+=2, pup+=2) {
 
             v = src_d[k];
             s += v;
@@ -1552,7 +1609,7 @@
 
           }
 
-          for(; j < w0; ++j, ++k, ++p, ++pup) {
+          for (; j < w0; ++j, ++k, ++p, ++pup) {
 
             v = src_d[k];
             s += v;
@@ -1564,10 +1621,10 @@
 
         }
 
-      } else if(dst_sum) {
+      } else if (dst_sum) {
 
         // fill first row with zeros
-        for(; i < w1; ++i) {
+        for (; i < w1; ++i) {
 
           dst_sum[i] = 0;
 
@@ -1576,7 +1633,7 @@
         p = (w1+1)|0;
         pup = 1;
 
-        for(i = 0, k = 0; i < h0; ++i, ++p, ++pup) {
+        for (i = 0, k = 0; i < h0; ++i, ++p, ++pup) {
 
           s = 0;
 
@@ -1598,10 +1655,10 @@
 
         }
 
-      } else if(dst_sqsum) {
+      } else if (dst_sqsum) {
 
         // fill first row with zeros
-        for(; i < w1; ++i) {
+        for (; i < w1; ++i) {
 
           dst_sqsum[i] = 0;
 
@@ -1610,11 +1667,11 @@
         p = (w1+1)|0;
         pup = 1;
 
-        for(i = 0, k = 0; i < h0; ++i, ++p, ++pup) {
+        for (i = 0, k = 0; i < h0; ++i, ++p, ++pup) {
 
           s2 = 0;
 
-          for(j = 0; j <= w0-2; j+=2, k+=2, p+=2, pup+=2) {
+          for (j = 0; j <= w0-2; j+=2, k+=2, p+=2, pup+=2) {
 
             v = src_d[k];
             s2 += v*v;
@@ -1625,7 +1682,7 @@
 
           }
 
-          for(; j < w0; ++j, ++k, ++p, ++pup) {
+          for (; j < w0; ++j, ++k, ++p, ++pup) {
 
             v = src_d[k];
             s2 += v*v;
@@ -1640,7 +1697,7 @@
       if(dst_tilted) {
 
         // fill first row with zeros
-        for(i = 0; i < w1; ++i) {
+        for (i = 0; i < w1; ++i) {
 
           dst_tilted[i] = 0;
 
@@ -1650,16 +1707,16 @@
         p = (w1+1)|0;
         pup = 0;
 
-        for(i = 0, k = 0; i < h0; ++i, ++p, ++pup) {
+        for (i = 0, k = 0; i < h0; ++i, ++p, ++pup) {
 
-          for(j = 0; j <= w0-2; j+=2, k+=2, p+=2, pup+=2) {
+          for (j = 0; j <= w0-2; j+=2, k+=2, p+=2, pup+=2) {
 
             dst_tilted[p] = src_d[k] + dst_tilted[pup];
             dst_tilted[p+1] = src_d[k+1] + dst_tilted[pup+1];
 
           }
 
-          for(; j < w0; ++j, ++k, ++p, ++pup) {
+          for (; j < w0; ++j, ++k, ++p, ++pup) {
 
             dst_tilted[p] = src_d[k] + dst_tilted[pup];
 
@@ -1671,18 +1728,18 @@
         p = (w1+w0)|0;
         pup = w0;
 
-        for(i = 0; i < h0; ++i, p+=w1, pup+=w1) {
+        for (i = 0; i < h0; ++i, p+=w1, pup+=w1) {
 
           dst_tilted[p] += dst_tilted[pup];
 
         }
 
-        for(j = w0-1; j > 0; --j) {
+        for (j = w0-1; j > 0; --j) {
 
           p = j+h0*w1;
           pup=p-w1;
 
-          for(i = h0; i > 0; --i, p-=w1, pup-=w1) {
+          for (i = h0; i > 0; --i, p-=w1, pup-=w1) {
 
             dst_tilted[p] += dst_tilted[pup] + dst_tilted[pup+1];
 
@@ -1820,7 +1877,7 @@
       //this.sobel_derivatives(src, dxdy_m);
       Processing.sobelDerivatives(src, dxdy_m);
 
-      if(low_thresh > high_thresh) {
+      if (low_thresh > high_thresh) {
 
         i = low_thresh;
         low_thresh = high_thresh;
@@ -1830,7 +1887,7 @@
 
       i = (3 * (w + 2))|0;
 
-      while(--i>=0) {
+      while (--i>=0) {
 
         buf[i] = 0;
 
@@ -1838,7 +1895,7 @@
 
       i = ((h+2) * (w + 2))|0;
 
-      while(--i>=0) {
+      while (--i>=0) {
 
         map[i] = 0;
 
@@ -1854,9 +1911,9 @@
 
       }
 
-      for(i=1; i <= h; ++i, grad+=w2) {
+      for (i=1; i <= h; ++i, grad+=w2) {
 
-        if(i === h) {
+        if (i === h) {
 
           j = row2+w;
 
@@ -1884,7 +1941,7 @@
         map[map_i-1] = 0;
         suppress = 0;
 
-        for(j = 0; j < w; ++j, _grad+=2) {
+        for (j = 0; j < w; ++j, _grad+=2) {
 
           f = buf[row1+j];
 
@@ -1981,13 +2038,13 @@
 
       j = map_i - map_w - 1;
 
-      for(i = 0; i < map_w; ++i, ++j) {
+      for (i = 0; i < map_w; ++i, ++j) {
 
         map[j] = 0;
 
       }
       // path following
-      while(stack_i > 0) {
+      while (stack_i > 0) {
 
         map_i = stack[--stack_i];
 
@@ -2056,9 +2113,9 @@
 
       row0 = 0;
 
-      for(i = 0; i < h; ++i, map_i+=map_w) {
+      for (i = 0; i < h; ++i, map_i+=map_w) {
 
-        for(j = 0; j < w; ++j) {
+        for (j = 0; j < w; ++j) {
 
           dst_d[row0++] = (map[map_i+j] === 2) * 0xff;
 
@@ -2104,13 +2161,13 @@
 
       var dptr;
 
-      for( dptr = 0; y < dst_height; ++y ) {
+      for ( dptr = 0; y < dst_height; ++y ) {
 
         xs0 = m01 * y + m02;
         ys0 = m11 * y + m12;
         ws  = m21 * y + m22;
 
-        for(x = 0; x < dst_width; ++x, ++dptr, xs0+=m00, ys0+=m10, ws+=m20) {
+        for (x = 0; x < dst_width; ++x, ++dptr, xs0+=m00, ys0+=m10, ws+=m20) {
 
           sc = 1.0 / ws;
           xs = xs0 * sc;
@@ -2118,10 +2175,10 @@
           ixs = xs | 0;
           iys = ys | 0;
 
-          if(xs > 0 && ys > 0 && ixs < (src_width - 1) && iys < (src_height - 1)) {
+          if (xs > 0 && ys > 0 && ixs < (src_width - 1) && iys < (src_height - 1)) {
 
-            a = Math.max(xs - ixs, 0.0);
-            b = Math.max(ys - iys, 0.0);
+            a = _max(xs - ixs, 0.0);
+            b = _max(ys - iys, 0.0);
             off = (src_width*iys + ixs)|0;
 
             p0 = src_d[off] +  a * (src_d[off+1] - src_d[off]);
@@ -2178,19 +2235,19 @@
       var x=0,y=0,off=0,ixs=0,iys=0,xs=0.0,ys=0.0,a=0.0,b=0.0,p0=0.0,p1=0.0;
       var td=transform.data;
       var m00=td[0],m01=td[1],m02=td[2],
-        m10=td[3],m11=td[4],m12=td[5];
+          m10=td[3],m11=td[4],m12=td[5];
       var dptr;
 
-      for( dptr = 0; y < dst_height; ++y ) {
+      for ( dptr = 0; y < dst_height; ++y ) {
 
         xs = m01 * y + m02;
         ys = m11 * y + m12;
 
-        for(x = 0; x < dst_width; ++x, ++dptr, xs+=m00, ys+=m10) {
+        for (x = 0; x < dst_width; ++x, ++dptr, xs+=m00, ys+=m10) {
 
           ixs = xs | 0; iys = ys | 0;
 
-          if(ixs >= 0 && iys >= 0 && ixs < (src_width - 1) && iys < (src_height - 1)) {
+          if (ixs >= 0 && iys >= 0 && ixs < (src_width - 1) && iys < (src_height - 1)) {
 
             a = xs - ixs;
             b = ys - iys;
@@ -2242,17 +2299,17 @@
       var r,g,b,j;
       var i = src.width*src.height;
 
-      while(i--){
+      while (i--){
 
         j = i*4;
         r = src.data[j];
         g = src.data[j+1];
         b = src.data[j+2];
 
-        if((r>95)&&(g>40)&&(b>20) &&
+        if ( (r>95)&&(g>40)&&(b>20) &&
             (r>g)&&(r>b) &&
-            (r-Math.min(g,b)>15) &&
-            (Math.abs(r-g)>15)) {
+            (r-_min(g,b)>15) &&
+            (_abs(r-g)>15) ) {
 
           dst[i] = 255;
 

@@ -45,6 +45,7 @@
                                 <li><a href="../classes/Brightness.html">Brightness</a></li>
                                 <li><a href="../classes/Cache.html">Cache</a></li>
                                 <li><a href="../classes/Calc.html">Calc</a></li>
+                                <li><a href="../classes/Cascade.html">Cascade</a></li>
                                 <li><a href="../classes/Convolution.html">Convolution</a></li>
                                 <li><a href="../classes/Data_t.html">Data_t</a></li>
                                 <li><a href="../classes/Estimator.html">Estimator</a></li>
@@ -122,7 +123,7 @@
 
 
         <div class="foundat">
-            Defined in: <a href="../files/src_feat_effect_Processing.js.html#l640"><code>src&#x2F;feat&#x2F;effect&#x2F;Processing.js:640</code></a>
+            Defined in: <a href="../files/src_feat_effect_Processing.js.html#l696"><code>src&#x2F;feat&#x2F;effect&#x2F;Processing.js:696</code></a>
         </div>
 
             Module: <a href="../modules/Feat.html">Feat</a><br>
@@ -153,7 +154,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_feat_effect_Processing.js.html#l640"><code>src&#x2F;feat&#x2F;effect&#x2F;Processing.js:640</code></a>
+        <a href="../files/src_feat_effect_Processing.js.html#l696"><code>src&#x2F;feat&#x2F;effect&#x2F;Processing.js:696</code></a>
         </p>
 
 
@@ -185,6 +186,26 @@
                     <h3>Methods</h3>
 
                     <ul class="index-list methods">
+                            <li class="index-item method private">
+                                <a href="#method__convol">_convol</a>
+
+                                    <span class="flag static">static</span>
+                            </li>
+                            <li class="index-item method private">
+                                <a href="#method__convol_u8">_convol_u8</a>
+
+                                    <span class="flag static">static</span>
+                            </li>
+                            <li class="index-item method private">
+                                <a href="#method__resample">_resample</a>
+
+                                    <span class="flag static">static</span>
+                            </li>
+                            <li class="index-item method private">
+                                <a href="#method__resample_u8">_resample_u8</a>
+
+                                    <span class="flag static">static</span>
+                            </li>
                             <li class="index-item method">
                                 <a href="#method_affine">affine</a>
 
@@ -275,16 +296,16 @@
 
                                     <span class="flag static">static</span>
                             </li>
+                            <li class="index-item method">
+                                <a href="#method_skinDetector">skinDetector</a>
+
+                                    <span class="flag static">static</span>
+                            </li>
                             <li class="index-item method deprecated">
                                 <a href="#method_skindetector">skindetector</a>
 
                                     <span class="flag static">static</span>
                                     <span class="flag deprecated">deprecated</span>
-                            </li>
-                            <li class="index-item method">
-                                <a href="#method_skinDetector">skinDetector</a>
-
-                                    <span class="flag static">static</span>
                             </li>
                             <li class="index-item method deprecated">
                                 <a href="#method_sobel_derivatives">sobel_derivatives</a>
@@ -324,6 +345,482 @@
             <div id="methods" class="api-class-tabpanel">
                 <h2 class="off-left">Methods</h2>
 
+<div id="method__convol" class="method item private">
+    <h3 class="name"><code>_convol</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>buf</code>
+                </li>
+                <li class="arg">
+                        <code>src_d</code>
+                </li>
+                <li class="arg">
+                        <code>dst_d</code>
+                </li>
+                <li class="arg">
+                        <code>w</code>
+                </li>
+                <li class="arg">
+                        <code>h</code>
+                </li>
+                <li class="arg">
+                        <code>filter</code>
+                </li>
+                <li class="arg">
+                        <code>kernel_size</code>
+                </li>
+                <li class="arg">
+                        <code>half_kernel</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+        <span class="flag private">private</span>
+
+
+        <span class="flag static">static</span>
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_feat_effect_Processing.js.html#l520"><code>src&#x2F;feat&#x2F;effect&#x2F;Processing.js:520</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">buf</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">src_d</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">dst_d</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">w</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">h</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">filter</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">kernel_size</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">half_kernel</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+<div id="method__convol_u8" class="method item private">
+    <h3 class="name"><code>_convol_u8</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>buf</code>
+                </li>
+                <li class="arg">
+                        <code>src_d</code>
+                </li>
+                <li class="arg">
+                        <code>dst_d</code>
+                </li>
+                <li class="arg">
+                        <code>w</code>
+                </li>
+                <li class="arg">
+                        <code>h</code>
+                </li>
+                <li class="arg">
+                        <code>filter</code>
+                </li>
+                <li class="arg">
+                        <code>kernel_size</code>
+                </li>
+                <li class="arg">
+                        <code>half_kernel</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+        <span class="flag private">private</span>
+
+
+        <span class="flag static">static</span>
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_feat_effect_Processing.js.html#l349"><code>src&#x2F;feat&#x2F;effect&#x2F;Processing.js:349</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">buf</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">src_d</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">dst_d</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">w</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">h</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">filter</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">kernel_size</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">half_kernel</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+<div id="method__resample" class="method item private">
+    <h3 class="name"><code>_resample</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>src</code>
+                </li>
+                <li class="arg">
+                        <code>dst</code>
+                </li>
+                <li class="arg">
+                        <code>nw</code>
+                </li>
+                <li class="arg">
+                        <code>nh</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+        <span class="flag private">private</span>
+
+
+        <span class="flag static">static</span>
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_feat_effect_Processing.js.html#l204"><code>src&#x2F;feat&#x2F;effect&#x2F;Processing.js:204</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">src</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">dst</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">nw</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">nh</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+<div id="method__resample_u8" class="method item private">
+    <h3 class="name"><code>_resample_u8</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>src</code>
+                </li>
+                <li class="arg">
+                        <code>dst</code>
+                </li>
+                <li class="arg">
+                        <code>nw</code>
+                </li>
+                <li class="arg">
+                        <code>nh</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+        <span class="flag private">private</span>
+
+
+        <span class="flag static">static</span>
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_feat_effect_Processing.js.html#l55"><code>src&#x2F;feat&#x2F;effect&#x2F;Processing.js:55</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">src</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">dst</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">nw</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">nh</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
 <div id="method_affine" class="method item">
     <h3 class="name"><code>affine</code></h3>
 
@@ -355,7 +852,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_feat_effect_Processing.js.html#l2158"><code>src&#x2F;feat&#x2F;effect&#x2F;Processing.js:2158</code></a>
+        <a href="../files/src_feat_effect_Processing.js.html#l2215"><code>src&#x2F;feat&#x2F;effect&#x2F;Processing.js:2215</code></a>
         </p>
 
 
@@ -452,7 +949,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_feat_effect_Processing.js.html#l987"><code>src&#x2F;feat&#x2F;effect&#x2F;Processing.js:987</code></a>
+        <a href="../files/src_feat_effect_Processing.js.html#l1044"><code>src&#x2F;feat&#x2F;effect&#x2F;Processing.js:1044</code></a>
         </p>
 
 
@@ -545,7 +1042,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_feat_effect_Processing.js.html#l754"><code>src&#x2F;feat&#x2F;effect&#x2F;Processing.js:754</code></a>
+        <a href="../files/src_feat_effect_Processing.js.html#l811"><code>src&#x2F;feat&#x2F;effect&#x2F;Processing.js:811</code></a>
         </p>
 
 
@@ -639,7 +1136,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_feat_effect_Processing.js.html#l1777"><code>src&#x2F;feat&#x2F;effect&#x2F;Processing.js:1777</code></a>
+        <a href="../files/src_feat_effect_Processing.js.html#l1834"><code>src&#x2F;feat&#x2F;effect&#x2F;Processing.js:1834</code></a>
         </p>
 
 
@@ -733,7 +1230,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_feat_effect_Processing.js.html#l1696"><code>src&#x2F;feat&#x2F;effect&#x2F;Processing.js:1696</code></a>
+        <a href="../files/src_feat_effect_Processing.js.html#l1753"><code>src&#x2F;feat&#x2F;effect&#x2F;Processing.js:1753</code></a>
         </p>
 
 
@@ -821,7 +1318,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_feat_effect_Processing.js.html#l1765"><code>src&#x2F;feat&#x2F;effect&#x2F;Processing.js:1765</code></a>
+        <a href="../files/src_feat_effect_Processing.js.html#l1822"><code>src&#x2F;feat&#x2F;effect&#x2F;Processing.js:1822</code></a>
         </p>
 
 
@@ -894,7 +1391,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_feat_effect_Processing.js.html#l1001"><code>src&#x2F;feat&#x2F;effect&#x2F;Processing.js:1001</code></a>
+        <a href="../files/src_feat_effect_Processing.js.html#l1058"><code>src&#x2F;feat&#x2F;effect&#x2F;Processing.js:1058</code></a>
         </p>
 
 
@@ -989,7 +1486,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_feat_effect_Processing.js.html#l1062"><code>src&#x2F;feat&#x2F;effect&#x2F;Processing.js:1062</code></a>
+        <a href="../files/src_feat_effect_Processing.js.html#l1119"><code>src&#x2F;feat&#x2F;effect&#x2F;Processing.js:1119</code></a>
         </p>
 
 
@@ -1085,7 +1582,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_feat_effect_Processing.js.html#l652"><code>src&#x2F;feat&#x2F;effect&#x2F;Processing.js:652</code></a>
+        <a href="../files/src_feat_effect_Processing.js.html#l708"><code>src&#x2F;feat&#x2F;effect&#x2F;Processing.js:708</code></a>
         </p>
 
 
@@ -1192,7 +1689,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_feat_effect_Processing.js.html#l1710"><code>src&#x2F;feat&#x2F;effect&#x2F;Processing.js:1710</code></a>
+        <a href="../files/src_feat_effect_Processing.js.html#l1767"><code>src&#x2F;feat&#x2F;effect&#x2F;Processing.js:1767</code></a>
         </p>
 
 
@@ -1269,7 +1766,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_feat_effect_Processing.js.html#l1193"><code>src&#x2F;feat&#x2F;effect&#x2F;Processing.js:1193</code></a>
+        <a href="../files/src_feat_effect_Processing.js.html#l1250"><code>src&#x2F;feat&#x2F;effect&#x2F;Processing.js:1250</code></a>
         </p>
 
 
@@ -1369,7 +1866,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_feat_effect_Processing.js.html#l1503"><code>src&#x2F;feat&#x2F;effect&#x2F;Processing.js:1503</code></a>
+        <a href="../files/src_feat_effect_Processing.js.html#l1560"><code>src&#x2F;feat&#x2F;effect&#x2F;Processing.js:1560</code></a>
         </p>
 
 
@@ -1464,7 +1961,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_feat_effect_Processing.js.html#l2078"><code>src&#x2F;feat&#x2F;effect&#x2F;Processing.js:2078</code></a>
+        <a href="../files/src_feat_effect_Processing.js.html#l2135"><code>src&#x2F;feat&#x2F;effect&#x2F;Processing.js:2135</code></a>
         </p>
 
 
@@ -1559,7 +2056,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_feat_effect_Processing.js.html#l1209"><code>src&#x2F;feat&#x2F;effect&#x2F;Processing.js:1209</code></a>
+        <a href="../files/src_feat_effect_Processing.js.html#l1266"><code>src&#x2F;feat&#x2F;effect&#x2F;Processing.js:1266</code></a>
         </p>
 
 
@@ -1655,7 +2152,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_feat_effect_Processing.js.html#l720"><code>src&#x2F;feat&#x2F;effect&#x2F;Processing.js:720</code></a>
+        <a href="../files/src_feat_effect_Processing.js.html#l775"><code>src&#x2F;feat&#x2F;effect&#x2F;Processing.js:775</code></a>
         </p>
 
 
@@ -1663,7 +2160,8 @@
     </div>
 
     <div class="description">
-        <p>Generic resize method. Works with single and multi channel matrix_t. If performance is critical or you need multiple image resizings it is recommended to use canvas built-in drawImage() method.</p>
+        <p>derived from CCV library</p>
+<p>Generic resize method. Works with single and multi channel matrix_t. If performance is critical or you need multiple image resizings it is recommended to use canvas built-in drawImage() method.</p>
 
     </div>
 
@@ -1745,7 +2243,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_feat_effect_Processing.js.html#l1371"><code>src&#x2F;feat&#x2F;effect&#x2F;Processing.js:1371</code></a>
+        <a href="../files/src_feat_effect_Processing.js.html#l1428"><code>src&#x2F;feat&#x2F;effect&#x2F;Processing.js:1428</code></a>
         </p>
 
 
@@ -1812,7 +2310,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_feat_effect_Processing.js.html#l1266"><code>src&#x2F;feat&#x2F;effect&#x2F;Processing.js:1266</code></a>
+        <a href="../files/src_feat_effect_Processing.js.html#l1323"><code>src&#x2F;feat&#x2F;effect&#x2F;Processing.js:1323</code></a>
         </p>
 
 
@@ -1822,6 +2320,74 @@
     <div class="description">
         <p>Compute gradient using Scharr kernel [3 10 3] * [-1 0 1]^T. Works with single channel only.</p>
 <p>dst: [gx,gy,...]</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">src</code>
+                        <span class="type"><a href="../classes/Matrix_t.html" class="crosslink">Matrix_t</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">dst</code>
+                        <span class="type"><a href="../classes/Matrix_t.html" class="crosslink">Matrix_t</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+<div id="method_skinDetector" class="method item">
+    <h3 class="name"><code>skinDetector</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>src</code>
+                </li>
+                <li class="arg">
+                        <code>dst</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+        <span class="flag static">static</span>
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_feat_effect_Processing.js.html#l2287"><code>src&#x2F;feat&#x2F;effect&#x2F;Processing.js:2287</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Basic RGB Skin detection filter</p>
+<p>from <a href="http://popscan.blogspot.fr/2012/08/skin-detection-in-digital-images.html">http://popscan.blogspot.fr/2012/08/skin-detection-in-digital-images.html</a></p>
 
     </div>
 
@@ -1881,7 +2447,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_feat_effect_Processing.js.html#l2268"><code>src&#x2F;feat&#x2F;effect&#x2F;Processing.js:2268</code></a>
+        <a href="../files/src_feat_effect_Processing.js.html#l2325"><code>src&#x2F;feat&#x2F;effect&#x2F;Processing.js:2325</code></a>
         </p>
 
 
@@ -1923,74 +2489,6 @@
 
 
 </div>
-<div id="method_skinDetector" class="method item">
-    <h3 class="name"><code>skinDetector</code></h3>
-
-        <div class="args">
-            <span class="paren">(</span><ul class="args-list inline commas">
-                <li class="arg">
-                        <code>src</code>
-                </li>
-                <li class="arg">
-                        <code>dst</code>
-                </li>
-            </ul><span class="paren">)</span>
-        </div>
-
-
-
-
-
-        <span class="flag static">static</span>
-
-
-
-    <div class="meta">
-                <p>
-                Defined in
-        <a href="../files/src_feat_effect_Processing.js.html#l2230"><code>src&#x2F;feat&#x2F;effect&#x2F;Processing.js:2230</code></a>
-        </p>
-
-
-
-    </div>
-
-    <div class="description">
-        <p>Basic RGB Skin detection filter</p>
-<p>from <a href="http://popscan.blogspot.fr/2012/08/skin-detection-in-digital-images.html">http://popscan.blogspot.fr/2012/08/skin-detection-in-digital-images.html</a></p>
-
-    </div>
-
-        <div class="params">
-            <h4>Parameters:</h4>
-
-            <ul class="params-list">
-                <li class="param">
-                        <code class="param-name">src</code>
-                        <span class="type"><a href="../classes/Matrix_t.html" class="crosslink">Matrix_t</a></span>
-
-
-                    <div class="param-description">
-                         
-                    </div>
-
-                </li>
-                <li class="param">
-                        <code class="param-name">dst</code>
-                        <span class="type"><a href="../classes/Matrix_t.html" class="crosslink">Matrix_t</a></span>
-
-
-                    <div class="param-description">
-                         
-                    </div>
-
-                </li>
-            </ul>
-        </div>
-
-
-
-</div>
 <div id="method_sobel_derivatives" class="method item deprecated">
     <h3 class="name"><code>sobel_derivatives</code></h3>
 
@@ -2017,7 +2515,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_feat_effect_Processing.js.html#l1490"><code>src&#x2F;feat&#x2F;effect&#x2F;Processing.js:1490</code></a>
+        <a href="../files/src_feat_effect_Processing.js.html#l1547"><code>src&#x2F;feat&#x2F;effect&#x2F;Processing.js:1547</code></a>
         </p>
 
 
@@ -2084,7 +2582,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_feat_effect_Processing.js.html#l1384"><code>src&#x2F;feat&#x2F;effect&#x2F;Processing.js:1384</code></a>
+        <a href="../files/src_feat_effect_Processing.js.html#l1441"><code>src&#x2F;feat&#x2F;effect&#x2F;Processing.js:1441</code></a>
         </p>
 
 
@@ -2161,7 +2659,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_feat_effect_Processing.js.html#l1076"><code>src&#x2F;feat&#x2F;effect&#x2F;Processing.js:1076</code></a>
+        <a href="../files/src_feat_effect_Processing.js.html#l1133"><code>src&#x2F;feat&#x2F;effect&#x2F;Processing.js:1133</code></a>
         </p>
 
 
@@ -2261,7 +2759,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_feat_effect_Processing.js.html#l2215"><code>src&#x2F;feat&#x2F;effect&#x2F;Processing.js:2215</code></a>
+        <a href="../files/src_feat_effect_Processing.js.html#l2272"><code>src&#x2F;feat&#x2F;effect&#x2F;Processing.js:2272</code></a>
         </p>
 
 
@@ -2355,7 +2853,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_feat_effect_Processing.js.html#l2143"><code>src&#x2F;feat&#x2F;effect&#x2F;Processing.js:2143</code></a>
+        <a href="../files/src_feat_effect_Processing.js.html#l2200"><code>src&#x2F;feat&#x2F;effect&#x2F;Processing.js:2200</code></a>
         </p>
 
 

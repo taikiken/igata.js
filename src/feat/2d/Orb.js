@@ -28,13 +28,15 @@
     Igata = window.Igata,
     global = Igata;
 
-  var U8_t = global.U8_t;
-  //var Calc = global.Calc;
-  var Matrix_t = global.Matrix_t;
-  var Processing = global.Processing;
-
   global.Orb = ( function () {
 
+    var U8_t = global.U8_t;
+    //var Calc = global.Calc;
+    var Matrix_t = global.Matrix_t;
+    var Processing = global.Processing;
+
+    var _cos = global._cos;
+    var _sin = global._sin;
     /**
      * @for Orb
      * @property bit_pattern_31_
@@ -335,8 +337,8 @@
      */
     function rectify_patch ( src, dst, angle, px, py, psize ) {
 
-      var cosine = Math.cos(angle);
-      var sine   = Math.sin(angle);
+      var cosine = _cos(angle);
+      var sine   = _sin(angle);
 
       H.data[0] = cosine;
       H.data[1] = -sine;
@@ -392,7 +394,7 @@
       var patch_off = 16*32 + 16; // center of patch
       var patt=0;
 
-      if(!(descriptors.type&U8_t)) {
+      if ( !(descriptors.type&U8_t) ) {
 
         // relocate to U8 type
         descriptors.type = U8_t;
@@ -403,14 +405,14 @@
 
       } else {
 
-        descriptors.resize(DESCR_SIZE, count, 1);
+        descriptors.resize( DESCR_SIZE, count, 1 );
 
       }
 
       var descr_d = descriptors.data;
       var descr_off = 0;
 
-      for(i = 0; i < count; ++i) {
+      for (i = 0; i < count; ++i) {
 
         px = corners[i].x;
         py = corners[i].y;

@@ -66,6 +66,12 @@
     var p = Haar.prototype;
     p.constructor = Haar;
 
+    /**
+     * @property desity
+     * @static
+     * @type {number}
+     * @default 0.07
+     */
     Haar.desity = 0.07;
     /**
      * @deprecated instead use Haar.desity
@@ -111,18 +117,22 @@
       //var edges_thresh_high = ((win_w*win_h) * 0xff * 0.3)|0;
 
       var rects = [];
-      for(y = 0; y < ey; y += step_y) {
+      var tilted;
+
+      for (y = 0; y < ey; y += step_y) {
+
         ii_a = y * w1;
-        for(x = 0; x < ex; x += step_x, ii_a += step_x) {
+
+        for (x = 0; x < ex; x += step_x, ii_a += step_x) {
 
           mean = int_sum[ii_a] - int_sum[ii_a+ii_b] - int_sum[ii_a+ii_c] + int_sum[ii_a+ii_d];
 
           // canny prune
-          if(int_canny_sum) {
+          if (int_canny_sum) {
 
             edge_dens = (int_canny_sum[ii_a] - int_canny_sum[ii_a+ii_b] - int_canny_sum[ii_a+ii_c] + int_canny_sum[ii_a+ii_d]);
 
-            if(edge_dens < edges_thresh || mean < 20) {
+            if (edge_dens < edges_thresh || mean < 20) {
 
               x += step_x;
               ii_a += step_x;
@@ -141,7 +151,7 @@
           sn = stages.length;
           found =  true;
 
-          for(i = 0; i < sn; ++i) {
+          for (i = 0; i < sn; ++i) {
 
             stage = stages[i];
             stage_thresh = stage.threshold;
@@ -149,16 +159,18 @@
             tn = trees.length;
             stage_sum = 0;
 
-            for(j = 0; j < tn; ++j) {
+            for (j = 0; j < tn; ++j) {
 
               tree = trees[j];
               tree_sum = 0;
               features = tree.features;
               fn = features.length;
+              tilted = tree.tilted;
 
-              if(tree.tilted === 1) {
+              //if ( tree.tilted === 1 ) {
+              if ( !!tilted || tilted === 1 ) {
 
-                for(k=0; k < fn; ++k) {
+                for (k=0; k < fn; ++k) {
 
                   feature = features[k];
                   fi_a = ~~(x + feature[0] * scale) + ~~(y + feature[1] * scale) * w1;
@@ -173,7 +185,7 @@
 
               } else {
 
-                for(k=0; k < fn; ++k) {
+                for (k=0; k < fn; ++k) {
 
                   feature = features[k];
                   fi_a = ~~(x + feature[0] * scale) + ~~(y + feature[1] * scale) * w1;
@@ -327,6 +339,7 @@
       }
 
       for (i = 0; i < n; ++i) {
+
         if (!node[i].element) {
 
           continue;
@@ -499,17 +512,17 @@
         var r1 = seq2[i];
         var flag = true;
 
-        for(j = 0; j < n; ++j) {
+        for (j = 0; j < n; ++j) {
 
           var r2 = seq2[j];
           var distance = (r2.width * 0.25 + 0.5)|0;
 
-          if (i !== j &&
+          if ( i !== j &&
               r1.x >= r2.x - distance &&
               r1.y >= r2.y - distance &&
               r1.x + r1.width <= r2.x + r2.width + distance &&
               r1.y + r1.height <= r2.y + r2.height + distance &&
-              (r2.neighbors > Math.max(3, r1.neighbors) || r1.neighbors < 3)) {
+              (r2.neighbors > Math.max(3, r1.neighbors) || r1.neighbors < 3) ) {
 
             flag = false;
             break;
@@ -540,10 +553,11 @@
      * @static
      * @param rects
      * @param min_neighbors
+     * @return {Array}
      */
     Haar.group_rectangles = function ( rects, min_neighbors ) {
 
-      Haar.rectangles( rects, min_neighbors );
+      return Haar.rectangles( rects, min_neighbors );
 
     };
 

@@ -29,7 +29,7 @@
     global = Igata;
 
 
-  var Kanade = ( function () {
+  global.Kanade = ( function () {
     
     var Cache = global.Cache;
     var Matrix_t = global.Matrix_t;
@@ -112,7 +112,7 @@
       eps *= eps;
 
       // reset status
-      for(; i < count; ++i) {
+      for (; i < count; ++i) {
         
         status[i] = 1;
         
@@ -121,7 +121,7 @@
       var max_level = (prev_pyr.levels - 1)|0;
       level = max_level;
 
-      for(; level >= 0; --level) {
+      for (; level >= 0; --level) {
         
         lev_sc = (1.0/(1 << level));
         lw = w0 >> level;
@@ -137,7 +137,7 @@
         scharr_deriv(prev_imgs[level], deriv_m);
 
         // iterate through points
-        for(ptid = 0; ptid < count; ++ptid) {
+        for (ptid = 0; ptid < count; ++ptid) {
           
           i = ptid << 1;
           j = i + 1;
@@ -167,9 +167,9 @@
           // border check
           x = (iprev_x <= brd_tl)|(iprev_x >= brd_r)|(iprev_y <= brd_tl)|(iprev_y >= brd_b);
           
-          if( x !== 0 ) {
+          if ( x !== 0 ) {
             
-            if( level === 0 ) {
+            if ( level === 0 ) {
               
               status[ptid] = 0;
               
@@ -274,14 +274,14 @@
             b1 = 0.0;
             b2 = 0.0;
 
-            for( y = 0; y < win_size; ++y ) {
+            for ( y = 0; y < win_size; ++y ) {
               
               jptr = ( (y + inext_y)*lw + inext_x )|0;
 
               iptr = (y*win_size)|0;
               diptr = iptr << 1;
               
-              for( x = 0 ; x < win_size; ++x, ++jptr, ++iptr ) {
+              for ( x = 0 ; x < win_size; ++x, ++jptr, ++iptr ) {
                 
                 ival = ( (img_next[jptr])*iw00 + (img_next[jptr+1])*iw01 + (img_next[jptr+lw])*iw10 + (img_next[jptr+lw+1])*iw11 );
                 ival = (((ival) + W_BITS1m51) >> (W_BITS1m5));
@@ -311,7 +311,7 @@
               
             }
 
-            if( iter > 0 && Math.abs(delta_x + prev_delta_x) < 0.01 && Math.abs(delta_y + prev_delta_y) < 0.01 ) {
+            if ( iter > 0 && Math.abs(delta_x + prev_delta_x) < 0.01 && Math.abs(delta_y + prev_delta_y) < 0.01 ) {
               
               curr_xy[i] -= delta_x*0.5;
               curr_xy[j] -= delta_y*0.5;
@@ -337,7 +337,5 @@
     return Kanade;
 
   }() );
-
-  global.Kanade = Kanade;
 
 }( window ) );

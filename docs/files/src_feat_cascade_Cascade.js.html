@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>src/effect/Threshold.js - igata.js API</title>
+    <title>src/feat/cascade/Cascade.js - igata.js API</title>
     <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -118,86 +118,58 @@
             <div class="apidocs">
                 <div id="docs-main">
                     <div class="content">
-<h1 class="file-heading">File: src/effect/Threshold.js</h1>
+<h1 class="file-heading">File: src/feat/cascade/Cascade.js</h1>
 
 <div class="file">
     <pre class="code prettyprint linenums">
+///**
+// * license inazumatv.com
+// * author (at)taikiken / http://inazumatv.com
+// * date 15/09/11 - 15:19
+// *
+// * Copyright (c) 2011-2015 inazumatv.com, inc.
+// *
+// * Distributed under the terms of the MIT license.
+// * http://www.opensource.org/licenses/mit-license.html
+// *
+// * This notice shall be included in all copies or substantial portions of the Software.
+// *
+// * for igata.js
+// */
 /*jslint -W016*/
 /**
+ * original code
+ * http://inspirit.github.io/jsfeat/
+ *
  * @module Igata
- * @type {Grayscale}
+ * @submodule Feat
  */
 ( function ( window ) {
 
   &#x27;use strict&#x27;;
 
   var
-    Igata = window.Igata;
+    Igata = window.Igata,
+    global = Igata;
 
-  Igata.Threshold = ( function () {
-
-    var Filter = Igata.Filter;
+  global.Cascade = ( function () {
 
     /**
-     * filter: threshold
-     * @class Threshold
-     * @extends Filter
-     * @param {Bitmap} bitmap
+     * cascade files parent Class.
+     *
+     *
+     * @class Cascade
+     * @static
      * @constructor
      */
-    function Threshold ( bitmap ) {
-
-      Filter.call( this, bitmap );
-
+    function Cascade () {
+      throw new Error( &#x27;Cascade can\&#x27;t create instance.&#x27; );
     }
 
-    Igata.extend( Filter, Threshold );
+    var p = Cascade.prototype;
+    p.constructor = Cascade;
 
-    var p = Threshold.prototype;
-    p.constructor = Threshold;
-
-    /**
-     * 2値化 filter
-     *
-     * @method filter
-     * @param {number=128} threshold 閾値
-     */
-    p.filter = function ( threshold ) {
-
-      var
-        bitmap = this.bitmap,
-        ctx = bitmap.context,
-        imageData = this.imageData( bitmap ),
-        data,
-        i, limit,
-        r, g, b,
-        i1, i2,
-        value;
-
-      threshold = threshold || 128;
-      data = imageData.data;
-
-      // http://www.html5rocks.com/en/tutorials/canvas/imagefilters/
-      for ( i = 0, limit = data.length; i &lt; limit; i = (i + 4)|0 ) {
-
-        i1 = i + 1;
-        i2 = i + 2;
-        r = data[ i ];
-        g = data[ i1 ];
-        b = data[ i2 ];
-
-        // CIE luminance for the RGB
-        // The human eye is bad at seeing red and blue, so we de-emphasize them.
-        value = r*0.2126 + g*0.7152 + b*0.0722 &gt;= threshold ? 255: 0;
-        data[ i ] = data[ i1 ] = data[ i2 ] = value;
-
-      }
-
-      ctx.putImageData( imageData, 0, 0 );
-
-    };
-
-    return Threshold;
+    return Cascade;
 
   }() );
 
