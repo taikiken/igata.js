@@ -184,4 +184,11 @@ var Igata = window.Igata || {};
   global.get_channel = get_channel;
   global.get_data_type_size = get_data_type_size;
 
+  /**
+   * Cascade files
+   * @module Cascade
+   * @type {{}}
+   */
+  global.Cascade = {};
+
 }( window, Igata ) );
