@@ -48,12 +48,13 @@
 
     /**
      * @method identity
+     * @static
      * @param {Matrix_t} M
      * @param {number=1} [value]
      */
     MatrixMath.identity = function ( M, value ) {
 
-      if ( typeof value === "undefined" ) { value=1; }
+      if ( typeof value === 'undefined' ) { value=1; }
 
       var src=M.data;
       var rows=M.rows, cols=M.cols, cols_1=(cols+1)|0;
@@ -322,7 +323,7 @@
      */
     MatrixMath.identity_3x3 = function ( M, value ) {
 
-      if (typeof value === "undefined") { value=1; }
+      if (typeof value === 'undefined') { value=1; }
 
       var dt=M.data;
 

@@ -50,6 +50,11 @@ scripts.push( dir.src + '/igata.js' );
 //scripts.push( dir.src + '/geom/IVector.js' );
 //scripts.push( dir.src + '/geom/Vector2.js' );
 
+// ------------------------------------------
+// geom
+scripts.push( dir.src + '/geom/Angle.js' );
+scripts.push( dir.src + '/geom/Vector3.js' );
+
 // effect
 scripts.push( dir.src + '/effect/Bitmap.js' );
 

@@ -729,7 +729,7 @@
     Processing.grayscale = function ( src, w, h, dst, code ) {
 
       // this is default image data representation in browser
-      if (typeof code === "undefined") { code = COLOR_RGBA2GRAY; }
+      if (typeof code === 'undefined') { code = COLOR_RGBA2GRAY; }
 
       var x=0, y=0, i=0, j=0, ir=0,jr=0;
       var coeff_r = 4899, coeff_g = 9617, coeff_b = 1868, cn = 4;
@@ -820,7 +820,7 @@
      */
     Processing.boxGray = function ( src, dst, radius, options ) {
 
-      if (typeof options === "undefined") { options = 0; }
+      if (typeof options === 'undefined') { options = 0; }
 
       var w=src.cols, h=src.rows, h2=h<<1, w2=w<<1;
       var
@@ -1065,9 +1065,9 @@
      */
     Processing.gaussian = function ( src, dst, kernel_size, sigma ) {
 
-      if (typeof sigma === "undefined") { sigma = 0.0; }
+      if (typeof sigma === 'undefined') { sigma = 0.0; }
 
-      if (typeof kernel_size === "undefined") { kernel_size = 0; }
+      if (typeof kernel_size === 'undefined') { kernel_size = 0; }
 
       kernel_size = kernel_size === 0 ? (Math.max(1, (4.0 * sigma + 1.0 - 1e-8)) * 2 + 1)|0 : kernel_size;
 
@@ -1277,8 +1277,8 @@
     Processing.pyrdown = function( src, dst, sx, sy ) {
 
       // this is needed for bbf
-      if (typeof sx === "undefined") { sx = 0; }
-      if (typeof sy === "undefined") { sy = 0; }
+      if (typeof sx === 'undefined') { sx = 0; }
+      if (typeof sy === 'undefined') { sy = 0; }
 
       var w = src.cols, h = src.rows;
       var w2 = w >> 1, h2 = h >> 1;
@@ -2148,7 +2148,7 @@
      */
     Processing.perspective = function ( src, dst, transform, fill_value ) {
 
-      if (typeof fill_value === "undefined") { fill_value = 0; }
+      if (typeof fill_value === 'undefined') { fill_value = 0; }
 
       var src_width=src.cols|0, src_height=src.rows|0, dst_width=dst.cols|0, dst_height=dst.rows|0;
       var src_d=src.data, dst_d=dst.data;
@@ -2228,7 +2228,7 @@
      */
     Processing.affine = function ( src, dst, transform, fill_value ) {
 
-      if (typeof fill_value === "undefined") { fill_value = 0; }
+      if (typeof fill_value === 'undefined') { fill_value = 0; }
 
       var src_width=src.cols, src_height=src.rows, dst_width=dst.cols, dst_height=dst.rows;
       var src_d=src.data, dst_d=dst.data;
@@ -2398,7 +2398,7 @@
      */
     p.build = function ( input, skip_first_level ) {
 
-      if (typeof skip_first_level === "undefined") { skip_first_level = true; }
+      if (typeof skip_first_level === 'undefined') { skip_first_level = true; }
 
       // just copy data to first level
       var levels = this.levels;

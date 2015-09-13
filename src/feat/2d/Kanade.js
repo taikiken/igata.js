@@ -67,10 +67,10 @@
      */
     Kanade.track = function ( prev_pyr, curr_pyr, prev_xy, curr_xy, count, win_size, max_iter, status, eps, min_eigen_threshold ) {
 
-      if (typeof max_iter === "undefined") { max_iter = 30; }
-      if (typeof status === "undefined") { status = new Uint8Array(count); }
-      if (typeof eps === "undefined") { eps = 0.01; }
-      if (typeof min_eigen_threshold === "undefined") { min_eigen_threshold = 0.0001; }
+      if (typeof max_iter === 'undefined') { max_iter = 30; }
+      if (typeof status === 'undefined') { status = new Uint8Array(count); }
+      if (typeof eps === 'undefined') { eps = 0.01; }
+      if (typeof min_eigen_threshold === 'undefined') { min_eigen_threshold = 0.0001; }
 
       var half_win = (win_size-1)*0.5;
       var win_area = (win_size*win_size)|0;

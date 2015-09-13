@@ -268,7 +268,7 @@
      */
     FastCorner.detect = function( src, corners, border ) {
 
-      if (typeof border === "undefined") { border = 3; }
+      if (typeof border === 'undefined') { border = 3; }
 
       var K = 8, N = 25;
       var img = src.data, w = src.cols, h = src.rows;

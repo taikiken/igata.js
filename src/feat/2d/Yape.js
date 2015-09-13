@@ -662,7 +662,7 @@
      */
     Yape.init = function ( width, height, radius, pyramid_levels ) {
 
-      if (typeof pyramid_levels === "undefined") { pyramid_levels = 1; }
+      if (typeof pyramid_levels === 'undefined') { pyramid_levels = 1; }
 
       var i;
       radius = _min(radius, 7);
@@ -685,7 +685,7 @@
      */
     Yape.detect = function ( src, points, border ) {
 
-      if (typeof border === "undefined") { border = 4; }
+      if (typeof border === 'undefined') { border = 4; }
 
       var t = Yape.level_tables[0];
       var R = t.radius|0, Rm1 = (R-1)|0;

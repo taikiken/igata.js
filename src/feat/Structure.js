@@ -26,7 +26,6 @@
 
   var
     Igata = window.Igata,
-
     global = Igata;
 
   //
@@ -173,7 +172,7 @@
        */
       this.size = ((size_in_bytes + 7) | 0) & -8;
 
-      if (typeof buffer === "undefined") {
+      if (typeof buffer === 'undefined') {
 
         /**
          * @property buffer

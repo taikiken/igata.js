@@ -71,6 +71,8 @@ var Igata = window.Igata || {};
 
   global._PI = Math.PI;
 
+  global._2PI = Math.PI * 2;
+
   ///**
   // * @property EPSILON
   // * @for Igata
@@ -96,38 +98,143 @@ var Igata = window.Igata || {};
   };
 
   // CONSTANTS
+  /**
+   * @for Igata
+   * @const EPSILON
+   * @static
+   * @type {number}
+   * @default 0.0000001192092896
+   */
   var EPSILON = 0.0000001192092896;
+  /**
+   * @for Igata
+   * @const FLT_MIN
+   * @static
+   * @type {number}
+   * @default 1E-37
+   */
   var FLT_MIN = 1E-37;
 
   // implementation from CCV project
   // currently working only with u8,s32,f32
   var
+    /**
+     * @for Igata
+     * @static
+     * @const U8_t
+     * @type {number}
+     * @default 0x0100
+     */
     U8_t = 0x0100,
+    /**
+     * @for Igata
+     * @static
+     * @const S32_t
+     * @type {number}
+     * @default 0x0200
+     */
     S32_t = 0x0200,
+    /**
+     * @for Igata
+     * @static
+     * @const F32_t
+     * @type {number}
+     * @default 0x0400
+     */
     F32_t = 0x0400,
+    /**
+     * @for Igata
+     * @static
+     * @const S64_t
+     * @type {number}
+     * @default 0x0800
+     */
     S64_t = 0x0800,
+    /**
+     * @for Igata
+     * @static
+     * @const F64_t
+     * @type {number}
+     * @default 0x1000
+     */
     F64_t = 0x1000;
 
   var
+    /**
+     * @for Igata
+     * @static
+     * @const C1_t
+     * @type {number}
+     * @default 0x01
+     */
     C1_t = 0x01,
+    /**
+     * @for Igata
+     * @static
+     * @const C2_t
+     * @type {number}
+     * @default 0x02
+     */
     C2_t = 0x02,
+    /**
+     * @for Igata
+     * @static
+     * @const C3_t
+     * @type {number}
+     * @default 0x03
+     */
     C3_t = 0x03,
+    /**
+     * @for Igata
+     * @static
+     * @const C4_t
+     * @type {number}
+     * @default 0x04
+     */
     C4_t = 0x04;
-
+  /**
+   * @for Igata
+   * @static
+   * @const _data_type_size
+   * @type {Int32Array}
+   * @default new Int32Array([ -1, 1, 4, -1, 4, -1, -1, -1, 8, -1, -1, -1, -1, -1, -1, -1, 8 ])
+   * @private
+   */
   var _data_type_size = new Int32Array([ -1, 1, 4, -1, 4, -1, -1, -1, 8, -1, -1, -1, -1, -1, -1, -1, 8 ]);
 
+  /**
+   * @for Igata
+   * @method get_data_type
+   * @static
+   * @param {number} type
+   * @returns {number}
+   */
   function get_data_type ( type ) {
 
     return ( type & 0xFF00 );
 
   }
 
+  /**
+   * @for Igata
+   * @method get_channel
+   * @static
+   * @param {number} type
+   * @returns {number}
+   */
   function get_channel ( type ) {
 
     return ( type & 0xFF );
 
   }
 
+  /**
+   * @for Igata
+   * @method get_data_type_size
+   * @static
+   * @param {number} type
+   * @returns {*}
+   */
   function get_data_type_size ( type ) {
 
     return _data_type_size[ ( type & 0xFF00 ) >> 8 ];
@@ -135,15 +242,64 @@ var Igata = window.Igata || {};
   }
 
   // color conversion
+  /**
+   * @for Igata
+   * @static
+   * @const COLOR_RGBA2GRAY
+   * @type {number}
+   * @default 0
+   */
   var COLOR_RGBA2GRAY = 0;
+  /**
+   * @for Igata
+   * @static
+   * @const COLOR_RGB2GRAY
+   * @type {number}
+   * @default 1
+   */
   var COLOR_RGB2GRAY = 1;
+  /**
+   * @for Igata
+   * @static
+   * @const COLOR_BGRA2GRAY
+   * @type {number}
+   * @default 2
+   */
   var COLOR_BGRA2GRAY = 2;
+  /**
+   * @for Igata
+   * @static
+   * @const COLOR_BGR2GRAY
+   * @type {number}
+   * @default 3
+   */
   var COLOR_BGR2GRAY = 3;
 
   // box blur option
+  /**
+   * @for Igata
+   * @static
+   * @const BOX_BLUR_NOSCALE
+   * @type {number}
+   * @default 0x01
+   */
   var BOX_BLUR_NOSCALE = 0x01;
   // svd options
+  /**
+   * @for Igata
+   * @static
+   * @const SVD_U_T
+   * @type {number}
+   * @default 0x01
+   */
   var SVD_U_T = 0x01;
+  /**
+   * @for Igata
+   * @static
+   * @const SVD_V_T
+   * @type {number}
+   * @default 0x02
+   */
   var SVD_V_T = 0x02;
 
   // copy to global

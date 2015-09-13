@@ -741,10 +741,10 @@
      */
     function Ransac_t ( size, thresh, eps, prob ) {
 
-      if (typeof size === "undefined") { size=0; }
-      if (typeof thresh === "undefined") { thresh=0.5; }
-      if (typeof eps === "undefined") { eps=0.5; }
-      if (typeof prob === "undefined") { prob=0.99; }
+      if (typeof size === 'undefined') { size=0; }
+      if (typeof thresh === 'undefined') { thresh=0.5; }
+      if (typeof eps === 'undefined') { eps=0.5; }
+      if (typeof prob === 'undefined') { prob=0.99; }
 
       this.size = size;
       this.thresh = thresh;
@@ -960,7 +960,7 @@
      */
     MotionEstimator.ransac = function ( params, kernel, from, to, count, model, mask, max_iters ) {
 
-      if (typeof max_iters === "undefined") { max_iters=1000; }
+      if (typeof max_iters === 'undefined') { max_iters=1000; }
 
       if (count < params.size) { return false; }
 
@@ -1130,7 +1130,7 @@
      */
     MotionEstimator.lmeds = function(params, kernel, from, to, count, model, mask, max_iters) {
 
-      if (typeof max_iters === "undefined") { max_iters=1000; }
+      if (typeof max_iters === 'undefined') { max_iters=1000; }
 
       if(count < params.size) {return false;}
 

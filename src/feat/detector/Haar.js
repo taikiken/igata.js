@@ -274,8 +274,8 @@
      */
     Haar.multiScale = function ( int_sum, int_sqsum, int_tilted, int_canny_sum, width, height, classifier, scale_factor, scale_min ) {
 
-      if (typeof scale_factor === "undefined") { scale_factor = 1.2; }
-      if (typeof scale_min === "undefined") { scale_min = 1.0; }
+      if (typeof scale_factor === 'undefined') { scale_factor = 1.2; }
+      if (typeof scale_min === 'undefined') { scale_min = 1.0; }
 
       var win_w = classifier.size[0];
       var win_h = classifier.size[1];
@@ -324,7 +324,7 @@
      */
     Haar.rectangles = function ( rects, min_neighbors ) {
 
-      if (typeof min_neighbors === "undefined") { min_neighbors = 1; }
+      if (typeof min_neighbors === 'undefined') { min_neighbors = 1; }
 
       var i, j, n = rects.length;
       var node = [];

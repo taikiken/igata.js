@@ -6,6 +6,8 @@
     "linkNatives": "true",
     "attributesEmit": "true",
     "outdir": "./docs",
+    "ignorePaths": [ "./src/_not_use" ],
+    "exclude": "./src/_not_use",
     "paths": "./src"
   }
 }

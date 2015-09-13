@@ -196,7 +196,7 @@
      */
     Bbf.pyramid = function ( src, min_width, min_height, interval ) {
 
-      if (typeof interval === "undefined") { interval = 4; }
+      if (typeof interval === 'undefined') { interval = 4; }
 
       var sw=src.cols,sh=src.rows;
       var i=0,nw=0,nh=0;
@@ -533,7 +533,7 @@
      */
     Bbf.rectangles = function ( rects, min_neighbors ) {
 
-      if (typeof min_neighbors === "undefined") { min_neighbors = 1; }
+      if (typeof min_neighbors === 'undefined') { min_neighbors = 1; }
 
       var i, j, n = rects.length;
       var node = [];

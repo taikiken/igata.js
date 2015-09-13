@@ -37,6 +37,10 @@
 
     var _cos = global._cos;
     var _sin = global._sin;
+
+    // ------------------------------------------------------------------
+    // private
+    // ------------------------------------------------------------------
     /**
      * @for Orb
      * @property bit_pattern_31_
@@ -322,6 +326,9 @@
      */
     var patch_img = new Matrix_t(32, 32, U8_t|Igata.C1_t);
 
+    // ------------------------------------------------------------------
+    // Class
+    // ------------------------------------------------------------------
     /**
      * @for Orb
      * @method rectify_patch
@@ -357,9 +364,9 @@
      *
      *      var corners = []; // Igata.Keypoint_t Array
      *
-     *      vvar cols = 32; // 32 Bytes / 256 BIT descriptor
-     *      vvar rows = num_corners; // descriptors stored per row
-     *      vvar descriptors = new Igata.Matrix_t(cols, rows, Igata.U8_t | Igata.C1_t);
+     *      var cols = 32; // 32 Bytes / 256 BIT descriptor
+     *      var rows = num_corners; // descriptors stored per row
+     *      var descriptors = new Igata.Matrix_t(cols, rows, Igata.U8_t | Igata.C1_t);
      *
      *      Igata.Orb.describe(img_u8:Matrix_t, corners:Array, num_corners, descriptors:Matrix_t);
      *

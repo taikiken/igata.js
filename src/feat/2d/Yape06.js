@@ -180,7 +180,7 @@
      */
     Yape06.detect = function ( src, points, border ) {
 
-      if (typeof border === "undefined") { border = 5; }
+      if (typeof border === 'undefined') { border = 5; }
 
       var x=0,y=0;
       var w=src.cols, h=src.rows, srd_d=src.data;

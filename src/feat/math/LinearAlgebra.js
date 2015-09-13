@@ -935,7 +935,7 @@
      */
     LinearAlgebra.svd_decompose = function ( A, W, U, V, options ) {
 
-      if (typeof options === "undefined") { options = 0; }
+      if (typeof options === 'undefined') { options = 0; }
 
       var at=0,i=0,j=0,_m=A.rows,_n=A.cols,m=_m,n=_n;
 
