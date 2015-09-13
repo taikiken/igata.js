@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>src/feat/detector/Haar.js - igata.js API</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <link rel="icon" href="../assets/favicon.ico">
+    <script src="http://yui.yahooapis.com/combo?3.9.1/build/yui/yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+                <h1><img src="../assets/css/logo.png" title="igata.js API" width="117" height="52"></h1>
+        </div>
+        <div class="yui3-u-1-4 version">
+            <em>API Docs for: </em>
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+                    <h2 class="off-left">APIs</h2>
+                    <div id="api-tabview" class="tabview">
+                        <ul class="tabs">
+                            <li><a href="#api-classes">Classes</a></li>
+                            <li><a href="#api-modules">Modules</a></li>
+                        </ul>
+                
+                        <div id="api-tabview-filter">
+                            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+                        </div>
+                
+                        <div id="api-tabview-panel">
+                            <ul id="api-classes" class="apis classes">
+                                <li><a href="../classes/Affine2d.html">Affine2d</a></li>
+                                <li><a href="../classes/Angle.html">Angle</a></li>
+                                <li><a href="../classes/Bbf.html">Bbf</a></li>
+                                <li><a href="../classes/Bitmap.html">Bitmap</a></li>
+                                <li><a href="../classes/Blur.html">Blur</a></li>
+                                <li><a href="../classes/Brightness.html">Brightness</a></li>
+                                <li><a href="../classes/Cache.html">Cache</a></li>
+                                <li><a href="../classes/Calc.html">Calc</a></li>
+                                <li><a href="../classes/Cascade.html">Cascade</a></li>
+                                <li><a href="../classes/Convolution.html">Convolution</a></li>
+                                <li><a href="../classes/Data_t.html">Data_t</a></li>
+                                <li><a href="../classes/Estimator.html">Estimator</a></li>
+                                <li><a href="../classes/FastCorner.html">FastCorner</a></li>
+                                <li><a href="../classes/Filter.html">Filter</a></li>
+                                <li><a href="../classes/Grayscale.html">Grayscale</a></li>
+                                <li><a href="../classes/Haar.html">Haar</a></li>
+                                <li><a href="../classes/HomoGraphy2d.html">HomoGraphy2d</a></li>
+                                <li><a href="../classes/Igata.html">Igata</a></li>
+                                <li><a href="../classes/Invert.html">Invert</a></li>
+                                <li><a href="../classes/IVector.html">IVector</a></li>
+                                <li><a href="../classes/Kanade.html">Kanade</a></li>
+                                <li><a href="../classes/Keypoint_t.html">Keypoint_t</a></li>
+                                <li><a href="../classes/LA.html">LA</a></li>
+                                <li><a href="../classes/lev_table_t.html">lev_table_t</a></li>
+                                <li><a href="../classes/LinearAlgebra.html">LinearAlgebra</a></li>
+                                <li><a href="../classes/Matrix_t.html">Matrix_t</a></li>
+                                <li><a href="../classes/MatrixMath.html">MatrixMath</a></li>
+                                <li><a href="../classes/MM.html">MM</a></li>
+                                <li><a href="../classes/MotionEstimator.html">MotionEstimator</a></li>
+                                <li><a href="../classes/Node_t.html">Node_t</a></li>
+                                <li><a href="../classes/Orb.html">Orb</a></li>
+                                <li><a href="../classes/perform_one_point.html">perform_one_point</a></li>
+                                <li><a href="../classes/Processing.html">Processing</a></li>
+                                <li><a href="../classes/Pyramid_t.html">Pyramid_t</a></li>
+                                <li><a href="../classes/Ransac_t.html">Ransac_t</a></li>
+                                <li><a href="../classes/Sepia.html">Sepia</a></li>
+                                <li><a href="../classes/Stack.html">Stack</a></li>
+                                <li><a href="../classes/Table_t.html">Table_t</a></li>
+                                <li><a href="../classes/Threshold.html">Threshold</a></li>
+                                <li><a href="../classes/Vector2.html">Vector2</a></li>
+                                <li><a href="../classes/Vector3.html">Vector3</a></li>
+                                <li><a href="../classes/Yape.html">Yape</a></li>
+                                <li><a href="../classes/Yape06.html">Yape06</a></li>
+                            </ul>
+                
+                
+                            <ul id="api-modules" class="apis modules">
+                                <li><a href="../modules/Feat.html">Feat</a></li>
+                                <li><a href="../modules/Igata.html">Igata</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+                    Show:
+                    <label for="api-show-inherited">
+                        <input type="checkbox" id="api-show-inherited" checked>
+                        Inherited
+                    </label>
+            
+                    <label for="api-show-protected">
+                        <input type="checkbox" id="api-show-protected">
+                        Protected
+                    </label>
+            
+                    <label for="api-show-private">
+                        <input type="checkbox" id="api-show-private">
+                        Private
+                    </label>
+                    <label for="api-show-deprecated">
+                        <input type="checkbox" id="api-show-deprecated">
+                        Deprecated
+                    </label>
+            
+                </div>
+            
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+<h1 class="file-heading">File: src/feat/detector/Haar.js</h1>
+
+<div class="file">
+    <pre class="code prettyprint linenums">
+///**
+// * license inazumatv.com
+// * author (at)taikiken / http://inazumatv.com
+// * date 15/09/10 - 17:36
+// *
+// * Copyright (c) 2011-2015 inazumatv.com, inc.
+// *
+// * Distributed under the terms of the MIT license.
+// * http://www.opensource.org/licenses/mit-license.html
+// *
+// * This notice shall be included in all copies or substantial portions of the Software.
+// *
+// * for igata.js
+// */
+/*jslint -W016*/
+/*jslint -W017*/
+/**
+ * original code
+ * http://inspirit.github.io/jsfeat/
+ *
+ * @module Igata
+ * @submodule Feat
+ */
+( function ( window ) {
+
+  &#x27;use strict&#x27;;
+
+  var
+    Igata = window.Igata,
+    global = Igata;
+
+  global.Haar = ( function () {
+
+    // ------------------------------------------------------------------
+    // private
+    // ------------------------------------------------------------------
+    /**
+     * @method _group_func
+     * @param r1
+     * @param r2
+     * @return {boolean|number}
+     * @private
+     */
+    function _group_func ( r1, r2 ) {
+
+      var distance = (r1.width * 0.25 + 0.5)|0;
+
+      return r2.x &lt;= r1.x + distance &amp;&amp;
+        r2.x &gt;= r1.x - distance &amp;&amp;
+        r2.y &lt;= r1.y + distance &amp;&amp;
+        r2.y &gt;= r1.y - distance &amp;&amp;
+        r2.width &lt;= (r1.width * 1.5 + 0.5)|0 &amp;&amp;
+        (r2.width * 1.5 + 0.5)|0 &gt;= r1.width;
+
+    }
+
+    /**
+     * @class Haar
+     * @static
+     * @constructor
+     */
+    function Haar () {
+      throw new Error( &#x27;Haar can\&#x27;t create instance.&#x27; );
+    }
+
+    var p = Haar.prototype;
+    p.constructor = Haar;
+
+    /**
+     * @property desity
+     * @static
+     * @type {number}
+     * @default 0.07
+     */
+    Haar.desity = 0.07;
+    /**
+     * @deprecated instead use Haar.desity
+     * @property edges_density
+     * @static
+     * @type {number}
+     */
+    Haar.edges_density = Haar.desity;
+
+    /**
+     * Evaluates a Haar cascade classifier at a specified scale
+     *
+     * @method singleScale
+     * @static
+     *
+     * @param {Array} int_sum integral of the source image
+     * @param {Array} int_sqsum squared integral of the source image
+     * @param {Array} int_tilted tilted integral of the source image
+     * @param {Array} int_canny_sum integral of canny source image or undefined
+     * @param {number} width width of the source image
+     * @param {number} height height of the source image
+     * @param {number} scale image scale
+     * @param {*} classifier haar cascade classifier
+     * @return {Array} rectangles representing detected object
+     */
+    Haar.singleScale = function ( int_sum, int_sqsum, int_tilted, int_canny_sum, width, height, scale, classifier ) {
+
+      var
+        win_w = (classifier.size[0] * scale)|0,
+        win_h = (classifier.size[1] * scale)|0,
+        step_x = (0.5 * scale + 1.5)|0,
+        step_y = step_x;
+
+      var i,j,k,x,y,ex=(width-win_w)|0,ey=(height-win_h)|0;
+      var w1=(width+1)|0,edge_dens,mean,variance,std;
+      var inv_area = 1.0 / (win_w * win_h);
+      var stages,stage,trees,tree,sn,tn,fn,found=true,stage_thresh,stage_sum,tree_sum,feature,features;
+      var fi_a,fi_b,fi_c,fi_d,fw,fh;
+
+      var ii_a=0,ii_b=win_w,ii_c=win_h*w1,ii_d=ii_c+win_w;
+      var edges_thresh = ((win_w*win_h) * 0xff * Haar.desity)|0;
+      // if too much gradient we also can skip
+      //var edges_thresh_high = ((win_w*win_h) * 0xff * 0.3)|0;
+
+      var rects = [];
+      var tilted;
+
+      for (y = 0; y &lt; ey; y += step_y) {
+
+        ii_a = y * w1;
+
+        for (x = 0; x &lt; ex; x += step_x, ii_a += step_x) {
+
+          mean = int_sum[ii_a] - int_sum[ii_a+ii_b] - int_sum[ii_a+ii_c] + int_sum[ii_a+ii_d];
+
+          // canny prune
+          if (int_canny_sum) {
+
+            edge_dens = (int_canny_sum[ii_a] - int_canny_sum[ii_a+ii_b] - int_canny_sum[ii_a+ii_c] + int_canny_sum[ii_a+ii_d]);
+
+            if (edge_dens &lt; edges_thresh || mean &lt; 20) {
+
+              x += step_x;
+              ii_a += step_x;
+              continue;
+
+            }
+
+          }
+
+          mean *= inv_area;
+          variance = (int_sqsum[ii_a] - int_sqsum[ii_a+ii_b] - int_sqsum[ii_a+ii_c] + int_sqsum[ii_a+ii_d]) * inv_area - mean * mean;
+
+          std = variance &gt; 0.0 ? Math.sqrt(variance) : 1;
+
+          stages = classifier.complexClassifiers;
+          sn = stages.length;
+          found =  true;
+
+          for (i = 0; i &lt; sn; ++i) {
+
+            stage = stages[i];
+            stage_thresh = stage.threshold;
+            trees = stage.simpleClassifiers;
+            tn = trees.length;
+            stage_sum = 0;
+
+            for (j = 0; j &lt; tn; ++j) {
+
+              tree = trees[j];
+              tree_sum = 0;
+              features = tree.features;
+              fn = features.length;
+              tilted = tree.tilted;
+
+              //if ( tree.tilted === 1 ) {
+              if ( !!tilted || tilted === 1 ) {
+
+                for (k=0; k &lt; fn; ++k) {
+
+                  feature = features[k];
+                  fi_a = ~~(x + feature[0] * scale) + ~~(y + feature[1] * scale) * w1;
+                  fw = ~~(feature[2] * scale);
+                  fh = ~~(feature[3] * scale);
+                  fi_b = fw * w1;
+                  fi_c =  fh * w1;
+
+                  tree_sum += (int_tilted[fi_a] - int_tilted[fi_a + fw + fi_b] - int_tilted[fi_a - fh + fi_c] + int_tilted[fi_a + fw - fh + fi_b + fi_c]) * feature[4];
+
+                }
+
+              } else {
+
+                for (k=0; k &lt; fn; ++k) {
+
+                  feature = features[k];
+                  fi_a = ~~(x + feature[0] * scale) + ~~(y + feature[1] * scale) * w1;
+                  fw = ~~(feature[2] * scale);
+                  fh = ~~(feature[3] * scale);
+                  fi_c = fh * w1;
+
+                  tree_sum += (int_sum[fi_a] - int_sum[fi_a+fw] - int_sum[fi_a+fi_c] + int_sum[fi_a+fi_c+fw]) * feature[4];
+
+                }
+
+              }
+
+              stage_sum += (tree_sum * inv_area &lt; tree.threshold * std) ? tree.left_val : tree.right_val;
+
+            }
+
+            if (stage_sum &lt; stage_thresh) {
+
+              found = false;
+              break;
+
+            }
+
+          }
+
+          if(found) {
+
+            rects.push(
+              {
+                &quot;x&quot; : x,
+                &quot;y&quot; : y,
+                &quot;width&quot; : win_w,
+                &quot;height&quot; : win_h,
+                &quot;neighbor&quot; : 1,
+                &quot;confidence&quot; : stage_sum
+              });
+
+            x += step_x;
+            ii_a += step_x;
+
+          }
+
+        }// for x &lt; ex
+
+      }// y &lt; ey
+
+      return rects;
+
+    };
+    /**
+     * @deprecated instead use Haar.singleScale
+     * @method detect_single_scale
+     * @static
+     * @param int_sum
+     * @param int_sqsum
+     * @param int_tilted
+     * @param int_canny_sum
+     * @param width
+     * @param height
+     * @param scale
+     * @param classifier
+     * @return {Array}
+     */
+    Haar.detect_single_scale = function ( int_sum, int_sqsum, int_tilted, int_canny_sum, width, height, scale, classifier ) {
+
+      return Haar.singleScale( int_sum, int_sqsum, int_tilted, int_canny_sum, width, height, scale, classifier );
+
+    };
+    /**
+     * Evaluates a Haar cascade classifier at all scales
+     *
+     * @method multiScale
+     * @static
+     *
+     * @param {Array} int_sum integral of the source image
+     * @param {Array} int_sqsum squared integral of the source image
+     * @param {Array} int_tilted tilted integral of the source image
+     * @param {Array} int_canny_sum integral of canny source image or undefined
+     * @param {number} width width of the source image
+     * @param {number} height height of the source image
+     * @param {*} classifier haar cascade classifier
+     * @param {number=1.2} [scale_factor] how much the image size is reduced at each image scale
+     * @param {number=1} [scale_min] start scale
+     * @return {Array} rectangles representing detected object
+     */
+    Haar.multiScale = function ( int_sum, int_sqsum, int_tilted, int_canny_sum, width, height, classifier, scale_factor, scale_min ) {
+
+      if (typeof scale_factor === &#x27;undefined&#x27;) { scale_factor = 1.2; }
+      if (typeof scale_min === &#x27;undefined&#x27;) { scale_min = 1.0; }
+
+      var win_w = classifier.size[0];
+      var win_h = classifier.size[1];
+      var rects = [];
+
+      while ( scale_min * win_w &lt; width &amp;&amp; scale_min * win_h &lt; height ) {
+
+        rects = rects.concat( Haar.singleScale( int_sum, int_sqsum, int_tilted, int_canny_sum, width, height, scale_min, classifier ) );
+        scale_min *= scale_factor;
+
+      }
+
+      return rects;
+
+    };
+    /**
+     * @deprecated instead use Haar.multiScale
+     * @method detect_multi_scale
+     * @static
+     *
+     * @param int_sum
+     * @param int_sqsum
+     * @param int_tilted
+     * @param int_canny_sum
+     * @param width
+     * @param height
+     * @param classifier
+     * @param scale_factor
+     * @param scale_min
+     * @return {Array}
+     */
+    Haar.detect_multi_scale = function ( int_sum, int_sqsum, int_tilted, int_canny_sum, width, height, classifier, scale_factor, scale_min ) {
+
+      return Haar.multiScale( int_sum, int_sqsum, int_tilted, int_canny_sum, width, height, classifier, scale_factor, scale_min );
+
+    };
+    /**
+     * Groups the object candidate rectangles
+     *
+     * @method rectangles
+     * @static
+     *
+     * @param {Array} rects input candidate objects sequence
+     * @param {number=1} [min_neighbors] Minimum possible number of rectangles minus 1, the threshold is used in a group of rectangles to retain it
+     * @return {Array}
+     */
+    Haar.rectangles = function ( rects, min_neighbors ) {
+
+      if (typeof min_neighbors === &#x27;undefined&#x27;) { min_neighbors = 1; }
+
+      var i, j, n = rects.length;
+      var node = [];
+
+      for (i = 0; i &lt; n; ++i) {
+
+        node[i] = {
+          &quot;parent&quot; : -1,
+          &quot;element&quot; : rects[i],
+          &quot;rank&quot; : 0};
+
+      }
+
+      for (i = 0; i &lt; n; ++i) {
+
+        if (!node[i].element) {
+
+          continue;
+
+        }
+
+        var root = i;
+        while (node[root].parent !== -1) {
+
+          root = node[root].parent;
+
+        }
+
+        for (j = 0; j &lt; n; ++j) {
+
+          if ( i !== j &amp;&amp; node[j].element &amp;&amp; _group_func(node[i].element, node[j].element) ) {
+
+            var root2 = j;
+
+            while (node[root2].parent !== -1) {
+
+              root2 = node[root2].parent;
+
+            }
+
+            if (root2 !== root) {
+
+              if (node[root].rank &gt; node[root2].rank) {
+
+                node[ root2 ].parent = root;
+
+              } else {
+
+                node[root].parent = root2;
+
+                if (node[root].rank === node[root2].rank) {
+
+                  node[root2].rank++;
+
+                }
+
+                root = root2;
+
+              }
+
+              /* compress path from node2 to the root: */
+              var temp, node2 = j;
+
+              while (node[node2].parent !== -1) {
+
+                temp = node2;
+                node2 = node[node2].parent;
+                node[temp].parent = root;
+
+              }
+
+              /* compress path from node to the root: */
+              node2 = i;
+              while (node[node2].parent !== -1) {
+
+                temp = node2;
+                node2 = node[node2].parent;
+                node[temp].parent = root;
+
+              }
+
+            }
+
+          }
+
+        }
+
+      }
+
+      var idx_seq = [];
+      var class_idx = 0;
+
+      for (i = 0; i &lt; n; i++) {
+
+        j = -1;
+        var node1 = i;
+
+        if(node[node1].element) {
+
+          while (node[node1].parent !== -1) {
+
+            node1 = node[node1].parent;
+
+          }
+
+          if (node[node1].rank &gt;= 0) {
+
+            node[node1].rank = ~class_idx++;
+
+          }
+
+          j = ~node[node1].rank;
+
+        }
+
+        idx_seq[i] = j;
+
+      }
+
+      var comps = [];
+
+      for (i = 0; i &lt; class_idx+1; ++i) {
+
+        comps[i] = {
+          &quot;neighbors&quot; : 0,
+          &quot;x&quot; : 0,
+          &quot;y&quot; : 0,
+          &quot;width&quot; : 0,
+          &quot;height&quot; : 0,
+          &quot;confidence&quot; : 0
+        };
+
+      }
+
+      // count number of neighbors
+      var idx;
+      for(i = 0; i &lt; n; ++i) {
+
+        r1 = rects[i];
+        idx = idx_seq[i];
+
+        if (comps[idx].neighbors === 0) {
+
+          comps[idx].confidence = r1.confidence;
+
+        }
+
+        ++comps[idx].neighbors;
+
+        comps[idx].x += r1.x;
+        comps[idx].y += r1.y;
+        comps[idx].width += r1.width;
+        comps[idx].height += r1.height;
+        comps[idx].confidence = Math.max(comps[idx].confidence, r1.confidence);
+
+      }
+
+      var seq2 = [];
+      // calculate average bounding box
+      for(i = 0; i &lt; class_idx; ++i) {
+
+        n = comps[i].neighbors;
+
+        if (n &gt;= min_neighbors) {
+
+          seq2.push({
+            &quot;x&quot; : (comps[i].x * 2 + n) / (2 * n),
+            &quot;y&quot; : (comps[i].y * 2 + n) / (2 * n),
+            &quot;width&quot; : (comps[i].width * 2 + n) / (2 * n),
+            &quot;height&quot; : (comps[i].height * 2 + n) / (2 * n),
+            &quot;neighbors&quot; : comps[i].neighbors,
+            &quot;confidence&quot; : comps[i].confidence
+          });
+
+        }
+
+      }
+
+      var result_seq = [];
+      n = seq2.length;
+
+      // filter out small face rectangles inside large face rectangles
+      for(i = 0; i &lt; n; ++i) {
+
+        var r1 = seq2[i];
+        var flag = true;
+
+        for (j = 0; j &lt; n; ++j) {
+
+          var r2 = seq2[j];
+          var distance = (r2.width * 0.25 + 0.5)|0;
+
+          if ( i !== j &amp;&amp;
+              r1.x &gt;= r2.x - distance &amp;&amp;
+              r1.y &gt;= r2.y - distance &amp;&amp;
+              r1.x + r1.width &lt;= r2.x + r2.width + distance &amp;&amp;
+              r1.y + r1.height &lt;= r2.y + r2.height + distance &amp;&amp;
+              (r2.neighbors &gt; Math.max(3, r1.neighbors) || r1.neighbors &lt; 3) ) {
+
+            flag = false;
+            break;
+
+          }
+
+        }
+
+        if(flag) {
+
+          result_seq.push(r1);
+
+        }
+
+      }
+
+      return result_seq;
+
+    };
+    //Haar.groupRectangles = function ( rects, min_neighbors ) {
+    //
+    //
+    //
+    //};
+    /**
+     * @deprecated instead use Haar.rectangles
+     * @method group_rectangles
+     * @static
+     * @param rects
+     * @param min_neighbors
+     * @return {Array}
+     */
+    Haar.group_rectangles = function ( rects, min_neighbors ) {
+
+      return Haar.rectangles( rects, min_neighbors );
+
+    };
+
+    return Haar;
+
+  }() );
+
+}( window ) );
+    </pre>
+</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/../api.js"></script>
+<script src="../assets/js/api-filter.js"></script>
+<script src="../assets/js/api-list.js"></script>
+<script src="../assets/js/api-search.js"></script>
+<script src="../assets/js/apidocs.js"></script>
+</body>
+</html>

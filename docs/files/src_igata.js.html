@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>src/igata.js - igata.js API</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <link rel="icon" href="../assets/favicon.ico">
+    <script src="http://yui.yahooapis.com/combo?3.9.1/build/yui/yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+                <h1><img src="../assets/css/logo.png" title="igata.js API" width="117" height="52"></h1>
+        </div>
+        <div class="yui3-u-1-4 version">
+            <em>API Docs for: </em>
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+                    <h2 class="off-left">APIs</h2>
+                    <div id="api-tabview" class="tabview">
+                        <ul class="tabs">
+                            <li><a href="#api-classes">Classes</a></li>
+                            <li><a href="#api-modules">Modules</a></li>
+                        </ul>
+                
+                        <div id="api-tabview-filter">
+                            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+                        </div>
+                
+                        <div id="api-tabview-panel">
+                            <ul id="api-classes" class="apis classes">
+                                <li><a href="../classes/Affine2d.html">Affine2d</a></li>
+                                <li><a href="../classes/Angle.html">Angle</a></li>
+                                <li><a href="../classes/Bbf.html">Bbf</a></li>
+                                <li><a href="../classes/Bitmap.html">Bitmap</a></li>
+                                <li><a href="../classes/Blur.html">Blur</a></li>
+                                <li><a href="../classes/Brightness.html">Brightness</a></li>
+                                <li><a href="../classes/Cache.html">Cache</a></li>
+                                <li><a href="../classes/Calc.html">Calc</a></li>
+                                <li><a href="../classes/Cascade.html">Cascade</a></li>
+                                <li><a href="../classes/Convolution.html">Convolution</a></li>
+                                <li><a href="../classes/Data_t.html">Data_t</a></li>
+                                <li><a href="../classes/Estimator.html">Estimator</a></li>
+                                <li><a href="../classes/FastCorner.html">FastCorner</a></li>
+                                <li><a href="../classes/Filter.html">Filter</a></li>
+                                <li><a href="../classes/Grayscale.html">Grayscale</a></li>
+                                <li><a href="../classes/Haar.html">Haar</a></li>
+                                <li><a href="../classes/HomoGraphy2d.html">HomoGraphy2d</a></li>
+                                <li><a href="../classes/Igata.html">Igata</a></li>
+                                <li><a href="../classes/Invert.html">Invert</a></li>
+                                <li><a href="../classes/IVector.html">IVector</a></li>
+                                <li><a href="../classes/Kanade.html">Kanade</a></li>
+                                <li><a href="../classes/Keypoint_t.html">Keypoint_t</a></li>
+                                <li><a href="../classes/LA.html">LA</a></li>
+                                <li><a href="../classes/lev_table_t.html">lev_table_t</a></li>
+                                <li><a href="../classes/LinearAlgebra.html">LinearAlgebra</a></li>
+                                <li><a href="../classes/Matrix_t.html">Matrix_t</a></li>
+                                <li><a href="../classes/MatrixMath.html">MatrixMath</a></li>
+                                <li><a href="../classes/MM.html">MM</a></li>
+                                <li><a href="../classes/MotionEstimator.html">MotionEstimator</a></li>
+                                <li><a href="../classes/Node_t.html">Node_t</a></li>
+                                <li><a href="../classes/Orb.html">Orb</a></li>
+                                <li><a href="../classes/perform_one_point.html">perform_one_point</a></li>
+                                <li><a href="../classes/Processing.html">Processing</a></li>
+                                <li><a href="../classes/Pyramid_t.html">Pyramid_t</a></li>
+                                <li><a href="../classes/Ransac_t.html">Ransac_t</a></li>
+                                <li><a href="../classes/Sepia.html">Sepia</a></li>
+                                <li><a href="../classes/Stack.html">Stack</a></li>
+                                <li><a href="../classes/Table_t.html">Table_t</a></li>
+                                <li><a href="../classes/Threshold.html">Threshold</a></li>
+                                <li><a href="../classes/Vector2.html">Vector2</a></li>
+                                <li><a href="../classes/Vector3.html">Vector3</a></li>
+                                <li><a href="../classes/Yape.html">Yape</a></li>
+                                <li><a href="../classes/Yape06.html">Yape06</a></li>
+                            </ul>
+                
+                
+                            <ul id="api-modules" class="apis modules">
+                                <li><a href="../modules/Feat.html">Feat</a></li>
+                                <li><a href="../modules/Igata.html">Igata</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+                    Show:
+                    <label for="api-show-inherited">
+                        <input type="checkbox" id="api-show-inherited" checked>
+                        Inherited
+                    </label>
+            
+                    <label for="api-show-protected">
+                        <input type="checkbox" id="api-show-protected">
+                        Protected
+                    </label>
+            
+                    <label for="api-show-private">
+                        <input type="checkbox" id="api-show-private">
+                        Private
+                    </label>
+                    <label for="api-show-deprecated">
+                        <input type="checkbox" id="api-show-deprecated">
+                        Deprecated
+                    </label>
+            
+                </div>
+            
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+<h1 class="file-heading">File: src/igata.js</h1>
+
+<div class="file">
+    <pre class="code prettyprint linenums">
+/*!
+ * license inazumatv.com
+ * author (at)taikiken / http://inazumatv.com
+ * date 2015/04/20 - 16:51
+ *
+ * Copyright (c) 2011-@@year inazumatv.com, inc.
+ *
+ * Distributed under the terms of the MIT license.
+ * http://www.opensource.org/licenses/mit-license.html
+ *
+ * This notice shall be included in all copies or substantial portions of the Software.
+ *
+ * thanks
+ * gl-matrix
+ * https://github.com/toji/gl-matrix
+ *
+ * html5rocks.com
+ * http://www.html5rocks.com/en/tutorials/canvas/imagefilters/
+ *
+ * Blur by Mario Klingemann
+ * http://www.quasimondo.com/StackBlurForCanvas/StackBlurDemo.html
+ *
+ * version @@version
+ * build @@buildTime
+ * git @@gitUrl
+ *
+ */
+/*jslint -W016*/
+/**
+ * HTML 5 Canvas image effects.
+ *
+ * brightness, invert, grayscale, threshold, blur, convolution...
+ *
+ * @module Igata
+ * @type {Igata}
+ */
+var Igata = window.Igata || {};
+
+( function ( window, Igata ){
+  &quot;use strict&quot;;
+
+  var
+    global = Igata;
+
+  // alias methods
+  global.Float32Array = window.Float32Array;
+
+  global._random = Math.random;
+
+  global._abs = Math.abs;
+
+  global._min = Math.min;
+
+  global._max = Math.max;
+
+  global._sqrt = Math.sqrt;
+
+  global._cos = Math.cos;
+
+  global._sin = Math.sin;
+
+  global._round = Math.round;
+
+  global._floor = Math.floor;
+
+  global._exp = Math.exp;
+
+  global._log = Math.log;
+
+  global._pow = Math.pow;
+
+  global._PI = Math.PI;
+
+  global._2PI = Math.PI * 2;
+
+  ///**
+  // * @property EPSILON
+  // * @for Igata
+  // * @static
+  // * @readonly
+  // * @type {number}
+  // * @default 0.000001
+  // */
+  //Igata.EPSILON = 0.000001;
+
+  /**
+   * @method extend
+   * @for Igata
+   * @static
+   * @param {function} Parent
+   * @param {function} Child
+   */
+  global.extend = function ( Parent, Child ) {
+
+    Child.prototype = Object.create( Parent.prototype );
+    Child.prototype.constructor = Child;
+
+  };
+
+  // CONSTANTS
+  /**
+   * @for Igata
+   * @const EPSILON
+   * @static
+   * @type {number}
+   * @default 0.0000001192092896
+   */
+  var EPSILON = 0.0000001192092896;
+  /**
+   * @for Igata
+   * @const FLT_MIN
+   * @static
+   * @type {number}
+   * @default 1E-37
+   */
+  var FLT_MIN = 1E-37;
+
+  // implementation from CCV project
+  // currently working only with u8,s32,f32
+  var
+    /**
+     * @for Igata
+     * @static
+     * @const U8_t
+     * @type {number}
+     * @default 0x0100
+     */
+    U8_t = 0x0100,
+    /**
+     * @for Igata
+     * @static
+     * @const S32_t
+     * @type {number}
+     * @default 0x0200
+     */
+    S32_t = 0x0200,
+    /**
+     * @for Igata
+     * @static
+     * @const F32_t
+     * @type {number}
+     * @default 0x0400
+     */
+    F32_t = 0x0400,
+    /**
+     * @for Igata
+     * @static
+     * @const S64_t
+     * @type {number}
+     * @default 0x0800
+     */
+    S64_t = 0x0800,
+    /**
+     * @for Igata
+     * @static
+     * @const F64_t
+     * @type {number}
+     * @default 0x1000
+     */
+    F64_t = 0x1000;
+
+  var
+    /**
+     * @for Igata
+     * @static
+     * @const C1_t
+     * @type {number}
+     * @default 0x01
+     */
+    C1_t = 0x01,
+    /**
+     * @for Igata
+     * @static
+     * @const C2_t
+     * @type {number}
+     * @default 0x02
+     */
+    C2_t = 0x02,
+    /**
+     * @for Igata
+     * @static
+     * @const C3_t
+     * @type {number}
+     * @default 0x03
+     */
+    C3_t = 0x03,
+    /**
+     * @for Igata
+     * @static
+     * @const C4_t
+     * @type {number}
+     * @default 0x04
+     */
+    C4_t = 0x04;
+  /**
+   * @for Igata
+   * @static
+   * @const _data_type_size
+   * @type {Int32Array}
+   * @default new Int32Array([ -1, 1, 4, -1, 4, -1, -1, -1, 8, -1, -1, -1, -1, -1, -1, -1, 8 ])
+   * @private
+   */
+  var _data_type_size = new Int32Array([ -1, 1, 4, -1, 4, -1, -1, -1, 8, -1, -1, -1, -1, -1, -1, -1, 8 ]);
+
+  /**
+   * @for Igata
+   * @method get_data_type
+   * @static
+   * @param {number} type
+   * @returns {number}
+   */
+  function get_data_type ( type ) {
+
+    return ( type &amp; 0xFF00 );
+
+  }
+
+  /**
+   * @for Igata
+   * @method get_channel
+   * @static
+   * @param {number} type
+   * @returns {number}
+   */
+  function get_channel ( type ) {
+
+    return ( type &amp; 0xFF );
+
+  }
+
+  /**
+   * @for Igata
+   * @method get_data_type_size
+   * @static
+   * @param {number} type
+   * @returns {*}
+   */
+  function get_data_type_size ( type ) {
+
+    return _data_type_size[ ( type &amp; 0xFF00 ) &gt;&gt; 8 ];
+
+  }
+
+  // color conversion
+  /**
+   * @for Igata
+   * @static
+   * @const COLOR_RGBA2GRAY
+   * @type {number}
+   * @default 0
+   */
+  var COLOR_RGBA2GRAY = 0;
+  /**
+   * @for Igata
+   * @static
+   * @const COLOR_RGB2GRAY
+   * @type {number}
+   * @default 1
+   */
+  var COLOR_RGB2GRAY = 1;
+  /**
+   * @for Igata
+   * @static
+   * @const COLOR_BGRA2GRAY
+   * @type {number}
+   * @default 2
+   */
+  var COLOR_BGRA2GRAY = 2;
+  /**
+   * @for Igata
+   * @static
+   * @const COLOR_BGR2GRAY
+   * @type {number}
+   * @default 3
+   */
+  var COLOR_BGR2GRAY = 3;
+
+  // box blur option
+  /**
+   * @for Igata
+   * @static
+   * @const BOX_BLUR_NOSCALE
+   * @type {number}
+   * @default 0x01
+   */
+  var BOX_BLUR_NOSCALE = 0x01;
+  // svd options
+  /**
+   * @for Igata
+   * @static
+   * @const SVD_U_T
+   * @type {number}
+   * @default 0x01
+   */
+  var SVD_U_T = 0x01;
+  /**
+   * @for Igata
+   * @static
+   * @const SVD_V_T
+   * @type {number}
+   * @default 0x02
+   */
+  var SVD_V_T = 0x02;
+
+  // copy to global
+  // data types
+  global.U8_t = U8_t;
+  global.S32_t = S32_t;
+  global.F32_t = F32_t;
+  global.S64_t = S64_t;
+  global.F64_t = F64_t;
+  // data channels
+  global.C1_t = C1_t;
+  global.C2_t = C2_t;
+  global.C3_t = C3_t;
+  global.C4_t = C4_t;
+
+  // popular formats
+  global.U8C1_t = U8_t | C1_t;
+  global.U8C3_t = U8_t | C3_t;
+  global.U8C4_t = U8_t | C4_t;
+
+  global.F32C1_t = F32_t | C1_t;
+  global.F32C2_t = F32_t | C2_t;
+  global.S32C1_t = S32_t | C1_t;
+  global.S32C2_t = S32_t | C2_t;
+
+  // constants
+  global.EPSILON = EPSILON;
+  global.FLT_MIN = FLT_MIN;
+
+  // color convert
+  global.COLOR_RGBA2GRAY = COLOR_RGBA2GRAY;
+  global.COLOR_RGB2GRAY = COLOR_RGB2GRAY;
+  global.COLOR_BGRA2GRAY = COLOR_BGRA2GRAY;
+  global.COLOR_BGR2GRAY = COLOR_BGR2GRAY;
+
+  // options
+  global.BOX_BLUR_NOSCALE = BOX_BLUR_NOSCALE;
+  global.SVD_U_T = SVD_U_T;
+  global.SVD_V_T = SVD_V_T;
+
+  global.get_data_type = get_data_type;
+  global.get_channel = get_channel;
+  global.get_data_type_size = get_data_type_size;
+
+  ///**
+  // * Cascade files
+  // * @module Cascade
+  // * @type {{}}
+  // */
+  //global.Cascade = {};
+
+}( window, Igata ) );
+
+    </pre>
+</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/../api.js"></script>
+<script src="../assets/js/api-filter.js"></script>
+<script src="../assets/js/api-list.js"></script>
+<script src="../assets/js/api-search.js"></script>
+<script src="../assets/js/apidocs.js"></script>
+</body>
+</html>

@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>src/effect/Convolution.js - igata.js API</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <link rel="icon" href="../assets/favicon.ico">
+    <script src="http://yui.yahooapis.com/combo?3.9.1/build/yui/yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+                <h1><img src="../assets/css/logo.png" title="igata.js API" width="117" height="52"></h1>
+        </div>
+        <div class="yui3-u-1-4 version">
+            <em>API Docs for: </em>
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+                    <h2 class="off-left">APIs</h2>
+                    <div id="api-tabview" class="tabview">
+                        <ul class="tabs">
+                            <li><a href="#api-classes">Classes</a></li>
+                            <li><a href="#api-modules">Modules</a></li>
+                        </ul>
+                
+                        <div id="api-tabview-filter">
+                            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+                        </div>
+                
+                        <div id="api-tabview-panel">
+                            <ul id="api-classes" class="apis classes">
+                                <li><a href="../classes/Affine2d.html">Affine2d</a></li>
+                                <li><a href="../classes/Angle.html">Angle</a></li>
+                                <li><a href="../classes/Bbf.html">Bbf</a></li>
+                                <li><a href="../classes/Bitmap.html">Bitmap</a></li>
+                                <li><a href="../classes/Blur.html">Blur</a></li>
+                                <li><a href="../classes/Brightness.html">Brightness</a></li>
+                                <li><a href="../classes/Cache.html">Cache</a></li>
+                                <li><a href="../classes/Calc.html">Calc</a></li>
+                                <li><a href="../classes/Cascade.html">Cascade</a></li>
+                                <li><a href="../classes/Convolution.html">Convolution</a></li>
+                                <li><a href="../classes/Data_t.html">Data_t</a></li>
+                                <li><a href="../classes/Estimator.html">Estimator</a></li>
+                                <li><a href="../classes/FastCorner.html">FastCorner</a></li>
+                                <li><a href="../classes/Filter.html">Filter</a></li>
+                                <li><a href="../classes/Grayscale.html">Grayscale</a></li>
+                                <li><a href="../classes/Haar.html">Haar</a></li>
+                                <li><a href="../classes/HomoGraphy2d.html">HomoGraphy2d</a></li>
+                                <li><a href="../classes/Igata.html">Igata</a></li>
+                                <li><a href="../classes/Invert.html">Invert</a></li>
+                                <li><a href="../classes/IVector.html">IVector</a></li>
+                                <li><a href="../classes/Kanade.html">Kanade</a></li>
+                                <li><a href="../classes/Keypoint_t.html">Keypoint_t</a></li>
+                                <li><a href="../classes/LA.html">LA</a></li>
+                                <li><a href="../classes/lev_table_t.html">lev_table_t</a></li>
+                                <li><a href="../classes/LinearAlgebra.html">LinearAlgebra</a></li>
+                                <li><a href="../classes/Matrix_t.html">Matrix_t</a></li>
+                                <li><a href="../classes/MatrixMath.html">MatrixMath</a></li>
+                                <li><a href="../classes/MM.html">MM</a></li>
+                                <li><a href="../classes/MotionEstimator.html">MotionEstimator</a></li>
+                                <li><a href="../classes/Node_t.html">Node_t</a></li>
+                                <li><a href="../classes/Orb.html">Orb</a></li>
+                                <li><a href="../classes/perform_one_point.html">perform_one_point</a></li>
+                                <li><a href="../classes/Processing.html">Processing</a></li>
+                                <li><a href="../classes/Pyramid_t.html">Pyramid_t</a></li>
+                                <li><a href="../classes/Ransac_t.html">Ransac_t</a></li>
+                                <li><a href="../classes/Sepia.html">Sepia</a></li>
+                                <li><a href="../classes/Stack.html">Stack</a></li>
+                                <li><a href="../classes/Table_t.html">Table_t</a></li>
+                                <li><a href="../classes/Threshold.html">Threshold</a></li>
+                                <li><a href="../classes/Vector2.html">Vector2</a></li>
+                                <li><a href="../classes/Vector3.html">Vector3</a></li>
+                                <li><a href="../classes/Yape.html">Yape</a></li>
+                                <li><a href="../classes/Yape06.html">Yape06</a></li>
+                            </ul>
+                
+                
+                            <ul id="api-modules" class="apis modules">
+                                <li><a href="../modules/Feat.html">Feat</a></li>
+                                <li><a href="../modules/Igata.html">Igata</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+                    Show:
+                    <label for="api-show-inherited">
+                        <input type="checkbox" id="api-show-inherited" checked>
+                        Inherited
+                    </label>
+            
+                    <label for="api-show-protected">
+                        <input type="checkbox" id="api-show-protected">
+                        Protected
+                    </label>
+            
+                    <label for="api-show-private">
+                        <input type="checkbox" id="api-show-private">
+                        Private
+                    </label>
+                    <label for="api-show-deprecated">
+                        <input type="checkbox" id="api-show-deprecated">
+                        Deprecated
+                    </label>
+            
+                </div>
+            
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+<h1 class="file-heading">File: src/effect/Convolution.js</h1>
+
+<div class="file">
+    <pre class="code prettyprint linenums">
+/*jslint -W016*/
+/**
+ * @module Igata
+ * @type {Convolution}
+ */
+( function ( window ) {
+
+  &#x27;use strict&#x27;;
+
+  var
+    Igata = window.Igata;
+
+  Igata.Convolution = ( function () {
+
+    var
+      Filter = Igata.Filter,
+
+      _round = Igata._round,
+      _sqrt = Igata._sqrt,
+      _floor = Igata._floor,
+      _PI = Igata._PI,
+      _exp = Igata._exp;
+
+    /**
+     *
+     * @class Convolution
+     * @extends Filter
+     * @param {Bitmap} bitmap
+     * @constructor
+     */
+    function Convolution ( bitmap ) {
+
+      Filter.call( this, bitmap );
+
+    }
+
+    Igata.extend( Filter, Convolution );
+
+    var p = Convolution.prototype;
+    p.constructor = Convolution;
+
+    /**
+     * @method filter
+     * @param {Array} [weights] 3 x 3 Matrix
+     *
+     *      [
+     *        1, 1,   1,
+     *        1, 0.7,-1,
+     *        -1, -1,-1
+     *        ]
+     */
+    p.filter = function ( weights ) {
+
+      var
+        bitmap = this.bitmap,
+        ctx = bitmap.context,
+        imageData = this.imageData( bitmap ),
+        data;
+
+      if ( typeof weights === &#x27;undefined&#x27; ) {
+
+        // weights undefined
+        weights = [
+          1, 1,  1,
+          1, 0.7,  -1,
+          -1, -1,  -1
+        ];
+
+      }
+
+      data = this.convolute( ctx, imageData, weights, true );
+      ctx.putImageData( data, 0, 0 );
+
+    };
+
+    /**
+     * @method sharpen
+     * @param {boolean=false} [opaque]
+     */
+    p.sharpen = function ( opaque ) {
+
+      var
+        bitmap = this.bitmap,
+        ctx = bitmap.context,
+        imageData = this.imageData( bitmap ),
+        weights = [
+           0, -1,  0,
+          -1,  5, -1,
+           0, -1,  0
+        ],
+        data;
+
+      opaque = !!opaque;
+
+      data = this.convolute( ctx, imageData, weights, opaque );
+      //console.log( &#x27;sharpen &#x27;, data );
+      //imageData.data.set( data );
+      ctx.putImageData( data, 0, 0 );
+
+    };
+
+    /**
+     * box blur
+     * @method blur
+     * @param {number=0.1111111} [k]
+     */
+    p.blur = function ( k ) {
+
+      if ( isNaN( k ) || k &lt;= 0 ) {
+
+        k = 1 / 9;
+
+      }
+
+      var
+        bitmap = this.bitmap,
+        ctx = bitmap.context,
+        imageData = this.imageData( bitmap ),
+        weights = [
+          k, k,  k,
+          k, k,  k,
+          k, k,  k
+        ],
+        data;
+
+      data = this.convolute( ctx, imageData, weights, false );
+      ctx.putImageData( data, 0, 0 );
+
+    };
+
+    /**
+     * https://github.com/wellflat/javascript-labs
+     * @method gaussian
+     * @param {number} radius
+     */
+    p.gaussian = function ( radius ) {
+
+      var
+        bitmap = this.bitmap,
+        ctx = bitmap.context,
+        imageData = this.imageData( bitmap ),
+        weights = [],
+        //size = (2*radius + 1)*(2*radius + 1),
+        sigma = 0.849321800288,
+        k = 1.0 / _sqrt( 2.0*_PI ) / sigma,
+        f = 0,
+        data,
+        y, x;
+
+      for ( y = -radius; y &lt;= radius; y++ ) {
+
+        for ( x = -radius; x &lt;= radius; x++ ) {
+
+          f = k*_exp( -( x*x + y*y ) / ( 2*sigma*sigma ) );
+          weights.push(f);
+
+        }
+
+      }
+      console.log( &#x27;gaussian &#x27;, radius, weights );
+      data = this.convolute( ctx, imageData, weights, false );
+      ctx.putImageData( data, 0, 0 );
+
+    };
+
+    // http://www.html5rocks.com/en/tutorials/canvas/imagefilters/
+
+    /**
+     * @method convolute
+     * @param {CanvasRenderingContext2D} ctx
+     * @param {ImageData} imageData
+     * @param {Array} weights
+     * @param {boolean}  opaque
+     * @return {ImageData}
+     */
+    p.convolute = function ( ctx, imageData, weights, opaque ) {
+
+      var side = _round( _sqrt( weights.length ) );
+      var halfSide = _floor( side * 0.5 );
+      var src = imageData.data;
+      var sw = imageData.width;
+      var sh = imageData.height;
+      // pad output by the convolution matrix
+      var w = sw;
+      var h = sh;
+      var output = ctx.createImageData( w, h );
+      var dst = output.data;
+      // go through the destination image pixels
+      var alphaFac = opaque ? 1 : 0;
+
+      var
+        y, x,
+        sy, sx, dstOff,
+        r, g, b, a,
+        cy, cx,
+        scy, scx,
+        srcOff,
+        wt;
+
+      for ( y=0; y&lt;h; y = (y+1)|0 ) {
+
+        for ( x=0; x&lt;w; x = (x+1)|0 ) {
+
+          sy = y;
+          sx = x;
+          dstOff = ( y*w+x ) * 4;
+          // calculate the weighed sum of the source image pixels that
+          // fall under the convolution matrix
+          r=0;
+          g=0;
+          b=0;
+          a=0;
+
+          for ( cy=0; cy&lt;side; cy = (cy+1)|0 ) {
+
+            for ( cx=0; cx&lt;side; cx = (cx+1)|0 ) {
+
+              scy = sy + cy - halfSide;
+              scx = sx + cx - halfSide;
+
+              if ( scy &gt;= 0 &amp;&amp; scy &lt; sh &amp;&amp; scx &gt;= 0 &amp;&amp; scx &lt; sw ) {
+
+                srcOff = ( scy*sw+scx ) * 4;
+                wt = weights[ cy*side+cx ];
+
+                r += src[ srcOff ] * wt;
+                g += src[ srcOff+1 ] * wt;
+                b += src[ srcOff+2 ] * wt;
+                a += src[ srcOff+3 ] * wt;
+
+              }
+
+            }
+
+          }
+
+          dst[ dstOff ] = r;
+          dst[ dstOff+1 ] = g;
+          dst[ dstOff+2 ] = b;
+          dst[ dstOff+3 ] = a + alphaFac * ( 255-a );
+
+        }
+      }
+
+      return output;
+
+    };
+
+    return Convolution;
+
+  }() );
+
+}( window ) );
+    </pre>
+</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/../api.js"></script>
+<script src="../assets/js/api-filter.js"></script>
+<script src="../assets/js/api-list.js"></script>
+<script src="../assets/js/api-search.js"></script>
+<script src="../assets/js/apidocs.js"></script>
+</body>
+</html>
