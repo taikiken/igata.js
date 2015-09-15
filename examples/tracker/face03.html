@@ -7,6 +7,18 @@
   <script src="../../lib/igata.js"></script>
   <script src="../../cascade/frontalface.js"></script>
   <!--<script src="../../cascade/profileface.js"></script>-->
+  <style>
+    #canvas {
+      -webkit-transform: scaleX(-1);
+      -moz-transform: scaleX(-1);
+      -ms-transform: scaleX(-1);
+      -o-transform: scaleX(-1);
+      transform: scaleX(-1);
+
+      width: 100%;
+      height: auto;
+    }
+  </style>
 </head>
 <body>
 <video id="video" width="640" height="480" style="display:none;"></video>
