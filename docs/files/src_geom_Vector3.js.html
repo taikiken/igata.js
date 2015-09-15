@@ -369,6 +369,86 @@
     // static
     // ------------------------------------------------------------------
     /**
+     * vector との 加算・除算 を行います
+     * @method add
+     * @static
+     * @param {Vector3} a
+     * @param {Vector3} b
+     * @return {Vector3}
+     */
+    Vector3.add = function ( a, b ) {
+
+      return new Vector3( a.x+ b.x, a.y+ b.y, a.z+ b.z );
+
+    };
+    /**
+     * scalar との 加算・除算 を行います
+     * @method addS
+     * @static
+     * @param {Vector3} a
+     * @param {number} scalar
+     * @return {Vector3}
+     */
+    Vector3.addS = function ( a, scalar ) {
+
+      return new Vector3( a.x+ scalar, a.y+ scalar, a.z+ scalar );
+
+    };
+    /**
+     * vector との乗算を行います
+     * @method multiply
+     * @static
+     * @param {Vector3} a
+     * @param {Vector3} b
+     * @return {Vector3}
+     */
+    Vector3.multiply = function ( a, b ) {
+
+      return new Vector3( a.x*b.x, a.y*b.y, a.z*b.z );
+
+    };
+    /**
+     * scalar との乗算を行います
+     * @method multiplyS
+     * @static
+     * @param {Vector3} a
+     * @param {number} scalar
+     * @return {Vector3}
+     */
+    Vector3.multiplyS = function ( a, scalar ) {
+
+      return new Vector3( a.x* scalar, a.y* scalar, a.z* scalar );
+
+    };
+    /**
+     * vector との除法を行います
+     * @method division
+     * @static
+     * @param {Vector3} a
+     * @param {Vector3} b
+     * @return {Vector3}
+     */
+    Vector3.division = function ( a, b ) {
+
+      return new Vector3( a.x/b.x, a.y/b.y, a.z/b.z );
+
+    };
+
+    /**
+     * scalar との除法を行います
+     * @method divisionS
+     * @static
+     * @param {Vector3} a
+     * @param {number} scalar
+     * @return {Vector3}
+     */
+    Vector3.divisionS = function ( a, scalar ) {
+
+      return new Vector3( a.x/scalar, a.y/scalar, a.z/scalar );
+
+    };
+
+    /**
      * 引数 vector のベクトルの大きさを計算します
      *
      * @method magnitude
@@ -386,6 +466,22 @@
       return _sqrt( x*x + y*y + z*z );
 
     };
+
+    /**
+     * 2つの vector 内積を計算します
+     *
+     * @method product
+     * @static
+     * @param {Vector3} a
+     * @param {Vector3} b
+     * @return {number}
+     */
+    Vector3.product = function ( a, b ) {
+
+      return a.x*b.x + a.y*b.y + a.z*b.z;
+
+    };
+
 
     /**
      * 2つの vector の外積（クロス積）を計算します

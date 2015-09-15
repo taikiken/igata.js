@@ -7220,7 +7220,7 @@
         {
             "file": "src/geom/Angle.js",
             "line": 59,
-            "description": "引数 radian （度数方）を radian （弧度法）に変換します",
+            "description": "引数 degree （度数方）を radian （弧度法）に変換します",
             "itemtype": "method",
             "name": "rad",
             "static": 1,
@@ -7520,6 +7520,162 @@
         {
             "file": "src/geom/Vector3.js",
             "line": 245,
+            "description": "vector との 加算・除算 を行います",
+            "itemtype": "method",
+            "name": "add",
+            "static": 1,
+            "params": [
+                {
+                    "name": "a",
+                    "description": "",
+                    "type": "Vector3"
+                },
+                {
+                    "name": "b",
+                    "description": "",
+                    "type": "Vector3"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Vector3"
+            },
+            "class": "Vector3",
+            "module": "Igata"
+        },
+        {
+            "file": "src/geom/Vector3.js",
+            "line": 258,
+            "description": "scalar との 加算・除算 を行います",
+            "itemtype": "method",
+            "name": "addS",
+            "static": 1,
+            "params": [
+                {
+                    "name": "a",
+                    "description": "",
+                    "type": "Vector3"
+                },
+                {
+                    "name": "scalar",
+                    "description": "",
+                    "type": "Number"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Vector3"
+            },
+            "class": "Vector3",
+            "module": "Igata"
+        },
+        {
+            "file": "src/geom/Vector3.js",
+            "line": 271,
+            "description": "vector との乗算を行います",
+            "itemtype": "method",
+            "name": "multiply",
+            "static": 1,
+            "params": [
+                {
+                    "name": "a",
+                    "description": "",
+                    "type": "Vector3"
+                },
+                {
+                    "name": "b",
+                    "description": "",
+                    "type": "Vector3"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Vector3"
+            },
+            "class": "Vector3",
+            "module": "Igata"
+        },
+        {
+            "file": "src/geom/Vector3.js",
+            "line": 284,
+            "description": "scalar との乗算を行います",
+            "itemtype": "method",
+            "name": "multiplyS",
+            "static": 1,
+            "params": [
+                {
+                    "name": "a",
+                    "description": "",
+                    "type": "Vector3"
+                },
+                {
+                    "name": "scalar",
+                    "description": "",
+                    "type": "Number"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Vector3"
+            },
+            "class": "Vector3",
+            "module": "Igata"
+        },
+        {
+            "file": "src/geom/Vector3.js",
+            "line": 297,
+            "description": "vector との除法を行います",
+            "itemtype": "method",
+            "name": "division",
+            "static": 1,
+            "params": [
+                {
+                    "name": "a",
+                    "description": "",
+                    "type": "Vector3"
+                },
+                {
+                    "name": "b",
+                    "description": "",
+                    "type": "Vector3"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Vector3"
+            },
+            "class": "Vector3",
+            "module": "Igata"
+        },
+        {
+            "file": "src/geom/Vector3.js",
+            "line": 311,
+            "description": "scalar との除法を行います",
+            "itemtype": "method",
+            "name": "divisionS",
+            "static": 1,
+            "params": [
+                {
+                    "name": "a",
+                    "description": "",
+                    "type": "Vector3"
+                },
+                {
+                    "name": "scalar",
+                    "description": "",
+                    "type": "Number"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Vector3"
+            },
+            "class": "Vector3",
+            "module": "Igata"
+        },
+        {
+            "file": "src/geom/Vector3.js",
+            "line": 325,
             "description": "引数 vector のベクトルの大きさを計算します",
             "itemtype": "method",
             "name": "magnitude",
@@ -7540,7 +7696,33 @@
         },
         {
             "file": "src/geom/Vector3.js",
-            "line": 264,
+            "line": 344,
+            "description": "2つの vector 内積を計算します",
+            "itemtype": "method",
+            "name": "product",
+            "static": 1,
+            "params": [
+                {
+                    "name": "a",
+                    "description": "",
+                    "type": "Vector3"
+                },
+                {
+                    "name": "b",
+                    "description": "",
+                    "type": "Vector3"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Number"
+            },
+            "class": "Vector3",
+            "module": "Igata"
+        },
+        {
+            "file": "src/geom/Vector3.js",
+            "line": 360,
             "description": "2つの vector の外積（クロス積）を計算します",
             "itemtype": "method",
             "name": "cross",
@@ -7566,7 +7748,7 @@
         },
         {
             "file": "src/geom/Vector3.js",
-            "line": 283,
+            "line": 379,
             "description": "2つの vector 間の距離を計算します",
             "itemtype": "method",
             "name": "distance",
@@ -7592,7 +7774,7 @@
         },
         {
             "file": "src/geom/Vector3.js",
-            "line": 303,
+            "line": 399,
             "description": "正規化 (0 ~ 1) を行います",
             "itemtype": "method",
             "name": "normalize",

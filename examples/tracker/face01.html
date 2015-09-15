@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head lang="ja">
+  <meta charset="UTF-8">
+  <title>Face Track</title>
+  <link rel="stylesheet" href="../css/style.css"/>
+  <script src="../../lib/igata.js"></script>
+  <script src="../../cascade/frontalface.js"></script>
+</head>
+<body>
+<video id="video" width="640" height="480" style="display:none;"></video>
+<canvas id="canvas" width="640" height="480"></canvas>
+<script>
+  ( function ( window ) {
+
+    'use strict';
+
+    var
+      document = window.document,
+      Igata = window.Igata,
+      classifier = Igata.Cascade.frontalface,
+      Calc = Igata.Calc,
+
+      video,
+      canvas,
+      context,
+      canvasWidth,
+      canvasHeight,
+
+      work;
+
+    navigator.getUserMedia = (
+      navigator.getUserMedia ||
+      navigator.webkitGetUserMedia ||
+      navigator.mozGetUserMedia ||
+      navigator.msGetUserMedia
+    );
+
+    window.URL = window.URL || window.webkitURL;
+
+    var Work = ( function () {
+
+      var Processing = Igata.Processing;
+      var Matrix_t = Igata.Matrix_t;
+      var Haar = Igata.Haar;
+      var U8_t = Igata.U8_t;
+      var C1_t = Igata.C1_t;
+
+      function Work ( canvas, width, height, scale ) {
+
+        width = (width*scale)|0;
+        height = (height*scale)|0;
+
+        canvas.width = width;
+        canvas.height = height;
+
+        this.canvas = canvas;
+        this.context = canvas.getContext( '2d' );
+        this.width = width;
+        this.height = height;
+        this.scale = scale;
+        this.ascale = 1 / scale;
+
+        this.u8 = new Matrix_t( width, height, U8_t | C1_t );
+        this.edg = new Matrix_t( width, height, U8_t | C1_t );
+
+        this.sum = new Int32Array( (width+1)*(height+1) );
+        this.sqsum = new Int32Array( (width+1)*(height+1) );
+        this.tilted = new Int32Array( (width+1)*(height+1) );
+        this.canny = new Int32Array( (width+1)*(height+1) );
+
+      }
+
+      var p = Work.prototype;
+      p.constructor = Work;
+
+      p.draw = function ( video ) {
+
+        var
+          context = this.context,
+          width = this.width,
+          height = this.height,
+          u8 = this.u8,
+          edg = this.edg,
+          sum = this.sum,
+          sqsum = this.sqsum,
+          tilted = this.tilted,
+          canny = this.canny,
+          imageData,
+          rect;
+
+        context.drawImage( video, 0, 0, width, height );
+        imageData = context.getImageData( 0, 0, width, height );
+
+        Processing.grayscale( imageData.data, width, height, u8 );
+
+        // histogram
+//        Processing.histogram( u8, u8 );
+
+        // cascade
+        Processing.integralImage( u8, sum, sqsum, classifier.tilted ? tilted : null );
+
+        // canny
+//        Igata.Processing.canny( u8, edg, 10, 50);
+//        Igata.Processing.integralImage( edg, canny, null, null);
+
+        // Haar
+        Haar.desity = 0.13;
+        rect = Haar.multiScale( sum, sqsum, tilted, null, u8.cols, u8.rows, classifier, 1.15, 2 );
+//        rect = Haar.rectangles( rect, 1 ) ;
+
+        return Haar.rectangles( rect, 1 ) ;
+
+      };
+
+//      p.ascale = function () {
+//
+//        return 1 / this.scale;
+//
+//      };
+
+      return Work;
+
+    }() );
+
+    function loop () {
+
+      requestAnimationFrame( loop );
+
+      var
+        scale = work.ascale,
+        rect,
+        length,
+        n,
+        r,
+        i;
+
+      // video buffer check
+      if ( video.readyState === video.HAVE_ENOUGH_DATA ) {
+
+        context.drawImage(video, 0, 0, canvasWidth, canvasHeight);
+
+        rect = work.draw( video );
+        length = rect.length;
+        Calc.qsort( rect, 0, length - 1, function( a, b ) { return ( b.confidence < a.confidence ); } );
+        n = Math.min( 1, length );
+
+        for ( i = 0; i < n; ++i ) {
+
+          r = rect[ i ];
+          context.strokeRect( (r.x*scale)|0,(r.y*scale)|0,(r.width*scale)|0,(r.height*scale)|0 )
+
+        }
+
+      }
+
+    }
+
+    function prepareCanvas () {
+
+      canvas = document.getElementById( 'canvas' );
+      context = canvas.getContext( '2d' );
+
+      canvasWidth = canvas.width;
+      canvasHeight = canvas.height;
+
+    }
+
+    function prepareWork () {
+
+      var
+        canvasElement = document.createElement( 'canvas' ),
+        scale = Math.min( 160/canvasWidth, 160/canvasHeight );
+
+      work = new Work( canvasElement, canvasWidth, canvasHeight, scale );
+
+    }
+
+
+    // web cam activate
+    if ( !!navigator.getUserMedia ) {
+
+      navigator.getUserMedia (
+
+        // constraints
+        {
+          video: true,
+          audio: false
+        },
+
+        // successCallback
+        function( localMediaStream ) {
+
+          video = document.getElementById( 'video' );
+
+          try {
+
+            video.src = window.URL.createObjectURL( localMediaStream );
+
+          } catch ( error ) {
+
+            video.src = localMediaStream;
+
+          }
+
+          prepareCanvas();
+          prepareWork();
+
+          // play videos
+//          setTimeout(function() {
+
+            video.play();
+            loop();
+
+//          }, 500 );
+
+          // Do something with the video here, e.g. video.play()
+
+        },
+
+        // errorCallback
+        function( error ) {
+
+          console.warn( 'The following error of navigator.getUserMedia: ' + error );
+
+        }
+      );
+
+    }// if
+
+  }( window ) );
+</script>
+</body>
+</html>
