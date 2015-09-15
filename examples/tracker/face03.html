@@ -8,15 +8,22 @@
   <script src="../../cascade/frontalface.js"></script>
   <!--<script src="../../cascade/profileface.js"></script>-->
   <style>
+    body {
+      overflow: hidden;
+    }
     #canvas {
-      -webkit-transform: scaleX(-1);
-      -moz-transform: scaleX(-1);
-      -ms-transform: scaleX(-1);
-      -o-transform: scaleX(-1);
-      transform: scaleX(-1);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: scaleX(-1) translateX(-50%) translateY(-50%);
+      -moz-transform: scaleX(-1) translateX(-50%) translateY(-50%);
+      -ms-transform: scaleX(-1) translateX(-50%) translateY(-50%);
+      -o-transform: scaleX(-1) translateX(-50%) translateY(-50%);
+      transform: scaleX(-1) translateX(-50%) translateY(-50%);
 
       width: 100%;
       height: auto;
+      max-width: 1920px;
     }
   </style>
 </head>
