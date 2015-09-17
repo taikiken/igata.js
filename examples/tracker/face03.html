@@ -9,9 +9,14 @@
   <!--<script src="../../cascade/profileface.js"></script>-->
   <style>
     body {
-      overflow: hidden;
+      /*overflow: hidden;*/
+    }
+    .guide {
+      width: 100%;
+      height: auto;
     }
     #canvas {
+      display: block;
       position: absolute;
       top: 50%;
       left: 50%;
@@ -28,6 +33,7 @@
   </style>
 </head>
 <body>
+<img src="img/guide.png" alt="" class="guide">
 <video id="video" width="640" height="480" style="display:none;"></video>
 <canvas id="canvas" width="640" height="480"></canvas>
 <script>
